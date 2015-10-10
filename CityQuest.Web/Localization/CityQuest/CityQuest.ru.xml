@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="ru">
+  <texts>
+    <text name="ApplicationName" value="CityQuest" />
+    <text name="WellcomeMessage" value="Welcome to CityQuest!" />
+    <text name="HomePage" value="Home page" />
+    
+  </texts>
+</localizationDictionary>
