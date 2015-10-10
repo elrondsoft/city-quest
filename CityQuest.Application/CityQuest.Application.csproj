@@ -88,6 +88,8 @@
   <ItemGroup>
     <Compile Include="CityQuestApplicationModule.cs" />
     <Compile Include="CityQuestAppServiceBase.cs" />
+    <Compile Include="Mapping\CityQuestDtoMapper.cs" />
+    <Compile Include="Mapping\MappingExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -103,7 +105,6 @@
   <ItemGroup>
     <Folder Include="ApplicationServices\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="Mapping\" />
     <Folder Include="Shared\" />
     <Folder Include="Utils\" />
   </ItemGroup>

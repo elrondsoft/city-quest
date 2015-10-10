@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="CityQuestConsts.cs" />
     <Compile Include="CityQuestCoreModule.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -88,7 +89,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />
-    <Folder Include="Extensions\" />
     <Folder Include="Services\" />
     <Folder Include="Utils\" />
   </ItemGroup>
