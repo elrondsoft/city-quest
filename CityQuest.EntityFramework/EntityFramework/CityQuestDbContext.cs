@@ -7,10 +7,12 @@ namespace CityQuest.EntityFramework
 {
     public class CityQuestDbContext : AbpDbContext
     {
-        //TODO: Define an IDbSet for each Entity...
-        //
+        #region DataBase Sets
+
         public virtual IDbSet<User> Users { get; set; }
         public virtual IDbSet<Game> Games { get; set; }
+
+        #endregion
 
         public CityQuestDbContext()
             : base("CityQuest")
@@ -21,7 +23,8 @@ namespace CityQuest.EntityFramework
         public CityQuestDbContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
         {
-
+            this.Database.CommandTimeout = 3600;
+            //this.Database.Log = (r) => Trace.WriteLine(r);
         }
     }
 }
