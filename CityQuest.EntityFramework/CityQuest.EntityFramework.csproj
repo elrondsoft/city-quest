@@ -97,6 +97,10 @@
     <Compile Include="EntityFramework\CityQuestDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\CityQuestRepositoryBase.cs" />
     <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Migrations\201510111309189_InitialCreate.cs" />
+    <Compile Include="Migrations\201510111309189_InitialCreate.Designer.cs">
+      <DependentUpon>201510111309189_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CityQuestDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,6 +114,11 @@
       <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
       <Name>CityQuest.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201510111309189_InitialCreate.resx">
+      <DependentUpon>201510111309189_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
