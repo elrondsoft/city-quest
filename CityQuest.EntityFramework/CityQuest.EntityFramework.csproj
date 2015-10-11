@@ -101,6 +101,10 @@
     <Compile Include="Migrations\201510111309189_InitialCreate.Designer.cs">
       <DependentUpon>201510111309189_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510111412056_AddedUserGameEntities.cs" />
+    <Compile Include="Migrations\201510111412056_AddedUserGameEntities.Designer.cs">
+      <DependentUpon>201510111412056_AddedUserGameEntities.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CityQuestDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,6 +122,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201510111309189_InitialCreate.resx">
       <DependentUpon>201510111309189_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510111412056_AddedUserGameEntities.resx">
+      <DependentUpon>201510111412056_AddedUserGameEntities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

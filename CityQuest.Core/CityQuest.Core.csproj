@@ -80,6 +80,10 @@
   <ItemGroup>
     <Compile Include="CityQuestConsts.cs" />
     <Compile Include="CityQuestCoreModule.cs" />
+    <Compile Include="Entities\GameModule\Games\Game.cs" />
+    <Compile Include="Entities\MainModule\Users\User.cs" />
+    <Compile Include="Entities\Shared\HasNameDescriptionEntity.cs" />
+    <Compile Include="Entities\Shared\HasNameEntity.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -88,7 +92,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\" />
     <Folder Include="Services\" />
     <Folder Include="Utils\" />
   </ItemGroup>
