@@ -85,6 +85,7 @@
     <Compile Include="CityQuestConstants\Filters.cs" />
     <Compile Include="CityQuestCoreModule.cs" />
     <Compile Include="Entities\GameModule\Divisions\Division.cs" />
+    <Compile Include="Entities\GameModule\Divisions\IDivisionRepository.cs" />
     <Compile Include="Entities\GameModule\Games\Game.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\Condition.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\ConditionTypes\ConditionType.cs" />
@@ -92,9 +93,11 @@
     <Compile Include="Entities\GameModule\Games\GameTasks\GameTaskTypes\GameTaskType.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Tips\Tip.cs" />
     <Compile Include="Entities\GameModule\Keys\Key.cs" />
+    <Compile Include="Entities\GameModule\Teams\ITeamRepository.cs" />
     <Compile Include="Entities\GameModule\Teams\Team.cs" />
     <Compile Include="Entities\MainModule\Users\User.cs" />
     <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="ICityQuestRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -90,6 +90,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationServices\GameModule\Divisions\DivisionAppService.cs" />
+    <Compile Include="ApplicationServices\GameModule\Divisions\Dtos\DivisionDto.cs" />
+    <Compile Include="ApplicationServices\GameModule\Divisions\IDivisionAppService.cs" />
+    <Compile Include="ApplicationServices\Shared\Dtos\Input\CreateInput.cs" />
+    <Compile Include="ApplicationServices\Shared\Dtos\Input\DeleteInput.cs" />
+    <Compile Include="ApplicationServices\Shared\Dtos\Input\RetrieveAllInput.cs" />
+    <Compile Include="ApplicationServices\Shared\Dtos\Input\RetrieveAllPagedResultInput.cs" />
+    <Compile Include="ApplicationServices\Shared\Dtos\Input\RetrieveInput.cs" />
+    <Compile Include="ApplicationServices\Shared\Dtos\Input\UpdateInput.cs" />
+    <Compile Include="ApplicationServices\Shared\Dtos\Output\CreateOutput.cs" />
+    <Compile Include="ApplicationServices\Shared\Dtos\Output\DeleteOutput.cs" />
+    <Compile Include="ApplicationServices\Shared\Dtos\Output\RetrieveAllOutput.cs" />
+    <Compile Include="ApplicationServices\Shared\Dtos\Output\RetrieveAllPagedResultOutput.cs" />
+    <Compile Include="ApplicationServices\Shared\Dtos\Output\RetrieveOutput.cs" />
+    <Compile Include="ApplicationServices\Shared\Dtos\Output\UpdateOutput.cs" />
+    <Compile Include="ApplicationServices\Shared\ICityQuestAppServiceBase.cs" />
     <Compile Include="CityQuestApplicationModule.cs" />
     <Compile Include="CityQuestAppServiceBase.cs" />
     <Compile Include="Mapping\CityQuestDtoMapper.cs" />
@@ -107,9 +123,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ApplicationServices\" />
+    <Folder Include="ApplicationServices\GameModule\Teams\Dtos\" />
+    <Folder Include="ApplicationServices\MainModule\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="Shared\" />
     <Folder Include="Utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
