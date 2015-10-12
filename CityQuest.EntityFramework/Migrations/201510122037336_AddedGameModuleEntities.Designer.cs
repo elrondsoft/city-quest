@@ -7,13 +7,13 @@ namespace CityQuest.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddedUserGameEntities : IMigrationMetadata
+    public sealed partial class AddedGameModuleEntities : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedUserGameEntities));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedGameModuleEntities));
         
         string IMigrationMetadata.Id
         {
-            get { return "201510111412056_AddedUserGameEntities"; }
+            get { return "201510122037336_AddedGameModuleEntities"; }
         }
         
         string IMigrationMetadata.Source

@@ -64,6 +64,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -101,9 +104,9 @@
     <Compile Include="Migrations\201510111309189_InitialCreate.Designer.cs">
       <DependentUpon>201510111309189_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201510111412056_AddedUserGameEntities.cs" />
-    <Compile Include="Migrations\201510111412056_AddedUserGameEntities.Designer.cs">
-      <DependentUpon>201510111412056_AddedUserGameEntities.cs</DependentUpon>
+    <Compile Include="Migrations\201510122037336_AddedGameModuleEntities.cs" />
+    <Compile Include="Migrations\201510122037336_AddedGameModuleEntities.Designer.cs">
+      <DependentUpon>201510122037336_AddedGameModuleEntities.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CityQuestDataModule.cs" />
@@ -123,8 +126,8 @@
     <EmbeddedResource Include="Migrations\201510111309189_InitialCreate.resx">
       <DependentUpon>201510111309189_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510111412056_AddedUserGameEntities.resx">
-      <DependentUpon>201510111412056_AddedUserGameEntities.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201510122037336_AddedGameModuleEntities.resx">
+      <DependentUpon>201510122037336_AddedGameModuleEntities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

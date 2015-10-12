@@ -4,7 +4,7 @@ using Abp.EntityFramework.Repositories;
 
 namespace CityQuest.EntityFramework.Repositories
 {
-    public abstract class CityQuestRepositoryBase<TEntity, TPrimaryKey> : EfRepositoryBase<CityQuestDbContext, TEntity, TPrimaryKey>
+    public class CityQuestRepositoryBase<TEntity, TPrimaryKey> : EfRepositoryBase<CityQuestDbContext, TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
     {
         protected CityQuestRepositoryBase(IDbContextProvider<CityQuestDbContext> dbContextProvider)
@@ -20,9 +20,6 @@ namespace CityQuest.EntityFramework.Repositories
         where TEntity : class, IEntity<int>
     {
         protected CityQuestRepositoryBase(IDbContextProvider<CityQuestDbContext> dbContextProvider)
-            : base(dbContextProvider)
-        {
-
-        }
+            : base(dbContextProvider) { }
     }
 }

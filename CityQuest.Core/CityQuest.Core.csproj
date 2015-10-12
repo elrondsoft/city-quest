@@ -48,6 +48,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -78,12 +81,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CityQuestConsts.cs" />
+    <Compile Include="CityQuestConstants\CityQuestConsts.cs" />
+    <Compile Include="CityQuestConstants\Filters.cs" />
     <Compile Include="CityQuestCoreModule.cs" />
+    <Compile Include="Entities\GameModule\Divisions\Division.cs" />
     <Compile Include="Entities\GameModule\Games\Game.cs" />
+    <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\Condition.cs" />
+    <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\ConditionTypes\ConditionType.cs" />
+    <Compile Include="Entities\GameModule\Games\GameTasks\GameTask.cs" />
+    <Compile Include="Entities\GameModule\Games\GameTasks\GameTaskTypes\GameTaskType.cs" />
+    <Compile Include="Entities\GameModule\Games\GameTasks\Tips\Tip.cs" />
+    <Compile Include="Entities\GameModule\Keys\Key.cs" />
+    <Compile Include="Entities\GameModule\Teams\Team.cs" />
     <Compile Include="Entities\MainModule\Users\User.cs" />
-    <Compile Include="Entities\Shared\HasNameDescriptionEntity.cs" />
-    <Compile Include="Entities\Shared\HasNameEntity.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -92,6 +102,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Entities\Shared\" />
     <Folder Include="Services\" />
     <Folder Include="Utils\" />
   </ItemGroup>
