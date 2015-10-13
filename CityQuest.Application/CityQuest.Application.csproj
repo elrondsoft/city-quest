@@ -92,6 +92,11 @@
   <ItemGroup>
     <Compile Include="ApplicationServices\GameModule\Divisions\DivisionAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\Divisions\Dtos\DivisionDto.cs" />
+    <Compile Include="ApplicationServices\GameModule\Divisions\Dtos\RetrieveAllDivisionsLikeComboBoxesInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Divisions\Dtos\RetrieveAllDivisionsLikeComboBoxesOutput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Divisions\Dtos\RetrieveAllDivisionInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Divisions\Dtos\RetrieveAllDivisionsPagedResultInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Divisions\Dtos\RetrieveDivisionInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Divisions\IDivisionAppService.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\CreateInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\DeleteInput.cs" />
@@ -105,7 +110,6 @@
     <Compile Include="ApplicationServices\Shared\Dtos\Output\RetrieveAllPagedResultOutput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Output\RetrieveOutput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Output\UpdateOutput.cs" />
-    <Compile Include="ApplicationServices\Shared\ICityQuestAppServiceBase.cs" />
     <Compile Include="CityQuestApplicationModule.cs" />
     <Compile Include="CityQuestAppServiceBase.cs" />
     <Compile Include="Mapping\CityQuestDtoMapper.cs" />
@@ -125,7 +129,6 @@
   <ItemGroup>
     <Folder Include="ApplicationServices\GameModule\Teams\Dtos\" />
     <Folder Include="ApplicationServices\MainModule\" />
-    <Folder Include="Exceptions\" />
     <Folder Include="Utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

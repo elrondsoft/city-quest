@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CityQuest.Extensions
+namespace CityQuest
 {
     public static class Extensions
     {
