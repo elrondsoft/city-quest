@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CityQuest.ApplicationServices.GameModule.Divisions.Dtos;
+using CityQuest.Entities.GameModule.Divisions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,7 @@ namespace CityQuest.Mapping
     {
         public static void Map()
         {
-            //AutoMapper.Mapper.CreateMap<Entity, EntityDto>().ReverseMap();
+            AutoMapper.Mapper.CreateMap<Division, DivisionDto>().ReverseMap();
 
         }
     }

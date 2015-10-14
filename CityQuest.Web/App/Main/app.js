@@ -9,7 +9,8 @@
         'ui.bootstrap',
         'ui.jq',
 
-        'abp'
+        'abp'//,
+        //'ngDialog'
     ]);
 
     //Configuration for Angular UI routing.
@@ -19,9 +20,14 @@
             $urlRouterProvider.otherwise('/');
             $stateProvider
                 .state('home', {
-                    url: '/',
+                    url: '/home',
                     templateUrl: '/App/Main/views/home/home.cshtml',
                     menu: 'Home' //Matches to name of 'Home' menu in CityQuestNavigationProvider
+                })
+                .state('divisions', {
+                    url: '/',
+                    templateUrl: '/App/Main/views/divisions/divisionView.cshtml',
+                    menu: 'Home',
                 });
         }
     ]);

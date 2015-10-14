@@ -14,11 +14,12 @@ namespace CityQuest.Web
             bundles.Add(
                 new StyleBundle("~/Bundles/App/vendor/css")
                     .Include("~/Content/themes/base/all.css", new CssRewriteUrlTransform())
-                    .Include("~/Content/bootstrap-cosmo.min.css", new CssRewriteUrlTransform())
+                    .Include("~/Content/bootstrap.min.css", new CssRewriteUrlTransform())
                     .Include("~/Content/toastr.min.css")
                     .Include("~/Scripts/sweetalert/sweet-alert.css")
                     .Include("~/Content/flags/famfamfam-flags.css", new CssRewriteUrlTransform())
                     .Include("~/Content/font-awesome.min.css", new CssRewriteUrlTransform())
+                    .Include("~/Scripts/jtable/themes/metro/blue/jtable.min.css", new CssRewriteUrlTransform())
                 );
 
             //~/Bundles/App/vendor/js
@@ -55,7 +56,12 @@ namespace CityQuest.Web
                         "~/Abp/Framework/scripts/libs/abp.toastr.js",
                         "~/Abp/Framework/scripts/libs/abp.blockUI.js",
                         "~/Abp/Framework/scripts/libs/abp.spin.js",
-                        "~/Abp/Framework/scripts/libs/angularjs/abp.ng.js"
+                        "~/Abp/Framework/scripts/libs/angularjs/abp.ng.js",
+
+                        "~/Scripts/jTable/jquery.jtable.js",
+                        "~/Scripts/jTable/abp.jtable.js",
+                        "~/Scripts/jTable/extensions/jquery.jtable.filter.js",
+                        "~/Scripts/jTable/extensions/jquery.jtable.column_info.js"
                     )
                 );
 

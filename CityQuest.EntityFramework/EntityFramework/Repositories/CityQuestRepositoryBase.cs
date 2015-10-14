@@ -14,7 +14,7 @@ namespace CityQuest.EntityFramework.Repositories
         ICityQuestRepositoryBase<TEntity, TPrimaryKey>, ITransientDependency
         where TEntity : class, IEntity<TPrimaryKey>
     {
-        protected CityQuestRepositoryBase(IDbContextProvider<CityQuestDbContext> dbContextProvider)
+        public CityQuestRepositoryBase(IDbContextProvider<CityQuestDbContext> dbContextProvider)
             : base(dbContextProvider)
         {
 

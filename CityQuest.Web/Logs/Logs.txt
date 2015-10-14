@@ -572,3 +572,1225 @@ DEBUG 2015-10-14 01:10:55,595 [1    ] Abp.Localization.LocalizationManager     -
 DEBUG 2015-10-14 01:10:55,595 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
 DEBUG 2015-10-14 01:10:56,461 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
 DEBUG 2015-10-14 01:10:56,731 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'app/division'.
+DEBUG 2015-10-14 01:52:00,566 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 01:52:01,876 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 01:52:01,880 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:52:01,881 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:52:01,882 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:52:01,882 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:52:01,882 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:52:01,882 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:52:01,882 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:52:01,882 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:52:01,882 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:52:01,882 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:52:01,882 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:52:01,885 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 01:52:03,128 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 01:52:03,132 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 01:52:03,133 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 01:52:03,133 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 01:52:04,066 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 01:52:04,217 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 01:57:59,227 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 01:58:01,628 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 01:58:01,632 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:58:01,634 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:58:01,634 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:58:01,635 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:58:01,635 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:58:01,635 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:58:01,635 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:58:01,635 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:58:01,635 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:58:01,636 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:58:01,636 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 01:58:01,639 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 01:58:02,736 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 01:58:02,740 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 01:58:02,742 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 01:58:02,742 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 01:58:03,673 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 01:58:03,825 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 02:16:49,924 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 02:16:51,158 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 02:16:51,162 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:16:51,163 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:16:51,164 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:16:51,164 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:16:51,164 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:16:51,164 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:16:51,164 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:16:51,164 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:16:51,164 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:16:51,164 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:16:51,165 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:16:51,168 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 02:16:52,354 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 02:16:52,358 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 02:16:52,359 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 02:16:52,360 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 02:16:53,212 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 02:16:53,358 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 02:33:38,160 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 02:33:39,394 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 02:33:39,398 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:33:39,400 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:33:39,400 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:33:39,400 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:33:39,400 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:33:39,400 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:33:39,400 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:33:39,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:33:39,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:33:39,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:33:39,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:33:39,404 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 02:33:40,612 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 02:33:40,616 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 02:33:40,617 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 02:33:40,617 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 02:33:41,547 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 02:33:41,692 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 02:38:22,206 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 02:38:24,467 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 02:38:24,471 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:38:24,473 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:38:24,473 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:38:24,473 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:38:24,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:38:24,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:38:24,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:38:24,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:38:24,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:38:24,474 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:38:24,475 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:38:24,478 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 02:38:25,498 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 02:38:25,503 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 02:38:25,504 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 02:38:25,505 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 02:38:26,365 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 02:38:26,508 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 02:50:41,963 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 02:50:43,236 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 02:50:43,240 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:50:43,242 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:50:43,242 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:50:43,242 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:50:43,242 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:50:43,242 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:50:43,242 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:50:43,243 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:50:43,243 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:50:43,243 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:50:43,243 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:50:43,246 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 02:50:49,913 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 02:50:49,917 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 02:50:49,918 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 02:50:49,918 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 02:50:50,840 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 02:50:50,982 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 02:53:29,430 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 02:53:30,656 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 02:53:30,661 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:53:30,663 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:53:30,663 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:53:30,663 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:53:30,664 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:53:30,664 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:53:30,664 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:53:30,664 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:53:30,664 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:53:30,664 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:53:30,664 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:53:30,667 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 02:53:31,844 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 02:53:31,848 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 02:53:31,850 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 02:53:31,850 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 02:53:32,706 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 02:53:32,850 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'app/division'.
+DEBUG 2015-10-14 02:54:55,754 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 02:54:56,993 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 02:54:56,997 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:54:56,998 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:54:56,999 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:54:56,999 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:54:56,999 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:54:56,999 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:54:56,999 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:54:56,999 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:54:56,999 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:54:56,999 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:54:57,000 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:54:57,003 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 02:54:58,242 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 02:54:58,246 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 02:54:58,247 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 02:54:58,248 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 02:54:59,132 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 02:54:59,282 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'app/division'.
+DEBUG 2015-10-14 02:55:26,066 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 02:55:28,499 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 02:55:28,504 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:55:28,506 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:55:28,507 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:55:28,507 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:55:28,507 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:55:28,507 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:55:28,507 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:55:28,507 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:55:28,508 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:55:28,508 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:55:28,508 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:55:28,511 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 02:55:29,572 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 02:55:29,576 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 02:55:29,577 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 02:55:29,578 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 02:55:30,494 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 02:55:30,636 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'app/division'.
+DEBUG 2015-10-14 02:57:26,638 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 02:57:27,877 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 02:57:27,881 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:57:27,883 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:57:27,883 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:57:27,883 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:57:27,883 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:57:27,883 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:57:27,883 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:57:27,884 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:57:27,884 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:57:27,884 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:57:27,884 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 02:57:27,887 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 02:57:29,095 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 02:57:29,100 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 02:57:29,101 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 02:57:29,101 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 02:57:29,982 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 02:57:30,125 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'app/division'.
+DEBUG 2015-10-14 11:18:38,685 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 11:18:48,934 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 11:18:48,939 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:18:48,941 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:18:48,941 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:18:48,942 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:18:48,942 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:18:48,942 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:18:48,942 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:18:48,942 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:18:48,942 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:18:48,943 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:18:48,943 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:18:48,946 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 11:18:50,489 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 11:18:50,508 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 11:18:50,510 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 11:18:50,510 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 11:18:51,496 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 11:18:51,785 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'app/division'.
+DEBUG 2015-10-14 11:40:02,523 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 11:40:04,233 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 11:40:04,237 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:40:04,238 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:40:04,239 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:40:04,239 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:40:04,239 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:40:04,239 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:40:04,239 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:40:04,239 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:40:04,239 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:40:04,240 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:40:04,240 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:40:04,244 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 11:40:06,056 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 11:40:06,060 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 11:40:06,067 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 11:40:06,067 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 11:40:07,056 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 11:40:07,288 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 11:52:34,960 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 11:52:36,211 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 11:52:36,215 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:52:36,217 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:52:36,217 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:52:36,217 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:52:36,217 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:52:36,217 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:52:36,218 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:52:36,218 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:52:36,218 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:52:36,218 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:52:36,218 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 11:52:36,221 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 11:52:37,428 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 11:52:37,432 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 11:52:37,434 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 11:52:37,434 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 11:52:38,317 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 11:52:38,460 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 12:01:35,917 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 12:01:38,148 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 12:01:38,152 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:01:38,154 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:01:38,154 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:01:38,154 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:01:38,155 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:01:38,155 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:01:38,155 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:01:38,155 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:01:38,155 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:01:38,155 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:01:38,156 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:01:38,159 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 12:02:24,525 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 12:02:24,529 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 12:02:24,531 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 12:02:24,531 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 12:02:39,188 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 12:02:39,335 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 12:08:31,366 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 12:08:32,584 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 12:08:32,589 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:08:32,590 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:08:32,591 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:08:32,591 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:08:32,591 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:08:32,591 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:08:32,591 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:08:32,591 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:08:32,591 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:08:32,592 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:08:32,592 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:08:32,595 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 12:08:43,118 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 12:08:43,122 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 12:08:43,123 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 12:08:43,123 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 12:08:43,988 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 12:08:44,133 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 12:14:01,722 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 12:14:03,009 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 12:14:03,013 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:14:03,015 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:14:03,015 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:14:03,015 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:14:03,015 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:14:03,016 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:14:03,016 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:14:03,016 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:14:03,016 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:14:03,016 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:14:03,016 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:14:03,019 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 12:14:12,747 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 12:14:12,752 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 12:14:12,753 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 12:14:12,753 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 12:14:13,658 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 12:14:13,805 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 12:28:27,940 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 12:28:30,091 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 12:28:30,095 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:28:30,097 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:28:30,097 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:28:30,097 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:28:30,097 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:28:30,097 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:28:30,097 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:28:30,098 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:28:30,098 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:28:30,098 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:28:30,098 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:28:30,101 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 12:28:31,108 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 12:28:31,113 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 12:28:31,114 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 12:28:31,114 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 12:28:32,002 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 12:28:32,142 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 12:30:39,152 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 12:30:40,510 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 12:30:40,514 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:30:40,516 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:30:40,516 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:30:40,516 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:30:40,516 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:30:40,516 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:30:40,517 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:30:40,517 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:30:40,517 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:30:40,517 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:30:40,517 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:30:40,520 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 12:30:41,792 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 12:30:41,796 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 12:30:41,797 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 12:30:41,797 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 12:30:42,696 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 12:30:42,849 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityquest/division'.
+DEBUG 2015-10-14 12:33:08,798 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 12:33:10,019 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 12:33:10,023 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:33:10,025 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:33:10,025 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:33:10,025 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:33:10,025 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:33:10,025 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:33:10,025 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:33:10,026 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:33:10,026 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:33:10,026 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:33:10,026 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 12:33:10,029 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 12:33:11,217 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 12:33:11,221 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 12:33:11,222 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 12:33:11,222 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 12:33:12,084 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 12:33:12,228 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityquest/division'.
+DEBUG 2015-10-14 13:06:45,341 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 13:06:48,004 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 13:06:48,009 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:06:48,010 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:06:48,011 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:06:48,011 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:06:48,011 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:06:48,011 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:06:48,011 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:06:48,011 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:06:48,011 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:06:48,012 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:06:48,012 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:06:48,015 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 13:06:49,009 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 13:06:49,013 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 13:06:49,015 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 13:06:49,015 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 13:06:49,972 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 13:06:50,120 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityquest/division'.
+DEBUG 2015-10-14 13:12:58,470 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 13:12:59,729 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 13:12:59,734 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:12:59,736 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:12:59,736 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:12:59,736 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:12:59,736 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:12:59,736 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:12:59,736 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:12:59,736 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:12:59,737 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:12:59,737 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:12:59,737 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:12:59,740 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 13:14:09,362 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 13:14:10,623 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 13:14:10,627 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:14:10,629 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:14:10,629 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:14:10,629 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:14:10,629 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:14:10,630 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:14:10,630 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:14:10,630 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:14:10,630 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:14:10,630 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:14:10,630 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:14:10,633 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 13:14:11,834 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 13:14:11,838 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 13:14:11,840 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 13:14:11,840 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 13:14:12,711 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 13:14:12,856 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 13:16:48,423 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 13:16:50,663 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 13:16:50,667 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:16:50,669 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:16:50,669 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:16:50,669 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:16:50,669 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:16:50,669 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:16:50,670 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:16:50,670 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:16:50,670 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:16:50,670 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:16:50,670 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:16:50,673 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 13:16:51,645 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 13:16:51,650 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 13:16:51,651 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 13:16:51,651 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 13:16:52,535 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 13:16:52,678 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 13:22:54,930 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 13:22:57,044 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 13:22:57,049 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:22:57,050 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:22:57,050 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:22:57,051 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:22:57,051 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:22:57,051 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:22:57,051 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:22:57,051 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:22:57,051 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:22:57,052 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:22:57,052 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:22:57,055 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 13:22:58,059 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 13:22:58,064 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 13:22:58,065 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 13:22:58,065 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 13:22:58,970 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 13:22:59,134 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 13:26:54,659 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 13:26:57,277 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 13:26:57,281 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:26:57,283 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:26:57,283 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:26:57,283 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:26:57,284 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:26:57,284 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:26:57,284 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:26:57,284 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:26:57,284 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:26:57,284 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:26:57,284 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:26:57,288 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 13:26:58,328 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 13:26:58,333 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 13:26:58,334 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 13:26:58,334 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 13:26:59,228 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 13:26:59,372 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 13:28:10,939 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 13:28:13,174 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 13:28:13,178 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:28:13,180 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:28:13,180 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:28:13,180 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:28:13,180 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:28:13,181 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:28:13,181 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:28:13,181 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:28:13,181 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:28:13,181 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:28:13,181 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:28:13,185 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 13:28:14,231 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 13:28:14,236 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 13:28:14,237 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 13:28:14,238 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 13:28:15,160 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 13:28:15,311 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 13:30:11,129 [9    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 13:30:13,346 [9    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 13:30:13,350 [9    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:30:13,352 [9    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:30:13,352 [9    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:30:13,352 [9    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:30:13,353 [9    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:30:13,353 [9    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:30:13,353 [9    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:30:13,353 [9    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:30:13,353 [9    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:30:13,353 [9    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:30:13,354 [9    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:30:13,357 [9    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 13:30:14,353 [9    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 13:30:14,357 [9    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 13:30:14,358 [9    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 13:30:14,358 [9    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 13:30:15,292 [9    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 13:30:15,368 [9    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 13:38:26,930 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 13:38:29,182 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 13:38:29,186 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:38:29,186 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:38:29,187 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:38:29,187 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:38:29,187 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:38:29,187 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:38:29,187 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:38:29,188 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:38:29,188 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:38:29,188 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:38:29,188 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:38:29,191 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 13:38:30,156 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 13:38:30,158 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 13:38:30,159 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 13:38:30,159 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 13:38:31,033 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 13:38:31,223 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 13:45:44,180 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 13:45:45,426 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 13:45:45,431 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:45:45,432 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:45:45,433 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:45:45,433 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:45:45,433 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:45:45,433 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:45:45,433 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:45:45,433 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:45:45,433 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:45:45,433 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:45:45,434 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:45:45,437 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 13:45:46,682 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 13:45:46,686 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 13:45:46,687 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 13:45:46,687 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 13:45:47,595 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 13:45:47,751 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 13:55:21,911 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 13:55:23,199 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 13:55:23,204 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:55:23,205 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:55:23,205 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:55:23,206 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:55:23,206 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:55:23,206 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:55:23,206 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:55:23,206 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:55:23,206 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:55:23,206 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:55:23,206 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:55:23,209 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 13:55:24,455 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 13:55:24,459 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 13:55:24,460 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 13:55:24,460 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 13:55:25,348 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 13:55:25,493 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 13:57:29,046 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 13:57:31,244 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 13:57:31,248 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:57:31,250 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:57:31,250 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:57:31,250 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:57:31,251 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:57:31,251 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:57:31,251 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:57:31,251 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:57:31,251 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:57:31,251 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:57:31,252 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 13:57:31,255 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 13:57:32,230 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 13:57:32,234 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 13:57:32,235 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 13:57:32,235 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 13:57:33,113 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 13:57:33,258 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 14:01:21,028 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 14:01:22,298 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 14:01:22,303 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:01:22,304 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:01:22,304 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:01:22,304 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:01:22,305 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:01:22,305 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:01:22,305 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:01:22,305 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:01:22,305 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:01:22,305 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:01:22,305 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:01:22,308 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 14:01:23,532 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 14:01:23,537 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 14:01:23,538 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 14:01:23,538 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 14:01:24,463 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 14:01:24,609 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 14:05:32,505 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 14:05:33,769 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 14:05:33,773 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:05:33,775 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:05:33,775 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:05:33,775 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:05:33,775 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:05:33,776 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:05:33,776 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:05:33,776 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:05:33,776 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:05:33,776 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:05:33,776 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:05:33,779 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 14:05:34,978 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 14:05:34,983 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 14:05:34,985 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 14:05:34,985 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 14:05:35,860 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 14:05:36,006 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 14:06:23,550 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 14:06:24,809 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 14:06:24,813 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:06:24,815 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:06:24,815 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:06:24,815 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:06:24,815 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:06:24,815 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:06:24,816 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:06:24,816 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:06:24,816 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:06:24,816 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:06:24,816 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:06:24,819 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 14:06:26,045 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 14:06:26,049 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 14:06:26,050 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 14:06:26,051 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 14:06:26,959 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 14:06:27,119 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+ERROR 2015-10-14 14:06:44,392 [15   ] lers.Filters.AbpExceptionFilterAttribute - Abp.AbpException: Unknown filter name: IPassivableFilter. Be sure this filter is registered before.
+   at Abp.Domain.Uow.UnitOfWorkBase.GetFilterIndex(String filterName)
+   at Abp.Domain.Uow.UnitOfWorkBase.EnableFilter(String[] filterNames)
+   at CityQuest.ApplicationServices.GameModule.Divisions.DivisionAppService.RetrieveAll(RetrieveAllDivisionInput input) in c:\Users\Kobos\Source\Repos\CityQuest\CityQuest.Application\ApplicationServices\GameModule\Divisions\DivisionAppService.cs:line 74
+   at Castle.Proxies.DivisionAppServiceProxy.RetrieveAll_callback(RetrieveAllDivisionInput input)
+   at Castle.Proxies.Invocations.IDivisionAppService_RetrieveAll.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Authorization.Interceptors.AuthorizationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.DivisionAppServiceProxy.RetrieveAll(RetrieveAllDivisionInput input)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Abp.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   at Abp.WebApi.Controllers.Dynamic.Interceptors.AbpDynamicApiControllerInterceptor`1.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.DynamicApiController`1Proxy.RetrieveAll(RetrieveAllDivisionInput input)
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Abp.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   at Abp.WebApi.Controllers.Dynamic.Selectors.DynamicHttpActionDescriptor.<ExecuteAsync>b__0(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+Abp.AbpException: Unknown filter name: IPassivableFilter. Be sure this filter is registered before.
+   at Abp.Domain.Uow.UnitOfWorkBase.GetFilterIndex(String filterName)
+   at Abp.Domain.Uow.UnitOfWorkBase.EnableFilter(String[] filterNames)
+   at CityQuest.ApplicationServices.GameModule.Divisions.DivisionAppService.RetrieveAll(RetrieveAllDivisionInput input) in c:\Users\Kobos\Source\Repos\CityQuest\CityQuest.Application\ApplicationServices\GameModule\Divisions\DivisionAppService.cs:line 74
+   at Castle.Proxies.DivisionAppServiceProxy.RetrieveAll_callback(RetrieveAllDivisionInput input)
+   at Castle.Proxies.Invocations.IDivisionAppService_RetrieveAll.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Authorization.Interceptors.AuthorizationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.DivisionAppServiceProxy.RetrieveAll(RetrieveAllDivisionInput input)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Abp.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   at Abp.WebApi.Controllers.Dynamic.Interceptors.AbpDynamicApiControllerInterceptor`1.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.DynamicApiController`1Proxy.RetrieveAll(RetrieveAllDivisionInput input)
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Abp.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   at Abp.WebApi.Controllers.Dynamic.Selectors.DynamicHttpActionDescriptor.<ExecuteAsync>b__0(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+ERROR 2015-10-14 14:07:11,482 [8    ] lers.Filters.AbpExceptionFilterAttribute - Abp.AbpException: Unknown filter name: IPassivableFilter. Be sure this filter is registered before.
+   at Abp.Domain.Uow.UnitOfWorkBase.GetFilterIndex(String filterName)
+   at Abp.Domain.Uow.UnitOfWorkBase.EnableFilter(String[] filterNames)
+   at CityQuest.ApplicationServices.GameModule.Divisions.DivisionAppService.RetrieveAll(RetrieveAllDivisionInput input) in c:\Users\Kobos\Source\Repos\CityQuest\CityQuest.Application\ApplicationServices\GameModule\Divisions\DivisionAppService.cs:line 74
+   at Castle.Proxies.DivisionAppServiceProxy.RetrieveAll_callback(RetrieveAllDivisionInput input)
+   at Castle.Proxies.Invocations.IDivisionAppService_RetrieveAll.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Authorization.Interceptors.AuthorizationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.DivisionAppServiceProxy.RetrieveAll(RetrieveAllDivisionInput input)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Abp.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   at Abp.WebApi.Controllers.Dynamic.Interceptors.AbpDynamicApiControllerInterceptor`1.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.DynamicApiController`1Proxy.RetrieveAll(RetrieveAllDivisionInput input)
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Abp.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   at Abp.WebApi.Controllers.Dynamic.Selectors.DynamicHttpActionDescriptor.<ExecuteAsync>b__0(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+Abp.AbpException: Unknown filter name: IPassivableFilter. Be sure this filter is registered before.
+   at Abp.Domain.Uow.UnitOfWorkBase.GetFilterIndex(String filterName)
+   at Abp.Domain.Uow.UnitOfWorkBase.EnableFilter(String[] filterNames)
+   at CityQuest.ApplicationServices.GameModule.Divisions.DivisionAppService.RetrieveAll(RetrieveAllDivisionInput input) in c:\Users\Kobos\Source\Repos\CityQuest\CityQuest.Application\ApplicationServices\GameModule\Divisions\DivisionAppService.cs:line 74
+   at Castle.Proxies.DivisionAppServiceProxy.RetrieveAll_callback(RetrieveAllDivisionInput input)
+   at Castle.Proxies.Invocations.IDivisionAppService_RetrieveAll.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Authorization.Interceptors.AuthorizationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.DivisionAppServiceProxy.RetrieveAll(RetrieveAllDivisionInput input)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Abp.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   at Abp.WebApi.Controllers.Dynamic.Interceptors.AbpDynamicApiControllerInterceptor`1.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.DynamicApiController`1Proxy.RetrieveAll(RetrieveAllDivisionInput input)
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Abp.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   at Abp.WebApi.Controllers.Dynamic.Selectors.DynamicHttpActionDescriptor.<ExecuteAsync>b__0(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+ERROR 2015-10-14 14:07:32,587 [9    ] lers.Filters.AbpExceptionFilterAttribute - Abp.AbpException: Unknown filter name: IPassivableFilter. Be sure this filter is registered before.
+   at Abp.Domain.Uow.UnitOfWorkBase.GetFilterIndex(String filterName)
+   at Abp.Domain.Uow.UnitOfWorkBase.EnableFilter(String[] filterNames)
+   at CityQuest.ApplicationServices.GameModule.Divisions.DivisionAppService.RetrieveAll(RetrieveAllDivisionInput input) in c:\Users\Kobos\Source\Repos\CityQuest\CityQuest.Application\ApplicationServices\GameModule\Divisions\DivisionAppService.cs:line 74
+   at Castle.Proxies.DivisionAppServiceProxy.RetrieveAll_callback(RetrieveAllDivisionInput input)
+   at Castle.Proxies.Invocations.IDivisionAppService_RetrieveAll.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Authorization.Interceptors.AuthorizationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.DivisionAppServiceProxy.RetrieveAll(RetrieveAllDivisionInput input)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Abp.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   at Abp.WebApi.Controllers.Dynamic.Interceptors.AbpDynamicApiControllerInterceptor`1.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.DynamicApiController`1Proxy.RetrieveAll(RetrieveAllDivisionInput input)
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Abp.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   at Abp.WebApi.Controllers.Dynamic.Selectors.DynamicHttpActionDescriptor.<ExecuteAsync>b__0(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+Abp.AbpException: Unknown filter name: IPassivableFilter. Be sure this filter is registered before.
+   at Abp.Domain.Uow.UnitOfWorkBase.GetFilterIndex(String filterName)
+   at Abp.Domain.Uow.UnitOfWorkBase.EnableFilter(String[] filterNames)
+   at CityQuest.ApplicationServices.GameModule.Divisions.DivisionAppService.RetrieveAll(RetrieveAllDivisionInput input) in c:\Users\Kobos\Source\Repos\CityQuest\CityQuest.Application\ApplicationServices\GameModule\Divisions\DivisionAppService.cs:line 74
+   at Castle.Proxies.DivisionAppServiceProxy.RetrieveAll_callback(RetrieveAllDivisionInput input)
+   at Castle.Proxies.Invocations.IDivisionAppService_RetrieveAll.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Authorization.Interceptors.AuthorizationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.DivisionAppServiceProxy.RetrieveAll(RetrieveAllDivisionInput input)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Abp.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   at Abp.WebApi.Controllers.Dynamic.Interceptors.AbpDynamicApiControllerInterceptor`1.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.DynamicApiController`1Proxy.RetrieveAll(RetrieveAllDivisionInput input)
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Abp.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   at Abp.WebApi.Controllers.Dynamic.Selectors.DynamicHttpActionDescriptor.<ExecuteAsync>b__0(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+ERROR 2015-10-14 14:13:50,388 [77   ] lers.Filters.AbpExceptionFilterAttribute - AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Division -> DivisionDto
+CityQuest.Entities.GameModule.Divisions.Division -> CityQuest.ApplicationServices.GameModule.Divisions.Dtos.DivisionDto
+
+Destination path:
+IList`1[0]
+
+Source value:
+[Division_520159ADD6C973294F13CBF6EB72DA0E3F38B669DF79EE8EBF79B56A955CA81A 1]
+   at AutoMapper.MappingEngine.AutoMapper.IMappingEngineRunner.Map(ResolutionContext context)
+   at AutoMapper.Mappers.EnumerableMapperBase`1.Map(ResolutionContext context, IMappingEngineRunner mapper)
+   at AutoMapper.Mappers.CollectionMapper.Map(ResolutionContext context, IMappingEngineRunner mapper)
+   at AutoMapper.MappingEngine.AutoMapper.IMappingEngineRunner.Map(ResolutionContext context)
+   at AutoMapper.MappingEngine.MapCore(Object source, Type sourceType, Type destinationType, MappingOperationOptions options)
+   at AutoMapper.MappingEngine.Map(Object source, Type sourceType, Type destinationType, Action`1 opts)
+   at AutoMapper.MappingEngine.Map[TDestination](Object source, Action`1 opts)
+   at AutoMapper.MappingEngine.Map[TDestination](Object source)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at CityQuest.Mapping.MappingExtension.MapIList[TS,TD](IList`1 items) in c:\Users\Kobos\Source\Repos\CityQuest\CityQuest.Application\Mapping\MappingExtension.cs:line 13
+   at CityQuest.ApplicationServices.GameModule.Divisions.DivisionAppService.RetrieveAllPagedResult(RetrieveAllDivisionsPagedResultInput input) in c:\Users\Kobos\Source\Repos\CityQuest\CityQuest.Application\ApplicationServices\GameModule\Divisions\DivisionAppService.cs:line 45
+   at Castle.Proxies.DivisionAppServiceProxy.RetrieveAllPagedResult_callback(RetrieveAllDivisionsPagedResultInput input)
+   at Castle.Proxies.Invocations.IDivisionAppService_RetrieveAllPagedResult.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Authorization.Interceptors.AuthorizationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.DivisionAppServiceProxy.RetrieveAllPagedResult(RetrieveAllDivisionsPagedResultInput input)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Abp.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   at Abp.WebApi.Controllers.Dynamic.Interceptors.AbpDynamicApiControllerInterceptor`1.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.DynamicApiController`1Proxy.RetrieveAllPagedResult(RetrieveAllDivisionsPagedResultInput input)
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Abp.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   at Abp.WebApi.Controllers.Dynamic.Selectors.DynamicHttpActionDescriptor.<ExecuteAsync>b__0(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Division -> DivisionDto
+CityQuest.Entities.GameModule.Divisions.Division -> CityQuest.ApplicationServices.GameModule.Divisions.Dtos.DivisionDto
+
+Destination path:
+IList`1[0]
+
+Source value:
+[Division_520159ADD6C973294F13CBF6EB72DA0E3F38B669DF79EE8EBF79B56A955CA81A 1]
+   at AutoMapper.MappingEngine.AutoMapper.IMappingEngineRunner.Map(ResolutionContext context)
+   at AutoMapper.Mappers.EnumerableMapperBase`1.Map(ResolutionContext context, IMappingEngineRunner mapper)
+   at AutoMapper.Mappers.CollectionMapper.Map(ResolutionContext context, IMappingEngineRunner mapper)
+   at AutoMapper.MappingEngine.AutoMapper.IMappingEngineRunner.Map(ResolutionContext context)
+   at AutoMapper.MappingEngine.MapCore(Object source, Type sourceType, Type destinationType, MappingOperationOptions options)
+   at AutoMapper.MappingEngine.Map(Object source, Type sourceType, Type destinationType, Action`1 opts)
+   at AutoMapper.MappingEngine.Map[TDestination](Object source, Action`1 opts)
+   at AutoMapper.MappingEngine.Map[TDestination](Object source)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at CityQuest.Mapping.MappingExtension.MapIList[TS,TD](IList`1 items) in c:\Users\Kobos\Source\Repos\CityQuest\CityQuest.Application\Mapping\MappingExtension.cs:line 13
+   at CityQuest.ApplicationServices.GameModule.Divisions.DivisionAppService.RetrieveAllPagedResult(RetrieveAllDivisionsPagedResultInput input) in c:\Users\Kobos\Source\Repos\CityQuest\CityQuest.Application\ApplicationServices\GameModule\Divisions\DivisionAppService.cs:line 45
+   at Castle.Proxies.DivisionAppServiceProxy.RetrieveAllPagedResult_callback(RetrieveAllDivisionsPagedResultInput input)
+   at Castle.Proxies.Invocations.IDivisionAppService_RetrieveAllPagedResult.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Authorization.Interceptors.AuthorizationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.DivisionAppServiceProxy.RetrieveAllPagedResult(RetrieveAllDivisionsPagedResultInput input)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Abp.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   at Abp.WebApi.Controllers.Dynamic.Interceptors.AbpDynamicApiControllerInterceptor`1.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.DynamicApiController`1Proxy.RetrieveAllPagedResult(RetrieveAllDivisionsPagedResultInput input)
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Abp.Extensions.ExceptionExtensions.ReThrow(Exception exception)
+   at Abp.WebApi.Controllers.Dynamic.Selectors.DynamicHttpActionDescriptor.<ExecuteAsync>b__0(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+DEBUG 2015-10-14 14:14:06,383 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 14:14:08,601 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 14:14:08,606 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:14:08,607 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:14:08,608 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:14:08,608 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:14:08,608 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:14:08,608 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:14:08,608 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:14:08,608 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:14:08,608 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:14:08,609 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:14:08,609 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:14:08,612 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 14:14:09,699 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 14:14:09,704 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 14:14:09,705 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 14:14:09,705 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 14:14:10,585 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 14:14:10,734 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 14:21:46,285 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 14:21:47,581 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 14:21:47,586 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:21:47,588 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:21:47,588 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:21:47,588 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:21:47,588 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:21:47,588 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:21:47,588 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:21:47,588 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:21:47,589 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:21:47,589 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:21:47,589 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:21:47,592 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 14:21:48,988 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 14:21:48,993 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 14:21:48,994 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 14:21:48,995 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 14:21:49,931 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 14:21:49,979 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 14:23:34,823 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 14:23:37,028 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 14:23:37,032 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:23:37,034 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:23:37,034 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:23:37,035 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:23:37,035 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:23:37,035 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:23:37,035 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:23:37,035 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:23:37,035 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:23:37,035 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:23:37,036 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:23:37,039 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 14:23:38,188 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 14:23:38,192 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 14:23:38,193 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 14:23:38,194 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 14:23:39,074 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 14:23:39,109 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 14:28:25,736 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 14:28:27,007 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 14:28:27,011 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:28:27,013 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:28:27,013 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:28:27,013 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:28:27,013 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:28:27,014 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:28:27,014 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:28:27,014 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:28:27,014 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:28:27,014 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:28:27,014 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:28:27,017 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 14:28:28,509 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 14:28:28,514 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 14:28:28,515 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 14:28:28,515 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 14:28:29,433 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 14:28:29,469 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 14:30:15,400 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 14:30:16,627 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 14:30:16,631 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:30:16,633 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:30:16,633 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:30:16,633 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:30:16,633 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:30:16,634 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:30:16,634 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:30:16,634 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:30:16,634 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:30:16,634 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:30:16,634 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:30:16,637 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 14:30:17,932 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 14:30:17,936 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 14:30:17,937 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 14:30:17,937 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 14:30:18,794 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 14:30:18,829 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2015-10-14 14:35:50,182 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-14 14:35:51,395 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-14 14:35:51,399 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:35:51,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:35:51,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:35:51,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:35:51,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:35:51,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:35:51,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:35:51,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:35:51,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:35:51,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:35:51,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-14 14:35:51,405 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-14 14:35:52,695 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-14 14:35:52,699 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-14 14:35:52,700 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2015-10-14 14:35:52,701 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-14 14:35:53,570 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-14 14:35:53,605 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.

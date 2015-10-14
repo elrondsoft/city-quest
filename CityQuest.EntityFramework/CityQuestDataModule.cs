@@ -7,6 +7,7 @@ using Castle.MicroKernel.Registration;
 using CityQuest.EntityFramework.Repositories;
 using CityQuest.Entities.GameModule.Divisions;
 using CityQuest.Entities.GameModule.Teams;
+using CityQuest.CityQuestConstants;
 
 namespace CityQuest
 {
@@ -16,6 +17,7 @@ namespace CityQuest
         public override void PreInitialize()
         {
             Configuration.DefaultNameOrConnectionString = "CityQuest";
+            Configuration.UnitOfWork.RegisterFilter(Filters.IPassivableFilter, false);
 
             IocManager.IocContainer.Register(
                 //Component.For<typeof(ICityQuestRepositoryBase<,>)>().ImplementedBy<typeof(CityQuestRepositoryBase<,>)>().LifestyleTransient(),

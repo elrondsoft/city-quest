@@ -16,6 +16,7 @@ using CityQuest.Entities.MainModule.Users;
 #endregion
 using System.Data.Entity;
 using global::EntityFramework.DynamicFilters;
+using System.Diagnostics;
 
 namespace CityQuest.EntityFramework
 {
@@ -48,14 +49,15 @@ namespace CityQuest.EntityFramework
         public CityQuestDbContext()
             : base("CityQuest")
         {
-
+            this.Database.CommandTimeout = 3600;
+            this.Database.Log = (r) => Trace.WriteLine(r);
         }
 
         public CityQuestDbContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
         {
             this.Database.CommandTimeout = 3600;
-            //this.Database.Log = (r) => Trace.WriteLine(r);
+            this.Database.Log = (r) => Trace.WriteLine(r);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -128,6 +130,8 @@ namespace CityQuest.EntityFramework
                 .WillCascadeOnDelete(false);
 
             #endregion
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
