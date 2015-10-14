@@ -37,6 +37,10 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             if (input.IsActive ?? true)
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
+            DivisionRepository.Includes.Add(r => r.LastModifierUser);
+            DivisionRepository.Includes.Add(r => r.CreatorUser);
+            DivisionRepository.Includes.Add(r => r.Teams);
+
             IQueryable<Division> divisionsQuery = DivisionRepository.GetAll()
                 .WhereIf(!input.DivisionIds.IsNullOrEmpty(), r => input.DivisionIds.Contains(r.Id))
                 .WhereIf(!String.IsNullOrEmpty(input.Name), r => r.Name.ToLower().Contains(input.Name.ToLower()));
@@ -46,6 +50,8 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
                 .OrderBy(r => r.Name)
                 .Skip(input.SkipCount).Take(input.MaxResultCount)
                 .ToList().MapIList<Division, DivisionDto>().ToList();
+
+            DivisionRepository.Includes.Clear();
 
             return new RetrieveAllPagedResultOutput<DivisionDto, long>()
             {

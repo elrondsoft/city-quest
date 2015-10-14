@@ -111,7 +111,7 @@
                     $.extend(inputObject, { id: self._getRandomGuid() });
                 }
 
-                var input = $('<input/>').addClass('btn').attr('id', inputObject.id).width(inputObject.width || '150px').appendTo(rightContainer);
+                var input = $('<input/>').addClass('cq-input').attr('id', inputObject.id).width(inputObject.width || '150px').appendTo(rightContainer);
 
                 leftContainer.css('max-width', inputContainer.width() - input.width() - 6);
             }
@@ -198,7 +198,7 @@
                 }
 
                 var input = $('<input/>')
-                    .addClass('btn')
+                    .addClass('cq-input')
                     .attr('id', dateTimePickerObject.id)
                     .width(dateTimePickerObject.width || '150px')
                     .appendTo(rightContainer);
@@ -295,7 +295,7 @@
                             .appendTo(self.$_mainFilterButtonRow);
 
             var button = $('<button/>')
-				.addClass('btn btn-sm')
+				.addClass('btn btn-sm btn-success')
                 .css('float', 'right')
 				.text(self.options.messages.apply)
 				.click(function () {

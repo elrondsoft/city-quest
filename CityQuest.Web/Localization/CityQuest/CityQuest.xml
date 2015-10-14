@@ -5,5 +5,7 @@
     <text name="WellcomeMessage" value="Welcome to CityQuest!" />
     <text name="HomePage" value="Home page" />
 
+    <text name="Divisions" value="Divisions" />
+    
   </texts>
 </localizationDictionary>

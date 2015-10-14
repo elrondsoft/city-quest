@@ -12,7 +12,11 @@ namespace CityQuest.Mapping
     {
         public static void Map()
         {
-            AutoMapper.Mapper.CreateMap<Division, DivisionDto>().ReverseMap();
+            AutoMapper.Mapper.CreateMap<Division, DivisionDto>()
+                .ForMember(r => r.TeamsCount, r => r.MapFrom(e => e.Teams.Count))
+                .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullName))
+                .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullName))
+                .ReverseMap();
 
         }
     }

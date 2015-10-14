@@ -48,5 +48,13 @@ namespace CityQuest.Entities.MainModule.Users
         //public virtual ICollection<UserPermissionSetting> Permissions { get; set; }
 
         //public virtual ICollection<Setting> Settings { get; set; }
+
+        public string FullName
+        {
+            get
+            {
+                return string.Format("{0} {1}", this.Name, this.Surname);
+            }
+        }
     }
 }

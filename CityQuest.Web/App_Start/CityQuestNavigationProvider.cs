@@ -21,6 +21,14 @@ namespace CityQuest.Web
                         url: "#/",
                         icon: "fa fa-home"
                         )
+                )
+                .AddItem(
+                    new MenuItemDefinition(
+                        "Divisions",
+                        new LocalizableString("Divisions", CityQuestConsts.LocalizationSourceName),
+                        url: "#/divisions",
+                        icon: "fa fa-list-alt"
+                        )
                 );
         }
     }

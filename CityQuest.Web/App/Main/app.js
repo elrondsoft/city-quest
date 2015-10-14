@@ -20,14 +20,14 @@
             $urlRouterProvider.otherwise('/');
             $stateProvider
                 .state('home', {
-                    url: '/home',
+                    url: '/',
                     templateUrl: '/App/Main/views/home/home.cshtml',
                     menu: 'Home' //Matches to name of 'Home' menu in CityQuestNavigationProvider
                 })
                 .state('divisions', {
-                    url: '/',
+                    url: '/divisions',
                     templateUrl: '/App/Main/views/divisions/divisionView.cshtml',
-                    menu: 'Home',
+                    menu: 'Divisions',
                 });
         }
     ]);
