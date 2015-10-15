@@ -213,7 +213,10 @@
     <Content Include="App\Main\main.min.css">
       <DependentUpon>main.css</DependentUpon>
     </Content>
+    <Content Include="App\Main\services\shared\clientCityQuestConstService.js" />
+    <Content Include="App\Main\services\shared\clientPermissionService.js" />
     <Content Include="App\Main\styles\site.css" />
+    <Content Include="App\Main\templates\divisions\divisionTemplateController.js" />
     <Content Include="App\Main\views\divisions\divisionController.js" />
     <Content Include="App\Main\views\layout\header.js" />
     <Content Include="App\Main\views\layout\layout.js" />
@@ -269,7 +272,9 @@
     <Content Include="Global.asax" />
     <Content Include="Localization\CityQuest\CityQuest.uk.xml" />
     <Content Include="Localization\CityQuest\CityQuest.ru.xml" />
-    <Content Include="Localization\CityQuest\CityQuest.xml" />
+    <Content Include="Localization\CityQuest\CityQuest.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App\Main\main.less" />
     <Content Include="App\Main\views\layout\layout.cshtml" />
     <Content Include="App\Main\views\home\home.cshtml" />
@@ -342,6 +347,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="App\Main\views\divisions\divisionView.cshtml" />
+    <Content Include="App\Main\templates\divisions\divisionTemplate.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1282,7 +1288,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App\Main\factories\" />
-    <Folder Include="App\Main\services\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
