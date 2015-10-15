@@ -8,7 +8,7 @@ namespace CityQuest.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "CityQuest";
+            ContextKey = CityQuestConsts.CityQuestBDContextKey;
         }
 
         protected override void Seed(CityQuestDbContext context)

@@ -16,7 +16,7 @@ namespace CityQuest
     {
         public override void PreInitialize()
         {
-            Configuration.DefaultNameOrConnectionString = "CityQuest";
+            Configuration.DefaultNameOrConnectionString = CityQuestConsts.ConnectionStringName;
             Configuration.UnitOfWork.RegisterFilter(Filters.IPassivableFilter, false);
 
             IocManager.IocContainer.Register(

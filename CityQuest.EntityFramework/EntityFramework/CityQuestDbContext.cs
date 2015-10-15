@@ -47,7 +47,7 @@ namespace CityQuest.EntityFramework
         #endregion
 
         public CityQuestDbContext()
-            : base("CityQuest")
+            : base(CityQuestConsts.ConnectionStringName)
         {
             this.Database.CommandTimeout = 3600;
             this.Database.Log = (r) => Trace.WriteLine(r);

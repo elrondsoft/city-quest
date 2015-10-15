@@ -1,7 +1,7 @@
 ﻿(function () {
     var controllerId = 'app.views.divisions.divisionController';
     angular.module('app').controller(controllerId, ['$scope', //'ngDialog',
-        'abp.services.cityQuest.division',
+        //'abp.services.cityQuest.division',
         function ($scope) {
             var vm = this;
             vm.localize = function (key) {
@@ -167,18 +167,6 @@
                     });
                     return false;
                 });
-            };
-            vm.toolbar = {
-                hoverAnimation: true,
-                hoverAnimationDuration: 60,
-                hoverAnimationEasing: undefined,
-                items: [{
-                    icon: '',
-                    text: vm.localize('Filters'),
-                    click: function () {
-                        $('#jtable-filter-panel').slideToggle("slow");
-                    }
-                }]
             };
             vm.toolbar = {
                 hoverAnimation: true, 
