@@ -13,6 +13,47 @@ angular.module('app').service('clientCityQuestConstService', function () {
         };
         /// Is used like default controllerAs name
         this.controllerAsName = 'vm';
+        /// Is used like default options for modal view (bootstrap)
+        this.defaultModalOptions = {
+            animation: true,
+            backdrop: true, //use 'static' to disable closing modal view after clicking on backdrop
+            keyboard: true,
+            backdropClass: '',
+            windowClass: '',
+            windowTopClass: '',
+            size: 'lg',
+            openedClass: 'modal-open',
+            templateUrl: null,
+            controller: null,
+            controllerAs: this.controllerAsName,
+            resolve: {
+                serviceData: null
+            },
+        };
+        /// Is used to manipulate with jTable (use vm.recordsLoaded(); after this action)
+        this.jTableActions = {
+            deleteRecord: function (jTableName, recordKey) {
+                $('#' + jTableName).jtable('deleteRecord',
+                    {
+                        key: recordKey,
+                        clientOnly: true
+                    });
+            },
+            updateRecord: function (jTableName, recordEntity) {
+                $('#' + jTableName).jtable('updateRecord',
+                    {
+                        record: recordEntity,
+                        clientOnly: true
+                    });
+            },
+            createRecord: function (jTableName, recordEntity) {
+                $('#' + jTableName).jtable('addRecord',
+                    {
+                        record: recordEntity,
+                        clientOnly: true
+                    });
+            }
+        };
         //-------------------------------------------------------------------------------------------------------------
         //----------------------------------------Constants for Controllers--------------------------------------------
         /// Is used to store Angular's controllers's ids for CityQuest  

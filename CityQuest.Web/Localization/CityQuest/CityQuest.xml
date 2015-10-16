@@ -5,7 +5,57 @@
     <text name="WellcomeMessage" value="Welcome to CityQuest!" />
     <text name="HomePage" value="Home page" />
 
-    <text name="Divisions" value="Divisions" />
+    <text name="Apply" value="Apply" />
+    <text name="Filters" value="Filters" />
+    <text name="Id" value="Id" />
+    <text name="Name" value="Name" />
+    <text name="Description" value="Description" />
+    <text name="CreationTime" value="Creation time" />
+    <text name="CreatorName" value="Creator name" />
+    <text name="LastModificationTime" value="Last modification time" />
+    <text name="LastModifierName" value="Last modifier name" />
+    <text name="IsActive" value="Activity" />
+    <text name="IsActiveTrue" value="Is active" />
+    <text name="IsActiveFalse" value="Is not active" />
     
+    <text name="ButtonInfo" value="Info" />
+    <text name="ButtonCreate" value="Create" />
+    <text name="ButtonUpdate" value="Edit" />
+    <text name="ButtonSave" value="Save" />
+    <text name="ButtonDelete" value="Delete" />
+    <text name="ButtonClose" value="Close" />
+    <text name="ButtonActivate" value="Activate" />
+    <text name="ButtonDeactivate" value="Deactivate" />
+
+    <text name="InfoTittleText" value="Information" />
+    <text name="CreateTittleText" value="Update" />
+    <text name="UpdateTittleText" value="Edit" />
+    <text name="SaveTittleText" value="Save" />
+    <text name="DeleteTittleText" value="Delete" />
+    <text name="CloseTittleText" value="Close" />
+    <text name="ActivateTittleText" value="Activate" />
+    <text name="DeactivateTittleText" value="Deactivate" />
+    
+    <text name="DeleteSuccessMsgResult_Body" value="Entity {0} (with Id = {1}) has been successfully deleted." />
+    <text name="DeleteSuccessMsgResult_Header" value="Deleted successfully!" />
+    <text name="CreateSuccessMsgResult_Body" value="Entity {0} (with Id = {1}) has been successfully created." />
+    <text name="CreateSuccessMsgResult_Header" value="Created successfully!" />
+    <text name="UpdateSuccessMsgResult_Body" value="Entity {0} (with Id = {1}) has been successfully updated." />
+    <text name="UpdateSuccessMsgResult_Header" value="Updated successfully!" />
+    <text name="ActivateSuccessMsgResult_Body" value="Entity {0} (with Id = {1}) has been successfully activated." />
+    <text name="ActivateSuccessMsgResult_Header" value="Activated successfully!" />
+    <text name="DeactivateSuccessMsgResult_Body" value="Entity {0} (with Id = {1}) has been successfully deactivated." />
+    <text name="DeactivateSuccessMsgResult_Header" value="Deactivated successfully!" />
+    <text name="DeleteConfirmationMsg_Body" value="Do you want to delete entity {0} (with Id = {1})?" />
+    <text name="DeleteConfirmationMsg_Header" value="Confirmation of deletion!" />
+    <text name="ActivateConfirmationMsg_Body" value="Do you want to activate entity {0} (with Id = {1})?" />
+    <text name="ActivateConfirmationMsg_Header" value="Confirmation of activation!" />
+    <text name="DeactivateConfirmationMsg_Body" value="Do you want to deactivate entity {0} (with Id = {1})?" />
+    <text name="DeactivateConfirmationMsg_Header" value="Confirmation of deactivation!" />
+    
+    <text name="Divisions" value="Divisions" />
+    <text name="DivisionDetails" value="Division details" />
+    <text name="TeamsCount" value="Count of teams" />
+
   </texts>
 </localizationDictionary>

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CityQuest.ApplicationServices.Shared.Dtos.Output
 {
-    public class CreateOutput<TEntityDto, TPrimaryKey> : IOutputDto
+    public class ChangeActivityOutput<TEntityDto, TPrimaryKey> : IOutputDto
         where TEntityDto : class, IEntityDto<TPrimaryKey>
     {
-        public TEntityDto CreatedEntity { get; set; }
+        public TEntityDto Entity { get; set; }
     }
 }

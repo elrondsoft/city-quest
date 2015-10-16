@@ -88,7 +88,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
 
             return new RetrieveAllOutput<DivisionDto, long>()
             {
-                RetrievedItems = result
+                RetrievedEntities = result
             };
         }
 
@@ -98,7 +98,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
             IList<Division> divisionEntities = DivisionRepository.GetAll()
-                .WhereIf(input.DivisionId != null, r => r.Id == input.DivisionId)
+                .WhereIf(input.Id != null, r => r.Id == input.Id)
                 .WhereIf(!String.IsNullOrEmpty(input.Name), r => r.Name.ToLower().Contains(input.Name.ToLower()))
                 .ToList();
 
@@ -118,37 +118,37 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
 
             return new RetrieveOutput<DivisionDto, long>()
             {
-                RetrievedItem = divisionEntity
+                RetrievedEntity = divisionEntity
             };
         }
 
         public CreateOutput<DivisionDto, long> Create(CreateInput<DivisionDto, long> input)
         {
-            Division newDivisionEntity = input.EntityDto.MapTo<Division>();
+            Division newDivisionEntity = input.Entity.MapTo<Division>();
 
             DivisionDto newDivisionDto = (DivisionRepository.Insert(newDivisionEntity)).MapTo<DivisionDto>();
 
             return new CreateOutput<DivisionDto, long>()
             {
-                CreatedItem = newDivisionDto
+                CreatedEntity = newDivisionDto
             };
         }
 
         public UpdateOutput<DivisionDto, long> Update(UpdateInput<DivisionDto, long> input)
         {
-            Division newDivisionEntity = input.EntityDto.MapTo<Division>();
+            Division newDivisionEntity = input.Entity.MapTo<Division>();
 
             if (newDivisionEntity == null)
             {
                 throw new UserFriendlyException(String.Format(
-                    "There are no Division with Id = {0}. Can not update it.", input.EntityDto.Id));
+                    "There is not valid Division entity. Can not update to it."));
             }
 
             DivisionDto newDivisionDto = (DivisionRepository.Update(newDivisionEntity)).MapTo<DivisionDto>();
 
             return new UpdateOutput<DivisionDto, long>()
             {
-                UpdatedItem = newDivisionDto
+                UpdatedEntity = newDivisionDto
             };
         }
 
@@ -166,7 +166,27 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
 
             return new DeleteOutput<long>()
             {
-                DeletedItemId = input.EntityId
+                DeletedEntityId = input.EntityId
+            };
+        }
+
+        public ChangeActivityOutput<DivisionDto, long> ChangeActivity(ChangeActivityInput input)
+        {
+            Division divisionEntity = DivisionRepository.Get(input.EntityId);
+
+            if (divisionEntity == null)
+            {
+                throw new UserFriendlyException(String.Format(
+                    "There are no Division with Id = {0}. Can not change it's activity.", input.EntityId));
+            }
+
+            divisionEntity.IsActive = input.IsActive == null ? !divisionEntity.IsActive : (bool)input.IsActive;
+
+            DivisionDto newDivisionDto = (DivisionRepository.Update(divisionEntity)).MapTo<DivisionDto>();
+
+            return new ChangeActivityOutput<DivisionDto, long>()
+            {
+                Entity = newDivisionDto
             };
         }
     }

@@ -1,8 +1,8 @@
 ﻿(function () {
     var controllerId = 'app.views.divisions.divisionController';
-    angular.module('app').controller(controllerId, ['$scope', '$modal', 'clientCityQuestConstService', 'clientPermissionService',
-        //'abp.services.cityQuest.division',
-        function ($scope, modal, constSvc, permissionSvc) {
+    angular.module('app').controller(controllerId, ['$scope', '$modal', 'clientCityQuestConstService',
+        'clientPermissionService', 'abp.services.cityQuest.division',
+        function ($scope, modal, constSvc, permissionSvc, divisionSvc) {
             var vm = this;
             vm.localize = constSvc.localize;
             vm.title = vm.localize("Divisions");
@@ -22,20 +22,20 @@
                     return data.record.teamsCount;
                 },
                 displayIsActive: function (data) {
-                    return data.record.isActive;
+                    return data.record.isActive ? vm.localize('IsActiveTrue') : vm.localize('IsActiveFalse');
                 },
                 displayLastModifierName: function (data) {
                     return data.record.lastModifierUserFullName ? data.record.lastModifierUserFullName : '';
                 },
                 displayLastModificationTime: function (data) {
                     return data.record.lastModificationTime ?
-                        moment(data.record.lastModificationTime).format('YYYY:MM:DD HH:mm:ss') : '';
+                        moment(data.record.lastModificationTime).format('YYYY.MM.DD HH:mm:ss') : '';
                 },
                 displayCreatorName: function (data) {
                     return data.record.creatorUserFullName ? data.record.creatorUserFullName : '';
                 },
                 displayCreationTime: function (data) {
-                    return data.record.creationTime ? moment(data.record.creationTime).format('YYYY:MM:DD HH:mm:ss') : '';
+                    return data.record.creationTime ? moment(data.record.creationTime).format('YYYY.MM.DD HH:mm:ss') : '';
                 },
                 displaySettings: function (data) {
                     var record = data.record;
@@ -44,7 +44,7 @@
                             return '';
 
                         var infoTittleText = vm.localize('InfoTittleText');
-                        var infoButtonText = '<i class="fa fa-info"></i>'; //vm.localize('InfoButton');
+                        var infoButtonText = '<i class="fa fa-info"></i>'; //vm.localize('ButtonInfo');
                         var result = '<button class="btn btn-sm btn-info division-info" id="' + entity.id +
                             '" title="' + infoTittleText + '">' + infoButtonText + ' </button>';
                         return result;
@@ -53,8 +53,8 @@
                         if (!permissionSvc.division.canUpdate)
                             return '';
 
-                        var editTittleText = vm.localize('EditTittleText');
-                        var editButtonText = '<i class="fa fa-pencil-square-o"></i>'; //vm.localize('EditButton');
+                        var editTittleText = vm.localize('UpdateTittleText');
+                        var editButtonText = '<i class="fa fa-pencil-square-o"></i>';
                         var result = '<button class="btn btn-sm btn-primary division-edit" id="' + entity.id +
                             '" title="' + editTittleText + '">' + editButtonText + ' </button>';
                         return result;
@@ -64,7 +64,7 @@
                             return '';
 
                         var deleteTittleText = vm.localize('DeleteTittleText');
-                        var deleteButtonText = '<i class="fa fa-times"></i>';//vm.localize('DeleteButton');
+                        var deleteButtonText = '<i class="fa fa-times"></i>';
                         var result = '<button class="btn btn-sm btn-danger division-delete" id="' + entity.id +
                             '" title="' + deleteTittleText + '">' + deleteButtonText + ' </button>';
                         return result;
@@ -74,7 +74,7 @@
                             return '';
 
                         var activateTittleText = vm.localize('ActivateTittleText');
-                        var activateButtonText = '<i class="fa fa-toggle-on"></i>'; //vm.localize('ActivateButton');
+                        var activateButtonText = '<i class="fa fa-toggle-on"></i>'; 
                         var result = '<button class="btn btn-sm btn-warning division-activate" id="' + entity.id +
                             '" title="' + activateTittleText + '">' + activateButtonText + ' </button>';
                         return result;
@@ -84,7 +84,7 @@
                             return '';
 
                         var deactivateTittleText = vm.localize('DeactivateTittleText');
-                        var deactivateButtonText = '<i class="fa fa-toggle-off"></i>'; //vm.localize('DeactivateButton');
+                        var deactivateButtonText = '<i class="fa fa-toggle-off"></i>'; 
                         var result = '<button class="btn btn-sm btn-warning division-deactivate" id="' + entity.id +
                             '" title="' + deactivateTittleText + '">' + deactivateButtonText + ' </button>';
                         return result;
@@ -97,54 +97,65 @@
             var divisionActions = {
                 openInfoTemplate: function (event) {
                     event.preventDefault();
-                    modal.open({
+                    var newModalOptions = {
                         templateUrl: constSvc.viewRoutes.divisionTemplate,
                         controller: constSvc.ctrlRoutes.divisionTemplateCtrl,
-                        controllerAs: constSvc.controllerAsName,
                         resolve: {
                             serviceData: function () {
                                 var result = {
                                     templateMode: constSvc.formModes.info,
-                                    divisionId: event.currentTarget.id
+                                    entityId: event.currentTarget.id
                                 };
                                 return result;
                             },
                         }
-                    });
+                    };
+                    var modalOptions = angular.merge({}, constSvc.defaultModalOptions, newModalOptions);
+                    modal.open(modalOptions);
                     return false;
                 },
                 openCreateTemplate: function () {
-                    modal.open({
+                    var newModalOptions = {
                         templateUrl: constSvc.viewRoutes.divisionTemplate,
                         controller: constSvc.ctrlRoutes.divisionTemplateCtrl,
-                        controllerAs: constSvc.controllerAsName,
                         resolve: {
                             serviceData: function () {
                                 var result = {
-                                    templateMode: constSvc.formModes.create
+                                    templateMode: constSvc.formModes.create,
+                                    jTableName: 'divisionTable',
+                                    updateCallback: function () {
+                                        vm.recordsLoaded();
+                                    }
                                 };
                                 return result;
                             },
                         }
-                    });
+                    };
+                    var modalOptions = angular.merge({}, constSvc.defaultModalOptions, newModalOptions);
+                    modal.open(modalOptions);
                     return false;
                 },
                 openUpdateTemplate: function (event) {
                     event.preventDefault();
-                    modal.open({
+                    var newModalOptions = {
                         templateUrl: constSvc.viewRoutes.divisionTemplate,
                         controller: constSvc.ctrlRoutes.divisionTemplateCtrl,
-                        controllerAs: constSvc.controllerAsName,
                         resolve: {
                             serviceData: function () {
                                 var result = {
                                     templateMode: constSvc.formModes.update,
-                                    divisionId: event.currentTarget.id
+                                    entityId: event.currentTarget.id,
+                                    jTableName: 'divisionTable',
+                                    updateCallback: function () {
+                                        vm.recordsLoaded();
+                                    }
                                 };
                                 return result;
                             },
                         }
-                    });
+                    };
+                    var modalOptions = angular.merge({}, constSvc.defaultModalOptions, newModalOptions);
+                    modal.open(modalOptions);
                     return false;
                 },
                 deleteDivision: function (event) { },
@@ -158,7 +169,7 @@
             vm.actions = {
                 listAction: {
                     method: abp.services.cityQuest.division.retrieveAllPagedResult,
-                    methodParams: {
+                    parameters: {
                         IsActive: false,
                     },
                 }

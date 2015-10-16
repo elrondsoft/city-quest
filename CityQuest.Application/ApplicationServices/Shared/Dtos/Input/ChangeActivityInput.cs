@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CityQuest.ApplicationServices.Shared.Dtos.Input
 {
-    public class CreateInput<TEntityDto, TPrimaryKey> : IInputDto
-        where TEntityDto : class, IEntityDto<TPrimaryKey>
+    public class ChangeActivityInput: IInputDto
     {
-        public TEntityDto Entity { get; set; }
+        public long EntityId { get; set; }
+        public bool? IsActive { get; set; }
     }
 }

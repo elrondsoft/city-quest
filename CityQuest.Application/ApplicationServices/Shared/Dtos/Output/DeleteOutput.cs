@@ -9,6 +9,6 @@ namespace CityQuest.ApplicationServices.Shared.Dtos.Output
 {
     public class DeleteOutput<TPrimaryKey> : IOutputDto
     {
-        public TPrimaryKey DeletedItemId { get; set; }
+        public TPrimaryKey DeletedEntityId { get; set; }
     }
 }

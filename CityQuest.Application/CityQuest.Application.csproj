@@ -98,12 +98,14 @@
     <Compile Include="ApplicationServices\GameModule\Divisions\Dtos\RetrieveAllDivisionsPagedResultInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Divisions\Dtos\RetrieveDivisionInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Divisions\IDivisionAppService.cs" />
+    <Compile Include="ApplicationServices\Shared\Dtos\Input\ChangeActivityInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\CreateInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\DeleteInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\RetrieveAllInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\RetrieveAllPagedResultInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\RetrieveInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\UpdateInput.cs" />
+    <Compile Include="ApplicationServices\Shared\Dtos\Output\ChangeActivityOutput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Output\CreateOutput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Output\DeleteOutput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Output\RetrieveAllOutput.cs" />

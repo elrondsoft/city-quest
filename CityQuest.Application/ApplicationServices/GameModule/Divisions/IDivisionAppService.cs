@@ -64,5 +64,12 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
         /// <param name="input">object with input params</param>
         /// <returns>object with output params</returns>
         DeleteOutput<long> Delete(DeleteInput<long> input);
+
+        /// <summary>
+        /// Is used to change Division's activity (field IsActive)
+        /// </summary>
+        /// <param name="input">object with input params</param>
+        /// <returns>object with output params</returns>
+        ChangeActivityOutput<DivisionDto, long> ChangeActivity(ChangeActivityInput input);
     }
 }

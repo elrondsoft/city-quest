@@ -9,5 +9,6 @@ namespace CityQuest.ApplicationServices.Shared.Dtos.Input
 {
     public class RetrieveInput : IInputDto
     {
+        public long? Id { get; set; }
     }
 }

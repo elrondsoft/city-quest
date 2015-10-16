@@ -10,6 +10,6 @@ namespace CityQuest.ApplicationServices.Shared.Dtos.Output
     public class RetrieveAllOutput<TEntityDto, TPrimaryKey> : IOutputDto
         where TEntityDto : class, IEntityDto<TPrimaryKey>
     {
-        public IList<TEntityDto> RetrievedItems { get; set; }
+        public IList<TEntityDto> RetrievedEntities { get; set; }
     }
 }
