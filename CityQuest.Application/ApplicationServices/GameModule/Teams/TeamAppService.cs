@@ -65,7 +65,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             if (input.IsActive ?? true)
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
-            IReadOnlyList<ComboboxItemDto> teamsLikeComboBoxes = TeamRepository.GetAll()
+            IReadOnlyList<ComboboxItemDto> teamsLikeComboBoxes = TeamRepository.GetAll().ToList()
                 .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name)).ToList();
 
             return new RetrieveAllTeamsLikeComboBoxesOutput()

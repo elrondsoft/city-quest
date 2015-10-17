@@ -64,7 +64,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             if (input.IsActive ?? true)
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
-            IReadOnlyList<ComboboxItemDto> divisionsLikeComboBoxes = DivisionRepository.GetAll()
+            IReadOnlyList<ComboboxItemDto> divisionsLikeComboBoxes = DivisionRepository.GetAll().ToList()
                 .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name)).ToList();
 
             return new RetrieveAllDivisionsLikeComboBoxesOutput()

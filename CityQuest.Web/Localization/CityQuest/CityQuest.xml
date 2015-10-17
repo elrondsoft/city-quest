@@ -55,15 +55,20 @@
     <text name="DeactivateConfirmationMsg_Header" value="Confirmation of deactivation!" />
     
     <text name="Divisions" value="Divisions" />
+    <text name="Division" value="Division" />
     <text name="DivisionDetails" value="Division details" />
+    <text name="DivisionMainInfo" value="Main info for Division" />
     <text name="TeamsCount" value="Count of teams" />
     <text name="RelatedTeams" value="Related teams" />
-    <text name="DivisionMainInfo" value="Main info for Division" />
 
     <text name="Teams" value="Teams" />
     <text name="Team" value="Team" />
-    <text name="Division" value="Division" />
+    <text name="TeamDetails" value="Team details" />
+    <text name="TeamMainInfo" value="Main info for Team" />
     <text name="Captain" value="Captain" />
+    <text name="Players" value="Players" />
+    <text name="Slogan" value="Slogan" />
+
 
   </texts>
 </localizationDictionary>

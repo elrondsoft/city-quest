@@ -13,10 +13,11 @@ namespace CityQuest.ApplicationServices.GameModule.Teams.Dtos
     {
         #region Relations
 
+        public long CaptainId { get; set; }
         public string CaptainName { get; set; }
         //public UserDto Captain { get; set; }
 
-        //public string DivisionName { get; set; }
+        public long DivisionId { get; set; }
         public virtual DivisionDto Division { get; set; }
 
         //public virtual IList<UserDto> Players { get; set; }
