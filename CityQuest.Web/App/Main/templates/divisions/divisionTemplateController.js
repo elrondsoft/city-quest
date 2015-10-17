@@ -7,18 +7,73 @@
             vm.localize = constSvc.localize;
             vm.title = vm.localize('DivisionDetails');
 
-            var initTemplateData = function () {
-                if (serviceData.entityId) {
-                    return divisionSvc.retrieve({ Id: serviceData.entityId, IsActive: false })
+            //---------------------------------------------------------------------------------------------------------
+            //------------------------------------------Initializing---------------------------------------------------
+            /// Is used to initialize Template
+            var initFunctions = {
+                loadEntity: function (entityId) {
+                    return divisionSvc.retrieve({ Id: entityId, IsActive: false })
                         .success(function (data) {
                             vm.entity = data.retrievedEntity;
                         });
+                },
+                initDefaultEntity: function () {
+                    var defaultEntity = {
+                        name: null,
+                        description: null,
+                        isDefault: false,
+                        isActive: true,
+                        teams: [],
+                        teamsCount: 0
+                    };
+                    vm.entity = defaultEntity;
+                    return vm.entity;
+                },
+                initTemplateData: function () {
+                    if (!(serviceData && serviceData.templateMode))
+                        return false;
+
+                    switch (serviceData.templateMode) {
+                        case constSvc.formModes.info:
+                            if (serviceData.entityId) {
+                                return initFunctions.loadEntity(serviceData.entityId);
+                            } else {
+                                return false;
+                            }
+                            break;
+                        case constSvc.formModes.update:
+                            if (serviceData.entityId) {
+                                return initFunctions.loadEntity(serviceData.entityId);
+                            } else {
+                                return false;
+                            }
+                            break;
+                        case constSvc.formModes.create:
+                            return initFunctions.initDefaultEntity();
+                            break;
+                        default:
+                            return false;
+                    };
+                },
+            };
+            initFunctions.initTemplateData();
+            //----------------------------------------Template's modes-------------------------------------------------
+            /// Is used to get bool result for conmaring template's mode with standart ones
+            vm.templateMode = {
+                isInfo: function () {
+                    return serviceData && serviceData.templateMode &&
+                        (serviceData.templateMode == constSvc.formModes.info);
+                },
+                isCreate: function () {
+                    return serviceData && serviceData.templateMode &&
+                        (serviceData.templateMode == constSvc.formModes.create);
+                },
+                isUpdate: function () {
+                    return serviceData && serviceData.templateMode &&
+                        (serviceData.templateMode == constSvc.formModes.update);
                 }
             };
-            initTemplateData();
-
-            //-------------------------------------------------------------------------------------------------------------
-            //----------------------------------Template's actions service-------------------------------------------------
+            //----------------------------------Template's actions service---------------------------------------------
             /// Is used to allow actions for this template
             vm.templateAvailableActions = {
                 createEntity: function () {
@@ -42,7 +97,7 @@
                     return vm.templateAvailableActions.createEntity() || vm.templateAvailableActions.updateEntity();
                 },
             };
-            //-------------------------------------------------------------------------------------------------------------
+            //---------------------------------------------------------------------------------------------------------
             /// Is used to store actions can be allowed in this template
             vm.templateActions = {
                 createEntity: function () {
@@ -149,7 +204,7 @@
                     $scope.$close();
                 },
             };
-            //-------------------------------------------------------------------------------------------------------------
+            //---------------------------------------------------------------------------------------------------------
         }
     ]);
 })();

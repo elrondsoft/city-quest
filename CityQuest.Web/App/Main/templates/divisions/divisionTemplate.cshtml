@@ -14,17 +14,37 @@
 </div>
 <div class="modal-body">
     <accordion close-others="oneAtATime">
-        <accordion-group heading="asd" is-open="true" class="aggregation-result-container">
-            <div class="row">
-                <div class="col-xs-2 cq-label">
-                    Name: &nbsp;
+        <accordion-group heading="@L("DivisionMainInfo")"
+                         is-open="true"
+                         class="cq-main-info-accordion">
+            <div class="row cq-control-row">
+                <div class="col-xs-2 cq-control-label">
+                    @L("Name"): &nbsp;
                 </div>
                 <div class="col-xs-8">
                     <input class="form-control cq-control"
-                           ng-style="{'width':'100%'}"
+                           ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
                            ng-model="vm.entity.name" />
                 </div>
             </div>
+            <div class="row cq-control-row">
+                <div class="col-xs-2 cq-control-label">
+                    @L("Description"): &nbsp;
+                </div>
+                <div class="col-xs-8">
+                    <textarea class="form-control cq-control"
+                              ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                              ng-style="{'width':'100%'}"
+                              rows="3"
+                              ng-model="vm.entity.description" />
+                </div>
+            </div>
+        </accordion-group>
+        <accordion-group is-open="false"
+                         ng-if="vm.templateMode.isInfo() || vm.templateMode.isUpdate()"
+                         heading="@L("RelatedTeams") ({{vm.entity.teamsCount}})"
+                         class="cq-other-info-accordion">
+            TODO: related teams list
         </accordion-group>
     </accordion>
 </div>

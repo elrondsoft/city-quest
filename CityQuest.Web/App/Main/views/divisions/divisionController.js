@@ -6,8 +6,9 @@
             var vm = this;
             vm.localize = constSvc.localize;
             vm.title = vm.localize("Divisions");
+
             //--------------------------------Helpers------------------------------------------------------------------
-            //---------------- Object with functions that would be used in vm.fields ----------------------------------
+            //-----------------Object with functions that would be used in vm.fields-----------------------------------
             var fieldFunctions = {
                 displayId: function (data) {
                     return data.record.id;
@@ -93,7 +94,7 @@
                         getDeactivateButton(record) + getDeleteButton(record);
                 }
             };
-            //---------------- Object with actions (functions) for division -------------------------------------------
+            //-----------------Object with actions (functions) for division--------------------------------------------
             var divisionActions = {
                 openInfoTemplate: function (event) {
                     event.preventDefault();
@@ -158,127 +159,218 @@
                     modal.open(modalOptions);
                     return false;
                 },
-                deleteDivision: function (event) { },
-                activateDivision: function (event) { },
-                deactivateDivision: function (event) { }
-            };
-            //---------------------------------------------------------------------------------------------------------
-            vm.title = vm.localize('Divisions');
-            vm.paging = true;
-            vm.messages = { apply: vm.localize('Apply') };
-            vm.actions = {
-                listAction: {
-                    method: abp.services.cityQuest.division.retrieveAllPagedResult,
-                    parameters: {
-                        IsActive: false,
-                    },
+                deleteDivision: function (event) {
+                    event.preventDefault();
+                    var entityId = event.currentTarget.id;
+                    abp.message.confirm(abp.utils.formatString(
+                                vm.localize('DeleteConfirmationMsg_Body'), '\'Division\'', entityId),
+                                vm.localize('DeleteConfirmationMsg_Header'),
+                        function (answer) {
+                            if (answer == true) {
+                                return divisionSvc.delete({ EntityId: entityId })
+                                    .success(function (data) {
+                                        abp.message.success(abp.utils.formatString(
+                                            vm.localize('DeleteSuccessMsgResult_Body'),
+                                                '\'Division\'', data.deletedEntityId),
+                                            vm.localize('DeleteSuccessMsgResult_Header'));
+                                        constSvc.jTableActions.deleteRecord('divisionTable', data.deletedEntityId);
+                                    });
+                            }
+                        });
+                },
+                activateDivision: function (event) {
+                    event.preventDefault();
+                    var entityId = event.currentTarget.id;
+                    abp.message.confirm(abp.utils.formatString(
+                                vm.localize('ActivateConfirmationMsg_Body'), '\'Division\'', entityId),
+                                vm.localize('ActivateConfirmationMsg_Header'),
+                        function (answer) {
+                            if (answer == true) {
+                                return divisionSvc.changeActivity({ EntityId: entityId, IsActive: true })
+                                    .success(function (data) {
+                                        abp.message.success(abp.utils.formatString(
+                                            vm.localize('ActivateSuccessMsgResult_Body'),
+                                                '\'Division\'', data.entity.id),
+                                            vm.localize('ActivateSuccessMsgResult_Header'));
+                                        constSvc.jTableActions.updateRecord('divisionTable', data.entity);
+                                    });
+                            }
+                        });
+                },
+                deactivateDivision: function (event) {
+                    event.preventDefault();
+                    var entityId = event.currentTarget.id;
+                    abp.message.confirm(abp.utils.formatString(
+                                vm.localize('DeactivateConfirmationMsg_Body'), '\'Division\'', entityId),
+                                vm.localize('DeactivateConfirmationMsg_Header'),
+                        function (answer) {
+                            if (answer == true) {
+                                return divisionSvc.changeActivity({ EntityId: entityId, IsActive: false })
+                                    .success(function (data) {
+                                        abp.message.success(abp.utils.formatString(
+                                            vm.localize('DeactivateSuccessMsgResult_Body'),
+                                                '\'Division\'', data.entity.id),
+                                            vm.localize('DeactivateSuccessMsgResult_Header'));
+                                        constSvc.jTableActions.updateRecord('divisionTable', data.entity);
+                                    });
+                            }
+                        });
                 }
             };
-            vm.filters = [
-                {
-                    id: 'name-filter',
-                    label: vm.localize('Name'),
-                    type: 'input',
-                    width: '150px',
-                    assignedField: 'Name',
+            //-------------------------------Initializing jTable-------------------------------------------------------
+            /// Is used to initialize jTable
+            var jTableInitializer = {
+                getJTableMessages: function () {
+                    var messages = {
+                        apply: vm.localize('Apply')
+                    };
+                    return messages;
                 },
-            ];
-            vm.fields = {
-                Id: {
-                    key: true,
-                    visibility: 'hidden',
-                    title: vm.localize('Id'),
-                    display: fieldFunctions.displayId
+                getJTableActions: function () {
+                    var actions = {
+                        listAction: {
+                            method: abp.services.cityQuest.division.retrieveAllPagedResult,
+                            parameters: {
+                                IsActive: false,
+                            },
+                        }
+                    };
+                    return actions;
                 },
-                Name: {
-                    title: vm.localize('Name'),
-                    display: fieldFunctions.displayName
+                getJTableFilters: function () {
+                    var filters = [
+                        {
+                            id: 'name-filter',
+                            label: vm.localize('Name'),
+                            type: 'input',
+                            width: '150px',
+                            assignedField: 'Name',
+                        },
+                    ];
+                    return filters;
                 },
-                Description: {
-                    title: vm.localize('Description'),
-                    display: fieldFunctions.displayDescription
+                getJTableFields: function () {
+                    var fields = {
+                        Id: {
+                            key: true,
+                            visibility: 'hidden',
+                            title: vm.localize('Id'),
+                            display: fieldFunctions.displayId
+                        },
+                        Name: {
+                            title: vm.localize('Name'),
+                            display: fieldFunctions.displayName
+                        },
+                        Description: {
+                            title: vm.localize('Description'),
+                            display: fieldFunctions.displayDescription
+                        },
+                        TeamsCount: {
+                            title: vm.localize('TeamsCount'),
+                            display: fieldFunctions.displayTeamsCount
+                        },
+                        LastModificationTime: {
+                            visibility: 'hidden',
+                            title: vm.localize('LastModificationTime'),
+                            display: fieldFunctions.displayLastModificationTime
+                        },
+                        LastModifierName: {
+                            visibility: 'hidden',
+                            title: vm.localize('LastModifierName'),
+                            display: fieldFunctions.displayLastModifierName
+                        },
+                        CreationTime: {
+                            //visibility: 'hidden',
+                            title: vm.localize('CreationTime'),
+                            display: fieldFunctions.displayCreationTime
+                        },
+                        CreatorName: {
+                            //visibility: 'hidden',
+                            title: vm.localize('CreatorName'),
+                            display: fieldFunctions.displayCreatorName
+                        },
+                        Activity: {
+                            title: vm.localize('IsActive'),
+                            display: fieldFunctions.displayIsActive
+                        },
+                        Settings: {
+                            title: '',
+                            display: fieldFunctions.displaySettings
+                        },
+                    };
+                    return fields;
                 },
-                TeamsCount: {
-                    title: vm.localize('TeamsCount'),
-                    display: fieldFunctions.displayTeamsCount
+                getJtableRecordsLoaded: function () {
+                    var recordsLoaded = function (event, data) {
+                        $("#divisionTable .jtable").find(".btn").off("click");
+                        $(".division-info").click(function (event) {
+                            return divisionActions.openInfoTemplate(event);
+                        });
+                        $(".division-edit").click(function (event) {
+                            return divisionActions.openUpdateTemplate(event);
+                        });
+                        $(".division-delete").click(function (event) {
+                            return divisionActions.deleteDivision(event);
+                        });
+                        $(".division-activate").click(function (event) {
+                            return divisionActions.activateDivision(event);
+                        });
+                        $(".division-deactivate").click(function (event) {
+                            return divisionActions.deactivateDivision(event);
+                        });
+                    };
+                    return recordsLoaded;
                 },
-                LastModificationTime: {
-                    visibility: 'hidden',
-                    title: vm.localize('LastModificationTime'),
-                    display: fieldFunctions.displayLastModificationTime
-                },
-                LastModifierName: {
-                    visibility: 'hidden',
-                    title: vm.localize('LastModifierName'),
-                    display: fieldFunctions.displayLastModifierName
-                },
-                CreationTime: {
-                    //visibility: 'hidden',
-                    title: vm.localize('CreationTime'),
-                    display: fieldFunctions.displayCreationTime
-                },
-                CreatorName: {
-                    //visibility: 'hidden',
-                    title: vm.localize('CreatorName'),
-                    display: fieldFunctions.displayCreatorName
-                },
-                Activity: {
-                    title: vm.localize('IsActive'),
-                    display: fieldFunctions.displayIsActive
-                },
-                Settings: {
-                    title: '',
-                    display: fieldFunctions.displaySettings
-                },
-            };
-            vm.recordsLoaded = function (event, data) {
-                $("#divisionTable .jtable").find(".btn").off("click");
-                $(".division-info").click(function (event) {
-                    return divisionActions.openInfoTemplate(event);
-                });
-                $(".division-edit").click(function (event) {
-                    return divisionActions.openUpdateTemplate(event);
-                });
-                $(".division-delete").click(function (event) {
-                    return divisionActions.deleteDivision(event);
-                });
-                $(".division-activate").click(function (event) {
-                    return divisionActions.activateDivision(event);
-                });
-                $(".division-deactivate").click(function (event) {
-                    return divisionActions.deactivateDivision(event);
-                });
-            };
-            // Is used to get toolbar's items
-            var getToolbarItems = function () {
-                var items = [];
-                var createItem = {
-                    icon: '',
-                    text: vm.localize('Create'),
-                    click: function () {
-                        return divisionActions.openCreateTemplate();
+                getJTableToolbarItems: function () {
+                    var items = [];
+                    var createItem = {
+                        icon: '',
+                        text: vm.localize('Create'),
+                        click: function () {
+                            return divisionActions.openCreateTemplate();
+                        }
+                    };
+                    var filterItem = {
+                        icon: '',
+                        text: vm.localize('Filters'),
+                        click: function () {
+                            $('#jtable-filter-panel').slideToggle("slow");
+                        }
+                    };
+                    if (permissionSvc.division.canCreate()) {
+                        items.push(createItem);
                     }
-                };
-                var filterItem = {
-                    icon: '',
-                    text: vm.localize('Filters'),
-                    click: function () {
-                        $('#jtable-filter-panel').slideToggle("slow");
-                    }
-                };
-                if (permissionSvc.division.canCreate()) {
-                    items.push(createItem);
+                    items.push(filterItem);
+                    return items;
+                },
+                getJTableToolsbar: function() {
+                    var toolbar = {
+                        hoverAnimation: true,
+                        hoverAnimationDuration: 60,
+                        hoverAnimationEasing: undefined,
+                        items: jTableInitializer.getJTableToolbarItems()
+                    };
+                    return toolbar;
+                },
+                getJTableLoaded: function () {
+                    var loaded = function () {
+
+                    };
+                    return loaded;
+                },
+                initJTable: function () {
+                    vm.paging = true;
+                    vm.messages = jTableInitializer.getJTableMessages();
+                    vm.actions = jTableInitializer.getJTableActions();
+                    vm.filters = jTableInitializer.getJTableFilters();
+                    vm.fields = jTableInitializer.getJTableFields();
+                    vm.recordsLoaded = jTableInitializer.getJtableRecordsLoaded();
+                    vm.toolbar = jTableInitializer.getJTableToolsbar();
+                    vm.loaded = jTableInitializer.getJTableLoaded();
                 }
-                items.push(filterItem);
-                return items;
             };
-            vm.toolbar = {
-                hoverAnimation: true, 
-                hoverAnimationDuration: 60, 
-                hoverAnimationEasing: undefined, 
-                items: getToolbarItems()
-            };
-            vm.loaded = function () { };
+            
+            jTableInitializer.initJTable();
         }
     ]);
 })();
