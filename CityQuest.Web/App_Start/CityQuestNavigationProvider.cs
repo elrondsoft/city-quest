@@ -29,6 +29,14 @@ namespace CityQuest.Web
                         url: "#/divisions",
                         icon: "fa fa-list-alt"
                         )
+                )
+                .AddItem(
+                    new MenuItemDefinition(
+                        "Teams",
+                        new LocalizableString("Teams", CityQuestConsts.LocalizationSourceName),
+                        url: "#/teams",
+                        icon: "fa fa-list-alt"
+                        )
                 );
         }
     }

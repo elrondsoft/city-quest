@@ -13,7 +13,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CityQuest.ApplicationServices.GameModule.Divisions
 {
@@ -47,7 +46,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
 
             int totalCount = divisionsQuery.Count();
             IReadOnlyList<DivisionDto> divisionDtos = divisionsQuery
-                .OrderBy(r => r.Name)
+                .OrderByDescending(r => r.IsDefault).ThenByDescending(r => r.IsActive).ThenBy(r => r.Name)
                 .Skip(input.SkipCount).Take(input.MaxResultCount)
                 .ToList().MapIList<Division, DivisionDto>().ToList();
 
@@ -126,6 +125,9 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
         {
             Division newDivisionEntity = input.Entity.MapTo<Division>();
 
+            newDivisionEntity.IsDefault = false;
+            newDivisionEntity.IsActive = true;
+
             DivisionDto newDivisionDto = (DivisionRepository.Insert(newDivisionEntity)).MapTo<DivisionDto>();
 
             return new CreateOutput<DivisionDto, long>()
@@ -157,10 +159,11 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             Division divisionEntityForDelete = DivisionRepository.Get(input.EntityId);
 
             if (divisionEntityForDelete == null)
-            {
                 throw new UserFriendlyException(String.Format(
                     "There are no Division with Id = {0}. Can not delete it.", input.EntityId));
-            }
+
+            if (divisionEntityForDelete.IsDefault == true)
+                throw new UserFriendlyException("Can not delete default Division.");
 
             DivisionRepository.Delete(divisionEntityForDelete);
 
@@ -175,10 +178,11 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             Division divisionEntity = DivisionRepository.Get(input.EntityId);
 
             if (divisionEntity == null)
-            {
                 throw new UserFriendlyException(String.Format(
                     "There are no Division with Id = {0}. Can not change it's activity.", input.EntityId));
-            }
+
+            if (divisionEntity.IsDefault == true)
+                throw new UserFriendlyException("Can not change activity of default Division.");
 
             divisionEntity.IsActive = input.IsActive == null ? !divisionEntity.IsActive : (bool)input.IsActive;
 

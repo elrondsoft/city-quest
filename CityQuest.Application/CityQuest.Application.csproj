@@ -98,6 +98,14 @@
     <Compile Include="ApplicationServices\GameModule\Divisions\Dtos\RetrieveAllDivisionsPagedResultInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Divisions\Dtos\RetrieveDivisionInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Divisions\IDivisionAppService.cs" />
+    <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsLikeComboBoxesInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsLikeComboBoxesOutput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsPagedResultInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveTeamInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Teams\Dtos\TeamDto.cs" />
+    <Compile Include="ApplicationServices\GameModule\Teams\ITeamAppService.cs" />
+    <Compile Include="ApplicationServices\GameModule\Teams\TeamAppService.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\ChangeActivityInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\CreateInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\DeleteInput.cs" />
@@ -129,7 +137,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ApplicationServices\GameModule\Teams\Dtos\" />
     <Folder Include="ApplicationServices\MainModule\" />
     <Folder Include="Utils\" />
   </ItemGroup>

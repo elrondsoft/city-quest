@@ -69,15 +69,19 @@ angular.module('app').service('clientCityQuestConstService', function () {
         //----------------------------------------Constants for Controllers--------------------------------------------
         /// Is used to store Angular's controllers's ids for CityQuest  
         this.ctrlRoutes = {
-            divisionViewCtrl: 'app.views.divisions.divisionController',
-            divisionTemplateCtrl: 'app.templates.divisions.divisionTemplateController',
+            divisionViewCtrl: 'app.views.divisions.divisionListController',
+            divisionDetailsCtrl: 'app.templates.divisions.divisionDetailsController',
+            teamListCtrl: 'app.views.teams.teamListController',
+            teamDetailsCtrl: 'app.templates.teams.teamDetailsController',
         };
         //-------------------------------------------------------------------------------------------------------------
         //----------------------------------------Constants for Templates/Views----------------------------------------
         /// Is used to store Angular's Templates/Views routes for CityQuest  
         this.viewRoutes = {
-            divisionView: '/App/Main/views/divisions/divisionView.cshtml',
-            divisionTemplate: '/App/Main/templates/divisions/divisionTemplate.cshtml',
+            divisionView: '/App/Main/views/divisions/divisionListView.cshtml',
+            divisionDetailsTemplate: '/App/Main/templates/divisions/divisionDetailsTemplate.cshtml',
+            teamListView: '/App/Main/views/teams/teamListView.cshtml',
+            teamDetailsTemplate: '/App/Main/templates/teams/teamDetailsTemplate.cshtml',
         };
         //-------------------------------------------------------------------------------------------------------------
 });

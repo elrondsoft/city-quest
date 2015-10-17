@@ -56,5 +56,13 @@ namespace CityQuest.Entities.MainModule.Users
                 return string.Format("{0} {1}", this.Name, this.Surname);
             }
         }
+
+        public string FullUserName
+        {
+            get
+            {
+                return string.Format("{0} ({1} {2})", this.UserName, this.Name, this.Surname);
+            }
+        }
     }
 }

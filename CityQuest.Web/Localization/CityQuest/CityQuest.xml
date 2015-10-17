@@ -39,7 +39,7 @@
     
     <text name="DeleteSuccessMsgResult_Body" value="Entity {0} (with Id = {1}) has been successfully deleted." />
     <text name="DeleteSuccessMsgResult_Header" value="Deleted successfully!" />
-    <text name="CreateSuccessMsgResult_Body" value="Entity {0} (with Id = {1}) has been successfully created." />
+    <text name="CreateSuccessMsgResult_Body" value="Entity {0} has been successfully created." />
     <text name="CreateSuccessMsgResult_Header" value="Created successfully!" />
     <text name="UpdateSuccessMsgResult_Body" value="Entity {0} (with Id = {1}) has been successfully updated." />
     <text name="UpdateSuccessMsgResult_Header" value="Updated successfully!" />
@@ -59,6 +59,11 @@
     <text name="TeamsCount" value="Count of teams" />
     <text name="RelatedTeams" value="Related teams" />
     <text name="DivisionMainInfo" value="Main info for Division" />
+
+    <text name="Teams" value="Teams" />
+    <text name="Team" value="Team" />
+    <text name="Division" value="Division" />
+    <text name="Captain" value="Captain" />
 
   </texts>
 </localizationDictionary>

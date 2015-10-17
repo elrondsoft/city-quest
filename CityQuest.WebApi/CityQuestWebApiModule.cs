@@ -4,6 +4,7 @@ using Abp.Modules;
 using Abp.WebApi;
 using Abp.WebApi.Controllers.Dynamic.Builders;
 using CityQuest.ApplicationServices.GameModule.Divisions;
+using CityQuest.ApplicationServices.GameModule.Teams;
 
 namespace CityQuest
 {
@@ -19,6 +20,8 @@ namespace CityQuest
             //    .Build();
 
             DynamicApiControllerBuilder.For<IDivisionAppService>("cityQuest/division").Build();
+
+            DynamicApiControllerBuilder.For<ITeamAppService>("cityQuest/team").Build();
         }
     }
 }

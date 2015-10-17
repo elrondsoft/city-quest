@@ -14,7 +14,33 @@ angular.module('app').service('clientPermissionService', function () {
             //return false;
             return true;
         },
-        canCreate: function () {
+        canCreate: function (entity) {
+            return true;
+        },
+        canUpdate: function (entity) {
+            return true;
+        },
+        canDelete: function (entity) {
+            return entity && (entity.isDefault == false) && true;
+        },
+        canActivate: function (entity) {
+            if (entity && (entity.isActive == false) && (entity.isDefault == false))
+                return true;
+            return false;
+        },
+        canDeactivate: function (entity) {
+            if (entity && (entity.isActive == true) && (entity.isDefault == false))
+                return true;
+            return false;
+        },
+    };
+    //-----------------------------------------------------------------------------------------------------------------
+    //----------------------------------------Client's permissions for Team--------------------------------------------
+    this.team = {
+        canRetrieve: function (entity) {
+            return true;
+        },
+        canCreate: function (entity) {
             return true;
         },
         canUpdate: function (entity) {
@@ -24,12 +50,12 @@ angular.module('app').service('clientPermissionService', function () {
             return true;
         },
         canActivate: function (entity) {
-            if (entity && entity.isActive == false)
+            if (entity && (entity.isActive == false))
                 return true;
             return false;
         },
         canDeactivate: function (entity) {
-            if (entity && entity.isActive == true)
+            if (entity && (entity.isActive == true))
                 return true;
             return false;
         },

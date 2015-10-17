@@ -1,5 +1,5 @@
 ﻿(function () {
-    var controllerId = 'app.templates.divisions.divisionTemplateController';
+    var controllerId = 'app.templates.divisions.divisionDetailsController';
     angular.module('app').controller(controllerId, ['$scope', 'serviceData', 'clientCityQuestConstService',
         'clientPermissionService', 'abp.services.cityQuest.division',
         function ($scope, serviceData, constSvc, permissionSvc, divisionSvc) {
@@ -77,21 +77,23 @@
             /// Is used to allow actions for this template
             vm.templateAvailableActions = {
                 createEntity: function () {
-                    return true && vm.entity && serviceData.templateMode == constSvc.formModes.create;
+                    return permissionSvc.division.canCreate(vm.entity) && vm.entity &&
+                        serviceData.templateMode == constSvc.formModes.create;
                 },
                 updateEntity: function () {
-                    return true && vm.entity && serviceData.templateMode == constSvc.formModes.update;
+                    return permissionSvc.division.canUpdate(vm.entity) && vm.entity &&
+                        serviceData.templateMode == constSvc.formModes.update;
                 },
                 activateEntity: function () {
-                    return true && vm.entity && !(!!vm.entity.isActive) &&
+                    return permissionSvc.division.canActivate(vm.entity) && vm.entity && !(!!vm.entity.isActive) &&
                         serviceData.templateMode == constSvc.formModes.update;
                 },
                 deactivateEntity: function () {
-                    return true && vm.entity && (!!vm.entity.isActive) &&
+                    return permissionSvc.division.canDeactivate(vm.entity) && vm.entity && (!!vm.entity.isActive) &&
                         serviceData.templateMode == constSvc.formModes.update;
                 },
                 deleteEntity: function () {
-                    return true && serviceData.templateMode == constSvc.formModes.update;
+                    return permissionSvc.division.canDelete(vm.entity) && serviceData.templateMode == constSvc.formModes.update;
                 },
                 saveEntity: function () {
                     return vm.templateAvailableActions.createEntity() || vm.templateAvailableActions.updateEntity();

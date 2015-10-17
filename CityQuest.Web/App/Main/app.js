@@ -26,8 +26,13 @@
                 })
                 .state('divisions', {
                     url: '/divisions',
-                    templateUrl: '/App/Main/views/divisions/divisionView.cshtml',
+                    templateUrl: '/App/Main/views/divisions/divisionListView.cshtml',
                     menu: 'Divisions',
+                })
+                .state('teams', {
+                    url: '/teams',
+                    templateUrl: '/App/Main/views/teams/teamListView.cshtml',
+                    menu: 'Teams',
                 });
         }
     ]);

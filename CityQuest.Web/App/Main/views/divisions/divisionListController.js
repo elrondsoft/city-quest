@@ -1,5 +1,5 @@
 ﻿(function () {
-    var controllerId = 'app.views.divisions.divisionController';
+    var controllerId = 'app.views.divisions.divisionListController';
     angular.module('app').controller(controllerId, ['$scope', '$modal', 'clientCityQuestConstService',
         'clientPermissionService', 'abp.services.cityQuest.division',
         function ($scope, modal, constSvc, permissionSvc, divisionSvc) {
@@ -61,7 +61,7 @@
                         return result;
                     };
                     var getDeleteButton = function (entity) {
-                        if (!permissionSvc.division.canDelete)
+                        if (!permissionSvc.division.canDelete(entity))
                             return '';
 
                         var deleteTittleText = vm.localize('DeleteTittleText');
@@ -99,8 +99,8 @@
                 openInfoTemplate: function (event) {
                     event.preventDefault();
                     var newModalOptions = {
-                        templateUrl: constSvc.viewRoutes.divisionTemplate,
-                        controller: constSvc.ctrlRoutes.divisionTemplateCtrl,
+                        templateUrl: constSvc.viewRoutes.divisionDetailsTemplate,
+                        controller: constSvc.ctrlRoutes.divisionDetailsCtrl,
                         resolve: {
                             serviceData: function () {
                                 var result = {
@@ -117,8 +117,8 @@
                 },
                 openCreateTemplate: function () {
                     var newModalOptions = {
-                        templateUrl: constSvc.viewRoutes.divisionTemplate,
-                        controller: constSvc.ctrlRoutes.divisionTemplateCtrl,
+                        templateUrl: constSvc.viewRoutes.divisionDetailsTemplate,
+                        controller: constSvc.ctrlRoutes.divisionDetailsCtrl,
                         resolve: {
                             serviceData: function () {
                                 var result = {
@@ -139,8 +139,8 @@
                 openUpdateTemplate: function (event) {
                     event.preventDefault();
                     var newModalOptions = {
-                        templateUrl: constSvc.viewRoutes.divisionTemplate,
-                        controller: constSvc.ctrlRoutes.divisionTemplateCtrl,
+                        templateUrl: constSvc.viewRoutes.divisionDetailsTemplate,
+                        controller: constSvc.ctrlRoutes.divisionDetailsCtrl,
                         resolve: {
                             serviceData: function () {
                                 var result = {

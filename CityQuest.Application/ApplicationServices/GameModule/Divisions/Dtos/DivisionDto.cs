@@ -14,6 +14,10 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions.Dtos
 
         //public virtual ICollection<TeamDto> Teams { get; set; }
 
+        public string LastModifierUserFullName { get; set; }
+        public string CreatorUserFullName { get; set; }
+        public int TeamsCount { get; set; }
+
         #endregion
 
         public string Name { get; set; }
@@ -21,9 +25,5 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions.Dtos
         public bool IsDefault { get; set; }
 
         public bool IsActive { get; set; }
-
-        public string LastModifierUserFullName { get; set; }
-        public string CreatorUserFullName { get; set; }
-        public int TeamsCount { get; set; }
     }
 }
