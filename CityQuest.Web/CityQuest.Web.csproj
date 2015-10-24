@@ -205,7 +205,6 @@
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
     <Content Include="App\Main\app.js" />
     <Content Include="App\Main\configuration\jTableConfiguration.js" />
-    <Content Include="App\Main\configuration\sumoselectConfigurator.js" />
     <Content Include="App\Main\directives\jTableDirectives\jTableDirective.js" />
     <Content Include="App\Main\main.css">
       <DependentUpon>main.less</DependentUpon>
@@ -1248,6 +1247,7 @@
     <Compile Include="App_Start\CityQuestNavigationProvider.cs" />
     <Compile Include="App_Start\CityQuestWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Authorization\CityQuestAuthorizationScriptManager.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CityQuestControllerBase.cs" />
     <Compile Include="Global.asax.cs">
