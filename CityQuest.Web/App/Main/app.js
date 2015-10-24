@@ -33,6 +33,11 @@
                     url: '/teams',
                     templateUrl: '/App/Main/views/teams/teamListView.cshtml',
                     menu: 'Teams',
+                })
+                .state('cities', {
+                    url: '/cities',
+                    templateUrl: '/App/Main/views/cities/cityListView.cshtml',
+                    menu: 'Cities',
                 });
         }
     ]);

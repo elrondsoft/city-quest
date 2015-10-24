@@ -217,6 +217,7 @@
     <Content Include="App\Main\styles\site.css" />
     <Content Include="App\Main\templates\divisions\divisionDetailsController.js" />
     <Content Include="App\Main\templates\teams\teamDetailsController.js" />
+    <Content Include="App\Main\views\cities\cityListController.js" />
     <Content Include="App\Main\views\divisions\divisionListController.js" />
     <Content Include="App\Main\views\layout\header.js" />
     <Content Include="App\Main\views\layout\layout.js" />
@@ -351,6 +352,7 @@
     <Content Include="App\Main\templates\divisions\divisionDetailsTemplate.cshtml" />
     <Content Include="App\Main\views\teams\teamListView.cshtml" />
     <Content Include="App\Main\templates\teams\teamDetailsTemplate.cshtml" />
+    <Content Include="App\Main\views\cities\cityListView.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />

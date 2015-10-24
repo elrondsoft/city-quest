@@ -67,6 +67,7 @@ angular.module('app').service('clientCityQuestConstService', function () {
             divisionDetailsCtrl: 'app.templates.divisions.divisionDetailsController',
             teamListCtrl: 'app.views.teams.teamListController',
             teamDetailsCtrl: 'app.templates.teams.teamDetailsController',
+            teamListCtrl: 'app.views.cities.cityListController',
         };
         //-------------------------------------------------------------------------------------------------------------
         //----------------------------------------Constants for Templates/Views----------------------------------------
@@ -76,6 +77,7 @@ angular.module('app').service('clientCityQuestConstService', function () {
             divisionDetailsTemplate: '/App/Main/templates/divisions/divisionDetailsTemplate.cshtml',
             teamListView: '/App/Main/views/teams/teamListView.cshtml',
             teamDetailsTemplate: '/App/Main/templates/teams/teamDetailsTemplate.cshtml',
+            cityListView: '/App/Main/views/cities/cityListView.cshtml',
         };
         //-------------------------------------------------------------------------------------------------------------
 });
