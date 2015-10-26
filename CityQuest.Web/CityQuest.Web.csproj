@@ -103,6 +103,13 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -118,6 +125,10 @@
     <Reference Include="Nito.AsyncEx.Enlightenment, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Nito.AsyncEx.3.0.1\lib\net45\Nito.AsyncEx.Enlightenment.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System.Collections.Immutable">
       <HintPath>..\packages\Microsoft.Bcl.Immutable.1.0.34\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
@@ -212,11 +223,16 @@
     <Content Include="App\Main\main.min.css">
       <DependentUpon>main.css</DependentUpon>
     </Content>
+    <Content Include="App\Main\route.js" />
+    <Content Include="App\Main\services\authorization\authInterceptorService.js" />
+    <Content Include="App\Main\services\authorization\authService.js" />
     <Content Include="App\Main\services\shared\clientCityQuestConstService.js" />
     <Content Include="App\Main\services\shared\clientPermissionService.js" />
+    <Content Include="App\Main\services\shared\dataStorageService.js" />
     <Content Include="App\Main\styles\site.css" />
     <Content Include="App\Main\templates\divisions\divisionDetailsController.js" />
     <Content Include="App\Main\templates\teams\teamDetailsController.js" />
+    <Content Include="App\Main\views\authorization\login.js" />
     <Content Include="App\Main\views\divisions\divisionListController.js" />
     <Content Include="App\Main\views\layout\header.js" />
     <Content Include="App\Main\views\layout\layout.js" />
@@ -351,6 +367,7 @@
     <Content Include="App\Main\templates\divisions\divisionDetailsTemplate.cshtml" />
     <Content Include="App\Main\views\teams\teamListView.cshtml" />
     <Content Include="App\Main\templates\teams\teamDetailsTemplate.cshtml" />
+    <Content Include="App\Main\views\authorization\login.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1225,6 +1242,7 @@
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\ngStorage.min.js" />
     <Content Include="Scripts\others\html5shiv.js" />
     <Content Include="Scripts\others\respond.min.js" />
     <Content Include="Scripts\others\respond.src.js" />
@@ -1240,7 +1258,6 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -1259,8 +1276,6 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\sweetalert\sweet-alert.scss" />
     <Content Include="Scripts\version.json" />
     <Content Include="Scripts\jtable\themes\basic\jtable_basic.less" />

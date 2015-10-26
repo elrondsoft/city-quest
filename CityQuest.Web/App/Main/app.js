@@ -4,36 +4,31 @@
     var app = angular.module('app', [
         'ngAnimate',
         'ngSanitize',
-
+        'ngStorage',
         'ui.router',
         'ui.bootstrap',
         'ui.jq',
 
-        'abp'//,
-        //'ngDialog'
+        'abp'
     ]);
 
-    //Configuration for Angular UI routing.
-    app.config([
-        '$stateProvider', '$urlRouterProvider',
-        function($stateProvider, $urlRouterProvider) {
-            $urlRouterProvider.otherwise('/');
-            $stateProvider
-                .state('home', {
-                    url: '/',
-                    templateUrl: '/App/Main/views/home/home.cshtml',
-                    menu: 'Home' //Matches to name of 'Home' menu in CityQuestNavigationProvider
-                })
-                .state('divisions', {
-                    url: '/divisions',
-                    templateUrl: '/App/Main/views/divisions/divisionListView.cshtml',
-                    menu: 'Divisions',
-                })
-                .state('teams', {
-                    url: '/teams',
-                    templateUrl: '/App/Main/views/teams/teamListView.cshtml',
-                    menu: 'Teams',
-                });
-        }
-    ]);
+    app.constant('ngAuthSettings', {
+        apiServiceBaseUri: abp.appPath,
+        clientId: 'ngAuthApp',
+        loginStateName: 'login',
+        loginMenuName: 'Login',
+        homeStateName: 'divisions'
+
+    });
+
+    app.value('params', null);
+
+    app.config(function ($httpProvider) {
+        $httpProvider.interceptors.push('authInterceptorService');
+    });
+
+    app.run(['authService', '$state', 'ngAuthSettings', function (authService, $state, ngAuthSettings) {
+        authService.fillAuthData()
+    }]);
+
 })();

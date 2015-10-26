@@ -14,7 +14,7 @@ namespace CityQuest.Web
             routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                defaults: new { id = RouteParameter.Optional, action = RouteParameter.Optional }
                 );
 
             routes.MapRoute(
