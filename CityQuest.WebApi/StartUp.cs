@@ -29,7 +29,6 @@ namespace CityQuest.Web.App_Start
             ConfigureOAuth(app);
         }
 
-
         public void ConfigureOAuth(IAppBuilder app)
         {
             OAuthBearerOptions = new OAuthBearerAuthenticationOptions();
@@ -37,11 +36,25 @@ namespace CityQuest.Web.App_Start
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(900),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
                 Provider = IocManager.Instance.Resolve<SimpleAuthorizationServerProvider>(),
             };
+            // Token Generation
             app.Use<InvalidAuthenticationMiddleware>();
             app.UseOAuthAuthorizationServer(OAuthServerOptions);
+            app.UseOAuthBearerAuthentication(OAuthBearerOptions);
+        }
+    }
+    public class TestAbpExceptionFilterAttribute : Abp.WebApi.Controllers.Filters.AbpExceptionFilterAttribute
+    {
+        public TestAbpExceptionFilterAttribute()
+            : base()
+        {
+
+        }
+        public override void OnException(System.Web.Http.Filters.HttpActionExecutedContext context)
+        {
+            base.OnException(context);
         }
     }
 }

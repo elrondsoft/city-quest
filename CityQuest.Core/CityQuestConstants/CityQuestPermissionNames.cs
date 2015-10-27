@@ -11,6 +11,8 @@ namespace CityQuest.CityQuestConstants
     {
         #region CityQuest's permission names
 
+        public const string CanAll = "CanAll";
+
         //public const string CanDoSomething = "CanDoSomething";
 
         #endregion

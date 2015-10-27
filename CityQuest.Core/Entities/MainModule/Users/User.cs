@@ -1,6 +1,8 @@
 ﻿using Abp.Domain.Entities.Auditing;
 using CityQuest.Entities.GameModule.Keys;
 using CityQuest.Entities.GameModule.Teams;
+using CityQuest.Entities.MainModule.Authorization.UserLogins;
+using CityQuest.Entities.MainModule.Authorization.UserRoles;
 using CityQuest.Entities.MainModule.Authorization.UserServices;
 using Microsoft.AspNet.Identity;
 using System;
@@ -19,6 +21,10 @@ namespace CityQuest.Entities.MainModule.Users
         public virtual ICollection<Key> ActivatedKeys { get; set; }
         public virtual ICollection<Team> Teams { get; set; }
         public virtual ICollection<Team> LeadedTeams { get; set; }
+
+        public virtual ICollection<UserLogin> Logins { get; set; }
+        public virtual ICollection<UserRole> Roles { get; set; }
+        public virtual ICollection<UserPermissionSetting> Permissions { get; set; }
 
         #endregion
 
@@ -42,15 +48,6 @@ namespace CityQuest.Entities.MainModule.Users
         /// </summary>
         public virtual DateTime? LastLoginTime { get; set; }
 
-
-        //public virtual ICollection<UserLogin> Logins { get; set; }
-
-        //public virtual ICollection<UserRole> Roles { get; set; }
-
-        //public virtual ICollection<UserPermissionSetting> Permissions { get; set; }
-
-        //public virtual ICollection<Setting> Settings { get; set; }
-
         public string FullName
         {
             get
@@ -69,9 +66,8 @@ namespace CityQuest.Entities.MainModule.Users
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager manager)
         {
-            // Обратите внимание, что authenticationType должен совпадать с типом, определенным в CookieAuthenticationOptions.AuthenticationType
+            // authenticationType have match with CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
-            // Здесь добавьте утверждения пользователя
             return userIdentity;
         }
     }

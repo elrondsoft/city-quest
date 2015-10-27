@@ -30,9 +30,6 @@ namespace CityQuest.Entities.MainModule.Authorization.UserServices
         private readonly IRoleRepository _roleRepository;
         private readonly IAbpSession _session;
 
-        /// <summary>
-        /// Constructor.
-        /// </summary>
         public UserStore(
             IUserRepository userRepository,
             IUserLoginRepository userLoginRepository,
@@ -218,6 +215,7 @@ namespace CityQuest.Entities.MainModule.Authorization.UserServices
         }
 
         #region lockout
+
         public Task<int> GetAccessFailedCountAsync(User user)
         {
             throw new NotImplementedException();
@@ -252,6 +250,7 @@ namespace CityQuest.Entities.MainModule.Authorization.UserServices
         {
             throw new NotImplementedException();
         }
+
         #endregion
 
         public Task<bool> GetTwoFactorEnabledAsync(User user)
@@ -264,8 +263,8 @@ namespace CityQuest.Entities.MainModule.Authorization.UserServices
             throw new NotImplementedException();
         }
 
-
         #region phone
+
         public Task<string> GetPhoneNumberAsync(User user)
         {
             return Task.Factory.StartNew(() => "Unknown");
@@ -285,6 +284,7 @@ namespace CityQuest.Entities.MainModule.Authorization.UserServices
         {
             throw new NotImplementedException();
         }
+
         #endregion
     }
 }

@@ -14,7 +14,6 @@ namespace CityQuest.Web.Authorization
 {
     public class CityQuestAuthorizationScriptManager : IAuthorizationScriptManager, ITransientDependency
     {
-        /// <inheritdoc/>
         public IAbpSession AbpSession { get; set; }
 
         public ICityQuestSession CityQuestSession

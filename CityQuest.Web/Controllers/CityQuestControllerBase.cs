@@ -1,4 +1,5 @@
 ﻿using Abp.Web.Mvc.Controllers;
+using CityQuest.Runtime.Sessions;
 
 namespace CityQuest.Web.Controllers
 {
@@ -7,6 +8,13 @@ namespace CityQuest.Web.Controllers
     /// </summary>
     public abstract class CityQuestControllerBase : AbpController
     {
+        protected ICityQuestSession CityQuestSession
+        {
+            get
+            {
+                return AbpSession as ICityQuestSession;
+            }
+        }
         protected CityQuestControllerBase()
         {
             LocalizationSourceName = CityQuestConsts.LocalizationSourceName;

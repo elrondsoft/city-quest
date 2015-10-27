@@ -110,6 +110,10 @@
     <Compile Include="Migrations\201510122037336_AddedGameModuleEntities.Designer.cs">
       <DependentUpon>201510122037336_AddedGameModuleEntities.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510272008352_AddedAuthorization.cs" />
+    <Compile Include="Migrations\201510272008352_AddedAuthorization.Designer.cs">
+      <DependentUpon>201510272008352_AddedAuthorization.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CityQuestDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -130,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510122037336_AddedGameModuleEntities.resx">
       <DependentUpon>201510122037336_AddedGameModuleEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510272008352_AddedAuthorization.resx">
+      <DependentUpon>201510272008352_AddedAuthorization.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
