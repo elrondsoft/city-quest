@@ -100,6 +100,7 @@
     <Compile Include="EntityFramework\CityQuestDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\CityQuestRepositoryBase.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\DivisionRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\GameModule\LocationRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\TeamRepository.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Migrations\201510111309189_InitialCreate.cs" />
@@ -113,6 +114,10 @@
     <Compile Include="Migrations\201510272008352_AddedAuthorization.cs" />
     <Compile Include="Migrations\201510272008352_AddedAuthorization.Designer.cs">
       <DependentUpon>201510272008352_AddedAuthorization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510272304403_AddedLocations.cs" />
+    <Compile Include="Migrations\201510272304403_AddedLocations.Designer.cs">
+      <DependentUpon>201510272304403_AddedLocations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CityQuestDataModule.cs" />
@@ -137,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510272008352_AddedAuthorization.resx">
       <DependentUpon>201510272008352_AddedAuthorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510272304403_AddedLocations.resx">
+      <DependentUpon>201510272304403_AddedLocations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

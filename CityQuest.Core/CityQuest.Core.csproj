@@ -112,6 +112,8 @@
     <Compile Include="Entities\GameModule\Games\GameTasks\GameTaskTypes\GameTaskType.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Tips\Tip.cs" />
     <Compile Include="Entities\GameModule\Keys\Key.cs" />
+    <Compile Include="Entities\GameModule\Locations\ILocationRepository.cs" />
+    <Compile Include="Entities\GameModule\Locations\Location.cs" />
     <Compile Include="Entities\GameModule\Teams\ITeamRepository.cs" />
     <Compile Include="Entities\GameModule\Teams\Team.cs" />
     <Compile Include="Entities\MainModule\Authorization\CityQuestAuthorizationProvider.cs" />

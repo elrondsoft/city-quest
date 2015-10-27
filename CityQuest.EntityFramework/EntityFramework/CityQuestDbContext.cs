@@ -23,6 +23,7 @@ using CityQuest.Entities.MainModule.Authorization;
 using CityQuest.Entities.MainModule.Authorization.RolePermissionSettings;
 using CityQuest.Entities.MainModule.Authorization.UserServices;
 using CityQuest.Entities.MainModule.Authorization.UserRoles;
+using CityQuest.Entities.GameModule.Locations;
 
 namespace CityQuest.EntityFramework
 {
@@ -40,13 +41,12 @@ namespace CityQuest.EntityFramework
         public virtual IDbSet<RolePermissionSetting> RolePermissions { get; set; }
         public virtual IDbSet<UserPermissionSetting> UserPermissions { get; set; }
         //public virtual IDbSet<Setting> Settings { get; set; }
-        //public virtual IDbSet<Location> Locations { get; set; }
-
 
         #endregion
 
         #region GameModule DbSets
 
+        public virtual IDbSet<Location> Locations { get; set; }
         public virtual IDbSet<Division> Divisions { get; set; }
         public virtual IDbSet<Team> Teams { get; set; }
         public virtual IDbSet<Key> Keys { get; set; }
