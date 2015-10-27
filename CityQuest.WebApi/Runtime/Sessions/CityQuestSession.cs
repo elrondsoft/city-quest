@@ -36,12 +36,12 @@ namespace CityQuest.Runtime.Sessions
 
         public int? ImpersonatorTenantId
         {
-            get { throw new NotImplementedException(); }
+            get { return null; }
         }
 
         public long? ImpersonatorUserId
         {
-            get { throw new NotImplementedException(); }
+            get { return null; }
         }
 
         public Abp.MultiTenancy.MultiTenancySides MultiTenancySide

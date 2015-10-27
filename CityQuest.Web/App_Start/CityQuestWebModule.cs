@@ -7,6 +7,9 @@ using Abp.Localization;
 using Abp.Localization.Dictionaries;
 using Abp.Localization.Dictionaries.Xml;
 using Abp.Modules;
+using Castle.MicroKernel.Registration;
+using Abp.Web.Authorization;
+using CityQuest.Web.Authorization;
 
 namespace CityQuest.Web
 {
@@ -15,6 +18,9 @@ namespace CityQuest.Web
     {
         public override void PreInitialize()
         {
+            IocManager.IocContainer.Register(Component.For<IAuthorizationScriptManager>().ImplementedBy<CityQuestAuthorizationScriptManager>().LifestyleTransient());
+
+
             //Add/remove languages for your application
             Configuration.Localization.Languages.Add(new LanguageInfo("en", "English", "famfamfam-flag-england", true));
             Configuration.Localization.Languages.Add(new LanguageInfo("ru", "Русский", "famfamfam-flag-ru"));
