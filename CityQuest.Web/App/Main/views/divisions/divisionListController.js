@@ -251,7 +251,7 @@
                 },
                 getJTableFields: function () {
                     var fields = {
-                        Id: {
+                        id: {
                             key: true,
                             visibility: 'hidden',
                             title: vm.localize('Id'),

@@ -37,16 +37,12 @@ angular.module('app').service('clientCityQuestConstService', function () {
         };
         /// Is used to manipulate with jTable (use vm.recordsLoaded(); after this action)
         this.jTableActions = {
-            loadJTable: function (jTableName) {
-                $('#' + jTableName).jtable('load');
-            },
             deleteRecord: function (jTableName, recordKey) {
                 $('#' + jTableName).jtable('deleteRecord',
                     {
                         key: recordKey,
                         clientOnly: true
                     });
-                this.loadJTable(jTableName);
             },
             updateRecord: function (jTableName, recordEntity) {
                 $('#' + jTableName).jtable('updateRecord',
@@ -54,7 +50,6 @@ angular.module('app').service('clientCityQuestConstService', function () {
                         record: recordEntity,
                         clientOnly: true
                     });
-                this.loadJTable(jTableName);
             },
             createRecord: function (jTableName, recordEntity) {
                 $('#' + jTableName).jtable('addRecord',
@@ -62,7 +57,6 @@ angular.module('app').service('clientCityQuestConstService', function () {
                         record: recordEntity,
                         clientOnly: true
                     });
-                this.loadJTable(jTableName);
             }
         };
         //-------------------------------------------------------------------------------------------------------------
