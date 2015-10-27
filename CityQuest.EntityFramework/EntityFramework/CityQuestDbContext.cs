@@ -17,6 +17,12 @@ using CityQuest.Entities.MainModule.Users;
 using System.Data.Entity;
 using global::EntityFramework.DynamicFilters;
 using System.Diagnostics;
+using CityQuest.Entities.MainModule.Roles;
+using CityQuest.Entities.MainModule.Authorization.UserLogins;
+using CityQuest.Entities.MainModule.Authorization;
+using CityQuest.Entities.MainModule.Authorization.RolePermissionSettings;
+using CityQuest.Entities.MainModule.Authorization.UserServices;
+using CityQuest.Entities.MainModule.Authorization.UserRoles;
 
 namespace CityQuest.EntityFramework
 {
@@ -27,6 +33,15 @@ namespace CityQuest.EntityFramework
         #region MainModule DbSets
 
         public virtual IDbSet<User> Users { get; set; }
+
+        public virtual IDbSet<Role> Roles { get; set; }
+        public virtual IDbSet<UserLogin> UserLogins { get; set; }
+        public virtual IDbSet<PermissionSetting> Permissions { get; set; }
+        public virtual IDbSet<RolePermissionSetting> RolePermissions { get; set; }
+        public virtual IDbSet<UserPermissionSetting> UserPermissions { get; set; }
+        //public virtual IDbSet<Setting> Settings { get; set; }
+        //public virtual IDbSet<Location> Locations { get; set; }
+
 
         #endregion
 
@@ -70,7 +85,33 @@ namespace CityQuest.EntityFramework
 
             #region MainModule
 
+            modelBuilder.Entity<RolePermissionSetting>()
+                .HasRequired(r => r.Role)
+                .WithMany(r => r.Permissions)
+                .HasForeignKey(r => r.RoleId)
+                .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<UserRole>()
+                .HasRequired(r => r.User)
+                .WithMany(r => r.Roles)
+                .HasForeignKey(r => r.UserId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<UserRole>()
+                .HasRequired(r => r.Role)
+                .WithMany(r => r.Roles)
+                .HasForeignKey(r => r.RoleId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<UserPermissionSetting>()
+                .HasRequired(r => r.User)
+                .WithMany(r => r.Permissions)
+                .HasForeignKey(r => r.UserId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
+                .HasMany(r => r.Logins)
+                .WithMany(r => r.Users);
 
             #endregion
 
