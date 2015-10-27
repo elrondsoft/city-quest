@@ -69,7 +69,8 @@
     <text name="Players" value="Players" />
     <text name="Slogan" value="Slogan" />
 
-    <text name="Cities" value="Cities" />
+    <text name="Locations" value="Locations" />
+    <text name="Location" value="Location" />
         
   </texts>
 </localizationDictionary>

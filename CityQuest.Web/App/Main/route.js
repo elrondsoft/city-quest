@@ -39,6 +39,12 @@
                     templateUrl: '/App/Main/views/teams/teamListView.cshtml',
                     menu: 'Teams',
                     onEnter: onEnterAuthorizedRequired,
+                })
+                .state('locations', {
+                    url: '/locations',
+                    templateUrl: '/App/Main/views/locations/locationListView.cshtml',
+                    menu: 'Locations',
+                    onEnter: onEnterAuthorizedRequired,
                 });
         }
     ]);

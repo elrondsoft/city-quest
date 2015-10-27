@@ -40,9 +40,9 @@ namespace CityQuest.Web
                 )
                 .AddItem(
                     new MenuItemDefinition(
-                        "Cities",
-                        new LocalizableString("Cities", CityQuestConsts.LocalizationSourceName),
-                        url: "#/cities",
+                        "Locations",
+                        new LocalizableString("Locations", CityQuestConsts.LocalizationSourceName),
+                        url: "#/locations",
                         icon: "fa fa-list-alt"
                         )
                 );
