@@ -4,6 +4,21 @@
     <text name="ApplicationName" value="CityQuest" />
     <text name="WellcomeMessage" value="Welcome to CityQuest!" />
     <text name="HomePage" value="Home page" />
+    <text name="Login" value="Login" />
+    <text name="Logout" value="Logout" />
+
+    <text name="SignInTo" value="Sign in to" />
+    <text name="SignUpFor" value="Sign up for" />
+    <text name="UserName" value="User name" />
+    <text name="Password" value="Password" />
+    <text name="RememberMe" value="Remember me" />
+    <text name="SignUp" value="Sign up" />
+    <text name="SignIn" value="Sign in" />
+    <text name="BackButton" value="Back" />
+    <text name="Email" value="E-mail" />
+    <text name="EmailAddress" value="E-mail address" />
+    <text name="FirstName" value="First name" />
+    <text name="LastName" value="Last name" />
 
     <text name="Apply" value="Apply" />
     <text name="Filters" value="Filters" />

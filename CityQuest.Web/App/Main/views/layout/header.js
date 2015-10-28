@@ -19,7 +19,6 @@
 
             vm.logout = function () {
                 abp.auth.grantedPermissions = {};
-                //abp.session = {};
                 authService.logOut();
                 $state.go(ngAuthSettings.loginStateName);
             };
