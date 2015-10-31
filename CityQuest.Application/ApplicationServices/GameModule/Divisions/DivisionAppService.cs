@@ -103,7 +103,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
 
             if (divisionEntities.Count != 1) 
             {
-                throw new UserFriendlyException(String.Format(
+                throw new UserFriendlyException("Inaccessible action!", String.Format(
                     "Can not retrieve Division with these filters."));            
             }
 //TODO: add policy
@@ -142,7 +142,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
 
             if (newDivisionEntity == null)
             {
-                throw new UserFriendlyException(String.Format(
+                throw new UserFriendlyException("Inaccessible action!", String.Format(
                     "There is not valid Division entity. Can not update to it."));
             }
 
@@ -159,11 +159,11 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             Division divisionEntityForDelete = DivisionRepository.Get(input.EntityId);
 
             if (divisionEntityForDelete == null)
-                throw new UserFriendlyException(String.Format(
+                throw new UserFriendlyException("Inaccessible action!", String.Format(
                     "There are no Division with Id = {0}. Can not delete it.", input.EntityId));
 
             if (divisionEntityForDelete.IsDefault == true)
-                throw new UserFriendlyException("Can not delete default Division.");
+                throw new UserFriendlyException("Inaccessible action!", "Can not delete default Division.");
 
             DivisionRepository.Delete(divisionEntityForDelete);
 
@@ -178,11 +178,11 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             Division divisionEntity = DivisionRepository.Get(input.EntityId);
 
             if (divisionEntity == null)
-                throw new UserFriendlyException(String.Format(
+                throw new UserFriendlyException("Inaccessible action!", String.Format(
                     "There are no Division with Id = {0}. Can not change it's activity.", input.EntityId));
 
             if (divisionEntity.IsDefault == true)
-                throw new UserFriendlyException("Can not change activity of default Division.");
+                throw new UserFriendlyException("Inaccessible action!", "Can not change activity of default Division.");
 
             divisionEntity.IsActive = input.IsActive == null ? !divisionEntity.IsActive : (bool)input.IsActive;
 

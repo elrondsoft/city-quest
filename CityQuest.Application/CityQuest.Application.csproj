@@ -106,6 +106,25 @@
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\TeamDto.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\ITeamAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\TeamAppService.cs" />
+    <Compile Include="ApplicationServices\MainModule\Roles\Dto\PermissionDto.cs" />
+    <Compile Include="ApplicationServices\MainModule\Roles\Dto\RetrieveAllRoleInput.cs" />
+    <Compile Include="ApplicationServices\MainModule\Roles\Dto\RetrieveAllRolesLikeComboBoxesInput.cs" />
+    <Compile Include="ApplicationServices\MainModule\Roles\Dto\RetrieveAllRolesLikeComboBoxesOutput.cs" />
+    <Compile Include="ApplicationServices\MainModule\Roles\Dto\RetrieveAllRolesPagedResultInput.cs" />
+    <Compile Include="ApplicationServices\MainModule\Roles\Dto\RetrieveRoleInput.cs" />
+    <Compile Include="ApplicationServices\MainModule\Roles\Dto\RoleDto.cs" />
+    <Compile Include="ApplicationServices\MainModule\Roles\IRoleAppService.cs" />
+    <Compile Include="ApplicationServices\MainModule\Roles\RoleAppService.cs" />
+    <Compile Include="ApplicationServices\MainModule\Users\Dto\ChangePasswordInput.cs" />
+    <Compile Include="ApplicationServices\MainModule\Users\Dto\ChangePasswordOutput.cs" />
+    <Compile Include="ApplicationServices\MainModule\Users\Dto\RetrieveAllUsersInput.cs" />
+    <Compile Include="ApplicationServices\MainModule\Users\Dto\RetrieveAllUsersLikeComboBoxesInput.cs" />
+    <Compile Include="ApplicationServices\MainModule\Users\Dto\RetrieveAllUsersLikeComboBoxesOutput.cs" />
+    <Compile Include="ApplicationServices\MainModule\Users\Dto\RetrieveAllUsersPagedResultInput.cs" />
+    <Compile Include="ApplicationServices\MainModule\Users\Dto\RetrieveUserInput.cs" />
+    <Compile Include="ApplicationServices\MainModule\Users\Dto\UserDto.cs" />
+    <Compile Include="ApplicationServices\MainModule\Users\IUserAppService.cs" />
+    <Compile Include="ApplicationServices\MainModule\Users\UserAppService.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\ChangeActivityInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\CreateInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\DeleteInput.cs" />
@@ -137,7 +156,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ApplicationServices\MainModule\" />
     <Folder Include="Utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

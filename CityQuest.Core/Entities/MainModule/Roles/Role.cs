@@ -30,8 +30,14 @@ namespace CityQuest.Entities.MainModule.Roles
         /// </summary>
         public virtual bool IsStatic { get; set; }
 
+        /// <summary>
+        /// Is this a default role? (new user will get it)
+        /// Default role can not be deleted
+        /// </summary>
+        public bool IsDefault { get; set; }
+
         public virtual ICollection<RolePermissionSetting> Permissions { get; set; }
-        public virtual ICollection<UserRole> Roles { get; set; }
+        public virtual ICollection<UserRole> UserRoles { get; set; }
 
         public Role() { }
 

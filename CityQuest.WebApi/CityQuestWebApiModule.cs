@@ -8,6 +8,8 @@ using CityQuest.ApplicationServices.GameModule.Teams;
 using CityQuest.Runtime.Sessions;
 using Castle.MicroKernel.Registration;
 using Abp.Runtime.Session;
+using CityQuest.ApplicationServices.MainModule.Roles;
+using CityQuest.ApplicationServices.MainModule.Users;
 
 namespace CityQuest
 {
@@ -25,13 +27,21 @@ namespace CityQuest
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
 
-            //DynamicApiControllerBuilder
-            //    .ForAll<IApplicationService>(typeof(CityQuestApplicationModule).Assembly, "cityQuest")
-            //    .Build();
+            #region Main module's dynamic api controller builders
+
+            DynamicApiControllerBuilder.For<IRoleAppService>("cityQuest/role").Build();
+
+            DynamicApiControllerBuilder.For<IUserAppService>("cityQuest/user").Build();
+
+            #endregion
+
+            #region Main module's dynamic api controller builders
 
             DynamicApiControllerBuilder.For<IDivisionAppService>("cityQuest/division").Build();
 
             DynamicApiControllerBuilder.For<ITeamAppService>("cityQuest/team").Build();
+
+            #endregion
         }
     }
 }

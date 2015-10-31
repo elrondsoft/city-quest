@@ -103,7 +103,14 @@
     <Compile Include="CityQuestConstants\CityQuestPermissionNames.cs" />
     <Compile Include="CityQuestConstants\Filters.cs" />
     <Compile Include="CityQuestCoreModule.cs" />
+    <Compile Include="CityQuestPolicy\CityQuestPolicyBase.cs" />
+    <Compile Include="CityQuestPolicy\MainModule\Roles\IRolePolicy.cs" />
+    <Compile Include="CityQuestPolicy\MainModule\Roles\RolePolicy.cs" />
+    <Compile Include="CityQuestPolicy\MainModule\Users\IUserPolicy.cs" />
+    <Compile Include="CityQuestPolicy\MainModule\Users\UserPolicy.cs" />
     <Compile Include="Entities\GameModule\Divisions\Division.cs" />
+    <Compile Include="CityQuestPolicy\GameModule\Divisions\DivisionPolicy.cs" />
+    <Compile Include="CityQuestPolicy\GameModule\Divisions\IDivisionPolicy.cs" />
     <Compile Include="Entities\GameModule\Divisions\IDivisionRepository.cs" />
     <Compile Include="Entities\GameModule\Games\Game.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\Condition.cs" />
@@ -114,8 +121,10 @@
     <Compile Include="Entities\GameModule\Keys\Key.cs" />
     <Compile Include="Entities\GameModule\Locations\ILocationRepository.cs" />
     <Compile Include="Entities\GameModule\Locations\Location.cs" />
+    <Compile Include="CityQuestPolicy\GameModule\Teams\ITeamPolicy.cs" />
     <Compile Include="Entities\GameModule\Teams\ITeamRepository.cs" />
     <Compile Include="Entities\GameModule\Teams\Team.cs" />
+    <Compile Include="CityQuestPolicy\GameModule\Teams\TeamPolicy.cs" />
     <Compile Include="Entities\MainModule\Authorization\CityQuestAuthorizationProvider.cs" />
     <Compile Include="Entities\MainModule\Authorization\PermissionChecker.cs" />
     <Compile Include="Entities\MainModule\Authorization\PermissionGrantInfo.cs" />
@@ -138,6 +147,7 @@
     <Compile Include="Entities\MainModule\Users\IUserRepository.cs" />
     <Compile Include="Entities\MainModule\Users\User.cs" />
     <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="CityQuestPolicy\ICityQuestPolicyBase.cs" />
     <Compile Include="ICityQuestRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runtime\Sessions\ICityQuestSession.cs" />

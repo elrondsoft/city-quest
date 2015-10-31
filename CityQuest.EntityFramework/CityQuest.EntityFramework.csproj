@@ -119,6 +119,10 @@
     <Compile Include="Migrations\201510272304403_AddedLocations.Designer.cs">
       <DependentUpon>201510272304403_AddedLocations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510312307453_AddIsDefaultToRoleEntity.cs" />
+    <Compile Include="Migrations\201510312307453_AddIsDefaultToRoleEntity.Designer.cs">
+      <DependentUpon>201510312307453_AddIsDefaultToRoleEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CityQuestDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -145,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510272304403_AddedLocations.resx">
       <DependentUpon>201510272304403_AddedLocations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510312307453_AddIsDefaultToRoleEntity.resx">
+      <DependentUpon>201510312307453_AddIsDefaultToRoleEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

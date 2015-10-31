@@ -111,7 +111,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
 
             if (teamEntities.Count != 1)
             {
-                throw new UserFriendlyException(String.Format(
+                throw new UserFriendlyException("Inaccessible action!", String.Format(
                     "Can not retrieve Team with these filters."));
             }
 
@@ -143,7 +143,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
 
             if (newTeamEntity == null)
             {
-                throw new UserFriendlyException(String.Format(
+                throw new UserFriendlyException("Inaccessible action!", String.Format(
                     "There is not valid Team entity. Can not update to it."));
             }
 
@@ -161,7 +161,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
 
             if (teamEntityForDelete == null)
             {
-                throw new UserFriendlyException(String.Format(
+                throw new UserFriendlyException("Inaccessible action!", String.Format(
                     "There are no Team with Id = {0}. Can not delete it.", input.EntityId));
             }
 
@@ -179,7 +179,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
 
             if (teamEntity == null)
             {
-                throw new UserFriendlyException(String.Format(
+                throw new UserFriendlyException("Inaccessible action!", String.Format(
                     "There are no Team with Id = {0}. Can not change it's activity.", input.EntityId));
             }
 

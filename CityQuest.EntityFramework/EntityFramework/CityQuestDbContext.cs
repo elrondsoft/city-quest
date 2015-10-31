@@ -99,7 +99,7 @@ namespace CityQuest.EntityFramework
 
             modelBuilder.Entity<UserRole>()
                 .HasRequired(r => r.Role)
-                .WithMany(r => r.Roles)
+                .WithMany(r => r.UserRoles)
                 .HasForeignKey(r => r.RoleId)
                 .WillCascadeOnDelete(false);
 
