@@ -14,25 +14,57 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li ng-repeat="menuItem in vm.menu.items" 
-                    ng-class="{active: vm.currentMenuName == menuItem.name}">
-                    <a ng-if="!menuItem.items.length" 
-                       ng-href="{{menuItem.url}}">
-                        <i class="{{menuItem.icon}}" ng-if="menuItem.icon"></i> 
+                <li ng-repeat="menuItem in vm.menu.items"
+                    ng-class="{active: vm.isActive(menuItem), dropdown: menuItem.items.length != '0'}"
+                    role="presentation">
+                    <a ng-href="{{menuItem.url}}"
+                       ng-if="menuItem.items.length == '0'">
+                        <i class="{{menuItem.icon}}" ng-if="menuItem.icon"></i>
                         {{menuItem.displayName}}
                     </a>
-                    <a ng-if="menuItem.items.length" 
-                       href="" 
-                       data-toggle="dropdown">
-                        <i class="{{menuItem.icon}}" ng-if="menuItem.icon"></i> 
-                        {{menuItem.displayName}} 
+                    <a ng-href="{{menuItem.url}}"
+                       ng-if="menuItem.items.length != '0'"
+                       class="dropdown-toggle"
+                       data-toggle="dropdown"
+                       role="button"
+                       aria-expanded="false">
+                        <i class="{{menuItem.icon}}" ng-if="menuItem.icon"></i>
+                        {{menuItem.displayName}}
+                        <span class="caret"></span>
                     </a>
-                    <ul ng-if="menuItem.items.length" class="dropdown-menu">
-                        <li ng-repeat="menuSubItem in menuItem.items">
-                            <a ng-href="{{menuSubItem.url}}">
-                                <i class="{{menuSubItem.icon}}" ng-if="menuSubItem.icon"></i> 
-                                {{menuSubItem.displayName}}
+                    <ul class="dropdown-menu"
+                        ng-if="menuItem.items.length != '0'"
+                        role="menu">
+                        <li ng-repeat="subMenuItem in menuItem.items"
+                            ng-class="{'active': vm.isActive(menuItem), 'dropdown-submenu':subMenuItem.items.length>0}"
+                            role="presentation">
+                            <a ng-if="subMenuItem.items.length == '0'"
+                               ng-href="{{subMenuItem.url}}">
+                                <i class="{{subMenuItem.icon}}" ng-if="menuItem.icon"></i>
+                                {{subMenuItem.displayName}}
                             </a>
+                            <a ng-href="{{subMenuItem.url}}"
+                               ng-if="subMenuItem.items.length != '0'"
+                               class="dropdown-toggle"
+                               data-toggle="dropdown"
+                               role="button"
+                               aria-expanded="false">
+                                <i class="{{subMenuItem.icon}}" ng-if="subMenuItem.icon"></i>
+                                {{subMenuItem.displayName}}
+                            </a>
+                            <ul class="dropdown-menu"
+                                ng-if="subMenuItem.items.length != '0'"
+                                role="menu">
+                                <li ng-repeat="item in subMenuItem.items"
+                                    ng-class="{active: vm.isActive(menuItem)}"
+                                    role="presentation">
+                                    <a ng-href="{{item.url}}">
+                                        <i class="{{item.icon}}" ng-if="subMenuItem.icon"></i>
+                                        {{item.displayName}}
+                                    </a>
+                                </li>
+                            </ul>
+
                         </li>
                     </ul>
                 </li>

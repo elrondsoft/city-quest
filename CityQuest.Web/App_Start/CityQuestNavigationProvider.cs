@@ -21,30 +21,43 @@ namespace CityQuest.Web
                         url: "#/",
                         icon: "fa fa-home"
                         )
-                )
-                .AddItem(
+                ).AddItem(
                     new MenuItemDefinition(
-                        "Divisions",
-                        new LocalizableString("Divisions", CityQuestConsts.LocalizationSourceName),
+                        "DivisionsMenuItem",
+                        new LocalizableString("DivisionsMenuItem", CityQuestConsts.LocalizationSourceName),
                         url: "#/divisions",
                         icon: "fa fa-list-alt"
                         )
-                )
-                .AddItem(
+                ).AddItem(
                     new MenuItemDefinition(
-                        "Teams",
-                        new LocalizableString("Teams", CityQuestConsts.LocalizationSourceName),
+                        "TeamsMenuItem",
+                        new LocalizableString("TeamsMenuItem", CityQuestConsts.LocalizationSourceName),
                         url: "#/teams",
                         icon: "fa fa-list-alt"
                         )
-                )
-                .AddItem(
+                ).AddItem(
                     new MenuItemDefinition(
-                        "Locations",
-                        new LocalizableString("Locations", CityQuestConsts.LocalizationSourceName),
+                        "LocationsMenuItem",
+                        new LocalizableString("LocationsMenuItem", CityQuestConsts.LocalizationSourceName),
                         url: "#/locations",
                         icon: "fa fa-list-alt"
                         )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        "AdministrationMenuItem",
+                        new LocalizableString("AdministrationMenuItem", CityQuestConsts.LocalizationSourceName),
+                        icon: "fa fa-wrench"
+                        ).AddItem(new MenuItemDefinition(
+                            "UsersMenuItem",
+                            new LocalizableString("UsersMenuItem", CityQuestConsts.LocalizationSourceName),
+                            url: "#/users",
+                            icon: "fa fa-users"
+                        )).AddItem(new MenuItemDefinition(
+                            "RolesMenuItem",
+                            new LocalizableString("RolesMenuItem", CityQuestConsts.LocalizationSourceName),
+                            url: "#/roles",
+                            icon: "fa fa-pencil"
+                        ))
                 );
         }
     }

@@ -28,22 +28,34 @@
                     menu: 'Login',
                     params: { returnState: null }
                 })
+                .state('users', {
+                    url: '/users',
+                    templateUrl: '/App/Main/views/users/userListView.cshtml',
+                    menu: 'UsersMenuItem',
+                    onEnter: onEnterAuthorizedRequired,
+                })
+                .state('roles', {
+                    url: '/roles',
+                    templateUrl: '/App/Main/views/roles/roleListView.cshtml',
+                    menu: 'RolesMenuItem',
+                    onEnter: onEnterAuthorizedRequired,
+                })
                 .state('divisions', {
                     url: '/divisions',
                     templateUrl: '/App/Main/views/divisions/divisionListView.cshtml',
-                    menu: 'Divisions',
+                    menu: 'DivisionsMenuItem',
                     onEnter: onEnterAuthorizedRequired,
                 })
                 .state('teams', {
                     url: '/teams',
                     templateUrl: '/App/Main/views/teams/teamListView.cshtml',
-                    menu: 'Teams',
+                    menu: 'TeamsMenuItem',
                     onEnter: onEnterAuthorizedRequired,
                 })
                 .state('locations', {
                     url: '/locations',
                     templateUrl: '/App/Main/views/locations/locationListView.cshtml',
-                    menu: 'Locations',
+                    menu: 'LocationsMenuItem',
                     onEnter: onEnterAuthorizedRequired,
                 });
         }

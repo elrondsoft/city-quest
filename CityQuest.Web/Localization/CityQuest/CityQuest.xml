@@ -7,6 +7,13 @@
     <text name="Login" value="Login" />
     <text name="Logout" value="Logout" />
 
+    <text name="AdministrationMenuItem" value="Administration" />
+    <text name="UsersMenuItem" value="Users" />
+    <text name="RolesMenuItem" value="Roles" />
+    <text name="DivisionsMenuItem" value="Divisions" />
+    <text name="TeamsMenuItem" value="Teams" />
+    <text name="LocationsMenuItem" value="Locations" />
+    
     <text name="SignInTo" value="Sign in to" />
     <text name="SignUpFor" value="Sign up for" />
     <text name="UserName" value="User name" />

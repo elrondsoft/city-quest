@@ -24,10 +24,14 @@
             };
 
             vm.isActive = function (menuItem) {
-                var result = vm.currentMenuName == menuItem.name || (menuItem.items.length && menuItem.items.any(function (elm) { return elm.name === vm.currentMenuName }));
+                var result = vm.currentMenuName == menuItem.name || (menuItem.items.length &&
+                    Enumerable.From(menuItem.items).Any(function (x) {
+                        return x.name === vm.currentMenuName;
+                    }));
                 return result;
             };
 
+            /// Is used to display menu item like "menuItem - activeSubItem"
             vm.displayMenuItemNameWithSubItem = function (menuItem) {
                 var result = menuItem.displayName;
                 if (menuItem.items.length) {
