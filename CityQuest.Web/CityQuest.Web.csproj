@@ -1243,6 +1243,7 @@
     <Content Include="Scripts\jtable\themes\metro\red\jtable.css" />
     <Content Include="Scripts\jtable\themes\metro\red\jtable.min.css" />
     <Content Include="Scripts\jtable\themes\metro\red\loading.gif" />
+    <Content Include="Scripts\linq.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />

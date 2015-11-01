@@ -17,5 +17,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users.Dto
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
         public IList<RoleDto> Roles { get; set; }
+
+        public string LastModifierUserFullName { get; set; }
     }
 }

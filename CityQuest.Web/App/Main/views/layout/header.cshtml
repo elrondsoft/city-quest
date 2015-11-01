@@ -36,7 +36,7 @@
                         ng-if="menuItem.items.length != '0'"
                         role="menu">
                         <li ng-repeat="subMenuItem in menuItem.items"
-                            ng-class="{'active': vm.isActive(menuItem), 'dropdown-submenu':subMenuItem.items.length>0}"
+                            ng-class="{'active': vm.isActive(subMenuItem), 'dropdown-submenu':subMenuItem.items.length>0}"
                             role="presentation">
                             <a ng-if="subMenuItem.items.length == '0'"
                                ng-href="{{subMenuItem.url}}">
@@ -56,7 +56,7 @@
                                 ng-if="subMenuItem.items.length != '0'"
                                 role="menu">
                                 <li ng-repeat="item in subMenuItem.items"
-                                    ng-class="{active: vm.isActive(menuItem)}"
+                                    ng-class="{active: vm.isActive(item)}"
                                     role="presentation">
                                     <a ng-href="{{item.url}}">
                                         <i class="{{item.icon}}" ng-if="subMenuItem.icon"></i>

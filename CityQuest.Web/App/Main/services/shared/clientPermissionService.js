@@ -61,5 +61,36 @@ angular.module('app').service('clientPermissionService', function () {
         },
     };
     //-----------------------------------------------------------------------------------------------------------------
-
+    //----------------------------------------Client's permissions for User--------------------------------------------
+    this.user = {
+        canRetrieve: function (entity) {
+            return true;
+        },
+        canCreate: function (entity) {
+            return true;
+        },
+        canUpdate: function (entity) {
+            return true;
+        },
+        canDelete: function (entity) {
+            return false;
+        }
+    };
+    //-----------------------------------------------------------------------------------------------------------------
+    //----------------------------------------Client's permissions for Role--------------------------------------------
+    this.role = {
+        canRetrieve: function (entity) {
+            return true;
+        },
+        canCreate: function (entity) {
+            return true;
+        },
+        canUpdate: function (entity) {
+            return true;
+        },
+        canDelete: function (entity) {
+            return true;
+        }
+    };
+    //-----------------------------------------------------------------------------------------------------------------
 });

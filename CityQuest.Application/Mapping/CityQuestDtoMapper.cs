@@ -23,6 +23,8 @@ namespace CityQuest.Mapping
             #region Main module mapping
 
             AutoMapper.Mapper.CreateMap<Role, RoleDto>()
+                .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))
+                .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
                 .ReverseMap()
                 .AfterMap((s, d) =>
                 {
@@ -34,6 +36,7 @@ namespace CityQuest.Mapping
                 });
 
             AutoMapper.Mapper.CreateMap<User, UserDto>()
+                .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
                 .ForMember(r => r.Roles, r => r.MapFrom(k => k.Roles.Select(e => e.Role)))
                 .ForMember(r => r.Password, r => r.MapFrom(e => CityQuestConsts.FakePassword))
                 .ReverseMap()

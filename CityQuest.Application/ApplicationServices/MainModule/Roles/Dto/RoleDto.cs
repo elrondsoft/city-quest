@@ -9,6 +9,9 @@ namespace CityQuest.ApplicationServices.MainModule.Roles.Dto
 {
     public class RoleDto : FullAuditedEntityDto<long>
     {
+        public string LastModifierUserFullName { get; set; }
+        public string CreatorUserFullName { get; set; }
+
         public string Name { get; set; }
         public string DisplayName { get; set; }
         public IList<PermissionDto> Permissions { get; set; }

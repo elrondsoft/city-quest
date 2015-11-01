@@ -17,7 +17,7 @@
                     return data.record.name;
                 },
                 displayDescription: function (data) {
-                    return data.record.description;;
+                    return data.record.description;
                 },
                 displayCaptain: function (data) {
                     var result = '-';
@@ -271,47 +271,47 @@
                             title: vm.localize('Id'),
                             display: fieldFunctions.displayId
                         },
-                        Name: {
+                        name: {
                             title: vm.localize('Name'),
                             display: fieldFunctions.displayName
                         },
-                        Description: {
+                        description: {
                             title: vm.localize('Description'),
                             display: fieldFunctions.displayDescription
                         },
-                        Captain: {
+                        captain: {
                             title: vm.localize('Captain'),
                             display: fieldFunctions.displayCaptain
                         },
-                        Division: {
+                        division: {
                             title: vm.localize('Division'),
                             display: fieldFunctions.displayDivision
                         },
-                        LastModificationTime: {
+                        lastModificationTime: {
                             visibility: 'hidden',
                             title: vm.localize('LastModificationTime'),
                             display: fieldFunctions.displayLastModificationTime
                         },
-                        LastModifierName: {
+                        lastModifierName: {
                             visibility: 'hidden',
                             title: vm.localize('LastModifierName'),
                             display: fieldFunctions.displayLastModifierName
                         },
-                        CreationTime: {
+                        creationTime: {
                             //visibility: 'hidden',
                             title: vm.localize('CreationTime'),
                             display: fieldFunctions.displayCreationTime
                         },
-                        CreatorName: {
+                        creatorName: {
                             //visibility: 'hidden',
                             title: vm.localize('CreatorName'),
                             display: fieldFunctions.displayCreatorName
                         },
-                        Activity: {
+                        activity: {
                             title: vm.localize('IsActive'),
                             display: fieldFunctions.displayIsActive
                         },
-                        Settings: {
+                        settings: {
                             title: '',
                             display: fieldFunctions.displaySettings
                         },
