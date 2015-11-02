@@ -106,7 +106,9 @@
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\TeamDto.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\ITeamAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\TeamAppService.cs" />
-    <Compile Include="ApplicationServices\MainModule\Roles\Dto\PermissionDto.cs" />
+    <Compile Include="ApplicationServices\MainModule\Permissions\IPermissionAppService.cs" />
+    <Compile Include="ApplicationServices\MainModule\Permissions\PermissionAppService.cs" />
+    <Compile Include="ApplicationServices\MainModule\Permissions\Dto\PermissionDto.cs" />
     <Compile Include="ApplicationServices\MainModule\Roles\Dto\RetrieveAllRoleInput.cs" />
     <Compile Include="ApplicationServices\MainModule\Roles\Dto\RetrieveAllRolesLikeComboBoxesInput.cs" />
     <Compile Include="ApplicationServices\MainModule\Roles\Dto\RetrieveAllRolesLikeComboBoxesOutput.cs" />
@@ -129,12 +131,14 @@
     <Compile Include="ApplicationServices\Shared\Dtos\Input\CreateInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\DeleteInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\RetrieveAllInput.cs" />
+    <Compile Include="ApplicationServices\Shared\Dtos\Input\RetrieveAllLikeComboBoxesInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\RetrieveAllPagedResultInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\RetrieveInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Input\UpdateInput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Output\ChangeActivityOutput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Output\CreateOutput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Output\DeleteOutput.cs" />
+    <Compile Include="ApplicationServices\Shared\Dtos\Output\RetrieveAllLikeComboBoxesOutput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Output\RetrieveAllOutput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Output\RetrieveAllPagedResultOutput.cs" />
     <Compile Include="ApplicationServices\Shared\Dtos\Output\RetrieveOutput.cs" />

@@ -5,6 +5,15 @@ angular.module('app').service('clientCityQuestConstService', function () {
         this.localize = function (key) {
             return abp.localization.localize(key, 'CityQuest');
         };
+        /// Is used to map data from server Comboboxes to client Comboboxes
+        this.mapComboboxes = function (items) {
+            var result = items.map(function (e) {
+                return {
+                    value: parseInt(e.value, 10), displayText: e.displayText
+                }
+            });
+            return result;
+        }
         /// Is used to store form modes  
         this.formModes = {
             create: 'create',
@@ -70,6 +79,7 @@ angular.module('app').service('clientCityQuestConstService', function () {
             locationListCtrl: 'app.views.locations.locationListController',
             userListCtrl: 'app.views.users.userListController',
             roleListCtrl: 'app.views.roles.roleListController',
+            roleDetailsCtrl: 'app.templates.roles.roleDetailsController',
         };
         //-------------------------------------------------------------------------------------------------------------
         //----------------------------------------Constants for Templates/Views----------------------------------------
@@ -82,6 +92,7 @@ angular.module('app').service('clientCityQuestConstService', function () {
             locationListView: '/App/Main/views/locations/locationListView.cshtml',
             userListView: '/App/Main/views/users/userListView.cshtml',
             roleListView: '/App/Main/views/roles/roleListView.cshtml',
+            roleDetailsTemplate: '/App/Main/templates/roles/roleDetailsTemplate.cshtml',
         };
         //-------------------------------------------------------------------------------------------------------------
 });

@@ -10,6 +10,7 @@ using Castle.MicroKernel.Registration;
 using Abp.Runtime.Session;
 using CityQuest.ApplicationServices.MainModule.Roles;
 using CityQuest.ApplicationServices.MainModule.Users;
+using CityQuest.ApplicationServices.MainModule.Permissions;
 
 namespace CityQuest
 {
@@ -30,6 +31,8 @@ namespace CityQuest
             #region Main module's dynamic api controller builders
 
             DynamicApiControllerBuilder.For<IRoleAppService>("cityQuest/role").Build();
+
+            DynamicApiControllerBuilder.For<IPermissionAppService>("cityQuest/permission").Build();
 
             DynamicApiControllerBuilder.For<IUserAppService>("cityQuest/user").Build();
 

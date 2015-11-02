@@ -145,7 +145,7 @@ namespace CityQuest.ApplicationServices.MainModule.Roles
             {
                 roleEntityForUpdate.Permissions.Add(new RolePermissionSetting() 
                 {
-                    Name = item.Name,
+                    Name = item.DisplayText,
                     Role = roleEntityForUpdate,
                     RoleId = roleEntityForUpdate.Id 
                 });

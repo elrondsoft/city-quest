@@ -1,4 +1,5 @@
 ﻿using Abp.Application.Services.Dto;
+using CityQuest.ApplicationServices.MainModule.Permissions.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace CityQuest.ApplicationServices.MainModule.Roles.Dto
                 if (Permissions == null)
                     return string.Empty;
 
-                return Permissions.Select(r => r.Name).JoinAsString(", ");
+                return Permissions.Select(r => r.DisplayText).JoinAsString(", ");
             }
         }
     }

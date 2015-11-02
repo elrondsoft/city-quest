@@ -22,10 +22,10 @@
                },
                displayPermissions: function (data) {
                    var result = '';
-                   if (data.record.roles && data.record.roles.length > 0) {
-                       angular.forEach(data.record.roles, function (value, key) {
-                           result += value.displayName;
-                           result = key < (data.record.roles.length - 1) ? (result + ', ') : result;
+                   if (data.record.permissions && data.record.permissions.length > 0) {
+                       angular.forEach(data.record.permissions, function (value, key) {
+                           result += value.displayText;
+                           result = key < (data.record.permissions.length - 1) ? (result + ', ') : result;
                        });
                    }
                    return result;

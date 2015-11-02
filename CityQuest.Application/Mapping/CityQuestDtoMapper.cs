@@ -1,9 +1,11 @@
 ﻿using CityQuest.ApplicationServices.GameModule.Divisions.Dtos;
 using CityQuest.ApplicationServices.GameModule.Teams.Dtos;
+using CityQuest.ApplicationServices.MainModule.Permissions.Dto;
 using CityQuest.ApplicationServices.MainModule.Roles.Dto;
 using CityQuest.ApplicationServices.MainModule.Users.Dto;
 using CityQuest.Entities.GameModule.Divisions;
 using CityQuest.Entities.GameModule.Teams;
+using CityQuest.Entities.MainModule.Authorization.RolePermissionSettings;
 using CityQuest.Entities.MainModule.Authorization.UserRoles;
 using CityQuest.Entities.MainModule.Roles;
 using CityQuest.Entities.MainModule.Users;
@@ -21,6 +23,10 @@ namespace CityQuest.Mapping
         public static void Map()
         {
             #region Main module mapping
+
+            AutoMapper.Mapper.CreateMap<RolePermissionSetting, PermissionDto>()
+                .ForMember(r => r.DisplayText, r => r.MapFrom(e => e.Name))
+                .ForMember(r => r.Value, r => r.MapFrom(e => e.Name));
 
             AutoMapper.Mapper.CreateMap<Role, RoleDto>()
                 .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))

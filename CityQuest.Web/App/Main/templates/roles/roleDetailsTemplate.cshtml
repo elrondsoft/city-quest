@@ -1,0 +1,82 @@
+﻿<div class="modal-header">
+    <div class="row row-centered">
+        <div class="col-xs-12 text-center">
+            <button type="button"
+                    class="close"
+                    ng-click="vm.templateActions.close();">
+                &times;
+            </button>
+            <label class="cq-modal-title-label">
+                {{vm.title}}
+            </label>
+        </div>
+    </div>
+</div>
+<div class="modal-body">
+    <div class="row cq-control-row">
+        <div class="col-xs-2 cq-control-label">
+            @L("Name"): &nbsp;
+        </div>
+        <div class="col-xs-8">
+            <input class="form-control cq-control"
+                   ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                   ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                   ng-model="vm.entity.name" />
+        </div>
+    </div>
+    <div class="row cq-control-row">
+        <div class="col-xs-2 cq-control-label">
+            @L("DisplayName"): &nbsp;
+        </div>
+        <div class="col-xs-8">
+            <input class="form-control cq-control"
+                   ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                   ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                   ng-model="vm.entity.displayName" />
+        </div>
+    </div>
+    <div class="row cq-control-row">
+        <div class="col-xs-2 cq-control-label">
+            @L("Permissions"): &nbsp;
+        </div>
+        <div class="col-xs-8">
+            <select multiple
+                    class="form-control cq-control"
+                    ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                    ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                    ng-model="vm.entity.permissions"
+                    ng-options="permission.displayText for permission in vm.allPermissions track by permission.displayText" />
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button"
+            class="btn btn-danger pull-left"
+            ng-if="vm.templateAvailableActions.deleteEntity()"
+            ng-click="vm.templateActions.deleteEntity();">
+        @L("ButtonDelete")
+    </button>
+    <button type="button"
+            class="btn btn-success"
+            ng-if="vm.templateAvailableActions.saveEntity()"
+            ng-click="vm.templateActions.saveEntity();">
+        @L("ButtonSave")
+    </button>
+    <button type="button"
+            class="btn btn-warning"
+            ng-if="vm.templateAvailableActions.activateEntity()"
+            ng-click="vm.templateActions.activateEntity();">
+        @L("ButtonActivate")
+    </button>
+    <button type="button"
+            class="btn btn-warning"
+            ng-if="vm.templateAvailableActions.deactivateEntity()"
+            ng-click="vm.templateActions.deactivateEntity();">
+        @L("ButtonDeactivate")
+    </button>
+    <button type="button"
+            class="btn btn-primary"
+            ng-click="vm.templateActions.close();">
+        @L("ButtonClose")
+    </button>
+</div>

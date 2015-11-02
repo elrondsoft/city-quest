@@ -94,5 +94,9 @@
     <text name="Locations" value="Locations" />
     <text name="Location" value="Location" />
         
+    <text name="DisplayName" value="Display name" />  
+    <text name="Permissions" value="Permissions" />  
+    <text name="Permission" value="Permission" />  
+
   </texts>
 </localizationDictionary>
