@@ -78,6 +78,7 @@ angular.module('app').service('clientCityQuestConstService', function () {
             teamDetailsCtrl: 'app.templates.teams.teamDetailsController',
             locationListCtrl: 'app.views.locations.locationListController',
             userListCtrl: 'app.views.users.userListController',
+            userDetailsCtrl: 'app.templates.users.userDetailsController',
             roleListCtrl: 'app.views.roles.roleListController',
             roleDetailsCtrl: 'app.templates.roles.roleDetailsController',
         };
@@ -91,6 +92,7 @@ angular.module('app').service('clientCityQuestConstService', function () {
             teamDetailsTemplate: '/App/Main/templates/teams/teamDetailsTemplate.cshtml',
             locationListView: '/App/Main/views/locations/locationListView.cshtml',
             userListView: '/App/Main/views/users/userListView.cshtml',
+            userDetailsTemplate: '/App/Main/templates/users/userDetailsTemplate.cshtml',
             roleListView: '/App/Main/views/roles/roleListView.cshtml',
             roleDetailsTemplate: '/App/Main/templates/roles/roleDetailsTemplate.cshtml',
         };

@@ -15,6 +15,17 @@
 <div class="modal-body">
     <div class="row cq-control-row">
         <div class="col-xs-2 cq-control-label">
+            @L("UserName"): &nbsp;
+        </div>
+        <div class="col-xs-8">
+            <input class="form-control cq-control"
+                   ng-disabled="true"
+                   ng-readonly="true"
+                   ng-model="vm.entity.userName" />
+        </div>
+    </div>
+    <div class="row cq-control-row">
+        <div class="col-xs-2 cq-control-label">
             @L("Name"): &nbsp;
         </div>
         <div class="col-xs-8">
@@ -26,26 +37,48 @@
     </div>
     <div class="row cq-control-row">
         <div class="col-xs-2 cq-control-label">
-            @L("DisplayName"): &nbsp;
+            @L("Surname"): &nbsp;
         </div>
         <div class="col-xs-8">
             <input class="form-control cq-control"
                    ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
                    ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
-                   ng-model="vm.entity.displayName" />
+                   ng-model="vm.entity.surname" />
         </div>
     </div>
     <div class="row cq-control-row">
         <div class="col-xs-2 cq-control-label">
-            @L("Permissions"): &nbsp;
+            @L("Email"): &nbsp;
+        </div>
+        <div class="col-xs-8">
+            <input class="form-control cq-control"
+                   ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                   ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                   ng-model="vm.entity.emailAddress" />
+        </div>
+    </div>
+    <div class="row cq-control-row">
+        <div class="col-xs-2 cq-control-label">
+            @L("PhoneNumber"): &nbsp;
+        </div>
+        <div class="col-xs-8">
+            <input class="form-control cq-control"
+                   ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                   ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                   ng-model="vm.entity.phoneNumber" />
+        </div>
+    </div>
+    <div class="row cq-control-row">
+        <div class="col-xs-2 cq-control-label">
+            @L("Roles"): &nbsp;
         </div>
         <div class="col-xs-8">
             <select multiple
                     class="form-control cq-control"
                     ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
                     ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
-                    ng-model="vm.entity.permissions"
-                    ng-options="permission as permission.displayText for permission in vm.allPermissions track by permission.displayText" />
+                    ng-model="vm.entity.roles"
+                    ng-options="role as role.name for role in vm.allRoles track by role.name" />
         </div>
     </div>
 </div>

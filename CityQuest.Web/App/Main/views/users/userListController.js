@@ -263,13 +263,13 @@
                },
                getJTableToolbarItems: function () {
                    var items = [];
-                   var createItem = {
-                       icon: '',
-                       text: vm.localize('Create'),
-                       click: function () {
-                           return userActions.openCreateTemplate();
-                       }
-                   };
+                   //var createItem = {
+                   //    icon: '',
+                   //    text: vm.localize('Create'),
+                   //    click: function () {
+                   //        return userActions.openCreateTemplate();
+                   //    }
+                   //};
                    var filterItem = {
                        icon: '',
                        text: vm.localize('Filters'),
@@ -277,9 +277,9 @@
                            $('#jtable-filter-panel').slideToggle("slow");
                        }
                    };
-                   if (permissionSvc.user.canCreate()) {
-                       items.push(createItem);
-                   }
+                   //if (permissionSvc.user.canCreate()) {
+                   //    items.push(createItem);
+                   //}
                    items.push(filterItem);
                    return items;
                },

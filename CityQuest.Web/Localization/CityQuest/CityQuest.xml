@@ -27,6 +27,11 @@
     <text name="FirstName" value="First name" />
     <text name="LastName" value="Last name" />
 
+    <text name="SignUpFailed_Body" value="Sign up failed (can not create new user)! Please, contact your system administrator or system support." />
+    <text name="SignUpFailed_Header" value="Sign up failed!" />
+    <text name="SignUpSuccess_Body" value="Signed up successfully! Please, enter your credentials and join CityQuest." />
+    <text name="SignUpSuccess_Header" value="Signed up successfully!" />
+
     <text name="Apply" value="Apply" />
     <text name="Filters" value="Filters" />
     <text name="Id" value="Id" />
@@ -96,7 +101,13 @@
         
     <text name="DisplayName" value="Display name" />  
     <text name="Permissions" value="Permissions" />  
-    <text name="Permission" value="Permission" />  
+    <text name="Permission" value="Permission" />
+    <text name="RoleDetails" value="Role details" />
+
+    <text name="Surname" value="Surname" />
+    <text name="PhoneNumber" value="Phone number" />
+    <text name="Roles" value="Roles" />
+    <text name="UserDetails" value="User details" />
 
   </texts>
 </localizationDictionary>

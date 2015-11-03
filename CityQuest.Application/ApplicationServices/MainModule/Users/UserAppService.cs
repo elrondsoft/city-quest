@@ -5,6 +5,7 @@ using CityQuest.ApplicationServices.MainModule.Users.Dto;
 using CityQuest.ApplicationServices.Shared.Dtos.Input;
 using CityQuest.ApplicationServices.Shared.Dtos.Output;
 using CityQuest.Entities.MainModule.Authorization.UserRoles;
+using CityQuest.Entities.MainModule.Roles;
 using CityQuest.Entities.MainModule.Users;
 using CityQuest.Mapping;
 using CityQuest.Runtime.Sessions;
@@ -25,6 +26,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users
 
         private IUserRepository UserRepository { get; set; }
         private IUserRoleRepository UserRoleRepository { get; set; }
+        private IRoleRepository RoleRepository { get; set; }
 
         protected ILogger Logger { get; set; }
 
@@ -32,12 +34,17 @@ namespace CityQuest.ApplicationServices.MainModule.Users
 
         #region ctors
 
-        public UserAppService(IUserRepository userRepository, IUserRoleRepository userRoleRepository, ICityQuestSession session)
+        public UserAppService(
+            IUserRepository userRepository, 
+            IUserRoleRepository userRoleRepository, 
+            IRoleRepository roleRepository,
+            ICityQuestSession session)
         {
             Session = session;
 
             UserRepository = userRepository;
             UserRoleRepository = userRoleRepository;
+            RoleRepository = roleRepository;
 
             Logger = NullLogger.Instance;
         }
@@ -141,8 +148,36 @@ namespace CityQuest.ApplicationServices.MainModule.Users
                 throw new UserFriendlyException("Wrong username!", String.Format(
                     "There is already a user with username: \"{0}\"! Please, select another user name.", input.Entity.UserName));
             }
-            User newUserEntity = input.Entity.MapTo<User>();
+            User newUserEntity = new User() 
+            {
+                EmailAddress = input.Entity.EmailAddress,
+                Name = input.Entity.Name,
+                Password = input.Entity.Password,
+                PhoneNumber = input.Entity.PhoneNumber,
+                Roles = new List<UserRole>(),
+                Surname = input.Entity.Surname,
+                UserName = input.Entity.UserName
+            };
             newUserEntity.Password = new PasswordHasher().HashPassword(newUserEntity.Password);
+
+            #region Creating UserRole
+
+            Role defaultRole = RoleRepository.FirstOrDefault(r => r.IsDefault);
+            if (defaultRole == null)
+            {
+                throw new UserFriendlyException("Error during the action!",
+                    "Can not get default role! Please, contact your system administrator or system support.");
+            }
+
+            newUserEntity.Roles.Clear();
+            newUserEntity.Roles.Add(new UserRole()
+                {
+                    Role = defaultRole,
+                    RoleId = defaultRole.Id,
+                    User = newUserEntity
+                });
+
+            #endregion
 
             UserDto newUserDto = (UserRepository.Insert(newUserEntity)).MapTo<UserDto>();
 
@@ -159,17 +194,39 @@ namespace CityQuest.ApplicationServices.MainModule.Users
             if (userEntityForUpdate == null)
                 throw new UserFriendlyException("Inaccessible action!", String.Format("There are no User for update."));
 
+            #region Updating fields foor entity User
+
             UserRoleRepository.RemoveRange(userEntityForUpdate.Roles);
             userEntityForUpdate.Roles.Clear();
+
+            userEntityForUpdate.Name = String.IsNullOrEmpty(input.Entity.Name) ? 
+                userEntityForUpdate.Name : input.Entity.Name;
+            userEntityForUpdate.Surname = String.IsNullOrEmpty(input.Entity.Surname) ? 
+                userEntityForUpdate.Surname : input.Entity.Surname;
+            if (!String.IsNullOrEmpty(input.Entity.EmailAddress) && userEntityForUpdate.EmailAddress != input.Entity.EmailAddress)
+            {
+                userEntityForUpdate.EmailAddress = input.Entity.EmailAddress;
+                userEntityForUpdate.IsEmailConfirmed = false;
+            }
+            userEntityForUpdate.PhoneNumber = String.IsNullOrEmpty(input.Entity.PhoneNumber) ?
+                userEntityForUpdate.PhoneNumber : input.Entity.PhoneNumber;
+
+            IList<long> usingRoleIds = input.Entity.Roles.Select(r => r.Id).ToList();
+            IList<Role> usingRoles = RoleRepository.GetAll().Where(r => usingRoleIds.Contains(r.Id)).ToList();
+
             foreach (var item in input.Entity.Roles)
             {
+                Role currentRole = usingRoles.FirstOrDefault(r => r.Id == item.Id);
                 userEntityForUpdate.Roles.Add(new UserRole()
                 {
-                    RoleId = item.Id,
+                    Role = currentRole,
+                    RoleId = currentRole.Id,
                     User = userEntityForUpdate,
                     UserId = userEntityForUpdate.Id
                 });
             }
+
+            #endregion
 
             UserDto userEntityDto = (UserRepository.Update(userEntityForUpdate)).MapTo<UserDto>(); ;
 

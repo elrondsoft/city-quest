@@ -1,9 +1,12 @@
 ﻿(function () {
     var controllerId = 'app.controllers.authorization.login';
     angular.module('app').controller(controllerId, [
-        '$scope', '$state', 'authService', 'ngAuthSettings', '$stateParams', '$http',
-        function ($scope, $state, authService, ngAuthSettings, $stateParams, $http) {
+        '$scope', '$state', 'authService', 'ngAuthSettings', '$stateParams', '$http', 'abp.services.cityQuest.user',
+        function ($scope, $state, authService, ngAuthSettings, $stateParams, $http, userSvc) {
             var vm = this;
+            vm.localize = function (key) {
+                return abp.localization.localize(key, 'CityQuest');
+            };
             vm.loginStates = {
                 signIn: 1,
                 signUp: 2
@@ -30,8 +33,24 @@
 
                  });
             };
-            vm.signUp = function () {
 
+            vm.newUser = {
+                userName: null,
+                name: null,
+                surname: null,
+                emailAddress: null,
+                phoneNumber: null,
+                password: null
+            };
+
+            vm.signUp = function () {
+                return userSvc.create({ Entity: vm.newUser })
+                    .success(function (data) {
+                        abp.message.success(vm.localize('SignUpSuccess_Body'), vm.localize('SignUpSuccess_Header'));
+                        vm.currentState = vm.loginStates.signIn;
+                    }).error(function (data) {
+                        abp.message.error(vm.localize('SignUpFailed_Body'), vm.localize('SignUpFailed_Header'));
+                });
             };
         }
     ]);

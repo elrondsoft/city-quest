@@ -233,6 +233,7 @@
     <Content Include="App\Main\templates\divisions\divisionDetailsController.js" />
     <Content Include="App\Main\templates\roles\roleDetailsController.js" />
     <Content Include="App\Main\templates\teams\teamDetailsController.js" />
+    <Content Include="App\Main\templates\users\userDetailsController.js" />
     <Content Include="App\Main\views\authorization\login.js" />
     <Content Include="App\Main\views\locations\locationListController.js" />
     <Content Include="App\Main\views\divisions\divisionListController.js" />
@@ -241,6 +242,7 @@
     <Content Include="App\Main\views\home\home.js" />
     <Content Include="App\Main\views\roles\roleListController.js" />
     <Content Include="App\Main\templates\roles\roleDetailsTemplate.cshtml" />
+    <Content Include="App\Main\templates\users\userDetailsTemplate.cshtml" />
     <None Include="App\Main\views\roles\roleListView.cshtml" />
     <Content Include="App\Main\views\teams\teamListController.js" />
     <Content Include="App\Main\views\users\userListController.js" />
@@ -1318,7 +1320,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App\Main\factories\" />
-    <Folder Include="App\Main\templates\users\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
