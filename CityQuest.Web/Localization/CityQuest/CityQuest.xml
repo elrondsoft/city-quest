@@ -26,6 +26,7 @@
     <text name="EmailAddress" value="E-mail address" />
     <text name="FirstName" value="First name" />
     <text name="LastName" value="Last name" />
+    <text name="LoginPageSignUpWellcomeText" value="TODO: wellcome message here + join our service - CityQuest! (change in localization: key = LoginPageSignUpWellcomeText)"/>
 
     <text name="SignUpFailed_Body" value="Sign up failed (can not create new user)! Please, contact your system administrator or system support." />
     <text name="SignUpFailed_Header" value="Sign up failed!" />

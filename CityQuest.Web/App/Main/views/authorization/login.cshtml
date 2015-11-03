@@ -10,59 +10,63 @@
                 </div>
                 <div style="padding-top:30px" class="panel-body">
                     <form class="form-horizontal" role="form">
-                        <div style="margin-bottom: 15px" class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input ng-model="login.loginData.userName" 
-                                   type="text" 
-                                   class="form-control" 
-                                   placeholder="@L("UserName")" 
-                                   required 
-                                   autofocus>
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input ng-model="login.loginData.password" 
-                                   type="password" 
-                                   class="form-control" 
-                                   placeholder="@L("Password")" 
-                                   required>
-                        </div>
-
                         <div class="row">
-                            <div class="col-xs-12">
-                                <div class="checkbox checkbox-info">
-                                    <input id="persist" class="checkbox-danger" 
-                                           ng-model="login.loginData.isPersist" 
-                                           type="checkbox" 
-                                           value="remember-me">
-                                    <label for="persist">
-                                        @L("RememberMe")
-                                    </label>
+                            <div class="col-xs-6" style="border-right: 1px solid #007fff;">
+                                <div style="margin-bottom: 15px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input ng-model="login.loginData.userName"
+                                           type="text"
+                                           class="form-control"
+                                           placeholder="@L("UserName")"
+                                           required
+                                           autofocus>
                                 </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input ng-model="login.loginData.password"
+                                           type="password"
+                                           class="form-control"
+                                           placeholder="@L("Password")"
+                                           required>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="checkbox checkbox-info">
+                                            <input id="persist" class="checkbox-danger"
+                                                   ng-model="login.loginData.isPersist"
+                                                   type="checkbox"
+                                                   value="remember-me">
+                                            <label for="persist">
+                                                @L("RememberMe")
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                @L("LoginPageSignUpWellcomeText")
                             </div>
                         </div>
                         <div class="row" style="margin-top:10px">
-                            <div class="col-xs-12">
-                                <button class="btn btn-success pull-left" 
-                                        type="submit" 
+                            <div class="col-xs-6">
+                                <button class="btn btn-success pull-left"
+                                        type="submit"
                                         ng-click="login.login()">
                                     <span><i class="fa fa-sign-in"></i> &nbsp; @L("SignIn")</span>
                                 </button>
-                                <button class="btn btn-primary pull-right" 
-                                        type="button" 
+                            </div>
+                            <div class="col-xs-6">
+                                <button class="btn btn-primary pull-right"
+                                        type="button"
                                         ng-click="login.changeState(login.loginStates.signUp)">
                                     <span><i class="fa fa-user-plus"></i> &nbsp; @L("SignUp")</span>
                                 </button>
-                                @*<button class="btn btn-primary" disabled>
-                                    <span><i class="fa fa-windows"></i>&nbsp @L("LoginViaWindows")</span>
-                                </button>*@
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
         <div style="margin-top:50px"
              class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"
              ng-if="login.currentState === login.loginStates.signUp">

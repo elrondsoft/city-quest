@@ -56,7 +56,7 @@ namespace CityQuest.Web
                             "RolesMenuItem",
                             new LocalizableString("RolesMenuItem", CityQuestConsts.LocalizationSourceName),
                             url: "#/roles",
-                            icon: "fa fa-pencil"
+                            icon: "fa fa-gavel"
                         ))
                 );
         }

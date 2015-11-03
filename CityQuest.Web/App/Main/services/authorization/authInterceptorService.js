@@ -3,6 +3,10 @@
     angular.module('app').factory('authInterceptorService', ['$q', '$injector', '$location', 'dataStorageService',
         function ($q, $injector, $location, dataStorageService) {
 
+        var localize = function (key) {
+            return abp.localization.localize(key, 'CityQuest');
+        };
+
         var authInterceptorServiceFactory = {};
 
         var _request = function (config) {
