@@ -151,6 +151,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users
             User newUserEntity = new User() 
             {
                 EmailAddress = input.Entity.EmailAddress,
+                IsEmailConfirmed = true,
                 Name = input.Entity.Name,
                 Password = input.Entity.Password,
                 PhoneNumber = input.Entity.PhoneNumber,
@@ -206,7 +207,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users
             if (!String.IsNullOrEmpty(input.Entity.EmailAddress) && userEntityForUpdate.EmailAddress != input.Entity.EmailAddress)
             {
                 userEntityForUpdate.EmailAddress = input.Entity.EmailAddress;
-                userEntityForUpdate.IsEmailConfirmed = false;
+                userEntityForUpdate.IsEmailConfirmed = true;
             }
             userEntityForUpdate.PhoneNumber = String.IsNullOrEmpty(input.Entity.PhoneNumber) ?
                 userEntityForUpdate.PhoneNumber : input.Entity.PhoneNumber;

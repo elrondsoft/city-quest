@@ -36,7 +36,7 @@ namespace CityQuest.Web.App_Start
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(7),
                 Provider = IocManager.Instance.Resolve<SimpleAuthorizationServerProvider>(),
             };
             // Token Generation

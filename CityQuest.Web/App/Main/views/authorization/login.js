@@ -45,11 +45,17 @@
 
             vm.signUp = function () {
                 return userSvc.create({ Entity: vm.newUser })
-                    .success(function (data) {
-                        abp.message.success(vm.localize('SignUpSuccess_Body'), vm.localize('SignUpSuccess_Header'));
-                        vm.currentState = vm.loginStates.signIn;
-                    }).error(function (data) {
-                        abp.message.error(vm.localize('SignUpFailed_Body'), vm.localize('SignUpFailed_Header'));
+                            .success(function (data) {
+                            abp.message.success(vm.localize('SignUpSuccess_Body'), vm.localize('SignUpSuccess_Header'));
+                            //vm.currentState = vm.loginStates.signIn;
+                            vm.loginData = {
+                                userName: vm.newUser.userName,
+                                password: vm.newUser.password,
+                                isPersist: false
+                            };
+                            vm.login();
+                        }).error(function (data) {
+                            abp.message.error(vm.localize('SignUpFailed_Body'), vm.localize('SignUpFailed_Header'));
                 });
             };
         }
