@@ -13,5 +13,15 @@ namespace CityQuest.CityQuestPolicy.GameModule.Teams
     {
         public TeamPolicy(ICityQuestSession session, IPermissionChecker permissionChecker) 
             : base(session, permissionChecker) { }
+
+        public bool CanChangeActivityForEntity(long userId, Team entity)
+        {
+            return true;
+        }
+
+        public bool CanChangeActivityForEntity(Team entity)
+        {
+            return CanChangeActivityForEntity(Session.UserId ?? 0, entity);
+        }
     }
 }

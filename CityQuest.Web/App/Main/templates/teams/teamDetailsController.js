@@ -2,7 +2,8 @@
     var controllerId = 'app.templates.teams.teamDetailsController';
     angular.module('app').controller(controllerId, ['$scope', 'serviceData', 'clientCityQuestConstService',
         'clientPermissionService', 'abp.services.cityQuest.team', 'abp.services.cityQuest.division',
-        function ($scope, serviceData, constSvc, permissionSvc, teamSvc, divisionSvc) {
+        'abp.services.cityQuest.user',
+        function ($scope, serviceData, constSvc, permissionSvc, teamSvc, divisionSvc, userSvc) {
             var vm = this;
             vm.localize = constSvc.localize;
             vm.title = vm.localize('TeamDetails');
@@ -11,15 +12,31 @@
             //------------------------------------------Initializing---------------------------------------------------
             /// Is used to initialize Template
             var initFunctions = {
-                loadReferences: function(){
+                loadDivisions: function() {
                     return divisionSvc.retrieveAllDivisionsLikeComboBoxes({ })
                         .success(function (data) {
                             vm.divisions = data.items.map(function (e) {
                                 return {
-                                    value: parseInt(e.value, 10), displayText: e.displayText
+                                    value: parseInt(e.value, 10),
+                                    displayText: e.displayText
                                 }
                             });
                         });
+                },
+                loadPlayers: function () {
+                    return userSvc.retrieveAllUsersLikeComboBoxes({ PlayersOnly: true })
+                        .success(function (data) {
+                            vm.players = data.items.map(function (e) {
+                                return {
+                                    value: parseInt(e.value, 10),
+                                    displayText: e.displayText
+                                }
+                            });
+                        });
+                },
+                loadReferences: function() {
+                    initFunctions.loadDivisions();
+                    initFunctions.loadPlayers();
                 },
                 loadEntity: function (entityId) {
                     return teamSvc.retrieve({ Id: entityId, IsActive: false })

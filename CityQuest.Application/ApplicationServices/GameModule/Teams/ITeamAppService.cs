@@ -48,14 +48,14 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
         /// </summary>
         /// <param name="input">object with input params</param>
         /// <returns>object with output params</returns>
-        CreateOutput<TeamDto, long> Create(CreateInput<TeamDto, long> input);
+        CreateOutput<TeamDto, long> Create(CreateTeamInput input);
 
         /// <summary>
         /// Is used to update entity (Team) 
         /// </summary>
         /// <param name="input">object with input params</param>
         /// <returns>object with output params</returns>
-        UpdateOutput<TeamDto, long> Update(UpdateInput<TeamDto, long> input);
+        UpdateOutput<TeamDto, long> Update(UpdateTeamInput input);
 
         /// <summary>
         /// Is used to delete entity (Team) 

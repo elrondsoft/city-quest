@@ -13,5 +13,15 @@ namespace CityQuest.CityQuestPolicy.GameModule.Divisions
     {
         public DivisionPolicy(ICityQuestSession session, IPermissionChecker permissionChecker) 
             : base(session, permissionChecker) { }
+
+        public bool CanChangeActivityForEntity(long userId, Division entity)
+        {
+            return true;
+        }
+
+        public bool CanChangeActivityForEntity(Division entity)
+        {
+            return CanChangeActivityForEntity(Session.UserId ?? 0, entity);
+        }
     }
 }

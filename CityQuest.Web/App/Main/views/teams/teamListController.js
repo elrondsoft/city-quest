@@ -207,6 +207,7 @@
                                                 '\'Team\'', data.entity.id),
                                             vm.localize('ActivateSuccessMsgResult_Header'));
                                         constSvc.jTableActions.updateRecord('teamTable', data.entity);
+                                        vm.recordsLoaded();
                                     });
                             }
                         });
@@ -226,6 +227,7 @@
                                                 '\'Team\'', data.entity.id),
                                             vm.localize('DeactivateSuccessMsgResult_Header'));
                                         constSvc.jTableActions.updateRecord('teamTable', data.entity);
+                                        vm.recordsLoaded();
                                     });
                             }
                         });

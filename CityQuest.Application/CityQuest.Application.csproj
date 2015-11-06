@@ -98,12 +98,14 @@
     <Compile Include="ApplicationServices\GameModule\Divisions\Dtos\RetrieveAllDivisionsPagedResultInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Divisions\Dtos\RetrieveDivisionInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Divisions\IDivisionAppService.cs" />
+    <Compile Include="ApplicationServices\GameModule\Teams\Dtos\CreateTeamInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsLikeComboBoxesInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsLikeComboBoxesOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsPagedResultInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveTeamInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\TeamDto.cs" />
+    <Compile Include="ApplicationServices\GameModule\Teams\Dtos\UpdateTeamInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\ITeamAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\TeamAppService.cs" />
     <Compile Include="ApplicationServices\MainModule\Permissions\IPermissionAppService.cs" />
