@@ -60,12 +60,36 @@
                 </div>
                 <div class="col-xs-8">
                     <select class="form-control cq-control"
+                            ng-if="!vm.divisions.length"
+                            ng-disabled="true"
+                            ng-readonly="true"
+                            ng-style="{'width':'100%'}" />
+                    <select class="form-control cq-control"
                             ng-if="vm.divisions.length"
                             ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
                             ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
                             ng-style="{'width':'100%'}"
                             ng-model="vm.entity.divisionId"
                             ng-options="division.value as division.displayText for division in vm.divisions" />
+                </div>
+            </div>
+            <div class="row cq-control-row">
+                <div class="col-xs-2 cq-control-label">
+                    @L("Captain"): &nbsp;
+                </div>
+                <div class="col-xs-8">
+                    <select class="form-control cq-control"
+                            ng-if="!vm.players.length"
+                            ng-disabled="true"
+                            ng-readonly="true"
+                            ng-style="{'width':'100%'}" />
+                    <select class="form-control cq-control"
+                            ng-if="vm.players.length"
+                            ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                            ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                            ng-style="{'width':'100%'}"
+                            ng-model="vm.entity.captainId"
+                            ng-options="player.value as player.displayText for player in vm.players" />
                 </div>
             </div>
         </accordion-group>

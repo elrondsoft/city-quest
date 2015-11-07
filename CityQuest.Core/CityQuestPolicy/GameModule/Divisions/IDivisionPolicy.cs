@@ -9,5 +9,7 @@ namespace CityQuest.CityQuestPolicy.GameModule.Divisions
 {
     public interface IDivisionPolicy : ICityQuestPolicyBase<Division, long>
     {
+        bool CanChangeActivityForEntity(long userId, Division entity);
+        bool CanChangeActivityForEntity(Division entity);
     }
 }

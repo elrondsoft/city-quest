@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using CityQuest.Mapping;
 using Abp.Application.Services.Dto;
 using Abp.UI;
+using CityQuest.CityQuestPolicy.GameModule.Teams;
 
 namespace CityQuest.ApplicationServices.GameModule.Teams
 {
@@ -21,15 +22,16 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
 
         private IUnitOfWorkManager UowManager { get; set; }
         private ITeamRepository TeamRepository { get; set; }
+        private ITeamPolicy TeamPolicy { get; set; }
 
         #endregion
 
-        public TeamAppService(IUnitOfWorkManager uowManager, ITeamRepository teamRepository)
+        public TeamAppService(IUnitOfWorkManager uowManager, ITeamRepository teamRepository, ITeamPolicy teamPolicy)
         {
             UowManager = uowManager;
             TeamRepository = teamRepository;
+            TeamPolicy = teamPolicy;
         }
-
 
         public RetrieveAllPagedResultOutput<TeamDto, long> RetrieveAllPagedResult(RetrieveAllTeamsPagedResultInput input)
         {
@@ -40,10 +42,11 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             TeamRepository.Includes.Add(r => r.CreatorUser);
             TeamRepository.Includes.Add(r => r.Division);
 
-            IQueryable<Team> teamsQuery = TeamRepository.GetAll()
+            IQueryable<Team> teamsQuery = TeamPolicy.CanRetrieveManyEntities( 
+                TeamRepository.GetAll()
                 .WhereIf(!input.TeamIds.IsNullOrEmpty(), r => input.TeamIds.Contains(r.Id))
                 .WhereIf(input.DivisionId != null, r => r.DivisionId == input.DivisionId)
-                .WhereIf(!String.IsNullOrEmpty(input.Name), r => r.Name.ToLower().Contains(input.Name.ToLower()));
+                .WhereIf(!String.IsNullOrEmpty(input.Name), r => r.Name.ToLower().Contains(input.Name.ToLower())));
 
             int totalCount = teamsQuery.Count();
             IReadOnlyList<TeamDto> teamDtos = teamsQuery
@@ -65,7 +68,8 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             if (input.IsActive ?? true)
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
-            IReadOnlyList<ComboboxItemDto> teamsLikeComboBoxes = TeamRepository.GetAll().ToList()
+            IReadOnlyList<ComboboxItemDto> teamsLikeComboBoxes = TeamPolicy.CanRetrieveManyEntities( 
+                TeamRepository.GetAll())
                 .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name)).ToList();
 
             return new RetrieveAllTeamsLikeComboBoxesOutput()
@@ -83,10 +87,11 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             TeamRepository.Includes.Add(r => r.CreatorUser);
             TeamRepository.Includes.Add(r => r.Division);
 
-            IList<Team> teamEntities = TeamRepository.GetAll()
+            IList<Team> teamEntities = TeamPolicy.CanRetrieveManyEntities( 
+                TeamRepository.GetAll()
                 .WhereIf(!input.TeamIds.IsNullOrEmpty(), r => input.TeamIds.Contains(r.Id))
                 .WhereIf(input.DivisionId != null, r => r.DivisionId == input.DivisionId)
-                .WhereIf(!String.IsNullOrEmpty(input.Name), r => r.Name.ToLower().Contains(input.Name.ToLower()))
+                .WhereIf(!String.IsNullOrEmpty(input.Name), r => r.Name.ToLower().Contains(input.Name.ToLower())))
                 .ToList();
 
             IList<TeamDto> result = teamEntities.MapIList<Team, TeamDto>();
@@ -115,6 +120,12 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
                     "Can not retrieve Team with these filters."));
             }
 
+            if (!TeamPolicy.CanRetrieveEntity(teamEntities.Single()))
+            {
+                throw new UserFriendlyException(String.Format(
+                    "You have not permissions to retrieve this Team's entity."));
+            }
+
             TeamDto teamEntity = teamEntities.Single().MapTo<TeamDto>();
 
             return new RetrieveOutput<TeamDto, long>()
@@ -123,13 +134,26 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             };
         }
 
-        public CreateOutput<TeamDto, long> Create(CreateInput<TeamDto, long> input)
+        public CreateOutput<TeamDto, long> Create(CreateTeamInput input)
         {
             Team newTeamEntity = input.Entity.MapTo<Team>();
 
+            if (!TeamPolicy.CanCreateEntity(newTeamEntity))
+            {
+                throw new UserFriendlyException(String.Format(
+                    "You have not permissions to create this Team's entity."));
+            }
+
             newTeamEntity.IsActive = true;
 
+            TeamRepository.Includes.Add(r => r.Captain);
+            TeamRepository.Includes.Add(r => r.LastModifierUser);
+            TeamRepository.Includes.Add(r => r.CreatorUser);
+            TeamRepository.Includes.Add(r => r.Players);
+
             TeamDto newTeamDto = (TeamRepository.Insert(newTeamEntity)).MapTo<TeamDto>();
+
+            TeamRepository.Includes.Clear();
 
             return new CreateOutput<TeamDto, long>()
             {
@@ -137,7 +161,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             };
         }
 
-        public UpdateOutput<TeamDto, long> Update(UpdateInput<TeamDto, long> input)
+        public UpdateOutput<TeamDto, long> Update(UpdateTeamInput input)
         {
             Team newTeamEntity = input.Entity.MapTo<Team>();
 
@@ -147,7 +171,21 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
                     "There is not valid Team entity. Can not update to it."));
             }
 
-            TeamDto newTeamDto = (TeamRepository.Update(newTeamEntity)).MapTo<TeamDto>();
+            if (!TeamPolicy.CanUpdateEntity(newTeamEntity))
+            {
+                throw new UserFriendlyException(String.Format(
+                    "You have not permissions to update this Team's entity."));
+            }
+
+            TeamRepository.Includes.Add(r=>r.Captain);
+            TeamRepository.Includes.Add(r => r.LastModifierUser);
+            TeamRepository.Includes.Add(r => r.CreatorUser);
+            TeamRepository.Includes.Add(r => r.Players);
+
+            TeamRepository.Update(newTeamEntity);
+            TeamDto newTeamDto = (TeamRepository.Get(newTeamEntity.Id)).MapTo<TeamDto>();
+
+            TeamRepository.Includes.Clear();
 
             return new UpdateOutput<TeamDto, long>()
             {
@@ -165,6 +203,12 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
                     "There are no Team with Id = {0}. Can not delete it.", input.EntityId));
             }
 
+            if (!TeamPolicy.CanDeleteEntity(teamEntityForDelete))
+            {
+                throw new UserFriendlyException(String.Format(
+                    "You have not permissions to delete this Team's entity."));
+            }
+
             TeamRepository.Delete(teamEntityForDelete);
 
             return new DeleteOutput<long>()
@@ -175,6 +219,11 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
 
         public ChangeActivityOutput<TeamDto, long> ChangeActivity(ChangeActivityInput input)
         {
+            TeamRepository.Includes.Add(r => r.Captain);
+            TeamRepository.Includes.Add(r => r.LastModifierUser);
+            TeamRepository.Includes.Add(r => r.CreatorUser);
+            TeamRepository.Includes.Add(r => r.Players);
+
             Team teamEntity = TeamRepository.Get(input.EntityId);
 
             if (teamEntity == null)
@@ -183,9 +232,18 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
                     "There are no Team with Id = {0}. Can not change it's activity.", input.EntityId));
             }
 
-            teamEntity.IsActive = input.IsActive == null ? !teamEntity.IsActive : (bool)input.IsActive;
+            if (!TeamPolicy.CanChangeActivityForEntity(teamEntity))
+            {
+                throw new UserFriendlyException(String.Format(
+                    "You have not permissions to change activity of this Team's entity."));
+            }
 
-            TeamDto newTeamDto = (TeamRepository.Update(teamEntity)).MapTo<TeamDto>();
+            teamEntity.IsActive = input.IsActive == null ? !teamEntity.IsActive : (bool)input.IsActive;
+            TeamDto newTeamDto = teamEntity.MapTo<TeamDto>();
+
+            TeamRepository.Includes.Clear();
+
+            TeamRepository.Update(teamEntity);
 
             return new ChangeActivityOutput<TeamDto, long>()
             {

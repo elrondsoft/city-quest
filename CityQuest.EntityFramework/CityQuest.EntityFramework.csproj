@@ -100,6 +100,7 @@
     <Compile Include="EntityFramework\CityQuestDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\CityQuestRepositoryBase.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\DivisionRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\GameModule\GameRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\LocationRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\TeamRepository.cs" />
     <Compile Include="Extensions\Extensions.cs" />

@@ -9,5 +9,8 @@ namespace CityQuest.CityQuestPolicy.GameModule.Teams
 {
     public interface ITeamPolicy : ICityQuestPolicyBase<Team, long>
     {
+        bool CanChangeActivityForEntity(long userId, Team entity);
+
+        bool CanChangeActivityForEntity(Team entity);
     }
 }

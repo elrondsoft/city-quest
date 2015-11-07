@@ -57,9 +57,9 @@ namespace CityQuest.Authorization.Providers
             {
                 using (var uow = _uowManager.Begin())
                 {
-                    _uowManager.Current.DisableFilter(AbpDataFilters.MayHaveTenant);
+                    //_uowManager.Current.DisableFilter(AbpDataFilters.MayHaveTenant);
                     client = await _userManager.FindByIdAsync(digitClientId);
-                    _uowManager.Current.EnableFilter(AbpDataFilters.MayHaveTenant);
+                    //_uowManager.Current.EnableFilter(AbpDataFilters.MayHaveTenant);
                 }
             }
             catch (Exception ex)
@@ -89,9 +89,9 @@ namespace CityQuest.Authorization.Providers
             {
                 using (var uow = _uowManager.Begin())
                 {
-                    _uowManager.Current.DisableFilter(AbpDataFilters.MayHaveTenant);
+                    //_uowManager.Current.DisableFilter(AbpDataFilters.MayHaveTenant);
                     user = await _userManager.FindAsync(context.UserName, context.Password);
-                    _uowManager.Current.EnableFilter(AbpDataFilters.MayHaveTenant);
+                    //_uowManager.Current.EnableFilter(AbpDataFilters.MayHaveTenant);
                 }
             }
             catch (Exception ex)

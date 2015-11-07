@@ -193,6 +193,7 @@
                                                 '\'Division\'', data.entity.id),
                                             vm.localize('ActivateSuccessMsgResult_Header'));
                                         constSvc.jTableActions.updateRecord('divisionTable', data.entity);
+                                        vm.recordsLoaded();
                                     });
                             }
                         });
@@ -212,6 +213,7 @@
                                                 '\'Division\'', data.entity.id),
                                             vm.localize('DeactivateSuccessMsgResult_Header'));
                                         constSvc.jTableActions.updateRecord('divisionTable', data.entity);
+                                        vm.recordsLoaded();
                                     });
                             }
                         });
