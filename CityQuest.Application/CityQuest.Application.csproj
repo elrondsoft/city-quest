@@ -98,6 +98,16 @@
     <Compile Include="ApplicationServices\GameModule\Divisions\Dtos\RetrieveAllDivisionsPagedResultInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Divisions\Dtos\RetrieveDivisionInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Divisions\IDivisionAppService.cs" />
+    <Compile Include="ApplicationServices\GameModule\Games\Dtos\CreateGameInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Games\Dtos\GameDto.cs" />
+    <Compile Include="ApplicationServices\GameModule\Games\Dtos\RetrieveAllGamesInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Games\Dtos\RetrieveAllGamesLikeComboBoxesInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Games\Dtos\RetrieveAllGamesLikeComboBoxesOutput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Games\Dtos\RetrieveAllGamesPagedResultInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Games\Dtos\RetrieveGameInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Games\Dtos\UpdateGameInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Games\GameAppService.cs" />
+    <Compile Include="ApplicationServices\GameModule\Games\IGameAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\CreateTeamInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsLikeComboBoxesInput.cs" />

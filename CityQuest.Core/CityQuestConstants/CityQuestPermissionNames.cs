@@ -11,9 +11,35 @@ namespace CityQuest.CityQuestConstants
     {
         #region CityQuest's permission names
 
-        public const string CanAll = "CanAll";
-
         //public const string CanDoSomething = "CanDoSomething";
+
+        #region Global CityQuest's permission names
+
+        public const string CanAll = "CanAll";
+        public const string CanRetrieve = "CanRetrieve";
+        public const string CanCreate = "CanCreate";
+        public const string CanUpdate = "CanUpdate";
+        public const string CanDelete = "CanDelete";
+
+        #endregion
+
+        #region GameModule's CityQuest's permission names
+
+        public const string CanAllDivision = "CanAllDivision";
+        public const string CanRetrieveDivision = "CanRetrieveDivision";
+        public const string CanCreateDivision = "CanCreateDivision";
+        public const string CanUpdateDivision = "CanUpdateDivision";
+        public const string CanDeleteDivision = "CanDeleteDivision";
+        public const string CanChangeDivisionActivity = "CanChangeDivisionActivity";
+
+        #endregion
+
+        #region MainModule's CityQuest's permission names
+
+
+        //TODO: add permission names
+
+        #endregion
 
         #endregion
 

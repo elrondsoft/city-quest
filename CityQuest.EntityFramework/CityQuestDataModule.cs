@@ -13,6 +13,9 @@ using CityQuest.Entities.MainModule.Users;
 using CityQuest.Entities.MainModule.Roles;
 using CityQuest.Entities.MainModule.Authorization.UserLogins;
 using CityQuest.Entities.MainModule.Authorization.RolePermissionSettings;
+using CityQuest.Entities.GameModule.Locations;
+using CityQuest.EntityFramework.Repositories.GameModule;
+using CityQuest.Entities.GameModule.Games;
 
 namespace CityQuest
 {
@@ -25,9 +28,14 @@ namespace CityQuest
             Configuration.UnitOfWork.RegisterFilter(Filters.IPassivableFilter, false);
 
             IocManager.IocContainer.Register(
-                //Component.For<typeof(ICityQuestRepositoryBase<,>)>().ImplementedBy<typeof(CityQuestRepositoryBase<,>)>().LifestyleTransient(),
-                Component.For<ICityQuestRepositoryBase<Division, long>, IDivisionRepository>().ImplementedBy<CityQuestRepositoryBase<Division, long>>().LifestyleTransient(),
-                Component.For<ICityQuestRepositoryBase<Team, long>, ITeamRepository>().ImplementedBy<CityQuestRepositoryBase<Team, long>>().LifestyleTransient(),
+                //Component.For<ICityQuestRepositoryBase<Division, long>, IDivisionRepository>().ImplementedBy<CityQuestRepositoryBase<Division, long>>().LifestyleTransient(),
+                //Component.For<ICityQuestRepositoryBase<Team, long>, ITeamRepository>().ImplementedBy<CityQuestRepositoryBase<Team, long>>().LifestyleTransient(),
+                
+                Component.For<ICityQuestRepositoryBase<Division, long>, IDivisionRepository>().ImplementedBy<DivisionRepository>().LifestyleTransient(),
+                Component.For<ICityQuestRepositoryBase<Team, long>, ITeamRepository>().ImplementedBy<TeamRepository>().LifestyleTransient(),
+                Component.For<ICityQuestRepositoryBase<Location, long>, ILocationRepository>().ImplementedBy<LocationRepository>().LifestyleTransient(),
+                Component.For<ICityQuestRepositoryBase<Game, long>, IGameRepository>().ImplementedBy<GameRepository>().LifestyleTransient(),
+
                 Component.For<ICityQuestRepositoryBase<UserRole, long>, IUserRoleRepository>().ImplementedBy<CityQuestRepositoryBase<UserRole, long>>().LifestyleTransient(),
                 Component.For<ICityQuestRepositoryBase<User, long>, IUserRepository>().ImplementedBy<CityQuestRepositoryBase<User, long>>().LifestyleTransient(),
                 Component.For<ICityQuestRepositoryBase<Role, long>, IRoleRepository>().ImplementedBy<CityQuestRepositoryBase<Role, long>>().LifestyleTransient(),
