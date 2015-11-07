@@ -106,6 +106,10 @@
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\TeamDto.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\ITeamAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\TeamAppService.cs" />
+    <Compile Include="ApplicationServices\MainModule\Locations\Dto\LocationDto.cs" />
+    <Compile Include="ApplicationServices\MainModule\Locations\Dto\RetrieveAllLocationsInput.cs" />
+    <Compile Include="ApplicationServices\MainModule\Locations\ILocationAppService.cs" />
+    <Compile Include="ApplicationServices\MainModule\Locations\LocationAppService.cs" />
     <Compile Include="ApplicationServices\MainModule\Permissions\IPermissionAppService.cs" />
     <Compile Include="ApplicationServices\MainModule\Permissions\PermissionAppService.cs" />
     <Compile Include="ApplicationServices\MainModule\Permissions\Dto\PermissionDto.cs" />
