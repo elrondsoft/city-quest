@@ -68,8 +68,8 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             if (input.IsActive ?? true)
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
-            IReadOnlyList<ComboboxItemDto> teamsLikeComboBoxes = TeamPolicy.CanRetrieveManyEntities( 
-                TeamRepository.GetAll())
+            IReadOnlyList<ComboboxItemDto> teamsLikeComboBoxes = TeamPolicy.CanRetrieveManyEntities(
+                TeamRepository.GetAll()).ToList()
                 .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name)).ToList();
 
             return new RetrieveAllTeamsLikeComboBoxesOutput()
@@ -122,7 +122,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
 
             if (!TeamPolicy.CanRetrieveEntity(teamEntities.Single()))
             {
-                throw new UserFriendlyException(String.Format(
+                throw new UserFriendlyException("Access denied!", String.Format(
                     "You have not permissions to retrieve this Team's entity."));
             }
 
@@ -140,7 +140,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
 
             if (!TeamPolicy.CanCreateEntity(newTeamEntity))
             {
-                throw new UserFriendlyException(String.Format(
+                throw new UserFriendlyException("Access denied!", String.Format(
                     "You have not permissions to create this Team's entity."));
             }
 

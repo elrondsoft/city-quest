@@ -24,7 +24,6 @@ namespace CityQuest.Runtime.Sessions
             get
             {
                 var userId = Thread.CurrentPrincipal.Identity.GetUserId();
-                var a = Thread.CurrentPrincipal.Identity;
                 if (userId == null)
                 {
                     return null;

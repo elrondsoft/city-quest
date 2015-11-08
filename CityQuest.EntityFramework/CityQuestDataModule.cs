@@ -28,9 +28,8 @@ namespace CityQuest
             Configuration.UnitOfWork.RegisterFilter(Filters.IPassivableFilter, false);
 
             IocManager.IocContainer.Register(
-                //Component.For<ICityQuestRepositoryBase<Division, long>, IDivisionRepository>().ImplementedBy<CityQuestRepositoryBase<Division, long>>().LifestyleTransient(),
-                //Component.For<ICityQuestRepositoryBase<Team, long>, ITeamRepository>().ImplementedBy<CityQuestRepositoryBase<Team, long>>().LifestyleTransient(),
-                
+                //Component.For(typeof(ICityQuestRepositoryBase<,>)).ImplementedBy(typeof(CityQuestRepositoryBase<,>)),
+
                 Component.For<ICityQuestRepositoryBase<Division, long>, IDivisionRepository>().ImplementedBy<DivisionRepository>().LifestyleTransient(),
                 Component.For<ICityQuestRepositoryBase<Team, long>, ITeamRepository>().ImplementedBy<TeamRepository>().LifestyleTransient(),
                 Component.For<ICityQuestRepositoryBase<Location, long>, ILocationRepository>().ImplementedBy<LocationRepository>().LifestyleTransient(),

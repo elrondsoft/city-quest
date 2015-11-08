@@ -23,33 +23,33 @@ namespace CityQuest.CityQuestPolicy
 
         public CityQuestPolicyBase(ICityQuestSession session, IPermissionChecker permissionChecker)
         {
-            this.Session = session;
-            this.PermissionChecker = permissionChecker;
+            Session = session;
+            PermissionChecker = permissionChecker;
         }
 
         #endregion
 
-        public bool CanRetrieveEntity(long userId, TEntity entity)
+        public virtual bool CanRetrieveEntity(long userId, TEntity entity)
         {
             return true;
         }
 
-        public IQueryable<TEntity> CanRetrieveManyEntities(long userId, IQueryable<TEntity> entities)
+        public virtual IQueryable<TEntity> CanRetrieveManyEntities(long userId, IQueryable<TEntity> entities)
         {
             return entities;
         }
 
-        public bool CanCreateEntity(long userId, TEntity entity)
+        public virtual bool CanCreateEntity(long userId, TEntity entity)
         {
             return true;
         }
 
-        public bool CanUpdateEntity(long userId, TEntity entity)
+        public virtual bool CanUpdateEntity(long userId, TEntity entity)
         {
             return true;
         }
 
-        public bool CanDeleteEntity(long userId, TEntity entity)
+        public virtual bool CanDeleteEntity(long userId, TEntity entity)
         {
             return true;
         }
@@ -59,7 +59,7 @@ namespace CityQuest.CityQuestPolicy
             return CanRetrieveEntity(Session.UserId ?? 0, entity);
         }
 
-        public IQueryable<TEntity> CanRetrieveManyEntities(IQueryable<TEntity> entities)
+        public virtual IQueryable<TEntity> CanRetrieveManyEntities(IQueryable<TEntity> entities)
         {
             return CanRetrieveManyEntities(Session.UserId ?? 0, entities);
         }

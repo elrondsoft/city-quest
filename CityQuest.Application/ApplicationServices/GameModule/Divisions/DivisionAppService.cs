@@ -9,6 +9,7 @@ using CityQuest.ApplicationServices.Shared.Dtos.Output;
 using CityQuest.CityQuestConstants;
 using CityQuest.CityQuestPolicy.GameModule.Divisions;
 using CityQuest.Entities.GameModule.Divisions;
+using CityQuest.Exceptions;
 using CityQuest.Mapping;
 using System;
 using System.Collections.Generic;
@@ -68,8 +69,8 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             if (input.IsActive ?? true)
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
-            IReadOnlyList<ComboboxItemDto> divisionsLikeComboBoxes = DivisionPolicy.CanRetrieveManyEntities( 
-                DivisionRepository.GetAll())
+            IReadOnlyList<ComboboxItemDto> divisionsLikeComboBoxes = DivisionPolicy.CanRetrieveManyEntities(
+                DivisionRepository.GetAll()).ToList()
                 .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name)).ToList();
 
             return new RetrieveAllDivisionsLikeComboBoxesOutput()
@@ -115,7 +116,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
 
             if (!DivisionPolicy.CanRetrieveEntity(divisionEntities.Single()))
             {
-                throw new UserFriendlyException(String.Format(
+                throw new UserFriendlyException("Access denied!", String.Format(
                     "You have not permissions to retrieve this Division's entity."));
             }
 
@@ -131,14 +132,14 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
         {
             Division newDivisionEntity = input.Entity.MapTo<Division>();
 
-            if (!DivisionPolicy.CanCreateEntity(newDivisionEntity))
-            {
-                throw new UserFriendlyException(String.Format(
-                    "You have not permissions to create this Division's entity."));
-            }
-
             newDivisionEntity.IsDefault = false;
             newDivisionEntity.IsActive = true;
+
+            if (!DivisionPolicy.CanCreateEntity(newDivisionEntity))
+            {
+                throw new UserFriendlyException("Access denied!", String.Format(
+                    "You have not permissions to create this Division's entity."));
+            }
 
             DivisionRepository.Includes.Add(r => r.Teams);
             DivisionRepository.Includes.Add(r => r.LastModifierUser);
@@ -166,7 +167,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
 
             if (!DivisionPolicy.CanUpdateEntity(newDivisionEntity))
             {
-                throw new UserFriendlyException(String.Format(
+                throw new UserFriendlyException("Access denied!", String.Format(
                     "You have not permissions to update this Division's entity."));
             }
 
@@ -195,7 +196,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
 
             if (!DivisionPolicy.CanDeleteEntity(divisionEntityForDelete))
             {
-                throw new UserFriendlyException(String.Format(
+                throw new UserFriendlyException("Access denied!", String.Format(
                     "You have not permissions to delete this Division's entity."));
             }
 
@@ -219,8 +220,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
 
             if (!DivisionPolicy.CanChangeActivityForEntity(divisionEntity))
             {
-                throw new UserFriendlyException(String.Format(
-                    "You have not permissions to change activity of this Division's entity."));
+                throw new CityQuestPolicyException("You have not permissions to change activity of this entity ({0}).", "Division");
             }
 
             divisionEntity.IsActive = input.IsActive == null ? !divisionEntity.IsActive : (bool)input.IsActive;

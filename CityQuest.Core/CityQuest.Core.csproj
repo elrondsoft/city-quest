@@ -149,6 +149,7 @@
     <Compile Include="Entities\MainModule\Roles\Role.cs" />
     <Compile Include="Entities\MainModule\Users\IUserRepository.cs" />
     <Compile Include="Entities\MainModule\Users\User.cs" />
+    <Compile Include="Exceptions\CityQuestPolicyException.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="CityQuestPolicy\ICityQuestPolicyBase.cs" />
     <Compile Include="ICityQuestRepositoryBase.cs" />

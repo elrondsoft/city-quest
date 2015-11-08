@@ -67,8 +67,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             if (input.IsActive ?? true)
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
-            IReadOnlyList<ComboboxItemDto> gamesLikeComboBoxes = GamePolicy.CanRetrieveManyEntities( 
-                GameRepository.GetAll())
+            IReadOnlyList<ComboboxItemDto> gamesLikeComboBoxes = GamePolicy.CanRetrieveManyEntities(
+                GameRepository.GetAll()).ToList()
                 .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name)).ToList();
 
             return new RetrieveAllGamesLikeComboBoxesOutput()
