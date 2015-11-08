@@ -40,14 +40,14 @@
                     });
 
                     originalListAction.method(input)
-                        .done(function (data) {
+                        .success(function (data) {
                             $dfd.resolve({
                                 "Result": "OK",
                                 "Records": data[originalListAction.recordsField || 'items'],
                                 "TotalRecordCount": data.totalCount
                             });
                         })
-                        .fail(function (error) {
+                        .error(function (error) {
                             self._handlerForFailOnAbpRequest($dfd, error);
                         });
                 });
@@ -63,13 +63,13 @@
                     var input = $.extend({}, postData);
 
                     originalCreateAction.method(input)
-                        .done(function (data) {
+                        .success(function (data) {
                             $dfd.resolve({
                                 "Result": "OK",
                                 "Record": data[originalCreateAction.recordField || 'item']
                             });
                         })
-                        .fail(function (error) {
+                        .error(function (error) {
                             self._handlerForFailOnAbpRequest($dfd, error);
                         });
                 });
@@ -85,7 +85,7 @@
                     var input = $.extend({}, postData);
 
                     originalUpdateAction.method(input)
-                        .done(function (data) {
+                        .success(function (data) {
                             var result = { "Result": "OK" };
                             if (originalUpdateAction.recordField) {
                                 result.Record = data[originalUpdateAction.recordField];
@@ -93,7 +93,7 @@
 
                             $dfd.resolve(result);
                         })
-                        .fail(function (error) {
+                        .error(function (error) {
                             self._handlerForFailOnAbpRequest($dfd, error);
                         });
                 });
@@ -110,12 +110,12 @@
                     var input = $.extend({}, postData);
 
                     originalDeleteAction.method(input)
-                        .done(function () {
+                        .success(function () {
                             $dfd.resolve({
                                 "Result": "OK"
                             });
                         })
-                        .fail(function (error) {
+                        .error(function (error) {
                             self._handlerForFailOnAbpRequest($dfd, error);
                         });
                 });

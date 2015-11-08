@@ -177,7 +177,7 @@
                getJTableActions: function () {
                    var actions = {
                        listAction: {
-                           method: abp.services.cityQuest.user.retrieveAllPagedResult,
+                           method: userSvc.retrieveAllPagedResult,
                            parameters: {
                            },
                        }

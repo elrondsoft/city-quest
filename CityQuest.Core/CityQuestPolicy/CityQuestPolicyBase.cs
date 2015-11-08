@@ -59,7 +59,7 @@ namespace CityQuest.CityQuestPolicy
             return CanRetrieveEntity(Session.UserId ?? 0, entity);
         }
 
-        public virtual IQueryable<TEntity> CanRetrieveManyEntities(IQueryable<TEntity> entities)
+        public IQueryable<TEntity> CanRetrieveManyEntities(IQueryable<TEntity> entities)
         {
             return CanRetrieveManyEntities(Session.UserId ?? 0, entities);
         }

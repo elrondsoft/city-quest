@@ -231,7 +231,7 @@
                 getJTableActions: function () {
                     var actions = {
                         listAction: {
-                            method: abp.services.cityQuest.division.retrieveAllPagedResult,
+                            method: divisionSvc.retrieveAllPagedResult,
                             parameters: {
                                 IsActive: false,
                             },
