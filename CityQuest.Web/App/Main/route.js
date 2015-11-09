@@ -52,6 +52,12 @@
                     menu: 'TeamsMenuItem',
                     onEnter: onEnterAuthorizedRequired,
                 })
+                .state('games', {
+                    url: '/games',
+                    templateUrl: '/App/Main/views/games/gameListView.cshtml',
+                    menu: 'GamesMenuItem',
+                    onEnter: onEnterAuthorizedRequired,
+                })
                 .state('locations', {
                     url: '/locations',
                     templateUrl: '/App/Main/views/locations/locationListView.cshtml',

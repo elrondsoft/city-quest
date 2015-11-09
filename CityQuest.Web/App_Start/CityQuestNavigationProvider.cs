@@ -23,20 +23,6 @@ namespace CityQuest.Web
                         )
                 ).AddItem(
                     new MenuItemDefinition(
-                        "DivisionsMenuItem",
-                        new LocalizableString("DivisionsMenuItem", CityQuestConsts.LocalizationSourceName),
-                        url: "#/divisions",
-                        icon: "fa fa-list-alt"
-                        )
-                ).AddItem(
-                    new MenuItemDefinition(
-                        "TeamsMenuItem",
-                        new LocalizableString("TeamsMenuItem", CityQuestConsts.LocalizationSourceName),
-                        url: "#/teams",
-                        icon: "fa fa-list-alt"
-                        )
-                ).AddItem(
-                    new MenuItemDefinition(
                         "LocationsMenuItem",
                         new LocalizableString("LocationsMenuItem", CityQuestConsts.LocalizationSourceName),
                         url: "#/locations",
@@ -57,6 +43,21 @@ namespace CityQuest.Web
                             new LocalizableString("RolesMenuItem", CityQuestConsts.LocalizationSourceName),
                             url: "#/roles",
                             icon: "fa fa-gavel"
+                        )).AddItem(new MenuItemDefinition(
+                            "DivisionsMenuItem",
+                            new LocalizableString("DivisionsMenuItem", CityQuestConsts.LocalizationSourceName),
+                            url: "#/divisions",
+                            icon: "fa fa-list-alt"
+                        )).AddItem(new MenuItemDefinition(
+                            "TeamsMenuItem",
+                            new LocalizableString("TeamsMenuItem", CityQuestConsts.LocalizationSourceName),
+                            url: "#/teams",
+                            icon: "fa fa-list-alt"
+                        )).AddItem(new MenuItemDefinition(
+                            "GamesMenuItem",
+                            new LocalizableString("GamesMenuItem", CityQuestConsts.LocalizationSourceName),
+                            url: "#/games",
+                            icon: "fa fa-list-alt"
                         ))
                 );
         }

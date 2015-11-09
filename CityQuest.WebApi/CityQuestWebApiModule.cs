@@ -1,16 +1,17 @@
-﻿using System.Reflection;
-using Abp.Application.Services;
+﻿using Abp.Application.Services;
 using Abp.Modules;
+using Abp.Runtime.Session;
 using Abp.WebApi;
 using Abp.WebApi.Controllers.Dynamic.Builders;
-using CityQuest.ApplicationServices.GameModule.Divisions;
-using CityQuest.ApplicationServices.GameModule.Teams;
-using CityQuest.Runtime.Sessions;
 using Castle.MicroKernel.Registration;
-using Abp.Runtime.Session;
+using CityQuest.ApplicationServices.GameModule.Divisions;
+using CityQuest.ApplicationServices.GameModule.Games;
+using CityQuest.ApplicationServices.GameModule.Teams;
+using CityQuest.ApplicationServices.MainModule.Permissions;
 using CityQuest.ApplicationServices.MainModule.Roles;
 using CityQuest.ApplicationServices.MainModule.Users;
-using CityQuest.ApplicationServices.MainModule.Permissions;
+using CityQuest.Runtime.Sessions;
+using System.Reflection;
 
 namespace CityQuest
 {
@@ -43,6 +44,8 @@ namespace CityQuest
             DynamicApiControllerBuilder.For<IDivisionAppService>("cityQuest/division").Build();
 
             DynamicApiControllerBuilder.For<ITeamAppService>("cityQuest/team").Build();
+
+            DynamicApiControllerBuilder.For<IGameAppService>("cityQuest/game").Build();
 
             #endregion
         }

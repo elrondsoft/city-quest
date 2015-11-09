@@ -28,12 +28,18 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
 
         #endregion
 
-        public DivisionAppService(IUnitOfWorkManager uowManager, IDivisionRepository divisionRepository, IDivisionPolicy divisionPolicy)
+        #region ctors
+
+        public DivisionAppService(IUnitOfWorkManager uowManager, 
+            IDivisionRepository divisionRepository, 
+            IDivisionPolicy divisionPolicy)
         {
             UowManager = uowManager;
             DivisionRepository = divisionRepository;
             DivisionPolicy = divisionPolicy;
         }
+
+        #endregion
 
         public RetrieveAllPagedResultOutput<DivisionDto, long> RetrieveAllPagedResult(RetrieveAllDivisionsPagedResultInput input)
         {
@@ -84,6 +90,10 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             if (input.IsActive ?? true)
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
+            DivisionRepository.Includes.Add(r => r.LastModifierUser);
+            DivisionRepository.Includes.Add(r => r.CreatorUser);
+            DivisionRepository.Includes.Add(r => r.Teams);
+
             IList<Division> divisionEntities = DivisionPolicy.CanRetrieveManyEntities( 
                 DivisionRepository.GetAll()
                 .WhereIf(!input.DivisionIds.IsNullOrEmpty(), r => input.DivisionIds.Contains(r.Id))
@@ -91,6 +101,8 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
                 .ToList();
 
             IList<DivisionDto> result = divisionEntities.MapIList<Division, DivisionDto>();
+
+            DivisionRepository.Includes.Clear();
 
             return new RetrieveAllOutput<DivisionDto, long>()
             {
@@ -103,24 +115,24 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             if (input.IsActive ?? true)
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
+            DivisionRepository.Includes.Add(r => r.LastModifierUser);
+            DivisionRepository.Includes.Add(r => r.CreatorUser);
+            DivisionRepository.Includes.Add(r => r.Teams);
+
             IList<Division> divisionEntities = DivisionRepository.GetAll()
                 .WhereIf(input.Id != null, r => r.Id == input.Id)
                 .WhereIf(!String.IsNullOrEmpty(input.Name), r => r.Name.ToLower().Contains(input.Name.ToLower()))
                 .ToList();
 
             if (divisionEntities.Count != 1) 
-            {
-                throw new UserFriendlyException("Inaccessible action!", String.Format(
-                    "Can not retrieve Division with these filters."));            
-            }
+                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Division\"");            
 
             if (!DivisionPolicy.CanRetrieveEntity(divisionEntities.Single()))
-            {
-                throw new UserFriendlyException("Access denied!", String.Format(
-                    "You have not permissions to retrieve this Division's entity."));
-            }
+                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionRetrieveDenied, "\"Division\"");
 
             DivisionDto divisionEntity = divisionEntities.Single().MapTo<DivisionDto>();
+
+            DivisionRepository.Includes.Clear();
 
             return new RetrieveOutput<DivisionDto, long>()
             {
@@ -136,14 +148,11 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             newDivisionEntity.IsActive = true;
 
             if (!DivisionPolicy.CanCreateEntity(newDivisionEntity))
-            {
-                throw new UserFriendlyException("Access denied!", String.Format(
-                    "You have not permissions to create this Division's entity."));
-            }
+                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionCreateDenied, "\"Division\"");
 
-            DivisionRepository.Includes.Add(r => r.Teams);
             DivisionRepository.Includes.Add(r => r.LastModifierUser);
             DivisionRepository.Includes.Add(r => r.CreatorUser);
+            DivisionRepository.Includes.Add(r => r.Teams);
 
             DivisionDto newDivisionDto = (DivisionRepository.Insert(newDivisionEntity)).MapTo<DivisionDto>();
 
@@ -160,20 +169,14 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             Division newDivisionEntity = input.Entity.MapTo<Division>();
 
             if (newDivisionEntity == null)
-            {
-                throw new UserFriendlyException("Inaccessible action!", String.Format(
-                    "There is not valid Division entity. Can not update to it."));
-            }
+                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Division\"");
 
             if (!DivisionPolicy.CanUpdateEntity(newDivisionEntity))
-            {
-                throw new UserFriendlyException("Access denied!", String.Format(
-                    "You have not permissions to update this Division's entity."));
-            }
+                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionUpdateDenied, "\"Division\"");
 
-            DivisionRepository.Includes.Add(r => r.Teams);
             DivisionRepository.Includes.Add(r => r.LastModifierUser);
             DivisionRepository.Includes.Add(r => r.CreatorUser);
+            DivisionRepository.Includes.Add(r => r.Teams);
 
             DivisionRepository.Update(newDivisionEntity);
             DivisionDto newDivisionDto = (DivisionRepository.Get(newDivisionEntity.Id)).MapTo<DivisionDto>();
@@ -191,14 +194,10 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             Division divisionEntityForDelete = DivisionRepository.Get(input.EntityId);
 
             if (divisionEntityForDelete == null)
-                throw new UserFriendlyException("Inaccessible action!", String.Format(
-                    "There are no Division with Id = {0}. Can not delete it.", input.EntityId));
+                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Division\"");
 
             if (!DivisionPolicy.CanDeleteEntity(divisionEntityForDelete))
-            {
-                throw new UserFriendlyException("Access denied!", String.Format(
-                    "You have not permissions to delete this Division's entity."));
-            }
+                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionDeleteDenied, "\"Division\"");
 
             DivisionRepository.Delete(divisionEntityForDelete);
 
@@ -210,18 +209,17 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
 
         public ChangeActivityOutput<DivisionDto, long> ChangeActivity(ChangeActivityInput input)
         {
+            DivisionRepository.Includes.Add(r => r.LastModifierUser);
+            DivisionRepository.Includes.Add(r => r.CreatorUser);
             DivisionRepository.Includes.Add(r => r.Teams);
 
             Division divisionEntity = DivisionRepository.Get(input.EntityId);
 
             if (divisionEntity == null)
-                throw new UserFriendlyException("Inaccessible action!", String.Format(
-                    "There are no Division with Id = {0}. Can not change it's activity.", input.EntityId));
+                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Division\"");
 
             if (!DivisionPolicy.CanChangeActivityForEntity(divisionEntity))
-            {
-                throw new CityQuestPolicyException("You have not permissions to change activity of this entity ({0}).", "Division");
-            }
+                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionChangeActivityDenied, "\"Division\"");
 
             divisionEntity.IsActive = input.IsActive == null ? !divisionEntity.IsActive : (bool)input.IsActive;
 

@@ -12,6 +12,7 @@
     <text name="RolesMenuItem" value="Roles" />
     <text name="DivisionsMenuItem" value="Divisions" />
     <text name="TeamsMenuItem" value="Teams" />
+    <text name="GamesMenuItem" value="Games" />
     <text name="LocationsMenuItem" value="Locations" />
     
     <text name="SignInTo" value="Sign in to" />

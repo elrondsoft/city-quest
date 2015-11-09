@@ -93,4 +93,30 @@ angular.module('app').service('clientPermissionService', function () {
         }
     };
     //-----------------------------------------------------------------------------------------------------------------
+    //----------------------------------------Client's permissions for Game--------------------------------------------
+    this.game = {
+        canRetrieve: function (entity) {
+            return true;
+        },
+        canCreate: function (entity) {
+            return true;
+        },
+        canUpdate: function (entity) {
+            return true;
+        },
+        canDelete: function (entity) {
+            return true;
+        },
+        canActivate: function (entity) {
+            if (entity && (entity.isActive == false))
+                return true;
+            return false;
+        },
+        canDeactivate: function (entity) {
+            if (entity && (entity.isActive == true))
+                return true;
+            return false;
+        }
+    };
+    //-----------------------------------------------------------------------------------------------------------------
 });

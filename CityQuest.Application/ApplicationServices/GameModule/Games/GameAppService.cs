@@ -7,6 +7,7 @@ using CityQuest.ApplicationServices.Shared.Dtos.Output;
 using CityQuest.CityQuestConstants;
 using CityQuest.CityQuestPolicy.GameModule.Games;
 using CityQuest.Entities.GameModule.Games;
+using CityQuest.Exceptions;
 using CityQuest.Mapping;
 using System;
 using System.Collections.Generic;
@@ -26,12 +27,18 @@ namespace CityQuest.ApplicationServices.GameModule.Games
 
         #endregion
 
-        public GameAppService(IUnitOfWorkManager uowManager, IGameRepository gameRepository, IGamePolicy gamePolicy)
+        #region ctors
+
+        public GameAppService(IUnitOfWorkManager uowManager, 
+            IGameRepository gameRepository, 
+            IGamePolicy gamePolicy)
         {
             UowManager = uowManager;
             GameRepository = gameRepository;
             GamePolicy = gamePolicy;
         }
+
+        #endregion
 
         public RetrieveAllPagedResultOutput<GameDto, long> RetrieveAllPagedResult(RetrieveAllGamesPagedResultInput input)
         {
@@ -101,24 +108,24 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             if (input.IsActive ?? true)
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
+            GameRepository.Includes.Add(r => r.GameTasks);
+            GameRepository.Includes.Add(r => r.LastModifierUser);
+            GameRepository.Includes.Add(r => r.CreatorUser);
+
             IList<Game> gameEntities = GameRepository.GetAll()
                 .WhereIf(input.Id != null, r => r.Id == input.Id)
                 .WhereIf(!String.IsNullOrEmpty(input.Name), r => r.Name.ToLower().Contains(input.Name.ToLower()))
                 .ToList();
 
             if (gameEntities.Count != 1) 
-            {
-                throw new UserFriendlyException("Inaccessible action!", String.Format(
-                    "Can not retrieve Game with these filters."));            
-            }
+                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Game\"");
 
             if (!GamePolicy.CanRetrieveEntity(gameEntities.Single()))
-            {
-                throw new UserFriendlyException(String.Format(
-                    "You have not permissions to retrieve this Game's entity."));
-            }
+                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionRetrieveDenied, "\"Game\"");
 
             GameDto gameEntity = gameEntities.Single().MapTo<GameDto>();
+
+            GameRepository.Includes.Clear();
 
             return new RetrieveOutput<GameDto, long>()
             {
@@ -131,10 +138,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             Game newGameEntity = input.Entity.MapTo<Game>();
 
             if (!GamePolicy.CanCreateEntity(newGameEntity))
-            {
-                throw new UserFriendlyException(String.Format(
-                    "You have not permissions to create this Game's entity."));
-            }
+                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionCreateDenied, "\"Game\"");
 
             newGameEntity.IsActive = true;
 
@@ -157,16 +161,10 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             Game newGameEntity = input.Entity.MapTo<Game>();
 
             if (newGameEntity == null)
-            {
-                throw new UserFriendlyException("Inaccessible action!", String.Format(
-                    "There is not valid Game entity. Can not update to it."));
-            }
+                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Game\"");
 
             if (!GamePolicy.CanUpdateEntity(newGameEntity))
-            {
-                throw new UserFriendlyException(String.Format(
-                    "You have not permissions to update this Game's entity."));
-            }
+                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionUpdateDenied, "\"Game\"");
 
             GameRepository.Includes.Add(r => r.GameTasks);
             GameRepository.Includes.Add(r => r.LastModifierUser);
@@ -188,14 +186,10 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             Game gameEntityForDelete = GameRepository.Get(input.EntityId);
 
             if (gameEntityForDelete == null)
-                throw new UserFriendlyException("Inaccessible action!", String.Format(
-                    "There are no Game with Id = {0}. Can not delete it.", input.EntityId));
+                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Game\"");
 
             if (!GamePolicy.CanDeleteEntity(gameEntityForDelete))
-            {
-                throw new UserFriendlyException(String.Format(
-                    "You have not permissions to delete this Game's entity."));
-            }
+                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionDeleteDenied, "\"Game\"");
 
             GameRepository.Delete(gameEntityForDelete);
 
@@ -208,18 +202,16 @@ namespace CityQuest.ApplicationServices.GameModule.Games
         public ChangeActivityOutput<GameDto, long> ChangeActivity(ChangeActivityInput input)
         {
             GameRepository.Includes.Add(r => r.GameTasks);
+            GameRepository.Includes.Add(r => r.LastModifierUser);
+            GameRepository.Includes.Add(r => r.CreatorUser);
 
             Game gameEntity = GameRepository.Get(input.EntityId);
 
             if (gameEntity == null)
-                throw new UserFriendlyException("Inaccessible action!", String.Format(
-                    "There are no Game with Id = {0}. Can not change it's activity.", input.EntityId));
+                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Game\"");
 
             if (!GamePolicy.CanChangeActivityForEntity(gameEntity))
-            {
-                throw new UserFriendlyException(String.Format(
-                    "You have not permissions to change activity of this Game's entity."));
-            }
+                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionChangeActivityDenied, "\"Game\"");
 
             gameEntity.IsActive = input.IsActive == null ? !gameEntity.IsActive : (bool)input.IsActive;
 

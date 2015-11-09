@@ -1,0 +1,14 @@
+﻿<div class="container-fluid" ng-controller="app.views.games.gameListController as vm">
+    <jtable id="gameTable"
+            name="gameTable"
+            title="vm.title"
+            paging="vm.paging"
+            actions="vm.actions"
+            messages="vm.messages"
+            filters="vm.filters"
+            fields="vm.fields"
+            records-loaded="vm.recordsLoaded"
+            toolbar="vm.toolbar"
+            loaded="vm.loaded()">
+    </jtable>
+</div>
