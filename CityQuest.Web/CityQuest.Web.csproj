@@ -216,6 +216,7 @@
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
     <Content Include="App\Main\app.js" />
     <Content Include="App\Main\configuration\jTableConfiguration.js" />
+    <Content Include="App\Main\directives\games\gameTasks\gameTasksBuilderDirective.js" />
     <Content Include="App\Main\directives\jTableDirectives\jTableDirective.js" />
     <Content Include="App\Main\main.css">
       <DependentUpon>main.less</DependentUpon>
@@ -229,9 +230,10 @@
     <Content Include="App\Main\services\shared\clientCityQuestConstService.js" />
     <Content Include="App\Main\services\shared\clientPermissionService.js" />
     <Content Include="App\Main\services\shared\dataStorageService.js" />
+    <Content Include="App\Main\styles\gameTaskBuilder.css" />
     <Content Include="App\Main\styles\site.css" />
     <Content Include="App\Main\templates\divisions\divisionDetailsController.js" />
-    <Content Include="App\Main\templates\game\gameDetailsController.js" />
+    <Content Include="App\Main\templates\games\gameDetailsController.js" />
     <Content Include="App\Main\templates\roles\roleDetailsController.js" />
     <Content Include="App\Main\templates\teams\teamDetailsController.js" />
     <Content Include="App\Main\templates\users\userDetailsController.js" />
@@ -246,7 +248,8 @@
     <Content Include="App\Main\templates\roles\roleDetailsTemplate.cshtml" />
     <Content Include="App\Main\templates\users\userDetailsTemplate.cshtml" />
     <Content Include="App\Main\views\games\gameListView.cshtml" />
-    <Content Include="App\Main\templates\game\gameDetailsTemplate.cshtml" />
+    <Content Include="App\Main\templates\games\gameDetailsTemplate.cshtml" />
+    <Content Include="App\Main\directives\games\gameTasks\gameTasksBuilderTemplate.cshtml" />
     <None Include="App\Main\views\roles\roleListView.cshtml" />
     <Content Include="App\Main\views\teams\teamListController.js" />
     <Content Include="App\Main\views\users\userListController.js" />

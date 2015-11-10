@@ -1,0 +1,164 @@
+﻿<div class="row game-tasks-container-header">
+    <button type="button"
+            class="btn btn-sm btn-danger pull-right cq-game-tasks-directive-btn"
+            ng-if="gameTasksBuilder.gameTaskAvailableActions.canDeleteAllGameTasks()"
+            ng-click="gameTasksBuilder.gameTaskActions.deleteAllGameTasks()">
+        @L("ButtonClearGameTasks")
+    </button>
+    <button type="button"
+            class="btn btn-sm btn-success pull-right cq-game-tasks-directive-btn"
+            ng-if="gameTasksBuilder.gameTaskAvailableActions.canAddGameTaskOnBottom()"
+            ng-click="gameTasksBuilder.gameTaskActions.addGameTaskOnBottom()">
+        @L("ButtonAddGameTaskOnBottom")
+    </button>
+    <button type="button"
+            class="btn btn-sm btn-success pull-right cq-game-tasks-directive-btn"
+            ng-if="gameTasksBuilder.gameTaskAvailableActions.canAddGameTaskOnTop()"
+            ng-click="gameTasksBuilder.gameTaskActions.addGameTaskOnTop()">
+        @L("ButtonAddGameTaskOnTop")
+    </button>
+</div>
+<div class="row game-tasks-container-body">
+    <div class="col-xs-12 game-task-container" 
+         ng-repeat="gameTask in gameTasksBuilder.gameTasks">
+        <div class="row game-task-container-header">
+            <div class="col-xs-12">
+                <div class="row game-task-container-header-button-row">
+                    <div type="button"
+                         class="pull-right btn btn-danger ng-scope btn-xs cq-icon-white-button"
+                         ng-if="gameTasksBuilder.gameTaskAvailableActions.canDeleteGameTask(gameTask)"
+                         ng-click="gameTasksBuilder.gameTaskActions.deleteGameTask(gameTask.order)">
+                        <span>
+                            <i class="fa fa-times"></i>
+                        </span>
+                    </div>
+                    <div type="button"
+                         class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
+                         ng-if="gameTasksBuilder.gameTaskAvailableActions.canMinimize(gameTask)"
+                         ng-click="gameTasksBuilder.gameTaskActions.minimize(gameTask.order)">
+                        <span>
+                            <i class="fa fa-minus"></i>
+                        </span>
+                    </div>
+                    <div type="button"
+                         class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
+                         ng-if="gameTasksBuilder.gameTaskAvailableActions.canMaximize(gameTask)"
+                         ng-click="gameTasksBuilder.gameTaskActions.maximize(gameTask.order)">
+                        <span>
+                            <i class="fa fa-square-o"></i>
+                        </span>
+                    </div>
+                    <div type="button"
+                         class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
+                         ng-if="gameTasksBuilder.gameTaskAvailableActions.canMoveGameTaskUp(gameTask)"
+                         ng-click="gameTasksBuilder.gameTaskActions.moveGameTaskUp(gameTask.order)">
+                        <span>
+                            <i class="fa fa-chevron-up"></i>
+                        </span>
+                    </div>
+                    <div type="button"
+                         class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
+                         ng-if="gameTasksBuilder.gameTaskAvailableActions.canMoveGameTaskDown(gameTask)"
+                         ng-click="gameTasksBuilder.gameTaskActions.moveGameTaskDown(gameTask.order)">
+                        <span>
+                            <i class="fa fa-chevron-down"></i>
+                        </span>
+                    </div>
+                    <div type="button"
+                         class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
+                         ng-if="gameTasksBuilder.gameTaskAvailableActions.canMoveGameTaskToTop(gameTask)"
+                         ng-click="gameTasksBuilder.gameTaskActions.moveGameTaskToTop(gameTask.order)">
+                        <span>
+                            <i class="fa fa-arrow-up"></i>
+                        </span>
+                    </div>
+                    <div type="button"
+                         class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
+                         ng-if="gameTasksBuilder.gameTaskAvailableActions.canMoveGameTaskToBottom(gameTask)"
+                         ng-click="gameTasksBuilder.gameTaskActions.moveGameTaskToBottom(gameTask.order)">
+                        <span>
+                            <i class="fa fa-arrow-down"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="row game-task-container-header-text-row">
+                    {{gameTask.name}}
+                </div>
+            </div>
+        </div>
+        <div class="row game-task-container-body">
+            <accordion close-others="oneAtATime">
+                <accordion-group heading="@L("GameTaskMainInfo")"
+                                 is-open="true"
+                                 class="cq-main-info-accordion">
+                    <div class="row cq-control-row">
+                        <div class="col-xs-2 cq-control-label">
+                            @L("Name"): &nbsp;
+                        </div>
+                        <div class="col-xs-10">
+                            <input class="form-control cq-control"
+                                   ng-disabled="!(gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate())"
+                                   ng-readonly="!(gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate())"
+                                   ng-model="gameTask.name" />
+                        </div>
+                    </div>
+                    <div class="row cq-control-row">
+                        <div class="col-xs-2 cq-control-label">
+                            @L("GameTaskType"): &nbsp;
+                        </div>
+                        <div class="col-xs-10">
+                            <select class="form-control cq-control"
+                                    ng-if="!gameTasksBuilder.gameTaskTypes.length"
+                                    ng-disabled="true"
+                                    ng-readonly="true"
+                                    ng-style="{'width':'100%'}" />
+                            <select class="form-control cq-control"
+                                    ng-if="gameTasksBuilder.gameTaskTypes.length"
+                                    ng-disabled="!(gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate())"
+                                    ng-readonly="!(gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate())"
+                                    ng-style="{'width':'100%'}"
+                                    ng-model="gameTask.gameTaskTypeId"
+                                    ng-options="gameTaskType.value as gameTaskType.displayText for gameTaskType in gameTasksBuilder.gameTaskTypes" />
+                        </div>
+                    </div>
+                    <div class="row cq-control-row">
+                        <div class="col-xs-2 cq-control-label">
+                            @L("Description"): &nbsp;
+                        </div>
+                        <div class="col-xs-10">
+                            <textarea class="form-control cq-control"
+                                      ng-disabled="!(gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate())"
+                                      ng-readonly="!(gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate())"
+                                      ng-style="{'width':'100%'}"
+                                      rows="3"
+                                      ng-model="gameTask.description" />
+                        </div>
+                    </div>
+                    <div class="row cq-control-row">
+                        <div class="col-xs-2 cq-control-label">
+                            @L("TaskText"): &nbsp;
+                        </div>
+                        <div class="col-xs-10">
+                            <textarea class="form-control cq-control"
+                                      ng-disabled="!(gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate())"
+                                      ng-readonly="!(gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate())"
+                                      ng-style="{'width':'100%'}"
+                                      rows="5"
+                                      ng-model="gameTask.taskText" />
+                        </div>
+                    </div>
+                </accordion-group>
+                <accordion-group is-open="false"
+                                 heading="@L("Conditions") ({{gameTask.conditions.length}})"
+                                 class="cq-other-info-accordion">
+                    //TODO: condition directive
+                </accordion-group>
+                <accordion-group is-open="false"
+                                 heading="@L("Tips") ({{gameTask.tips.length}})"
+                                 class="cq-other-info-accordion">
+                    //TODO: tip directive
+                </accordion-group>
+            </accordion>
+        </div>
+    </div>
+</div>

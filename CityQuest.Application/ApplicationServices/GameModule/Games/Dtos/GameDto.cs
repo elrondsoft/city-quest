@@ -1,5 +1,6 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.Domain.Entities;
+using CityQuest.ApplicationServices.GameModule.GameTasks.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games.Dtos
     {
         #region Relations
 
-        //public IList<GameTaskDto> GameTasks { get; set; }
+        public IList<GameTaskDto> GameTasks { get; set; }
 
         public string LastModifierUserFullName { get; set; }
         public string CreatorUserFullName { get; set; }

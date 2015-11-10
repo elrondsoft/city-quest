@@ -1,3 +1,11 @@
 ﻿input, button, select, textarea {
     color: #222;
 }
+
+.cq-icon-white-button {
+    color: #fff;
+}
+
+.cq-icon-black-button {
+    color: #000;
+}

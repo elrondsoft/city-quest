@@ -1,0 +1,84 @@
+﻿<div class="modal-header">
+    <div class="row row-centered">
+        <div class="col-xs-12 text-center">
+            <button type="button"
+                    class="close"
+                    ng-click="vm.templateActions.close();">
+                &times;
+            </button>
+            <label class="cq-modal-title-label">
+                {{vm.title}}
+            </label>
+        </div>
+    </div>
+</div>
+<div class="modal-body">
+    <accordion close-others="oneAtATime">
+        <accordion-group heading="@L("GameMainInfo")"
+                         is-open="true"
+                         class="cq-main-info-accordion">
+            <div class="row cq-control-row">
+                <div class="col-xs-2 cq-control-label">
+                    @L("Name"): &nbsp;
+                </div>
+                <div class="col-xs-8">
+                    <input class="form-control cq-control"
+                           ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                           ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                           ng-model="vm.entity.name" />
+                </div>
+            </div>
+            <div class="row cq-control-row">
+                <div class="col-xs-2 cq-control-label">
+                    @L("Description"): &nbsp;
+                </div>
+                <div class="col-xs-8">
+                    <textarea class="form-control cq-control"
+                              ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                              ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                              ng-style="{'width':'100%'}"
+                              rows="3"
+                              ng-model="vm.entity.description" />
+                </div>
+            </div>
+        </accordion-group>
+        <accordion-group is-open="false"
+                         heading="@L("GameTasks") ({{vm.entity.gameTasks.length}})"
+                         class="cq-other-info-accordion">
+            <game-tasks-builder ng-if="vm.entity"
+                                template-mode="vm.templateMode"
+                                game-tasks="vm.entity.gameTasks"></game-tasks-builder>
+        </accordion-group>
+    </accordion>
+</div>
+<div class="modal-footer">
+    <button type="button"
+            class="btn btn-danger pull-left"
+            ng-if="vm.templateAvailableActions.deleteEntity()"
+            ng-click="vm.templateActions.deleteEntity();">
+        @L("ButtonDelete")
+    </button>
+    <button type="button"
+            class="btn btn-success"
+            ng-if="vm.templateAvailableActions.saveEntity()"
+            ng-click="vm.templateActions.saveEntity();">
+        @L("ButtonSave")
+    </button>
+    <button type="button"
+            class="btn btn-warning"
+            ng-if="vm.templateAvailableActions.activateEntity()"
+            ng-click="vm.templateActions.activateEntity();">
+        @L("ButtonActivate")
+    </button>
+    <button type="button"
+            class="btn btn-warning"
+            ng-if="vm.templateAvailableActions.deactivateEntity()"
+            ng-click="vm.templateActions.deactivateEntity();">
+        @L("ButtonDeactivate")
+    </button>
+    <button type="button"
+            class="btn btn-primary"
+            ng-click="vm.templateActions.close();">
+        @L("ButtonClose")
+    </button>
+</div>

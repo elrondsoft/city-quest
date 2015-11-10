@@ -1,9 +1,11 @@
 ﻿using CityQuest.ApplicationServices.GameModule.Divisions.Dtos;
+using CityQuest.ApplicationServices.GameModule.Games.Dtos;
 using CityQuest.ApplicationServices.GameModule.Teams.Dtos;
 using CityQuest.ApplicationServices.MainModule.Permissions.Dto;
 using CityQuest.ApplicationServices.MainModule.Roles.Dto;
 using CityQuest.ApplicationServices.MainModule.Users.Dto;
 using CityQuest.Entities.GameModule.Divisions;
+using CityQuest.Entities.GameModule.Games;
 using CityQuest.Entities.GameModule.Teams;
 using CityQuest.Entities.MainModule.Authorization.RolePermissionSettings;
 using CityQuest.Entities.MainModule.Authorization.UserRoles;
@@ -72,6 +74,11 @@ namespace CityQuest.Mapping
 
             AutoMapper.Mapper.CreateMap<Team, TeamDto>()
                 .ForMember(r => r.CaptainName, r => r.MapFrom(e => e.Captain.FullUserName))
+                .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))
+                .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
+                .ReverseMap();
+
+            AutoMapper.Mapper.CreateMap<Game, GameDto>()
                 .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))
                 .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
                 .ReverseMap();

@@ -108,6 +108,7 @@
     <Compile Include="ApplicationServices\GameModule\Games\Dtos\UpdateGameInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Games\GameAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\Games\IGameAppService.cs" />
+    <Compile Include="ApplicationServices\GameModule\GameTasks\Dtos\GameTaskDto.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\CreateTeamInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsLikeComboBoxesInput.cs" />
