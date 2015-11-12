@@ -1,44 +1,67 @@
 ﻿(function () {
     var app = angular.module('app');
-    app.directive('gameTasksBuilder', [
-        function () {
+    app.directive('gameTasksBuilder', ['clientCityQuestConstService', 'clientPermissionService', //'abp.services.cityQuest.gameTask',
+        function (constSvc, permissionSvc) {
         return {
             restrict: 'E',
             templateUrl: '/App/Main/directives/games/gameTasks/gameTasksBuilderTemplate.cshtml',
             scope: {},
             bindToController: {
+                templateModeState: '=',
                 gameId: '=',
                 gameTasks: '=',
-                gameTaskTypes: '='
+                gameTaskTypes: '=',
             },
             controllerAs: 'gameTasksBuilder',
             controller: function ($scope) {
                 var vm = this;
+                vm.localize = constSvc.localize;
 
+                //---------------------------------------------------------------------------------------------------------
+                /// Is used to store current load promise
+                vm.loadPromise = null;
+                //----------------------------------------Template's modes-------------------------------------------------
+                /// Is used to get bool result for conmaring template's mode with standart ones
+                vm.templateMode = {
+                    isInfo: function () {
+                        return vm.templateModeState && (vm.templateModeState == constSvc.formModes.info);
+                    },
+                    isCreate: function () {
+                        return vm.templateModeState && (vm.templateModeState == constSvc.formModes.create);
+                    },
+                    isUpdate: function () {
+                        return vm.templateModeState && (vm.templateModeState == constSvc.formModes.update);
+                    }
+                };
+                //----------------------------------Template's actions service---------------------------------------------
+                /// Is used to allow actions for gameTaskBuilder
                 vm.gameTaskAvailableActions = {
+                    canReloadGameTasks: function () {
+                        return vm.templateMode.isUpdate();
+                    },
                     canAddGameTaskOnTop: function () {
-                        return true;
+                        return vm.templateMode.isCreate() || vm.templateMode.isUpdate();
                     },
                     canAddGameTaskOnBottom: function () {
-                        return true;
+                        return vm.templateMode.isCreate() || vm.templateMode.isUpdate();
                     },
                     canDeleteGameTask: function (entity) {
-                        return true;
+                        return vm.templateMode.isCreate() || vm.templateMode.isUpdate();
                     },
                     canDeleteAllGameTasks: function () {
-                        return true;
+                        return vm.templateMode.isCreate() || vm.templateMode.isUpdate();
                     },
                     canMoveGameTaskToTop: function (entity) {
-                        return true;
+                        return vm.templateMode.isCreate() || vm.templateMode.isUpdate();
                     },
                     canMoveGameTaskToBottom: function (entity) {
-                        return true;
+                        return vm.templateMode.isCreate() || vm.templateMode.isUpdate();
                     },
                     canMoveGameTaskUp: function (entity) {
-                        return true;
+                        return vm.templateMode.isCreate() || vm.templateMode.isUpdate();
                     },
                     canMoveGameTaskDown: function (entity) {
-                        return true;
+                        return vm.templateMode.isCreate() || vm.templateMode.isUpdate();
                     },
                     canMinimize: function (entity) {
                         return entity && !entity.isMinimized;
@@ -46,9 +69,21 @@
                     canMaximize: function (entity) {
                         return entity && entity.isMinimized;
                     },
+                    canActivateGameTask: function (entity) {
+                        return !entity.isActive;
+                    },
+                    canDeactivateGameTask: function (entity) {
+                        return entity.isActive;
+                    },
                 };
-
+                //---------------------------------------------------------------------------------------------------------
+                /// Is used to store actions can be allowed in gameTaskBuilder
                 vm.gameTaskActions = {
+                    reloadGameTasks: function () {
+//TODO:
+                        //vm.loadPromise = gameTaskSvc...
+                        return vm.loadPromise;
+                    },
                     setGameTasksOrders: function () {
                         angular.forEach(vm.gameTasks, function (value, key) {
                             value.order = key + 1;
@@ -162,9 +197,25 @@
                         (vm.gameTasks[index]).isMinimized = false;
                         return vm.gameTasks;
                     },
-                };
-                
+                    activateGameTask: function (order) {
+                        var index = order - 1;
 
+                        if (!(index > -1 && index < vm.gameTasks.length))
+                            return false;
+
+                        (vm.gameTasks[index]).isActive = true;
+                        return vm.gameTasks;
+                    },
+                    deactivateGameTask: function (order) {
+                        var index = order - 1;
+
+                        if (!(index > -1 && index < vm.gameTasks.length))
+                            return false;
+
+                        (vm.gameTasks[index]).isActive = false;
+                        return vm.gameTasks;
+                    },
+                };
             }
         }
     }]);

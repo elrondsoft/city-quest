@@ -6,7 +6,7 @@
             var vm = this;
             vm.localize = constSvc.localize;
             vm.title = vm.localize('GameDetails');
-            vm.templateMode = serviceData.templateMode;
+            vm.templateModeState = serviceData.templateMode;
 
             //---------------------------------------------------------------------------------------------------------
             //------------------------------------------Initializing---------------------------------------------------

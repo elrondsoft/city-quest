@@ -20,7 +20,7 @@
                     return data.record.description;
                 },
                 displayTeamsCount: function (data) {
-                    return data.record.teamsCount;
+                    return data.record.gameTasksCount;
                 },
                 displayIsActive: function (data) {
                     return data.record.isActive ? vm.localize('IsActiveTrue') : vm.localize('IsActiveFalse');
@@ -268,7 +268,7 @@
                             display: fieldFunctions.displayDescription
                         },
                         teamsCount: {
-                            title: vm.localize('TeamsCount'),
+                            title: vm.localize('CountOfTasks'),
                             display: fieldFunctions.displayTeamsCount
                         },
                         lastModificationTime: {

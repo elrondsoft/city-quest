@@ -1,11 +1,19 @@
 ﻿input, button, select, textarea {
-    color: #222;
+    color: #222222;
 }
 
 .cq-icon-white-button {
-    color: #fff;
+    color: #ffffff;
+    margin-left: 1px;
+    margin-right: 1px;
 }
 
 .cq-icon-black-button {
-    color: #000;
+    color: #000000;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+.cq-main-info-accordion {
+
 }

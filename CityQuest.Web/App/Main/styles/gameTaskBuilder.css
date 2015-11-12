@@ -1,13 +1,25 @@
 ﻿.game-tasks-container-header {
-
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    /*background-color: green;*/
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .cq-game-tasks-directive-btn {
-
+    margin: 1px;
 }
 
 .game-tasks-container-body {
-
+    margin-left: 0;
+    margin-right: 0;
+    /*background-color: yellow;*/
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .game-task-container {
@@ -15,17 +27,41 @@
 }
 
 .game-task-container-header {
-
+    margin-top: 5px;
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: 0px;
+    /*background-color: blue;*/
+    border-top: 1px solid blue;
+    border-left: 1px solid blue;
+    border-right: 1px solid blue;
+    border-bottom: 1px solid blue;
 }
 
 .game-task-container-header-button-row {
-
+    padding: 3px;
 }
 
 .game-task-container-header-text-row {
 
 }
 
-.game-task-container-body {
+.game-task-name-in-container-header {
 
+}
+
+.game-task-container-body {
+    margin-top: 0px;
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: 5px;
+    /*background-color: lightblue;*/
+    border-left: 1px solid blue;
+    border-right: 1px solid blue;
+    border-bottom: 1px solid blue;
+}
+
+.cq-game-tasks-builder-accordion {
+    margin-top: 15px;
+    /*background-color: aliceblue;*/
 }

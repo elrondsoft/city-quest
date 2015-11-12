@@ -110,6 +110,33 @@
     <text name="PhoneNumber" value="Phone number" />
     <text name="Roles" value="Roles" />
     <text name="UserDetails" value="User details" />
+    
+    <text name="GameDetails" value="Game details" />
+    <text name="GameMainInfo" value="Main info for Game" />
+    <text name="CountOfTasks" value="Count of tasks" />
+    
+    <text name="GameTasks" value="Game tasks" />
+    <text name="GameTaskMainInfo" value="Main info for Task" />
+    <text name="GameTaskType" value="Task type" />
+    <text name="TaskText" value="Task text" />
+    <text name="Conditions" value="Conditions" />
+    <text name="Tips" value="Tips" />
+    
+    <text name="MinimizeTittleText" value="Minimize" />
+    <text name="MaximizeTittleText" value="Maximize" />
+    <text name="MoveUpTittleText" value="Move up" />
+    <text name="MoveDownTittleText" value="Move down" />
+    <text name="MoveToTopTittleText" value="Move to top" />
+    <text name="MoveToBottomTittleText" value="Move to bottom" />
+    <text name="ClearAllGameTasksTittleText" value="Clear all tasks" />
+    <text name="ReloadGameTasksTittleText" value="Reload tasks" />
+    <text name="AddGameTaskOnBottomTittleText" value="Add task on bottom" />
+    <text name="AddGameTaskOnTopTittleText" value="Add task on top" />
+
+    <text name="ButtonClearGameTasks" value="Clear all" />
+    <text name="ButtonReloadGameTasks" value="Reload" />
+    <text name="ButtonAddGameTaskOnBottom" value="Add on bottom" />
+    <text name="ButtonAddGameTaskOnTop" value="Add on top" />
 
   </texts>
 </localizationDictionary>

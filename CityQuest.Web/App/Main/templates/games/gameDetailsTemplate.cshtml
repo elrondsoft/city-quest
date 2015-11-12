@@ -46,8 +46,10 @@
                          heading="@L("GameTasks") ({{vm.entity.gameTasks.length}})"
                          class="cq-other-info-accordion">
             <game-tasks-builder ng-if="vm.entity"
-                                template-mode="vm.templateMode"
-                                game-tasks="vm.entity.gameTasks"></game-tasks-builder>
+                                game-id="vm.entity.id"
+                                template-mode-state="vm.templateModeState"
+                                game-tasks="vm.entity.gameTasks"
+                                game-tasks-types="vm.gameTasksTypes"></game-tasks-builder>
         </accordion-group>
     </accordion>
 </div>
