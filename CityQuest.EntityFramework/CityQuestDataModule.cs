@@ -1,21 +1,26 @@
-﻿using System.Data.Entity;
-using System.Reflection;
-using Abp.EntityFramework;
+﻿using Abp.EntityFramework;
 using Abp.Modules;
-using CityQuest.EntityFramework;
 using Castle.MicroKernel.Registration;
-using CityQuest.EntityFramework.Repositories;
-using CityQuest.Entities.GameModule.Divisions;
-using CityQuest.Entities.GameModule.Teams;
 using CityQuest.CityQuestConstants;
-using CityQuest.Entities.MainModule.Authorization.UserRoles;
-using CityQuest.Entities.MainModule.Users;
-using CityQuest.Entities.MainModule.Roles;
-using CityQuest.Entities.MainModule.Authorization.UserLogins;
-using CityQuest.Entities.MainModule.Authorization.RolePermissionSettings;
-using CityQuest.Entities.GameModule.Locations;
-using CityQuest.EntityFramework.Repositories.GameModule;
+using CityQuest.Entities.GameModule.Divisions;
 using CityQuest.Entities.GameModule.Games;
+using CityQuest.Entities.GameModule.Games.GameTasks;
+using CityQuest.Entities.GameModule.Games.GameTasks.Conditions;
+using CityQuest.Entities.GameModule.Games.GameTasks.Conditions.ConditionTypes;
+using CityQuest.Entities.GameModule.Games.GameTasks.GameTaskTypes;
+using CityQuest.Entities.GameModule.Games.GameTasks.Tips;
+using CityQuest.Entities.GameModule.Locations;
+using CityQuest.Entities.GameModule.Teams;
+using CityQuest.Entities.MainModule.Authorization.RolePermissionSettings;
+using CityQuest.Entities.MainModule.Authorization.UserLogins;
+using CityQuest.Entities.MainModule.Authorization.UserRoles;
+using CityQuest.Entities.MainModule.Roles;
+using CityQuest.Entities.MainModule.Users;
+using CityQuest.EntityFramework;
+using CityQuest.EntityFramework.Repositories;
+using CityQuest.EntityFramework.Repositories.GameModule;
+using System.Data.Entity;
+using System.Reflection;
 
 namespace CityQuest
 {
@@ -34,6 +39,11 @@ namespace CityQuest
                 Component.For<ICityQuestRepositoryBase<Team, long>, ITeamRepository>().ImplementedBy<TeamRepository>().LifestyleTransient(),
                 Component.For<ICityQuestRepositoryBase<Location, long>, ILocationRepository>().ImplementedBy<LocationRepository>().LifestyleTransient(),
                 Component.For<ICityQuestRepositoryBase<Game, long>, IGameRepository>().ImplementedBy<GameRepository>().LifestyleTransient(),
+                Component.For<ICityQuestRepositoryBase<GameTask, long>, IGameTaskRepository>().ImplementedBy<GameTaskRepository>().LifestyleTransient(),
+                Component.For<ICityQuestRepositoryBase<GameTaskType, long>, IGameTaskTypeRepository>().ImplementedBy<GameTaskTypeRepository>().LifestyleTransient(),
+                Component.For<ICityQuestRepositoryBase<Condition, long>, IConditionRepository>().ImplementedBy<ConditionRepository>().LifestyleTransient(),
+                Component.For<ICityQuestRepositoryBase<ConditionType, long>, IConditionTypeRepository>().ImplementedBy<ConditionTypeRepository>().LifestyleTransient(),
+                Component.For<ICityQuestRepositoryBase<Tip, long>, ITipRepository>().ImplementedBy<TipRepository>().LifestyleTransient(),
 
                 Component.For<ICityQuestRepositoryBase<UserRole, long>, IUserRoleRepository>().ImplementedBy<CityQuestRepositoryBase<UserRole, long>>().LifestyleTransient(),
                 Component.For<ICityQuestRepositoryBase<User, long>, IUserRepository>().ImplementedBy<CityQuestRepositoryBase<User, long>>().LifestyleTransient(),

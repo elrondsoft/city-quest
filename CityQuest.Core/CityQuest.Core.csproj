@@ -104,8 +104,18 @@
     <Compile Include="CityQuestConstants\Filters.cs" />
     <Compile Include="CityQuestCoreModule.cs" />
     <Compile Include="CityQuestPolicy\CityQuestPolicyBase.cs" />
+    <Compile Include="CityQuestPolicy\GameModule\Conditions\ConditionPolicy.cs" />
+    <Compile Include="CityQuestPolicy\GameModule\Conditions\IConditionPolicy.cs" />
+    <Compile Include="CityQuestPolicy\GameModule\ConditionTypes\ConditionTypePolicy.cs" />
+    <Compile Include="CityQuestPolicy\GameModule\ConditionTypes\IConditionTypePolicy.cs" />
     <Compile Include="CityQuestPolicy\GameModule\Games\GamePolicy.cs" />
     <Compile Include="CityQuestPolicy\GameModule\Games\IGamePolicy.cs" />
+    <Compile Include="CityQuestPolicy\GameModule\GameTasks\GameTaskPolicy.cs" />
+    <Compile Include="CityQuestPolicy\GameModule\GameTasks\IGameTaskPolicy.cs" />
+    <Compile Include="CityQuestPolicy\GameModule\GameTaskTypes\GameTaskTypePolicy.cs" />
+    <Compile Include="CityQuestPolicy\GameModule\GameTaskTypes\IGameTaskTypePolicy.cs" />
+    <Compile Include="CityQuestPolicy\GameModule\Tips\ITipPolicy.cs" />
+    <Compile Include="CityQuestPolicy\GameModule\Tips\TipPolicy.cs" />
     <Compile Include="CityQuestPolicy\MainModule\Roles\IRolePolicy.cs" />
     <Compile Include="CityQuestPolicy\MainModule\Roles\RolePolicy.cs" />
     <Compile Include="CityQuestPolicy\MainModule\Users\IUserPolicy.cs" />
@@ -117,8 +127,13 @@
     <Compile Include="Entities\GameModule\Games\Game.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\Condition.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\ConditionTypes\ConditionType.cs" />
+    <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\ConditionTypes\IConditionTypeRepository.cs" />
+    <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\IConditionRepository.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\GameTask.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\GameTaskTypes\GameTaskType.cs" />
+    <Compile Include="Entities\GameModule\Games\GameTasks\GameTaskTypes\IGameTaskTypeRepository.cs" />
+    <Compile Include="Entities\GameModule\Games\GameTasks\IGameTaskRepository.cs" />
+    <Compile Include="Entities\GameModule\Games\GameTasks\Tips\ITipRepository.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Tips\Tip.cs" />
     <Compile Include="Entities\GameModule\Games\IGameRepository.cs" />
     <Compile Include="Entities\GameModule\Keys\Key.cs" />
@@ -149,6 +164,7 @@
     <Compile Include="Entities\MainModule\Roles\Role.cs" />
     <Compile Include="Entities\MainModule\Users\IUserRepository.cs" />
     <Compile Include="Entities\MainModule\Users\User.cs" />
+    <Compile Include="Entities\Shared\IHasOrder.cs" />
     <Compile Include="Exceptions\CityQuestItemNotFoundException.cs" />
     <Compile Include="Exceptions\CityQuestPolicyException.cs" />
     <Compile Include="Extensions\Extensions.cs" />
@@ -162,7 +178,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\Shared\" />
     <Folder Include="Services\" />
     <Folder Include="Utils\" />
   </ItemGroup>

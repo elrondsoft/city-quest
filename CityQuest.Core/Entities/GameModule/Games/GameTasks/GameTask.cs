@@ -4,6 +4,7 @@ using CityQuest.Entities.GameModule.Games.GameTasks.Conditions;
 using CityQuest.Entities.GameModule.Games.GameTasks.GameTaskTypes;
 using CityQuest.Entities.GameModule.Games.GameTasks.Tips;
 using CityQuest.Entities.MainModule.Users;
+using CityQuest.Entities.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace CityQuest.Entities.GameModule.Games.GameTasks
 {
-    public class GameTask : FullAuditedEntity<long, User>, IPassivable
+    public class GameTask : FullAuditedEntity<long, User>, IPassivable, IHasOrder
     {
         #region Relations
 
@@ -30,6 +31,7 @@ namespace CityQuest.Entities.GameModule.Games.GameTasks
         public string Name { get; set; }
         public string Description { get; set; }
         public string TaskText { get; set; }
+        public int Order { get; set; }
 
         public bool IsActive { get; set; }
     }

@@ -1,6 +1,7 @@
 ﻿using Abp.Domain.Entities.Auditing;
 using CityQuest.Entities.GameModule.Games.GameTasks.Conditions.ConditionTypes;
 using CityQuest.Entities.MainModule.Users;
+using CityQuest.Entities.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Text;
 
 namespace CityQuest.Entities.GameModule.Games.GameTasks.Conditions
 {
-    public class Condition : FullAuditedEntity<long, User>
+    public class Condition : FullAuditedEntity<long, User>, IHasOrder
     {
         #region Relations
 
@@ -22,5 +23,6 @@ namespace CityQuest.Entities.GameModule.Games.GameTasks.Conditions
 
         public string Name { get; set; }
         public string Description { get; set; }
+        public int Order { get; set; }
     }
 }

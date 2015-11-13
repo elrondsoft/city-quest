@@ -99,10 +99,15 @@
   <ItemGroup>
     <Compile Include="EntityFramework\CityQuestDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\CityQuestRepositoryBase.cs" />
+    <Compile Include="EntityFramework\Repositories\GameModule\ConditionRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\GameModule\ConditionTypeRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\DivisionRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\GameRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\GameModule\GameTaskRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\GameModule\GameTaskTypeRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\LocationRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\TeamRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\GameModule\TipRepository.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Migrations\201510111309189_InitialCreate.cs" />
     <Compile Include="Migrations\201510111309189_InitialCreate.Designer.cs">
