@@ -1,7 +1,7 @@
 ﻿(function () {
     var app = angular.module('app');
-    app.directive('gameTasksBuilder', ['clientCityQuestConstService', 'clientPermissionService', //'abp.services.cityQuest.gameTask',
-        function (constSvc, permissionSvc) {
+    app.directive('gameTasksBuilder', ['clientCityQuestConstService', 'clientPermissionService', 'abp.services.cityQuest.gameTask',
+        function (constSvc, permissionSvc, gameTaskSvc) {
         return {
             restrict: 'E',
             templateUrl: '/App/Main/directives/games/gameTasks/gameTasksBuilderTemplate.cshtml',
@@ -11,10 +11,12 @@
                 gameId: '=',
                 gameTasks: '=',
                 gameTaskTypes: '=',
+                conditionTypes: '=',
             },
             controllerAs: 'gameTasksBuilder',
             controller: function ($scope) {
                 var vm = this;
+
                 vm.localize = constSvc.localize;
 
                 //---------------------------------------------------------------------------------------------------------
@@ -33,9 +35,10 @@
                         return vm.templateModeState && (vm.templateModeState == constSvc.formModes.update);
                     }
                 };
+                //---------------------------------------------------------------------------------------------------------
                 //----------------------------------Template's actions service---------------------------------------------
                 /// Is used to allow actions for gameTaskBuilder
-                vm.gameTaskAvailableActions = {
+                vm.gameTaskPermissionsOnActions = {
                     canReloadGameTasks: function () {
                         return vm.templateMode.isUpdate();
                     },
@@ -77,11 +80,15 @@
                     },
                 };
                 //---------------------------------------------------------------------------------------------------------
+                //---------------------------------------------------------------------------------------------------------
                 /// Is used to store actions can be allowed in gameTaskBuilder
                 vm.gameTaskActions = {
                     reloadGameTasks: function () {
-//TODO:
-                        //vm.loadPromise = gameTaskSvc...
+                        vm.loadPromise = gameTaskSvc.retrieveGameTasksForGame({
+                            GameId: vm.gameId
+                        }).success(function (data) {
+                            vm.gameTasks = data.gameTasks;
+                        });
                         return vm.loadPromise;
                     },
                     setGameTasksOrders: function () {
@@ -216,6 +223,7 @@
                         return vm.gameTasks;
                     },
                 };
+                //---------------------------------------------------------------------------------------------------------
             }
         }
     }]);

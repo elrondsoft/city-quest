@@ -19,5 +19,6 @@ namespace CityQuest
         IQueryable<TEntity> GetAllLocal();
         IEnumerable<TEntity> RemoveRange(IEnumerable<TEntity> entities);
         IEnumerable<TEntity> AddRange(IEnumerable<TEntity> entities);
+        void Detach(TEntity entity);
     }
 }

@@ -1,17 +1,36 @@
 ﻿(function () {
     var controllerId = 'app.templates.games.gameDetailsController';
     angular.module('app').controller(controllerId, ['$scope', 'serviceData', 'clientCityQuestConstService',
-        'clientPermissionService', 'abp.services.cityQuest.game',
-        function ($scope, serviceData, constSvc, permissionSvc, gameSvc) {
+        'clientPermissionService', 'abp.services.cityQuest.game', 'abp.services.cityQuest.gameTaskType',
+        'abp.services.cityQuest.conditionType',
+        function ($scope, serviceData, constSvc, permissionSvc, gameSvc, gameTaskTypeSvc, conditionTypeSvc) {
             var vm = this;
             vm.localize = constSvc.localize;
             vm.title = vm.localize('GameDetails');
             vm.templateModeState = serviceData.templateMode;
+            vm.gameTaskTypes = [];
+            vm.conditionTypes = [];
 
             //---------------------------------------------------------------------------------------------------------
             //------------------------------------------Initializing---------------------------------------------------
             /// Is used to initialize Template
             var initFunctions = {
+                loadRelatedEntities: function () {
+                    var promises = [];
+                    var promise = gameTaskTypeSvc.retrieveAllGameTaskTypesLikeComboBoxes({
+                        IsActive: true
+                    }).success(function (data) {
+                        vm.gameTaskTypes = constSvc.mapComboboxes(data.items);
+                    });
+                    promises.push(promise);
+                    promise = conditionTypeSvc.retrieveAllConditionTypesLikeComboBoxes({
+                        IsActive: true
+                    }).success(function (data) {
+                        vm.conditionTypes = constSvc.mapComboboxes(data.items);
+                    });
+                    promises.push(promise);
+                    return promises;
+                },
                 loadEntity: function (entityId) {
                     return gameSvc.retrieve({ Id: entityId, IsActive: false })
                         .success(function (data) {
@@ -57,6 +76,7 @@
                     };
                 },
             };
+            initFunctions.loadRelatedEntities();
             initFunctions.initTemplateData();
             //----------------------------------------Template's modes-------------------------------------------------
             /// Is used to get bool result for conmaring template's mode with standart ones

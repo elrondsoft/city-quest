@@ -76,6 +76,15 @@ namespace CityQuest.EntityFramework.Repositories
         {
             return Context.Set<TEntity>().RemoveRange(entities);
         }
+
+        /// <summary>
+        /// Using to change entity state to Detached (changes state only for transmitted entity)
+        /// </summary>
+        /// <param name="entity">entity</param>
+        public void Detach(TEntity entity)
+        {
+            Context.Entry(entity).State = System.Data.Entity.EntityState.Detached;
+        }
     }
 
     public abstract class CityQuestRepositoryBase<TEntity> : CityQuestRepositoryBase<TEntity, int>

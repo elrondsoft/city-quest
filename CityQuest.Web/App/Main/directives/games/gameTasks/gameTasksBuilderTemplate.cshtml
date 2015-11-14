@@ -3,28 +3,28 @@
     <button type="button"
             class="btn btn-sm btn-danger pull-right cq-game-tasks-directive-btn"
             title="{{gameTasksBuilder.localize('ClearAllGameTasksTittleText')}}"
-            ng-if="gameTasksBuilder.gameTaskAvailableActions.canDeleteAllGameTasks()"
+            ng-if="gameTasksBuilder.gameTaskPermissionsOnActions.canDeleteAllGameTasks()"
             ng-click="gameTasksBuilder.gameTaskActions.deleteAllGameTasks()">
         @L("ButtonClearGameTasks")
     </button>
     <button type="button"
             class="btn btn-sm btn-danger pull-right cq-game-tasks-directive-btn"
             title="{{gameTasksBuilder.localize('ReloadGameTasksTittleText')}}"
-            ng-if="gameTasksBuilder.gameTaskAvailableActions.canReloadGameTasks()"
+            ng-if="gameTasksBuilder.gameTaskPermissionsOnActions.canReloadGameTasks()"
             ng-click="gameTasksBuilder.gameTaskActions.reloadGameTasks()">
         @L("ButtonReloadGameTasks")
     </button>
     <button type="button"
             class="btn btn-sm btn-success pull-right cq-game-tasks-directive-btn"
             title="{{gameTasksBuilder.localize('AddGameTaskOnBottomTittleText')}}"
-            ng-if="gameTasksBuilder.gameTaskAvailableActions.canAddGameTaskOnBottom()"
+            ng-if="gameTasksBuilder.gameTaskPermissionsOnActions.canAddGameTaskOnBottom()"
             ng-click="gameTasksBuilder.gameTaskActions.addGameTaskOnBottom()">
         @L("ButtonAddGameTaskOnBottom")
     </button>
     <button type="button"
             class="btn btn-sm btn-success pull-right cq-game-tasks-directive-btn"
             title="{{gameTasksBuilder.localize('AddGameTaskOnTopTittleText')}}"
-            ng-if="gameTasksBuilder.gameTaskAvailableActions.canAddGameTaskOnTop()"
+            ng-if="gameTasksBuilder.gameTaskPermissionsOnActions.canAddGameTaskOnTop()"
             ng-click="gameTasksBuilder.gameTaskActions.addGameTaskOnTop()">
         @L("ButtonAddGameTaskOnTop")
     </button>
@@ -41,7 +41,7 @@
                             <div type="button"
                                  class="pull-right btn btn-danger ng-scope btn-xs cq-icon-white-button"
                                  title="{{gameTasksBuilder.localize('DeleteTittleText')}}"
-                                 ng-if="gameTasksBuilder.gameTaskAvailableActions.canDeleteGameTask(gameTask)"
+                                 ng-if="gameTasksBuilder.gameTaskPermissionsOnActions.canDeleteGameTask(gameTask)"
                                  ng-click="gameTasksBuilder.gameTaskActions.deleteGameTask(gameTask.order)">
                                 <span>
                                     <i class="fa fa-times"></i>
@@ -50,7 +50,7 @@
                             <div type="button"
                                  class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
                                  title="{{gameTasksBuilder.localize('MinimizeTittleText')}}"
-                                 ng-if="gameTasksBuilder.gameTaskAvailableActions.canMinimize(gameTask)"
+                                 ng-if="gameTasksBuilder.gameTaskPermissionsOnActions.canMinimize(gameTask)"
                                  ng-click="gameTasksBuilder.gameTaskActions.minimize(gameTask.order)">
                                 <span>
                                     <i class="fa fa-minus"></i>
@@ -59,7 +59,7 @@
                             <div type="button"
                                  class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
                                  title="{{gameTasksBuilder.localize('MaximizeTittleText')}}"
-                                 ng-if="gameTasksBuilder.gameTaskAvailableActions.canMaximize(gameTask)"
+                                 ng-if="gameTasksBuilder.gameTaskPermissionsOnActions.canMaximize(gameTask)"
                                  ng-click="gameTasksBuilder.gameTaskActions.maximize(gameTask.order)">
                                 <span>
                                     <i class="fa fa-square-o"></i>
@@ -68,7 +68,7 @@
                             <div type="button"
                                  class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
                                  title="{{gameTasksBuilder.localize('MoveUpTittleText')}}"
-                                 ng-if="gameTasksBuilder.gameTaskAvailableActions.canMoveGameTaskUp(gameTask)"
+                                 ng-if="gameTasksBuilder.gameTaskPermissionsOnActions.canMoveGameTaskUp(gameTask)"
                                  ng-click="gameTasksBuilder.gameTaskActions.moveGameTaskUp(gameTask.order)">
                                 <span>
                                     <i class="fa fa-chevron-up"></i>
@@ -77,7 +77,7 @@
                             <div type="button"
                                  class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
                                  title="{{gameTasksBuilder.localize('MoveDownTittleText')}}"
-                                 ng-if="gameTasksBuilder.gameTaskAvailableActions.canMoveGameTaskDown(gameTask)"
+                                 ng-if="gameTasksBuilder.gameTaskPermissionsOnActions.canMoveGameTaskDown(gameTask)"
                                  ng-click="gameTasksBuilder.gameTaskActions.moveGameTaskDown(gameTask.order)">
                                 <span>
                                     <i class="fa fa-chevron-down"></i>
@@ -86,7 +86,7 @@
                             <div type="button"
                                  class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
                                  title="{{gameTasksBuilder.localize('MoveToTopTittleText')}}"
-                                 ng-if="gameTasksBuilder.gameTaskAvailableActions.canMoveGameTaskToTop(gameTask)"
+                                 ng-if="gameTasksBuilder.gameTaskPermissionsOnActions.canMoveGameTaskToTop(gameTask)"
                                  ng-click="gameTasksBuilder.gameTaskActions.moveGameTaskToTop(gameTask.order)">
                                 <span>
                                     <i class="fa fa-arrow-up"></i>
@@ -95,7 +95,7 @@
                             <div type="button"
                                  class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
                                  title="{{gameTasksBuilder.localize('MoveToBottomTittleText')}}"
-                                 ng-if="gameTasksBuilder.gameTaskAvailableActions.canMoveGameTaskToBottom(gameTask)"
+                                 ng-if="gameTasksBuilder.gameTaskPermissionsOnActions.canMoveGameTaskToBottom(gameTask)"
                                  ng-click="gameTasksBuilder.gameTaskActions.moveGameTaskToBottom(gameTask.order)">
                                 <span>
                                     <i class="fa fa-arrow-down"></i>
@@ -104,7 +104,7 @@
                             <div type="button"
                                  class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
                                  title="{{gameTasksBuilder.localize('DeactivateTittleText')}}"
-                                 ng-if="gameTasksBuilder.gameTaskAvailableActions.canActivateGameTask(gameTask)"
+                                 ng-if="gameTasksBuilder.gameTaskPermissionsOnActions.canActivateGameTask(gameTask)"
                                  ng-click="gameTasksBuilder.gameTaskActions.activateGameTask(gameTask.order)">
                                 <span>
                                     <i class="fa fa-toggle-on"></i>
@@ -113,7 +113,7 @@
                             <div type="button"
                                  class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
                                  title="{{gameTasksBuilder.localize('ActivateTittleText')}}"
-                                 ng-if="gameTasksBuilder.gameTaskAvailableActions.canDeactivateGameTask(gameTask)"
+                                 ng-if="gameTasksBuilder.gameTaskPermissionsOnActions.canDeactivateGameTask(gameTask)"
                                  ng-click="gameTasksBuilder.gameTaskActions.deactivateGameTask(gameTask.order)">
                                 <span>
                                     <i class="fa fa-toggle-off"></i>

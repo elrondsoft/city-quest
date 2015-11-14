@@ -171,7 +171,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             GameRepository.Includes.Add(r => r.CreatorUser);
 
             GameRepository.Update(newGameEntity);
-            GameDto newGameDto = (GameRepository.Get(newGameEntity.Id)).MapTo<GameDto>();
+            GameDto newGameDto = (GameRepository.Get(input.Entity.Id)).MapTo<GameDto>();
 
             GameRepository.Includes.Clear();
 
