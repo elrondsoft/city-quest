@@ -1,1 +1,165 @@
-﻿
+﻿<div class="row conditions-container-header"
+     ng-if="conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate()">
+    <button type="button"
+            class="btn btn-sm btn-danger pull-right cq-conditions-directive-btn"
+            title="{{conditionsBuilder.localize('ClearAllConditionsTittleText')}}"
+            ng-if="conditionsBuilder.conditionPermissionsOnActions.canDeleteAllConditions()"
+            ng-click="conditionsBuilder.conditionActions.deleteAllConditions()">
+        @L("ButtonClearConditions")
+    </button>
+    <button type="button"
+            class="btn btn-sm btn-danger pull-right cq-conditions-directive-btn"
+            title="{{conditionsBuilder.localize('ReloadConditionsTittleText')}}"
+            ng-if="conditionsBuilder.conditionPermissionsOnActions.canReloadConditions()"
+            ng-click="conditionsBuilder.conditionActions.reloadConditions()">
+        @L("ButtonReloadConditions")
+    </button>
+    <button type="button"
+            class="btn btn-sm btn-success pull-right cq-conditions-directive-btn"
+            title="{{conditionsBuilder.localize('AddConditionOnBottomTittleText')}}"
+            ng-if="conditionsBuilder.conditionPermissionsOnActions.canAddConditionOnBottom()"
+            ng-click="conditionsBuilder.conditionActions.addConditionOnBottom()">
+        @L("ButtonAddConditionOnBottom")
+    </button>
+    <button type="button"
+            class="btn btn-sm btn-success pull-right cq-conditions-directive-btn"
+            title="{{conditionsBuilder.localize('AddConditionOnTopTittleText')}}"
+            ng-if="conditionsBuilder.conditionPermissionsOnActions.canAddConditionOnTop()"
+            ng-click="conditionsBuilder.conditionActions.addConditionOnTop()">
+        @L("ButtonAddConditionOnTop")
+    </button>
+</div>
+<div class="row conditions-container-body"
+     ng-if="conditionsBuilder.conditions.length > 0">
+    <div class="col-xs-12">
+        <div class="row condition-container"
+             ng-repeat="condition in conditionsBuilder.conditions">
+            <div class="col-xs-12">
+                <div class="row condition-container-header">
+                    <div class="col-xs-12">
+                        <div class="row condition-container-header-button-row">
+                            <div type="button"
+                                 class="pull-right btn btn-danger ng-scope btn-xs cq-icon-white-button"
+                                 title="{{conditionsBuilder.localize('DeleteTittleText')}}"
+                                 ng-if="conditionsBuilder.conditionPermissionsOnActions.canDeleteCondition(condition)"
+                                 ng-click="conditionsBuilder.conditionActions.deleteCondition(condition.order)">
+                                <span>
+                                    <i class="fa fa-times"></i>
+                                </span>
+                            </div>
+                            <div type="button"
+                                 class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
+                                 title="{{conditionsBuilder.localize('MinimizeTittleText')}}"
+                                 ng-if="conditionsBuilder.conditionPermissionsOnActions.canMinimize(condition)"
+                                 ng-click="conditionsBuilder.conditionActions.minimize(condition.order)">
+                                <span>
+                                    <i class="fa fa-minus"></i>
+                                </span>
+                            </div>
+                            <div type="button"
+                                 class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
+                                 title="{{conditionsBuilder.localize('MaximizeTittleText')}}"
+                                 ng-if="conditionsBuilder.conditionPermissionsOnActions.canMaximize(condition)"
+                                 ng-click="conditionsBuilder.conditionActions.maximize(condition.order)">
+                                <span>
+                                    <i class="fa fa-square-o"></i>
+                                </span>
+                            </div>
+                            <div type="button"
+                                 class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
+                                 title="{{conditionsBuilder.localize('MoveUpTittleText')}}"
+                                 ng-if="conditionsBuilder.conditionPermissionsOnActions.canMoveConditionUp(condition)"
+                                 ng-click="conditionsBuilder.conditionActions.moveConditionUp(condition.order)">
+                                <span>
+                                    <i class="fa fa-chevron-up"></i>
+                                </span>
+                            </div>
+                            <div type="button"
+                                 class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
+                                 title="{{conditionsBuilder.localize('MoveDownTittleText')}}"
+                                 ng-if="conditionsBuilder.conditionPermissionsOnActions.canMoveConditionDown(condition)"
+                                 ng-click="conditionsBuilder.conditionActions.moveConditionDown(condition.order)">
+                                <span>
+                                    <i class="fa fa-chevron-down"></i>
+                                </span>
+                            </div>
+                            <div type="button"
+                                 class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
+                                 title="{{conditionsBuilder.localize('MoveToTopTittleText')}}"
+                                 ng-if="conditionsBuilder.conditionPermissionsOnActions.canMoveConditionToTop(condition)"
+                                 ng-click="conditionsBuilder.conditionActions.moveConditionToTop(condition.order)">
+                                <span>
+                                    <i class="fa fa-arrow-up"></i>
+                                </span>
+                            </div>
+                            <div type="button"
+                                 class="pull-left btn btn-warning ng-scope btn-xs cq-icon-black-button"
+                                 title="{{conditionsBuilder.localize('MoveToBottomTittleText')}}"
+                                 ng-if="conditionsBuilder.conditionPermissionsOnActions.canMoveConditionToBottom(condition)"
+                                 ng-click="conditionsBuilder.conditionActions.moveConditionToBottom(condition.order)">
+                                <span>
+                                    <i class="fa fa-arrow-down"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row condition-container-header-text-row"
+                             ng-if="condition.name">
+                            <span class="condition-name-in-container-header">{{condition.name}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row condition-container-body">
+                    <div class="col-xs-12"
+                         ng-if="!condition.isMinimized">
+                        <accordion close-others="oneAtATime">
+                            <accordion-group heading="@L("ConditionMainInfo")"
+                                             is-open="true"
+                                             class="cq-conditions-builder-accordion">
+                                <div class="row cq-control-row">
+                                    <div class="col-xs-2 cq-control-label">
+                                        @L("Name"): &nbsp;
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <input class="form-control cq-control"
+                                               ng-disabled="!(conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate())"
+                                               ng-readonly="!(conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate())"
+                                               ng-model="condition.name" />
+                                    </div>
+                                </div>
+                                <div class="row cq-control-row">
+                                    <div class="col-xs-2 cq-control-label">
+                                        @L("ConditionType"): &nbsp;
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <select class="form-control cq-control"
+                                                ng-if="!conditionsBuilder.conditionTypes.length"
+                                                ng-disabled="true"
+                                                ng-readonly="true" />
+                                        <select class="form-control cq-control"
+                                                ng-if="conditionsBuilder.conditionTypes.length"
+                                                ng-disabled="!(conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate())"
+                                                ng-readonly="!(conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate())"
+                                                ng-model="condition.conditionTypeId"
+                                                ng-options="conditionType.value as conditionType.displayText for conditionType in conditionsBuilder.conditionTypes" />
+                                    </div>
+                                </div>
+                                <div class="row cq-control-row">
+                                    <div class="col-xs-2 cq-control-label">
+                                        @L("Description"): &nbsp;
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <textarea class="form-control cq-control"
+                                                  ng-disabled="!(conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate())"
+                                                  ng-readonly="!(conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate())"
+                                                  rows="3"
+                                                  ng-model="condition.description" />
+                                    </div>
+                                </div>
+                            </accordion-group>
+                        </accordion>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

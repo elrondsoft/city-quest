@@ -7,7 +7,7 @@
             templateUrl: '/App/Main/directives/games/gameTasks/gameTasksBuilderTemplate.cshtml',
             scope: {},
             bindToController: {
-                templateModeState: '=',
+                templateMode: '=',
                 gameId: '=',
                 gameTasks: '=',
                 gameTaskTypes: '=',
@@ -20,19 +20,25 @@
                 vm.localize = constSvc.localize;
 
                 //---------------------------------------------------------------------------------------------------------
+                //-----------------------------------------Load promise----------------------------------------------------
                 /// Is used to store current load promise
                 vm.loadPromise = null;
+                //---------------------------------------------------------------------------------------------------------
                 //----------------------------------------Template's modes-------------------------------------------------
                 /// Is used to get bool result for conmaring template's mode with standart ones
-                vm.templateMode = {
+                vm.templateModeState = {
+                    templateMode: vm.templateMode,
                     isInfo: function () {
-                        return vm.templateModeState && (vm.templateModeState == constSvc.formModes.info);
+                        return vm.templateModeState.templateMode &&
+                            (vm.templateModeState.templateMode == constSvc.formModes.info);
                     },
                     isCreate: function () {
-                        return vm.templateModeState && (vm.templateModeState == constSvc.formModes.create);
+                        return vm.templateModeState.templateMode &&
+                            (vm.templateModeState.templateMode == constSvc.formModes.create);
                     },
                     isUpdate: function () {
-                        return vm.templateModeState && (vm.templateModeState == constSvc.formModes.update);
+                        return vm.templateModeState.templateMode &&
+                            (vm.templateModeState.templateMode == constSvc.formModes.update);
                     }
                 };
                 //---------------------------------------------------------------------------------------------------------
@@ -40,31 +46,31 @@
                 /// Is used to allow actions for gameTaskBuilder
                 vm.gameTaskPermissionsOnActions = {
                     canReloadGameTasks: function () {
-                        return vm.templateMode.isUpdate();
+                        return vm.templateModeState.isUpdate();
                     },
                     canAddGameTaskOnTop: function () {
-                        return vm.templateMode.isCreate() || vm.templateMode.isUpdate();
+                        return vm.templateModeState.isCreate() || vm.templateModeState.isUpdate();
                     },
                     canAddGameTaskOnBottom: function () {
-                        return vm.templateMode.isCreate() || vm.templateMode.isUpdate();
+                        return vm.templateModeState.isCreate() || vm.templateModeState.isUpdate();
                     },
                     canDeleteGameTask: function (entity) {
-                        return vm.templateMode.isCreate() || vm.templateMode.isUpdate();
+                        return vm.templateModeState.isCreate() || vm.templateModeState.isUpdate();
                     },
                     canDeleteAllGameTasks: function () {
-                        return vm.templateMode.isCreate() || vm.templateMode.isUpdate();
+                        return vm.templateModeState.isCreate() || vm.templateModeState.isUpdate();
                     },
                     canMoveGameTaskToTop: function (entity) {
-                        return vm.templateMode.isCreate() || vm.templateMode.isUpdate();
+                        return vm.templateModeState.isCreate() || vm.templateModeState.isUpdate();
                     },
                     canMoveGameTaskToBottom: function (entity) {
-                        return vm.templateMode.isCreate() || vm.templateMode.isUpdate();
+                        return vm.templateModeState.isCreate() || vm.templateModeState.isUpdate();
                     },
                     canMoveGameTaskUp: function (entity) {
-                        return vm.templateMode.isCreate() || vm.templateMode.isUpdate();
+                        return vm.templateModeState.isCreate() || vm.templateModeState.isUpdate();
                     },
                     canMoveGameTaskDown: function (entity) {
-                        return vm.templateMode.isCreate() || vm.templateMode.isUpdate();
+                        return vm.templateModeState.isCreate() || vm.templateModeState.isUpdate();
                     },
                     canMinimize: function (entity) {
                         return entity && !entity.isMinimized;
@@ -73,14 +79,14 @@
                         return entity && entity.isMinimized;
                     },
                     canActivateGameTask: function (entity) {
-                        return !entity.isActive;
+                        return entity && (vm.templateModeState.isCreate() || vm.templateModeState.isUpdate()) && !entity.isActive;
                     },
                     canDeactivateGameTask: function (entity) {
-                        return entity.isActive;
+                        return entity && (vm.templateModeState.isCreate() || vm.templateModeState.isUpdate()) && entity.isActive;
                     },
                 };
                 //---------------------------------------------------------------------------------------------------------
-                //---------------------------------------------------------------------------------------------------------
+                //---------------------------------------Game task actions-------------------------------------------------
                 /// Is used to store actions can be allowed in gameTaskBuilder
                 vm.gameTaskActions = {
                     reloadGameTasks: function () {

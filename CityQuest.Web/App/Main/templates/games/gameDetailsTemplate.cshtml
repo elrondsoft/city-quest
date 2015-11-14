@@ -47,9 +47,10 @@
                          class="cq-other-info-accordion">
             <game-tasks-builder ng-if="vm.entity"
                                 game-id="vm.entity.id"
-                                template-mode-state="vm.templateModeState"
+                                template-mode="vm.templateModeState"
                                 game-tasks="vm.entity.gameTasks"
-                                game-task-types="vm.gameTaskTypes"></game-tasks-builder>
+                                game-task-types="vm.gameTaskTypes"
+                                condition-types="vm.conditionTypes"></game-tasks-builder>
         </accordion-group>
     </accordion>
 </div>

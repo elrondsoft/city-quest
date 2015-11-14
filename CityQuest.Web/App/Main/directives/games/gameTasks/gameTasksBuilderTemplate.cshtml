@@ -1,5 +1,5 @@
 ﻿<div class="row game-tasks-container-header"
-     ng-if="gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate()">
+     ng-if="gameTasksBuilder.templateModeState.isCreate() || gameTasksBuilder.templateModeState.isUpdate()">
     <button type="button"
             class="btn btn-sm btn-danger pull-right cq-game-tasks-directive-btn"
             title="{{gameTasksBuilder.localize('ClearAllGameTasksTittleText')}}"
@@ -139,8 +139,8 @@
                                     </div>
                                     <div class="col-xs-10">
                                         <input class="form-control cq-control"
-                                               ng-disabled="!(gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate())"
-                                               ng-readonly="!(gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate())"
+                                               ng-disabled="!(gameTasksBuilder.templateModeState.isCreate() || gameTasksBuilder.templateModeState.isUpdate())"
+                                               ng-readonly="!(gameTasksBuilder.templateModeState.isCreate() || gameTasksBuilder.templateModeState.isUpdate())"
                                                ng-model="gameTask.name" />
                                     </div>
                                 </div>
@@ -156,8 +156,8 @@
                                                 ng-style="{'width':'100%'}" />
                                         <select class="form-control cq-control"
                                                 ng-if="gameTasksBuilder.gameTaskTypes.length"
-                                                ng-disabled="!(gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate())"
-                                                ng-readonly="!(gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate())"
+                                                ng-disabled="!(gameTasksBuilder.templateModeState.isCreate() || gameTasksBuilder.templateModeState.isUpdate())"
+                                                ng-readonly="!(gameTasksBuilder.templateModeState.isCreate() || gameTasksBuilder.templateModeState.isUpdate())"
                                                 ng-style="{'width':'100%'}"
                                                 ng-model="gameTask.gameTaskTypeId"
                                                 ng-options="gameTaskType.value as gameTaskType.displayText for gameTaskType in gameTasksBuilder.gameTaskTypes" />
@@ -169,8 +169,8 @@
                                     </div>
                                     <div class="col-xs-10">
                                         <textarea class="form-control cq-control"
-                                                  ng-disabled="!(gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate())"
-                                                  ng-readonly="!(gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate())"
+                                                  ng-disabled="!(gameTasksBuilder.templateModeState.isCreate() || gameTasksBuilder.templateModeState.isUpdate())"
+                                                  ng-readonly="!(gameTasksBuilder.templateModeState.isCreate() || gameTasksBuilder.templateModeState.isUpdate())"
                                                   ng-style="{'width':'100%'}"
                                                   rows="3"
                                                   ng-model="gameTask.description" />
@@ -182,8 +182,8 @@
                                     </div>
                                     <div class="col-xs-10">
                                         <textarea class="form-control cq-control"
-                                                  ng-disabled="!(gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate())"
-                                                  ng-readonly="!(gameTasksBuilder.templateMode.isCreate() || gameTasksBuilder.templateMode.isUpdate())"
+                                                  ng-disabled="!(gameTasksBuilder.templateModeState.isCreate() || gameTasksBuilder.templateModeState.isUpdate())"
+                                                  ng-readonly="!(gameTasksBuilder.templateModeState.isCreate() || gameTasksBuilder.templateModeState.isUpdate())"
                                                   ng-style="{'width':'100%'}"
                                                   rows="5"
                                                   ng-model="gameTask.taskText" />
@@ -193,7 +193,11 @@
                             <accordion-group is-open="false"
                                              heading="@L("Conditions") ({{gameTask.conditions.length}})"
                                              class="cq-game-tasks-builder-accordion">
-                                //TODO: condition directive
+                                <conditions-builder ng-if="gameTask"
+                                                    game-task-id="gameTask.id"
+                                                    template-mode="gameTasksBuilder.templateModeState.templateMode"
+                                                    conditions="gameTask.conditions"
+                                                    condition-types="gameTasksBuilder.conditionTypes"></conditions-builder>
                             </accordion-group>
                             <accordion-group is-open="false"
                                              heading="@L("Tips") ({{gameTask.tips.length}})"

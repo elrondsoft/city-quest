@@ -6,7 +6,6 @@
     border-top: 1px solid black;
     border-left: 1px solid black;
     border-right: 1px solid black;
-    border-bottom: 1px solid black;
 }
 
 .cq-game-tasks-directive-btn {
@@ -17,6 +16,7 @@
     margin-left: 0;
     margin-right: 0;
     /*background-color: yellow;*/
+    border-top: 1px solid black;
     border-left: 1px solid black;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
