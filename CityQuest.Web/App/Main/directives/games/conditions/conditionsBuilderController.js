@@ -45,7 +45,7 @@
                     /// Is used to allow actions for conditionBuilder
                     vm.conditionPermissionsOnActions = {
                         canReloadConditions: function () {
-                            return vm.templateModeState.isUpdate() && false;
+                            return vm.templateModeState.isUpdate() && vm.gameTaskId && vm.gameTaskId > 0;
                         },
                         canAddConditionOnTop: function () {
                             return vm.templateModeState.isCreate() || vm.templateModeState.isUpdate();
@@ -87,6 +87,7 @@
                                 GameTaskId: vm.gameTaskId
                             }).success(function (data) {
                                 vm.conditions = data.conditions;
+                                vm.conditionActions.setConditionsOrders();
                             });
                             return vm.loadPromise;
                         },

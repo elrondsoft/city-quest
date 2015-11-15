@@ -46,7 +46,7 @@
                 /// Is used to allow actions for gameTaskBuilder
                 vm.gameTaskPermissionsOnActions = {
                     canReloadGameTasks: function () {
-                        return vm.templateModeState.isUpdate();
+                        return vm.templateModeState.isUpdate() && vm.gameId && vm.gameId > 0;;
                     },
                     canAddGameTaskOnTop: function () {
                         return vm.templateModeState.isCreate() || vm.templateModeState.isUpdate();

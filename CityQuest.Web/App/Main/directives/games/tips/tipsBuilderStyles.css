@@ -1,1 +1,68 @@
-﻿
+﻿.tips-container-header {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    /*background-color: green;*/
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.cq-tips-directive-btn {
+    margin: 1px;
+}
+
+.tips-container-body {
+    margin-left: 0;
+    margin-right: 0;
+    /*background-color: yellow;*/
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.tip-container {
+
+}
+
+.tip-container-header {
+    margin-top: 5px;
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: 0px;
+    /*background-color: blue;*/
+    border-top: 1px solid blue;
+    border-left: 1px solid blue;
+    border-right: 1px solid blue;
+    border-bottom: 1px solid blue;
+}
+
+.tip-container-header-button-row {
+    padding: 3px;
+}
+
+.tip-container-header-text-row {
+
+}
+
+.tip-name-in-container-header {
+
+}
+
+.tip-container-body {
+    margin-top: 0px;
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: 5px;
+    /*background-color: lightblue;*/
+    border-left: 1px solid blue;
+    border-right: 1px solid blue;
+    border-bottom: 1px solid blue;
+}
+
+.cq-tips-builder-accordion {
+    margin-top: 15px;
+    /*background-color: aliceblue;*/
+}

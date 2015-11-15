@@ -116,7 +116,7 @@
     <text name="CountOfTasks" value="Count of tasks" />
     
     <text name="GameTasks" value="Game tasks" />
-    <text name="GameTaskMainInfo" value="Main info for Task" />
+    <text name="GameTaskMainInfo" value="Main info for task" />
     <text name="GameTaskType" value="Task type" />
     <text name="TaskText" value="Task text" />
     <text name="Conditions" value="Conditions" />
@@ -137,6 +137,27 @@
     <text name="ButtonReloadGameTasks" value="Reload" />
     <text name="ButtonAddGameTaskOnBottom" value="Add on bottom" />
     <text name="ButtonAddGameTaskOnTop" value="Add on top" />
+    
+    <text name="ClearAllTipsTittleText" value="Clear all tips" />
+    <text name="ButtonClearTips" value="Clear all" />
+    <text name="ReloadTipsTittleText" value="Reload tips" />
+    <text name="ButtonReloadTips" value="Reload" />
+    <text name="AddTipOnBottomTittleText" value="Add tip on bottom" />
+    <text name="ButtonAddTipOnBottom" value="Add on bottom" />
+    <text name="AddTipOnTopTittleText" value="Add tip on top" />
+    <text name="ButtonAddTipOnTop" value="Add on top" />
+    <text name="TipMainInfo" value="Main info for tip" />
 
+    <text name="ClearAllConditionsTittleText" value="Clear all conditions" />
+    <text name="ButtonClearConditions" value="Clear all" />
+    <text name="ReloadConditionsTittleText" value="Reload conditions" />
+    <text name="ButtonReloadConditions" value="Reload" />
+    <text name="AddConditionOnBottomTittleText" value="Add condition on bottom" />
+    <text name="ButtonAddConditionOnBottom" value="Add on bottom" />
+    <text name="AddConditionOnTopTittleText" value="Add condition on top" />
+    <text name="ButtonAddConditionOnTop" value="Add on top" />
+    <text name="ConditionMainInfo" value="Main info for condition" />
+    <text name="ConditionType" value="Condition type" />
+    
   </texts>
 </localizationDictionary>

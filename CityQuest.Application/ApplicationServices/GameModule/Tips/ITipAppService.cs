@@ -63,5 +63,12 @@ namespace CityQuest.ApplicationServices.GameModule.Tips
         /// <param name="input">object with input params</param>
         /// <returns>object with output params</returns>
         DeleteOutput<long> Delete(DeleteInput<long> input);
+
+        /// <summary>
+        /// Is used to retrieve Tips for GameTask
+        /// </summary>
+        /// <param name="input">object with input params</param>
+        /// <returns>object with output params</returns>
+        RetrieveTipsForGameTaskOutput RetrieveTipsForGameTask(RetrieveTipsForGameTaskInput input);
     }
 }

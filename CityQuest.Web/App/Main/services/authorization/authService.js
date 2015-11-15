@@ -59,7 +59,7 @@
         };
 
         var _reloadScript = function () {
-            return $http.get('/AbpScripts/GetScripts').success(function (data) {
+            return $http.get('/AbpScripts/GetScripts', { cache: false }).success(function (data) {
                 _authentication.abpScript = data;
                 var authData = dataStorageService.get('authorizationData');
                 if (authData) {

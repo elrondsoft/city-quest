@@ -4,6 +4,9 @@ using CityQuest.ApplicationServices.GameModule.Conditions.Dtos;
 using CityQuest.ApplicationServices.Shared.Dtos.Input;
 using CityQuest.ApplicationServices.Shared.Dtos.Output;
 using CityQuest.CityQuestPolicy.GameModule.Conditions;
+using CityQuest.CityQuestPolicy.GameModule.Games;
+using CityQuest.Entities.GameModule.Games;
+using CityQuest.Entities.GameModule.Games.GameTasks;
 using CityQuest.Entities.GameModule.Games.GameTasks.Conditions;
 using CityQuest.Exceptions;
 using CityQuest.Mapping;
@@ -21,7 +24,9 @@ namespace CityQuest.ApplicationServices.GameModule.Conditions
 
         private IUnitOfWorkManager UowManager { get; set; }
         private IConditionRepository ConditionRepository { get; set; }
+        private IGameTaskRepository GameTaskRepository { get; set; }
         private IConditionPolicy ConditionPolicy { get; set; }
+        private IGamePolicy GamePolicy { get; set; }
 
         #endregion
 
@@ -29,11 +34,15 @@ namespace CityQuest.ApplicationServices.GameModule.Conditions
 
         public ConditionAppService(IUnitOfWorkManager uowManager,
             IConditionRepository conditionRepository,
-            IConditionPolicy conditionPolicy)
+            IGameTaskRepository gameTaskRepository,
+            IConditionPolicy conditionPolicy,
+            IGamePolicy gamePolicy)
         {
             UowManager = uowManager;
             ConditionRepository = conditionRepository;
+            GameTaskRepository = gameTaskRepository;
             ConditionPolicy = conditionPolicy;
+            GamePolicy = gamePolicy;
         }
 
         #endregion
@@ -190,6 +199,34 @@ namespace CityQuest.ApplicationServices.GameModule.Conditions
             return new DeleteOutput<long>()
             {
                 DeletedEntityId = input.EntityId
+            };
+        }
+
+        public RetrieveConditionsForGameTaskOutput RetrieveConditionsForGameTask(RetrieveConditionsForGameTaskInput input)
+        {
+            if (!(input.GameTaskId > 0))
+                return new RetrieveConditionsForGameTaskOutput() { Conditions = new List<ConditionDto>() };
+
+            GameTaskRepository.Includes.Add(r => r.Game);
+            GameTaskRepository.Includes.Add(r => r.Conditions);
+
+            GameTask gameTaskEntity = GameTaskRepository.Get(input.GameTaskId);
+            Game gameEntity = gameTaskEntity.Game;
+
+            if (gameEntity == null)
+                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Game\"");
+
+            if (!GamePolicy.CanRetrieveEntity(gameEntity))
+                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionRetrieveDenied, "\"Game\"");
+
+            IList<Condition> conditionEntities = gameTaskEntity.Conditions.ToList();
+            IList<ConditionDto> conditionsForGameTask = conditionEntities.MapIList<Condition, ConditionDto>();
+
+            GameTaskRepository.Includes.Clear();
+
+            return new RetrieveConditionsForGameTaskOutput()
+            {
+                Conditions = conditionsForGameTask
             };
         }
     }

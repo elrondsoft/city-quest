@@ -254,7 +254,11 @@ namespace CityQuest.ApplicationServices.GameModule.GameTasks
 
         public RetrieveGameTasksForGameOutput RetrieveGameTasksForGame(RetrieveGameTasksForGameInput input)
         {
+            if (!(input.GameId > 0))
+                return new RetrieveGameTasksForGameOutput() { GameTasks = new List<GameTaskDto>() };
+
             GameRepository.Includes.Add(r => r.GameTasks);
+
             Game gameEntity = GameRepository.Get(input.GameId);
 
             if (gameEntity == null)
@@ -264,8 +268,9 @@ namespace CityQuest.ApplicationServices.GameModule.GameTasks
                 throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionRetrieveDenied, "\"Game\"");
 
             IList<GameTask> gameTasksEntities = gameEntity.GameTasks.ToList();
-
             IList<GameTaskDto> gameTasksForGame = gameTasksEntities.MapIList<GameTask, GameTaskDto>();
+
+            GameRepository.Includes.Clear();
 
             return new RetrieveGameTasksForGameOutput()
             {

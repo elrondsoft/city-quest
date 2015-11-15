@@ -36,7 +36,6 @@
                     <textarea class="form-control cq-control"
                               ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
                               ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
-                              ng-style="{'width':'100%'}"
                               rows="3"
                               ng-model="vm.entity.description" />
                 </div>
@@ -49,7 +48,6 @@
                     <textarea class="form-control cq-control"
                               ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
                               ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
-                              ng-style="{'width':'100%'}"
                               rows="3"
                               ng-model="vm.entity.slogan" />
                 </div>
@@ -62,13 +60,11 @@
                     <select class="form-control cq-control"
                             ng-if="!vm.divisions.length"
                             ng-disabled="true"
-                            ng-readonly="true"
-                            ng-style="{'width':'100%'}" />
+                            ng-readonly="true" />
                     <select class="form-control cq-control"
                             ng-if="vm.divisions.length"
                             ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
                             ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
-                            ng-style="{'width':'100%'}"
                             ng-model="vm.entity.divisionId"
                             ng-options="division.value as division.displayText for division in vm.divisions" />
                 </div>
@@ -81,13 +77,11 @@
                     <select class="form-control cq-control"
                             ng-if="!vm.players.length"
                             ng-disabled="true"
-                            ng-readonly="true"
-                            ng-style="{'width':'100%'}" />
+                            ng-readonly="true" />
                     <select class="form-control cq-control"
                             ng-if="vm.players.length"
                             ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
                             ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
-                            ng-style="{'width':'100%'}"
                             ng-model="vm.entity.captainId"
                             ng-options="player.value as player.displayText for player in vm.players" />
                 </div>

@@ -5,28 +5,28 @@
             title="{{conditionsBuilder.localize('ClearAllConditionsTittleText')}}"
             ng-if="conditionsBuilder.conditionPermissionsOnActions.canDeleteAllConditions()"
             ng-click="conditionsBuilder.conditionActions.deleteAllConditions()">
-        @L("ButtonClearConditions")
+        {{conditionsBuilder.localize('ButtonClearConditions')}}
     </button>
     <button type="button"
             class="btn btn-sm btn-danger pull-right cq-conditions-directive-btn"
             title="{{conditionsBuilder.localize('ReloadConditionsTittleText')}}"
             ng-if="conditionsBuilder.conditionPermissionsOnActions.canReloadConditions()"
             ng-click="conditionsBuilder.conditionActions.reloadConditions()">
-        @L("ButtonReloadConditions")
+       {{conditionsBuilder.localize('ButtonReloadConditions')}}
     </button>
     <button type="button"
             class="btn btn-sm btn-success pull-right cq-conditions-directive-btn"
             title="{{conditionsBuilder.localize('AddConditionOnBottomTittleText')}}"
             ng-if="conditionsBuilder.conditionPermissionsOnActions.canAddConditionOnBottom()"
             ng-click="conditionsBuilder.conditionActions.addConditionOnBottom()">
-        @L("ButtonAddConditionOnBottom")
+        {{conditionsBuilder.localize('ButtonAddConditionOnBottom')}}
     </button>
     <button type="button"
             class="btn btn-sm btn-success pull-right cq-conditions-directive-btn"
             title="{{conditionsBuilder.localize('AddConditionOnTopTittleText')}}"
             ng-if="conditionsBuilder.conditionPermissionsOnActions.canAddConditionOnTop()"
             ng-click="conditionsBuilder.conditionActions.addConditionOnTop()">
-        @L("ButtonAddConditionOnTop")
+        {{conditionsBuilder.localize('ButtonAddConditionOnTop')}}
     </button>
 </div>
 <div class="row conditions-container-body"
@@ -112,12 +112,12 @@
                     <div class="col-xs-12"
                          ng-if="!condition.isMinimized">
                         <accordion close-others="oneAtATime">
-                            <accordion-group heading="@L("ConditionMainInfo")"
+                            <accordion-group heading="{{conditionsBuilder.localize('ConditionMainInfo')}}"
                                              is-open="true"
                                              class="cq-conditions-builder-accordion">
                                 <div class="row cq-control-row">
                                     <div class="col-xs-2 cq-control-label">
-                                        @L("Name"): &nbsp;
+                                        {{conditionsBuilder.localize('Name')}}:&nbsp;
                                     </div>
                                     <div class="col-xs-10">
                                         <input class="form-control cq-control"
@@ -128,7 +128,7 @@
                                 </div>
                                 <div class="row cq-control-row">
                                     <div class="col-xs-2 cq-control-label">
-                                        @L("ConditionType"): &nbsp;
+                                        {{conditionsBuilder.localize('ConditionType')}}:&nbsp;
                                     </div>
                                     <div class="col-xs-10">
                                         <select class="form-control cq-control"
@@ -145,7 +145,7 @@
                                 </div>
                                 <div class="row cq-control-row">
                                     <div class="col-xs-2 cq-control-label">
-                                        @L("Description"): &nbsp;
+                                        {{conditionsBuilder.localize('Description')}}:&nbsp;
                                     </div>
                                     <div class="col-xs-10">
                                         <textarea class="form-control cq-control"

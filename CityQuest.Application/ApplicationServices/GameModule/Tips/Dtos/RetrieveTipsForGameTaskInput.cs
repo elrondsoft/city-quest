@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CityQuest.ApplicationServices.GameModule.GameTasks.Dtos
+namespace CityQuest.ApplicationServices.GameModule.Tips.Dtos
 {
-    public class RetrieveGameTasksForGameInput: IInputDto
+    public class RetrieveTipsForGameTaskInput: IInputDto
     {
-        public long GameId { get; set; }
+        public long GameTaskId { get; set; }
     }
 }

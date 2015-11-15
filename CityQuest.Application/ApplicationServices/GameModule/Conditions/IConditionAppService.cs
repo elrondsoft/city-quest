@@ -63,5 +63,13 @@ namespace CityQuest.ApplicationServices.GameModule.Conditions
         /// <param name="input">object with input params</param>
         /// <returns>object with output params</returns>
         DeleteOutput<long> Delete(DeleteInput<long> input);
+
+        
+        /// <summary>
+        /// Is used to retrieve Conditions for GameTask
+        /// </summary>
+        /// <param name="input">object with input params</param>
+        /// <returns>object with output params</returns>
+        RetrieveConditionsForGameTaskOutput RetrieveConditionsForGameTask(RetrieveConditionsForGameTaskInput input);
     }
 }

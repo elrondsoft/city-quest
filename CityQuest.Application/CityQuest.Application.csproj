@@ -97,6 +97,8 @@
     <Compile Include="ApplicationServices\GameModule\Conditions\Dtos\RetrieveAllConditionsLikeComboBoxesOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\Conditions\Dtos\RetrieveAllConditionsPagedResultInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Conditions\Dtos\RetrieveConditionInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Conditions\Dtos\RetrieveConditionsForGameTaskInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Conditions\Dtos\RetrieveConditionsForGameTaskOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\Conditions\IConditionAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\ConditionTypes\ConditionTypeAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\ConditionTypes\Dtos\ConditionTypeDto.cs" />
@@ -157,6 +159,8 @@
     <Compile Include="ApplicationServices\GameModule\Tips\Dtos\RetrieveAllTipsLikeComboBoxesOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\Tips\Dtos\RetrieveAllTipsPagedResultInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Tips\Dtos\RetrieveTipInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Tips\Dtos\RetrieveTipsForGameTaskInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Tips\Dtos\RetrieveTipsForGameTaskOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\Tips\Dtos\TipDto.cs" />
     <Compile Include="ApplicationServices\GameModule\Tips\ITipAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\Tips\TipAppService.cs" />

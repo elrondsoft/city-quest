@@ -3,7 +3,10 @@ using Abp.Domain.Uow;
 using CityQuest.ApplicationServices.GameModule.Tips.Dtos;
 using CityQuest.ApplicationServices.Shared.Dtos.Input;
 using CityQuest.ApplicationServices.Shared.Dtos.Output;
+using CityQuest.CityQuestPolicy.GameModule.Games;
 using CityQuest.CityQuestPolicy.GameModule.Tips;
+using CityQuest.Entities.GameModule.Games;
+using CityQuest.Entities.GameModule.Games.GameTasks;
 using CityQuest.Entities.GameModule.Games.GameTasks.Tips;
 using CityQuest.Exceptions;
 using CityQuest.Mapping;
@@ -21,7 +24,9 @@ namespace CityQuest.ApplicationServices.GameModule.Tips
 
         private IUnitOfWorkManager UowManager { get; set; }
         private ITipRepository TipRepository { get; set; }
+        private IGameTaskRepository GameTaskRepository { get; set; }
         private ITipPolicy TipPolicy { get; set; }
+        private IGamePolicy GamePolicy { get; set; }
 
         #endregion
 
@@ -29,11 +34,15 @@ namespace CityQuest.ApplicationServices.GameModule.Tips
 
         public TipAppService(IUnitOfWorkManager uowManager,
             ITipRepository tipRepository,
-            ITipPolicy tipPolicy)
+            IGameTaskRepository gameTaskRepository,
+            ITipPolicy tipPolicy, 
+            IGamePolicy gamePolicy)
         {
             UowManager = uowManager;
             TipRepository = tipRepository;
+            GameTaskRepository = gameTaskRepository;
             TipPolicy = tipPolicy;
+            GamePolicy = gamePolicy;
         }
 
         #endregion
@@ -183,6 +192,34 @@ namespace CityQuest.ApplicationServices.GameModule.Tips
             return new DeleteOutput<long>()
             {
                 DeletedEntityId = input.EntityId
+            };
+        }
+
+        public RetrieveTipsForGameTaskOutput RetrieveTipsForGameTask(RetrieveTipsForGameTaskInput input)
+        {
+            if (!(input.GameTaskId > 0))
+                return new RetrieveTipsForGameTaskOutput() { Tips = new List<TipDto>() };
+
+            GameTaskRepository.Includes.Add(r => r.Game);
+            GameTaskRepository.Includes.Add(r => r.Tips);
+
+            GameTask gameTaskEntity = GameTaskRepository.Get(input.GameTaskId);
+            Game gameEntity = gameTaskEntity.Game;
+
+            if (gameEntity == null)
+                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Game\"");
+
+            if (!GamePolicy.CanRetrieveEntity(gameEntity))
+                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionRetrieveDenied, "\"Game\"");
+
+            IList<Tip> tipEntities = gameTaskEntity.Tips.ToList();
+            IList<TipDto> tipsForGameTask = tipEntities.MapIList<Tip, TipDto>();
+
+            GameTaskRepository.Includes.Clear();
+
+            return new RetrieveTipsForGameTaskOutput()
+            {
+                Tips = tipsForGameTask
             };
         }
     }
