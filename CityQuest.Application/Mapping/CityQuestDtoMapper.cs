@@ -4,6 +4,7 @@ using CityQuest.ApplicationServices.GameModule.Divisions.Dtos;
 using CityQuest.ApplicationServices.GameModule.Games.Dtos;
 using CityQuest.ApplicationServices.GameModule.GameTasks.Dtos;
 using CityQuest.ApplicationServices.GameModule.GameTaskTypes.Dtos;
+using CityQuest.ApplicationServices.GameModule.Locations.Dtos;
 using CityQuest.ApplicationServices.GameModule.Teams.Dtos;
 using CityQuest.ApplicationServices.GameModule.Tips.Dtos;
 using CityQuest.ApplicationServices.MainModule.Permissions.Dto;
@@ -16,6 +17,7 @@ using CityQuest.Entities.GameModule.Games.GameTasks.Conditions;
 using CityQuest.Entities.GameModule.Games.GameTasks.Conditions.ConditionTypes;
 using CityQuest.Entities.GameModule.Games.GameTasks.GameTaskTypes;
 using CityQuest.Entities.GameModule.Games.GameTasks.Tips;
+using CityQuest.Entities.GameModule.Locations;
 using CityQuest.Entities.GameModule.Teams;
 using CityQuest.Entities.MainModule.Authorization.RolePermissionSettings;
 using CityQuest.Entities.MainModule.Authorization.UserRoles;
@@ -41,16 +43,7 @@ namespace CityQuest.Mapping
 
             AutoMapper.Mapper.CreateMap<Role, RoleDto>()
                 .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))
-                .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
-                .ReverseMap()
-                .AfterMap((s, d) =>
-                {
-                    foreach (var item in d.Permissions)
-                    {
-                        item.Role = d;
-                        item.RoleId = d.Id;
-                    }
-                });
+                .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName));
 
             AutoMapper.Mapper.CreateMap<User, UserDto>()
                 .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
@@ -116,6 +109,11 @@ namespace CityQuest.Mapping
                 .ReverseMap();
 
             AutoMapper.Mapper.CreateMap<Tip, TipDto>()
+                .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))
+                .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
+                .ReverseMap();
+
+            AutoMapper.Mapper.CreateMap<Location, LocationDto>()
                 .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))
                 .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
                 .ReverseMap();

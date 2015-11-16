@@ -1,0 +1,91 @@
+﻿<div class="modal-header">
+    <div class="row row-centered">
+        <div class="col-xs-12 text-center">
+            <button type="button"
+                    class="close"
+                    ng-click="vm.templateActions.close();">
+                &times;
+            </button>
+            <label class="cq-modal-title-label">
+                {{vm.title}}
+            </label>
+        </div>
+    </div>
+</div>
+<div class="modal-body">
+    <accordion close-others="oneAtATime">
+        <accordion-group heading="{{vm.localize('LocationMainInfo')}}"
+                         is-open="true"
+                         class="cq-main-info-accordion">
+            <div class="row cq-control-row">
+                <div class="col-xs-2 cq-control-label">
+                    {{vm.localize('Name')}}:&nbsp;
+                </div>
+                <div class="col-xs-8">
+                    <input class="form-control cq-control"
+                           ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                           ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                           ng-model="vm.entity.name" />
+                </div>
+            </div>
+            <div class="row cq-control-row">
+                <div class="col-xs-2 cq-control-label">
+                    {{vm.localize('ShortName')}}:&nbsp;
+                </div>
+                <div class="col-xs-8">
+                    <textarea class="form-control cq-control"
+                              ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                              ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                              rows="3"
+                              ng-model="vm.entity.shortName" />
+                </div>
+            </div>
+            <div class="row cq-control-row">
+                <div class="col-xs-2 cq-control-label">
+                    {{vm.localize('DisplayName')}}:&nbsp;
+                </div>
+                <div class="col-xs-8">
+                    <textarea class="form-control cq-control"
+                              ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                              ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                              rows="3"
+                              ng-model="vm.entity.displayName" />
+                </div>
+            </div>
+            <div class="row cq-control-row">
+                <div class="col-xs-2 cq-control-label">
+                    {{vm.localize('Description')}}:&nbsp;
+                </div>
+                <div class="col-xs-8">
+                    <textarea class="form-control cq-control"
+                              ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                              ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                              rows="3"
+                              ng-model="vm.entity.description" />
+                </div>
+            </div>
+        </accordion-group>
+    </accordion>
+</div>
+<div class="modal-footer">
+    <button type="button"
+            class="btn btn-danger pull-left"
+            title="{{vm.localize('ButtonDeleteTitle')}}"
+            ng-if="vm.templateAvailableActions.deleteEntity()"
+            ng-click="vm.templateActions.deleteEntity();">
+        {{vm.localize('ButtonDelete')}}
+    </button>
+    <button type="button"
+            class="btn btn-success"
+            title="{{vm.localize('ButtonSaveTitle')}}"
+            ng-if="vm.templateAvailableActions.saveEntity()"
+            ng-click="vm.templateActions.saveEntity();">
+        {{vm.localize('ButtonSave')}}
+    </button>
+    <button type="button"
+            class="btn btn-primary"
+            title="{{vm.localize('ButtonCloseTitle')}}"
+            ng-click="vm.templateActions.close();">
+        {{vm.localize('ButtonClose')}}
+    </button>
+</div>

@@ -100,7 +100,7 @@
                             var emptyTip = {
                                 gameTaskId: currentGameTaskId,
                                 name: null,
-                                description: null,
+                                tipText: null,
                                 order: null,
                             };
                             return emptyTip;

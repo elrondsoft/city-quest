@@ -128,14 +128,14 @@
                                 </div>
                                 <div class="row cq-control-row">
                                     <div class="col-xs-2 cq-control-label">
-                                        {{tipsBuilder.localize('Description')}}:&nbsp;
+                                        {{tipsBuilder.localize('TipText')}}:&nbsp;
                                     </div>
                                     <div class="col-xs-10">
                                         <textarea class="form-control cq-control"
                                                   ng-disabled="!(tipsBuilder.templateModeState.isCreate() || tipsBuilder.templateModeState.isUpdate())"
                                                   ng-readonly="!(tipsBuilder.templateModeState.isCreate() || tipsBuilder.templateModeState.isUpdate())"
                                                   rows="3"
-                                                  ng-model="tip.description" />
+                                                  ng-model="tip.tipText" />
                                     </div>
                                 </div>
                             </accordion-group>

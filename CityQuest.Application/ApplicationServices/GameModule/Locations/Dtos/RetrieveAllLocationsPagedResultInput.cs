@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CityQuest.ApplicationServices.MainModule.Locations.Dto
+namespace CityQuest.ApplicationServices.GameModule.Locations.Dtos
 {
-    public class RetrieveAllLocationsInput : RetrieveAllInput
+    public class RetrieveAllLocationsPagedResultInput : RetrieveAllPagedResultInput
     {
         public string Name { get; set; }
+        public IList<long> LocationIds { get; set; }
     }
 }

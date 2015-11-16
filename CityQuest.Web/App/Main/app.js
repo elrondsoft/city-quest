@@ -17,7 +17,7 @@
         clientId: 'ngAuthApp',
         loginStateName: 'login',
         loginMenuName: 'Login',
-        homeStateName: 'divisions'
+        homeStateName: 'home'
 
     });
 

@@ -207,7 +207,7 @@
                        },
                        displayName: {
                            title: vm.localize('DisplayName'),
-                           display: fieldFunctions.displayDescription
+                           display: fieldFunctions.displayDisplayName
                        },
                        permissions: {
                            title: vm.localize('Permissions'),

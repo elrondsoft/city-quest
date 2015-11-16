@@ -1,7 +1,14 @@
 ﻿<div class="container-fluid" ng-controller="app.views.locations.locationListController as vm">
-    <jTable id="locationTable"
+    <jtable id="locationTable"
             name="locationTable"
             title="vm.title"
-            >
-    </jTable>
+            paging="vm.paging"
+            actions="vm.actions"
+            messages="vm.messages"
+            filters="vm.filters"
+            fields="vm.fields"
+            records-loaded="vm.recordsLoaded"
+            toolbar="vm.toolbar"
+            loaded="vm.loaded()">
+    </jtable>
 </div>

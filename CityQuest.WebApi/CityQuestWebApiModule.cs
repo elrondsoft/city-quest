@@ -10,6 +10,7 @@ using CityQuest.ApplicationServices.GameModule.Divisions;
 using CityQuest.ApplicationServices.GameModule.Games;
 using CityQuest.ApplicationServices.GameModule.GameTasks;
 using CityQuest.ApplicationServices.GameModule.GameTaskTypes;
+using CityQuest.ApplicationServices.GameModule.Locations;
 using CityQuest.ApplicationServices.GameModule.Teams;
 using CityQuest.ApplicationServices.GameModule.Tips;
 using CityQuest.ApplicationServices.MainModule.Permissions;
@@ -45,6 +46,8 @@ namespace CityQuest
             #endregion
 
             #region Game module's dynamic api controller builders
+
+            DynamicApiControllerBuilder.For<ILocationAppService>("cityQuest/location").Build();
 
             DynamicApiControllerBuilder.For<IDivisionAppService>("cityQuest/division").Build();
 

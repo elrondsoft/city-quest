@@ -1,6 +1,7 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.UI;
 using Castle.Core.Logging;
+using CityQuest.ApplicationServices.MainModule.Permissions.Dto;
 using CityQuest.ApplicationServices.MainModule.Roles.Dto;
 using CityQuest.ApplicationServices.Shared.Dtos.Input;
 using CityQuest.ApplicationServices.Shared.Dtos.Output;
@@ -111,11 +112,27 @@ namespace CityQuest.ApplicationServices.MainModule.Roles
 
         public CreateOutput<RoleDto, long> Create(CreateInput<RoleDto, long> input)
         {
-            Role newRoleEntity = input.Entity.MapTo<Role>();
+            Role newRoleEntity = new Role() 
+            { 
+                Name = input.Entity.Name,
+                DisplayName = input.Entity.DisplayName,
+                IsStatic = false,
+                IsDefault = false,
+                Permissions = new List<RolePermissionSetting>()
+            };
 
-            newRoleEntity.IsStatic = false;
-            newRoleEntity.IsDefault = false;
-            newRoleEntity.Permissions.Clear();
+            #region Creating role properties
+
+            foreach (var item in input.Entity.Permissions)
+            {
+                newRoleEntity.Permissions.Add(new RolePermissionSetting()
+                {
+                    Name = item.DisplayText,
+                    Role = newRoleEntity
+                });
+            }
+
+            #endregion
 
             RoleDto newRoleDto = (RoleRepository.Insert(newRoleEntity)).MapTo<RoleDto>();
 

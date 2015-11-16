@@ -147,6 +147,7 @@
     <text name="AddTipOnTopTittleText" value="Add tip on top" />
     <text name="ButtonAddTipOnTop" value="Add on top" />
     <text name="TipMainInfo" value="Main info for tip" />
+    <text name="TipText" value="Tip text" />
 
     <text name="ClearAllConditionsTittleText" value="Clear all conditions" />
     <text name="ButtonClearConditions" value="Clear all" />
@@ -158,6 +159,14 @@
     <text name="ButtonAddConditionOnTop" value="Add on top" />
     <text name="ConditionMainInfo" value="Main info for condition" />
     <text name="ConditionType" value="Condition type" />
-    
+
+    <text name="LocationDetails" value="Location details" />
+    <text name="LocationMainInfo" value="Main info for location" />
+    <text name="ShortName" value="Short name" />
+
+    <text name="ButtonCloseTitle" value="Close this template" />
+    <text name="ButtonSaveTitle" value="Save changes for this entity" />
+    <text name="ButtonDeleteTitle" value="Delete this entity" />
+
   </texts>
 </localizationDictionary>

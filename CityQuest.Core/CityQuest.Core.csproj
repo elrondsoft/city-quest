@@ -114,6 +114,8 @@
     <Compile Include="CityQuestPolicy\GameModule\GameTasks\IGameTaskPolicy.cs" />
     <Compile Include="CityQuestPolicy\GameModule\GameTaskTypes\GameTaskTypePolicy.cs" />
     <Compile Include="CityQuestPolicy\GameModule\GameTaskTypes\IGameTaskTypePolicy.cs" />
+    <Compile Include="CityQuestPolicy\GameModule\Locations\ILocationPolicy.cs" />
+    <Compile Include="CityQuestPolicy\GameModule\Locations\LocationPolicy.cs" />
     <Compile Include="CityQuestPolicy\GameModule\Tips\ITipPolicy.cs" />
     <Compile Include="CityQuestPolicy\GameModule\Tips\TipPolicy.cs" />
     <Compile Include="CityQuestPolicy\MainModule\Roles\IRolePolicy.cs" />

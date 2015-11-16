@@ -144,6 +144,14 @@
     <Compile Include="ApplicationServices\GameModule\GameTaskTypes\Dtos\RetrieveGameTaskTypeInput.cs" />
     <Compile Include="ApplicationServices\GameModule\GameTaskTypes\GameTaskTypeAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\GameTaskTypes\IGameTaskTypeAppService.cs" />
+    <Compile Include="ApplicationServices\GameModule\Locations\Dtos\LocationDto.cs" />
+    <Compile Include="ApplicationServices\GameModule\Locations\Dtos\RetrieveAllLocationInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Locations\Dtos\RetrieveAllLocationsLikeComboBoxesInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Locations\Dtos\RetrieveAllLocationsLikeComboBoxesOutput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Locations\Dtos\RetrieveAllLocationsPagedResultInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Locations\Dtos\RetrieveLocationInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Locations\ILocationAppService.cs" />
+    <Compile Include="ApplicationServices\GameModule\Locations\LocationAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\CreateTeamInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsLikeComboBoxesInput.cs" />
@@ -164,10 +172,6 @@
     <Compile Include="ApplicationServices\GameModule\Tips\Dtos\TipDto.cs" />
     <Compile Include="ApplicationServices\GameModule\Tips\ITipAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\Tips\TipAppService.cs" />
-    <Compile Include="ApplicationServices\MainModule\Locations\Dto\LocationDto.cs" />
-    <Compile Include="ApplicationServices\MainModule\Locations\Dto\RetrieveAllLocationsInput.cs" />
-    <Compile Include="ApplicationServices\MainModule\Locations\ILocationAppService.cs" />
-    <Compile Include="ApplicationServices\MainModule\Locations\LocationAppService.cs" />
     <Compile Include="ApplicationServices\MainModule\Permissions\IPermissionAppService.cs" />
     <Compile Include="ApplicationServices\MainModule\Permissions\PermissionAppService.cs" />
     <Compile Include="ApplicationServices\MainModule\Permissions\Dto\PermissionDto.cs" />
