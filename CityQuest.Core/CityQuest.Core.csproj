@@ -148,6 +148,7 @@
     <Compile Include="Entities\GameModule\Teams\Team.cs" />
     <Compile Include="CityQuestPolicy\GameModule\Teams\TeamPolicy.cs" />
     <Compile Include="Entities\MainModule\Authorization\CityQuestAuthorizationProvider.cs" />
+    <Compile Include="Entities\MainModule\Authorization\CityQuestUserPermissionProvider.cs" />
     <Compile Include="Entities\MainModule\Authorization\PermissionChecker.cs" />
     <Compile Include="Entities\MainModule\Authorization\PermissionGrantInfo.cs" />
     <Compile Include="Entities\MainModule\Authorization\PermissionSetting.cs" />

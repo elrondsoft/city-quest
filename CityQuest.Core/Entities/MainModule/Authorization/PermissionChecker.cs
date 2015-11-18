@@ -3,6 +3,7 @@ using Abp.Dependency;
 using Abp.Runtime.Session;
 using Castle.Core.Logging;
 using CityQuest.Entities.MainModule.Authorization.UserServices;
+using CityQuest.Runtime.Sessions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,30 +17,30 @@ namespace CityQuest.Entities.MainModule.Authorization
         private readonly UserManager _userManager;
 
         public ILogger Logger { get; set; }
+        public ICityQuestSession Session { get; set; }
 
-        public IAbpSession AbpSession { get; set; }
-
-        /// <summary>
-        /// Constructor.
-        /// </summary>
-        public PermissionChecker(UserManager userManager)
+        public PermissionChecker(UserManager userManager, ICityQuestSession session)
         {
             _userManager = userManager;
+            Session = session;
             Logger = NullLogger.Instance;
-            AbpSession = NullAbpSession.Instance;
         }
 
         public async Task<bool> IsGrantedAsync(string permissionName)
         {
-            return AbpSession.UserId.HasValue && 
-                await _userManager.IsGrantedAsync(AbpSession.UserId.Value, permissionName);
+            return Session.UserId.HasValue &&
+                await IsGrantedAsync(Session.UserId.Value, permissionName);
         }
+
+        //public async Task<bool> IsGrantedAsync(long userId, string permissionName)
+        //{
+        //    return await UserManager.IsGrantedAsync(userId, permissionName);
+        //}
 
         public async Task<bool> IsGrantedAsync(long userId, string permissionName)
         {
-            return await _userManager.IsGrantedAsync(userId, permissionName);
+            bool result = ((!Session.Permissions.IsNullOrEmpty()) && Session.Permissions.Contains(permissionName)) ? true : false;
+            return result;
         }
     }
-
-
 }

@@ -11,5 +11,7 @@ namespace CityQuest.Runtime.Sessions
     public interface ICityQuestSession : IAbpSession, ISingletonDependency
     {
         string UserName { get; }
+
+        string[] Permissions { get; }
     }
 }
