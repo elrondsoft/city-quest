@@ -1,12 +1,18 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.Domain.Uow;
 using Abp.UI;
+using CityQuest.ApplicationServices.GameModule.Conditions.Dtos;
 using CityQuest.ApplicationServices.GameModule.Games.Dtos;
+using CityQuest.ApplicationServices.GameModule.GameTasks.Dtos;
+using CityQuest.ApplicationServices.GameModule.Tips.Dtos;
 using CityQuest.ApplicationServices.Shared.Dtos.Input;
 using CityQuest.ApplicationServices.Shared.Dtos.Output;
 using CityQuest.CityQuestConstants;
 using CityQuest.CityQuestPolicy.GameModule.Games;
 using CityQuest.Entities.GameModule.Games;
+using CityQuest.Entities.GameModule.Games.GameTasks;
+using CityQuest.Entities.GameModule.Games.GameTasks.Conditions;
+using CityQuest.Entities.GameModule.Games.GameTasks.Tips;
 using CityQuest.Exceptions;
 using CityQuest.Mapping;
 using System;
@@ -23,6 +29,9 @@ namespace CityQuest.ApplicationServices.GameModule.Games
 
         private IUnitOfWorkManager UowManager { get; set; }
         private IGameRepository GameRepository { get; set; }
+        private IGameTaskRepository GameTaskRepository { get; set; }
+        private IConditionRepository ConditionRepository { get; set; }
+        private ITipRepository TipRepository { get; set; }
         private IGamePolicy GamePolicy { get; set; }
 
         #endregion
@@ -30,11 +39,17 @@ namespace CityQuest.ApplicationServices.GameModule.Games
         #region ctors
 
         public GameAppService(IUnitOfWorkManager uowManager, 
-            IGameRepository gameRepository, 
+            IGameRepository gameRepository,
+            IGameTaskRepository gameTaskRepository,
+            IConditionRepository conditionRepository,
+            ITipRepository tipRepository,
             IGamePolicy gamePolicy)
         {
             UowManager = uowManager;
             GameRepository = gameRepository;
+            GameTaskRepository = gameTaskRepository;
+            ConditionRepository = conditionRepository;
+            TipRepository = tipRepository;
             GamePolicy = gamePolicy;
         }
 
@@ -158,19 +173,20 @@ namespace CityQuest.ApplicationServices.GameModule.Games
 
         public UpdateOutput<GameDto, long> Update(UpdateGameInput input)
         {
-            Game newGameEntity = input.Entity.MapTo<Game>();
-
-            if (newGameEntity == null)
-                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Game\"");
-
-            if (!GamePolicy.CanUpdateEntity(newGameEntity))
-                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionUpdateDenied, "\"Game\"");
-
             GameRepository.Includes.Add(r => r.GameTasks);
             GameRepository.Includes.Add(r => r.LastModifierUser);
             GameRepository.Includes.Add(r => r.CreatorUser);
 
-            GameRepository.Update(newGameEntity);
+            Game existGameEntity = GameRepository.Get(input.Entity.Id);
+
+            if (existGameEntity == null)
+                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Game\"");
+
+            if (!GamePolicy.CanUpdateEntity(existGameEntity))
+                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionUpdateDenied, "\"Game\"");
+
+            UpdateGameEntity(existGameEntity, input.Entity);
+
             GameDto newGameDto = (GameRepository.Get(input.Entity.Id)).MapTo<GameDto>();
 
             GameRepository.Includes.Clear();
@@ -226,5 +242,121 @@ namespace CityQuest.ApplicationServices.GameModule.Games
                 Entity = newGameDto
             };
         }
+
+        #region Helpers
+
+        private Game UpdateGameEntity(Game existGameEntity, GameDto newGameEntity)
+        {
+            existGameEntity.Name = newGameEntity.Name;
+            existGameEntity.Description = newGameEntity.Description;
+            existGameEntity.IsActive = newGameEntity.IsActive;
+
+            UpdateGameEntityRelations(existGameEntity, newGameEntity);
+
+            return GameRepository.Update(existGameEntity);
+        }
+
+        private void UpdateGameEntityRelations(Game existGameEntity, GameDto newGameEntity)
+        {
+            IList<GameTask> gameTasksForDelete = existGameEntity.GameTasks.ToList();
+
+            foreach (GameTaskDto newGameTask in newGameEntity.GameTasks)
+            {
+                if (newGameTask.Id > 0)
+                {
+                    GameTask existGameTask = existGameEntity.GameTasks.First(r => r.Id == newGameTask.Id);
+                    gameTasksForDelete.Remove(existGameTask);
+                    UpdateGameTaskEntity(existGameTask, newGameTask);
+                }
+                else
+                {
+                    GameTaskRepository.Insert(newGameTask.MapTo<GameTask>());
+                }
+            }
+
+            GameTaskRepository.RemoveRange(gameTasksForDelete);
+        }
+
+        private GameTask UpdateGameTaskEntity(GameTask existGameTask, GameTaskDto newGameTask)
+        {
+            existGameTask.Description = newGameTask.Description;
+            existGameTask.GameTaskTypeId = newGameTask.GameTaskTypeId;
+            existGameTask.IsActive = newGameTask.IsActive;
+            existGameTask.Name = newGameTask.Name;
+            existGameTask.Order = newGameTask.Order;
+            existGameTask.TaskText = newGameTask.TaskText;
+
+            UpdateGameTaskEntityRelations(existGameTask, newGameTask);
+
+            return GameTaskRepository.Update(existGameTask);
+        }
+
+        private void UpdateGameTaskEntityRelations(GameTask existGameTask, GameTaskDto newGameTask)
+        {
+            #region Updating Conditions
+
+            IList<Condition> conditionsForDelete = existGameTask.Conditions.ToList();
+
+            foreach (ConditionDto newCondition in newGameTask.Conditions)
+            {
+                if (newCondition.Id > 0)
+                {
+                    Condition existCondition = existGameTask.Conditions.First(r => r.Id == newCondition.Id);
+                    conditionsForDelete.Remove(existCondition);
+                    UpdateConditionEntity(existCondition, newCondition);
+                }
+                else
+                {
+                    ConditionRepository.Insert(newCondition.MapTo<Condition>());
+                }
+            }
+
+            ConditionRepository.RemoveRange(conditionsForDelete);
+
+            #endregion
+
+            #region Updating Tips
+
+            IList<Tip> tipsForDelete = existGameTask.Tips.ToList();
+
+            foreach (TipDto newTip in newGameTask.Tips)
+            {
+                if (newTip.Id > 0)
+                {
+                    Tip existTip = existGameTask.Tips.First(r => r.Id == newTip.Id);
+                    tipsForDelete.Remove(existTip);
+                    UpdateTipEntity(existTip, newTip);
+                }
+                else
+                {
+                    TipRepository.Insert(newTip.MapTo<Tip>());
+                }
+            }
+
+            TipRepository.RemoveRange(tipsForDelete);
+
+            #endregion
+        }
+
+        private Condition UpdateConditionEntity(Condition existCondition, ConditionDto newCondition)
+        {
+            existCondition.Description = newCondition.Description;
+            existCondition.ConditionTypeId = newCondition.ConditionTypeId;
+            existCondition.Name = newCondition.Name;
+            existCondition.Order = newCondition.Order;
+
+            return ConditionRepository.Update(existCondition);
+        }
+
+        private Tip UpdateTipEntity(Tip existTip, TipDto newTip)
+        {
+            existTip.TipText = newTip.TipText;
+            existTip.Name = newTip.Name;
+            existTip.Order = newTip.Order;
+
+            return TipRepository.Update(existTip);
+        }
+
+        #endregion
     }
 }

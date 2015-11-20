@@ -63,5 +63,12 @@ namespace CityQuest.ApplicationServices.GameModule.Games
         /// <param name="input">object with input params</param>
         /// <returns>object with output params</returns>
         DeleteOutput<long> Delete(DeleteInput<long> input);
+
+        /// <summary>
+        /// Is used to change activity for entity (Game) 
+        /// </summary>
+        /// <param name="input">object with input params</param>
+        /// <returns>object with output params</returns>
+        ChangeActivityOutput<GameDto, long> ChangeActivity(ChangeActivityInput input);
     }
 }
