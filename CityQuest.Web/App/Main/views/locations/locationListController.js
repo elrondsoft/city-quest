@@ -1,7 +1,6 @@
 ﻿(function () {
     var controllerId = 'app.views.locations.locationListController';
-    angular.module('app').controller(controllerId, ['$scope', '$modal', 'clientCityQuestConstService',
-        'clientPermissionService', 'abp.services.cityQuest.location',
+    angular.module('app').controller(controllerId, ['$scope', '$modal', 'clientCityQuestConstService', 'clientPermissionService', 'abp.services.cityQuest.location',
         function ($scope, modal, constSvc, permissionSvc, locationSvc) {
             var vm = this;
             vm.localize = constSvc.localize;
@@ -184,9 +183,20 @@
                             id: 'name-filter',
                             label: vm.localize('Name'),
                             type: 'input',
-                            width: '150px',
                             assignedField: 'Name',
                         },
+                        {
+                            id: 'name-2-filter',
+                            label: vm.localize('Name-2'),
+                            type: 'input',
+                            assignedField: 'Name-2',
+                        },
+                        {
+                            id: 'name-3-filter',
+                            label: vm.localize('Name-3'),
+                            type: 'input',
+                            assignedField: 'Name-3',
+                        }
                     ];
                     return filters;
                 },
