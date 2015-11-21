@@ -19,8 +19,8 @@
                 displayDescription: function (data) {
                     return data.record.description;
                 },
-                displayTeamsCount: function (data) {
-                    return data.record.gameTasksCount;
+                displayGameTasksCount: function (data) {
+                    return data.record.gameTasks && data.record.gameTasks.length ? data.record.gameTasks.length : '-';
                 },
                 displayIsActive: function (data) {
                     return data.record.isActive ? vm.localize('IsActiveTrue') : vm.localize('IsActiveFalse');
@@ -94,7 +94,8 @@
                         getDeactivateButton(record) + getDeleteButton(record);
                 }
             };
-            //-----------------Object with actions (functions) for game--------------------------------------------
+            //---------------------------------------------------------------------------------------------------------
+            //-----------------Object with actions (functions) for game------------------------------------------------
             var gameActions = {
                 openInfoTemplate: function (event) {
                     event.preventDefault();
@@ -219,6 +220,7 @@
                         });
                 }
             };
+            //---------------------------------------------------------------------------------------------------------
             //-------------------------------Initializing jTable-------------------------------------------------------
             /// Is used to initialize jTable
             var jTableInitializer = {
@@ -267,9 +269,9 @@
                             title: vm.localize('Description'),
                             display: fieldFunctions.displayDescription
                         },
-                        teamsCount: {
+                        gameTasksCount: {
                             title: vm.localize('CountOfTasks'),
-                            display: fieldFunctions.displayTeamsCount
+                            display: fieldFunctions.displayGameTasksCount
                         },
                         lastModificationTime: {
                             visibility: 'hidden',
@@ -282,12 +284,12 @@
                             display: fieldFunctions.displayLastModifierName
                         },
                         creationTime: {
-                            //visibility: 'hidden',
+                            visibility: 'hidden',
                             title: vm.localize('CreationTime'),
                             display: fieldFunctions.displayCreationTime
                         },
                         creatorName: {
-                            //visibility: 'hidden',
+                            visibility: 'hidden',
                             title: vm.localize('CreatorName'),
                             display: fieldFunctions.displayCreatorName
                         },

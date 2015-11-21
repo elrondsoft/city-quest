@@ -1,6 +1,7 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.Domain.Entities;
 using CityQuest.ApplicationServices.GameModule.Divisions.Dtos;
+using CityQuest.ApplicationServices.MainModule.Users.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +15,12 @@ namespace CityQuest.ApplicationServices.GameModule.Teams.Dtos
         #region Relations
 
         public long CaptainId { get; set; }
-        public string CaptainName { get; set; }
-        //public UserDto Captain { get; set; }
+        public UserDto Captain { get; set; }
 
         public long DivisionId { get; set; }
         public virtual DivisionDto Division { get; set; }
 
-        //public virtual IList<UserDto> Players { get; set; }
+        public virtual IList<UserDto> Players { get; set; }
 
         public string LastModifierUserFullName { get; set; }
         public string CreatorUserFullName { get; set; }

@@ -19,13 +19,14 @@
                 displayDescription: function (data) {
                     return data.record.description;
                 },
+                displaySlogan: function (data) {
+                    return data.record.slogan;
+                },
                 displayCaptain: function (data) {
                     var result = '-';
                     if (data.record.captain) {
-                        result = data.record.captain.userName +
+                        result = data.record.captain.userName + ' ' + 
                             '(' + data.record.captain.name + ' ' + data.record.captain.surname + ')';
-                    } else if (data.record.captainName) {
-                        result = data.record.captainName;
                     }
                     return result;
                 },
@@ -108,7 +109,7 @@
                         getDeactivateButton(record) + getDeleteButton(record);
                 }
             };
-            //-----------------Object with actions (functions) for team--------------------------------------------
+            //-----------------Object with actions (functions) for team------------------------------------------------
             var teamActions = {
                 openInfoTemplate: function (event) {
                     event.preventDefault();
@@ -281,6 +282,10 @@
                             title: vm.localize('Description'),
                             display: fieldFunctions.displayDescription
                         },
+                        slogan: {
+                            title: vm.localize('Slogan'),
+                            display: fieldFunctions.displaySlogan
+                        },
                         captain: {
                             title: vm.localize('Captain'),
                             display: fieldFunctions.displayCaptain
@@ -300,12 +305,12 @@
                             display: fieldFunctions.displayLastModifierName
                         },
                         creationTime: {
-                            //visibility: 'hidden',
+                            visibility: 'hidden',
                             title: vm.localize('CreationTime'),
                             display: fieldFunctions.displayCreationTime
                         },
                         creatorName: {
-                            //visibility: 'hidden',
+                            visibility: 'hidden',
                             title: vm.localize('CreatorName'),
                             display: fieldFunctions.displayCreatorName
                         },

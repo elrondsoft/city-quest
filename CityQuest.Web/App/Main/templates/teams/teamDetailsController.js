@@ -86,6 +86,7 @@
                 },
             };
             initFunctions.initTemplateData();
+            //---------------------------------------------------------------------------------------------------------
             //----------------------------------------Template's modes-------------------------------------------------
             /// Is used to get bool result for conmaring template's mode with standart ones
             vm.templateMode = {
@@ -102,7 +103,8 @@
                         (serviceData.templateMode == constSvc.formModes.update);
                 }
             };
-            //----------------------------------Template's actions service---------------------------------------------
+            //---------------------------------------------------------------------------------------------------------
+            //----------------------------------Template's permissions on actions--------------------------------------
             /// Is used to allow actions for this template
             vm.templateAvailableActions = {
                 createEntity: function () {
@@ -129,6 +131,7 @@
                 },
             };
             //---------------------------------------------------------------------------------------------------------
+            //-------------------------------------Template's actions--------------------------------------------------
             /// Is used to store actions can be allowed in this template
             vm.templateActions = {
                 createEntity: function () {

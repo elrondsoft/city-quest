@@ -45,7 +45,21 @@
                          ng-if="vm.templateMode.isInfo() || vm.templateMode.isUpdate()"
                          heading="@L("RelatedTeams") ({{vm.entity.teamsCount}})"
                          class="cq-other-info-accordion">
-            TODO: related teams list
+            <div class="row"
+                 ng-if="vm.relatedTeams && vm.relatedTeams.length">
+                <div class="col-xs-12">
+                    <div class="list-group"
+                         id="team-list">
+                        <label for="team-list">{{vm.localize('RelatedTeams')}}:</label>
+                        <a href="#" ng-repeat="team in vm.relatedTeams"
+                           class="list-group-item list-group-item-info"
+                           style="padding: 1px 20px;">
+                            <span ng-bind="team.displayName"
+                                  ng-click="vm.openTeamInfo(team.value)"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </accordion-group>
     </accordion>
 </div>

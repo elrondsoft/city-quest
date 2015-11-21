@@ -23,13 +23,6 @@ namespace CityQuest.Web
                         )
                 ).AddItem(
                     new MenuItemDefinition(
-                        "LocationsMenuItem",
-                        new LocalizableString("LocationsMenuItem", CityQuestConsts.LocalizationSourceName),
-                        url: "#/locations",
-                        icon: "fa fa-list-alt"
-                        )
-                ).AddItem(
-                    new MenuItemDefinition(
                         "AdministrationMenuItem",
                         new LocalizableString("AdministrationMenuItem", CityQuestConsts.LocalizationSourceName),
                         icon: "fa fa-wrench"
@@ -43,6 +36,11 @@ namespace CityQuest.Web
                             new LocalizableString("RolesMenuItem", CityQuestConsts.LocalizationSourceName),
                             url: "#/roles",
                             icon: "fa fa-gavel"
+                        )).AddItem(new MenuItemDefinition(
+                            "LocationsMenuItem",
+                            new LocalizableString("LocationsMenuItem", CityQuestConsts.LocalizationSourceName),
+                            url: "#/locations",
+                            icon: "fa fa-list-alt"
                         )).AddItem(new MenuItemDefinition(
                             "DivisionsMenuItem",
                             new LocalizableString("DivisionsMenuItem", CityQuestConsts.LocalizationSourceName),

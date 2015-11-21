@@ -1,8 +1,8 @@
 ﻿(function () {
     var controllerId = 'app.templates.divisions.divisionDetailsController';
     angular.module('app').controller(controllerId, ['$scope', 'serviceData', 'clientCityQuestConstService',
-        'clientPermissionService', 'abp.services.cityQuest.division',
-        function ($scope, serviceData, constSvc, permissionSvc, divisionSvc) {
+        'clientPermissionService', 'abp.services.cityQuest.division', 'abp.services.cityQuest.team',
+        function ($scope, serviceData, constSvc, permissionSvc, divisionSvc, teamSvc) {
             var vm = this;
             vm.localize = constSvc.localize;
             vm.title = vm.localize('DivisionDetails');
@@ -11,6 +11,18 @@
             //------------------------------------------Initializing---------------------------------------------------
             /// Is used to initialize Template
             var initFunctions = {
+                loadRelations: function (entityId) {
+                    return teamSvc.retrieveAllTeamsLikeComboBoxes({
+                        DivisionId: entityId
+                    }).success(function (data) {
+                        vm.relatedTeams = data.items.map(function (e) {
+                            return {
+                                value: parseInt(e.value, 10),
+                                displayText: e.displayText
+                            };
+                        });
+                    });
+                },
                 loadEntity: function (entityId) {
                     return divisionSvc.retrieve({ Id: entityId, IsActive: false })
                         .success(function (data) {
@@ -32,6 +44,8 @@
                 initTemplateData: function () {
                     if (!(serviceData && serviceData.templateMode))
                         return false;
+
+                    initFunctions.loadRelations(serviceData.entityId);
 
                     switch (serviceData.templateMode) {
                         case constSvc.formModes.info:
