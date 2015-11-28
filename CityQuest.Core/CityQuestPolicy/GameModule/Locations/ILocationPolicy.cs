@@ -9,5 +9,6 @@ namespace CityQuest.CityQuestPolicy.GameModule.Locations
 {
     public interface ILocationPolicy : ICityQuestPolicyBase<Location, long>
     {
+        
     }
 }

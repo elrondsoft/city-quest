@@ -46,7 +46,14 @@ namespace CityQuest.CityQuestConstants
         public const string CanDeleteTeam = "CanDeleteTeam";
         public const string CanChangeTeamActivity = "CanChangeTeamActivity";
 
+        public const string CanAllLocation = "CanAllLocation";
+        public const string CanRetrieveLocation = "CanRetrieveLocation";
+        public const string CanCreateLocation = "CanCreateLocation";
+        public const string CanUpdateLocation = "CanUpdateLocation";
+        public const string CanDeleteLocation = "CanDeleteLocation";
+        public const string CanChangeLocationActivity = "CanChangeLocationActivity";
         #endregion
+
 
         #region MainModule's CityQuest's permission names
 
