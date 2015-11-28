@@ -196,6 +196,24 @@
                             label: vm.localize('Name-3'),
                             type: 'input',
                             assignedField: 'Name-3',
+                        },
+                        {
+                            id: 'name-4-filter',
+                            label: vm.localize('Name-4'),
+                            type: 'input',
+                            assignedField: 'Name-4',
+                        },
+                        {
+                            id: 'name-5-filter',
+                            label: vm.localize('Name-5'),
+                            type: 'input',
+                            assignedField: 'Name-5',
+                        },
+                        {
+                            id: 'name-6-filter',
+                            label: vm.localize('Name-6'),
+                            type: 'input',
+                            assignedField: 'Name-6',
                         }
                     ];
                     return filters;
