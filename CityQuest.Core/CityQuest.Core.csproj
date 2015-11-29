@@ -104,8 +104,6 @@
     <Compile Include="CityQuestConstants\Filters.cs" />
     <Compile Include="CityQuestCoreModule.cs" />
     <Compile Include="CityQuestPolicy\CityQuestPolicyBase.cs" />
-    <Compile Include="CityQuestPolicy\GameModule\Cities\CityPolicy.cs" />
-    <Compile Include="CityQuestPolicy\GameModule\Cities\ICityPolicy.cs" />
     <Compile Include="CityQuestPolicy\GameModule\Conditions\ConditionPolicy.cs" />
     <Compile Include="CityQuestPolicy\GameModule\Conditions\IConditionPolicy.cs" />
     <Compile Include="CityQuestPolicy\GameModule\ConditionTypes\ConditionTypePolicy.cs" />
@@ -124,8 +122,6 @@
     <Compile Include="CityQuestPolicy\MainModule\Roles\RolePolicy.cs" />
     <Compile Include="CityQuestPolicy\MainModule\Users\IUserPolicy.cs" />
     <Compile Include="CityQuestPolicy\MainModule\Users\UserPolicy.cs" />
-    <Compile Include="Entities\GameModule\Cities\City.cs" />
-    <Compile Include="Entities\GameModule\Cities\ICityRepository.cs" />
     <Compile Include="Entities\GameModule\Divisions\Division.cs" />
     <Compile Include="CityQuestPolicy\GameModule\Divisions\DivisionPolicy.cs" />
     <Compile Include="CityQuestPolicy\GameModule\Divisions\IDivisionPolicy.cs" />
