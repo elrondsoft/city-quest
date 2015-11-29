@@ -142,6 +142,7 @@
     <Compile Include="Entities\GameModule\Games\GameTasks\Tips\ITipRepository.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Tips\Tip.cs" />
     <Compile Include="Entities\GameModule\Games\IGameRepository.cs" />
+    <Compile Include="Entities\GameModule\Keys\IKeyRepository.cs" />
     <Compile Include="Entities\GameModule\Keys\Key.cs" />
     <Compile Include="Entities\GameModule\Locations\ILocationRepository.cs" />
     <Compile Include="Entities\GameModule\Locations\Location.cs" />
@@ -174,18 +175,21 @@
     <Compile Include="Entities\Shared\IHasOrder.cs" />
     <Compile Include="Exceptions\CityQuestItemNotFoundException.cs" />
     <Compile Include="Exceptions\CityQuestPolicyException.cs" />
+    <Compile Include="Exceptions\SafeGuidGenerationServiceException.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="CityQuestPolicy\ICityQuestPolicyBase.cs" />
     <Compile Include="ICityQuestRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runtime\Sessions\ICityQuestSession.cs" />
+    <Compile Include="Services\SafeGuidGenerationServices\ISafeGuidGenerationService.cs" />
+    <Compile Include="Services\SafeGuidGenerationServices\KeyGenerationServices\IKeyGenerationService.cs" />
+    <Compile Include="Services\SafeGuidGenerationServices\KeyGenerationServices\KeyGenerationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
     <Folder Include="Utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
