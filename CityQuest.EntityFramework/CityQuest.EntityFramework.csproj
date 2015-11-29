@@ -105,6 +105,7 @@
     <Compile Include="EntityFramework\Repositories\GameModule\GameRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\GameTaskRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\GameTaskTypeRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\GameModule\KeyRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\LocationRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\TeamRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\TipRepository.cs" />

@@ -7,6 +7,7 @@ using CityQuest.Entities.MainModule.Authorization.UserServices;
 using CityQuest.Entities.MainModule.Authorization.RoleServices;
 using CityQuest.Entities.MainModule.Roles;
 using CityQuest.Entities.MainModule.Authorization;
+using CityQuest.Services.SafeGuidGenerationServices.KeyGenerationServices;
 
 namespace CityQuest
 {
@@ -16,7 +17,8 @@ namespace CityQuest
         {
             IocManager.IocContainer.Register(
                 Component.For<IUserStore<User, long>, IUserPasswordStore<User, long>, UserStore>().ImplementedBy<UserStore>().LifestyleTransient(),
-                Component.For<IRoleStore<Role, long>, RoleStore>().ImplementedBy<RoleStore>().LifestyleTransient()
+                Component.For<IRoleStore<Role, long>, RoleStore>().ImplementedBy<RoleStore>().LifestyleTransient(),
+                Component.For<IKeyGenerationService>().ImplementedBy<KeyGenerationService>().LifestyleTransient()
                 );
             base.PreInitialize();
         }
