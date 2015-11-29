@@ -134,6 +134,10 @@
     <Compile Include="Migrations\201511132322134_AddedOrderForGameRelatedEntities.Designer.cs">
       <DependentUpon>201511132322134_AddedOrderForGameRelatedEntities.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511291601301_AddedLocationRelations.cs" />
+    <Compile Include="Migrations\201511291601301_AddedLocationRelations.Designer.cs">
+      <DependentUpon>201511291601301_AddedLocationRelations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CityQuestDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -166,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511132322134_AddedOrderForGameRelatedEntities.resx">
       <DependentUpon>201511132322134_AddedOrderForGameRelatedEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511291601301_AddedLocationRelations.resx">
+      <DependentUpon>201511291601301_AddedLocationRelations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

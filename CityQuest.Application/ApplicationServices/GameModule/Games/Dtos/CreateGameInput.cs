@@ -10,6 +10,9 @@ namespace CityQuest.ApplicationServices.GameModule.Games.Dtos
 {
     public class CreateGameInput : CreateInput<GameDto, long>, IShouldNormalize
     {
-        public void Normalize() { }
+        public void Normalize()
+        {
+            Entity.LocationName = null;
+        }
     }
 }

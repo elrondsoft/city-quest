@@ -85,7 +85,11 @@ namespace CityQuest.Mapping
                 .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))
                 .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
                 .ForMember(r => r.GameTasks, r => r.MapFrom(e => e.GameTasks.OrderBy(k => k.Order)))
-                .ReverseMap();
+                .ForMember(r => r.LocationName, r => r.MapFrom(e => e.Location.DisplayName))
+                .ReverseMap()
+                #warning TODO normanl datetime for game
+                .ForMember(r => r.StartDate, r => r.MapFrom(e => DateTime.Now));
+
 
             AutoMapper.Mapper.CreateMap<GameTask, GameTaskDto>()
                 .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))

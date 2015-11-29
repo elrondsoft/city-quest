@@ -112,6 +112,11 @@ namespace CityQuest.EntityFramework
             modelBuilder.Entity<User>()
                 .HasMany(r => r.Logins)
                 .WithMany(r => r.Users);
+            modelBuilder.Entity<User>()
+                .HasOptional(r => r.Location)
+                .WithMany(r => r.Users)
+                .HasForeignKey(r => r.LocationId)
+                .WillCascadeOnDelete(false);
 
             #endregion
 
@@ -141,6 +146,12 @@ namespace CityQuest.EntityFramework
                 .WithMany(r => r.Keys)
                 .HasForeignKey(r => r.GameId)
                 .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<Game>()
+                .HasRequired(r => r.Location)
+                .WithMany(r => r.Games)
+                .HasForeignKey(r => r.LocationId)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<GameTask>()
                 .HasRequired(r => r.Game)

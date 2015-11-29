@@ -2,8 +2,8 @@
     var controllerId = 'app.templates.games.gameDetailsController';
     angular.module('app').controller(controllerId, ['$scope', 'serviceData', 'clientCityQuestConstService',
         'clientPermissionService', 'abp.services.cityQuest.game', 'abp.services.cityQuest.gameTaskType',
-        'abp.services.cityQuest.conditionType',
-        function ($scope, serviceData, constSvc, permissionSvc, gameSvc, gameTaskTypeSvc, conditionTypeSvc) {
+        'abp.services.cityQuest.conditionType', 'abp.services.cityQuest.location',
+        function ($scope, serviceData, constSvc, permissionSvc, gameSvc, gameTaskTypeSvc, conditionTypeSvc, locationSvc) {
             var vm = this;
             vm.localize = constSvc.localize;
             vm.title = vm.localize('GameDetails');
@@ -17,7 +17,17 @@
             var initFunctions = {
                 loadRelatedEntities: function () {
                     var promises = [];
-                    var promise = gameTaskTypeSvc.retrieveAllGameTaskTypesLikeComboBoxes({
+                    var promise = locationSvc.retrieveAllLocationsLikeComboBoxes({})
+                    .success(function (data) {
+                        vm.locations = data.items.map(function (e) {
+                            return {
+                                value: parseInt(e.value, 10),
+                                displayText: e.displayText
+                            }
+                        });
+                    });
+                    promises.push(promise);
+                    promise = gameTaskTypeSvc.retrieveAllGameTaskTypesLikeComboBoxes({
                         IsActive: true
                     }).success(function (data) {
                         vm.gameTaskTypes = constSvc.mapComboboxes(data.items);
@@ -41,6 +51,8 @@
                     var defaultEntity = {
                         gameId: null,
                         name: null,
+                        locstionId: null,
+                        startDate: moment().format(),
                         description: null,
                         taskText: null,
                         isActive: true,

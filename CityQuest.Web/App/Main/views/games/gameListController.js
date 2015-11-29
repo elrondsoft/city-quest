@@ -19,6 +19,9 @@
                 displayDescription: function (data) {
                     return data.record.description;
                 },
+                displayLocation: function (data) {
+                    return data.record.locationName;
+                },
                 displayGameTasksCount: function (data) {
                     return data.record.gameTasks && data.record.gameTasks.length ? data.record.gameTasks.length : '-';
                 },
@@ -268,6 +271,10 @@
                         description: {
                             title: vm.localize('Description'),
                             display: fieldFunctions.displayDescription
+                        },
+                        location: {
+                            title: vm.localize('Location'),
+                            display: fieldFunctions.displayLocation
                         },
                         gameTasksCount: {
                             title: vm.localize('CountOfTasks'),

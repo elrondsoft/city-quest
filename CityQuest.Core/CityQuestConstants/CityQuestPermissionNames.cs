@@ -34,6 +34,9 @@ namespace CityQuest.CityQuestConstants
 
         public const string CanAllGame = "CanAllGame";
         public const string CanRetrieveGame = "CanRetrieveGame";
+        public const string CanRetrieveSameLocationGame = "CanRetrieveSameLocationGame";
+        public const string CanRetrieveGameForActivate = "CanRetrieveGameForActivate";
+        public const string CanRetrieveActivatedGame = "CanRetrieveActivatedGame";
         public const string CanCreateGame = "CanCreateGame";
         public const string CanUpdateGame = "CanUpdateGame";
         public const string CanDeleteGame = "CanDeleteGame";

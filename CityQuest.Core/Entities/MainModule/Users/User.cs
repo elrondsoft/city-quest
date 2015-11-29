@@ -18,7 +18,7 @@ namespace CityQuest.Entities.MainModule.Users
     public class User : FullAuditedEntity<long, User>, IUser<long>
     {
         #region Relations
-        public long LocationId { get; set; }
+        public long? LocationId { get; set; }
         public Location Location { get; set; }
 
         public virtual ICollection<Key> ActivatedKeys { get; set; }

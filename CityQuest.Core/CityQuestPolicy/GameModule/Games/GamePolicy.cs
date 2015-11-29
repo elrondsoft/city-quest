@@ -1,6 +1,7 @@
 ﻿using Abp.Authorization;
 using CityQuest.CityQuestConstants;
 using CityQuest.Entities.GameModule.Games;
+using CityQuest.Entities.GameModule.Keys;
 using CityQuest.Entities.MainModule.Users;
 using CityQuest.Runtime.Sessions;
 using System;
@@ -14,17 +15,21 @@ namespace CityQuest.CityQuestPolicy.GameModule.Games
     public class GamePolicy : CityQuestPolicyBase<Game, long>, IGamePolicy
     {
         protected IUserRepository UserRepository { get; set; }
+        protected IKeyRepository KeyRepository { get; set; }
 
-        public GamePolicy(ICityQuestSession session, IPermissionChecker permissionChecker, IUserRepository userRepository)
+
+        public GamePolicy(ICityQuestSession session, IPermissionChecker permissionChecker, IUserRepository userRepository, IKeyRepository keyRepository)
             : base(session, permissionChecker)
         {
             UserRepository = userRepository;
+            KeyRepository = keyRepository;
         }
 
         public override bool CanRetrieveEntity(long userId, Game entity)
         {
             if (userId == 0)
                 return false;
+            bool result1 = false, result2 = false, result3 = false;
 
             if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanAll) ||
                 PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieve) ||
@@ -34,22 +39,22 @@ namespace CityQuest.CityQuestPolicy.GameModule.Games
             
             if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieveSameLocationGame))
             {
-                long userLocationId = UserRepository.Get(userId).LocationId;
-                return entity.LocationId == userLocationId;
+                long? userLocationId = UserRepository.Get(userId).LocationId;
+                result1 = userLocationId != null && entity.LocationId == (long)userLocationId;
             }
             
             if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieveGameForActivate))
             {
-                return entity.IsActive && (DateTime.Now < entity.StartDate);
+                result2 = entity.IsActive && (DateTime.Now < entity.StartDate);
             }
 
             if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieveActivatedGame))
             {
-                return true;
+                long count = KeyRepository.GetAll().Where(r => r.GameId == entity.Id && r.OwnerUserId == userId).Count();
+                result3 =  count > 0;
             }
-
-
-            return false;
+            #warning fix this results1, results2, results3 -> нормальное 
+            return (result1 || result2 || result3);
         }
 
         public override IQueryable<Game> CanRetrieveManyEntities(long userId, IQueryable<Game> entities)

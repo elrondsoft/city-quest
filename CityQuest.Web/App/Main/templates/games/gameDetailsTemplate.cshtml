@@ -30,6 +30,23 @@
             </div>
             <div class="row cq-control-row">
                 <div class="col-xs-2 cq-control-label">
+                    @L("Location"): &nbsp;
+                </div>
+                <div class="col-xs-8">
+                    <select class="form-control cq-control"
+                            ng-if="!vm.locations.length"
+                            ng-disabled="true"
+                            ng-readonly="true" />
+                    <select class="form-control cq-control"
+                            ng-if="vm.locations.length"
+                            ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                            ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                            ng-model="vm.entity.locationId"
+                            ng-options="location.value as location.displayText for location in vm.locations" />
+                </div>
+            </div>
+            <div class="row cq-control-row">
+                <div class="col-xs-2 cq-control-label">
                     @L("Description"): &nbsp;
                 </div>
                 <div class="col-xs-8">
