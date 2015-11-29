@@ -1,6 +1,7 @@
 ﻿using Abp.Authorization;
 using CityQuest.CityQuestConstants;
 using CityQuest.Entities.GameModule.Games;
+using CityQuest.Entities.MainModule.Users;
 using CityQuest.Runtime.Sessions;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,13 @@ namespace CityQuest.CityQuestPolicy.GameModule.Games
 {
     public class GamePolicy : CityQuestPolicyBase<Game, long>, IGamePolicy
     {
-        public GamePolicy(ICityQuestSession session, IPermissionChecker permissionChecker)
-            : base(session, permissionChecker) { }
+        protected IUserRepository UserRepository { get; set; }
+
+        public GamePolicy(ICityQuestSession session, IPermissionChecker permissionChecker, IUserRepository userRepository)
+            : base(session, permissionChecker)
+        {
+            UserRepository = userRepository;
+        }
 
         public override bool CanRetrieveEntity(long userId, Game entity)
         {
@@ -25,6 +31,23 @@ namespace CityQuest.CityQuestPolicy.GameModule.Games
                 PermissionChecker.IsGranted(CityQuestPermissionNames.CanAllGame) ||
                 PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieveGame))
                 return true;
+            
+            if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieveSameLocationGame))
+            {
+                long userLocationId = UserRepository.Get(userId).LocationId;
+                return entity.LocationId == userLocationId;
+            }
+            
+            if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieveGameForActivate))
+            {
+                return entity.IsActive && (DateTime.Now < entity.StartDate);
+            }
+
+            if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieveActivatedGame))
+            {
+                return true;
+            }
+
 
             return false;
         }

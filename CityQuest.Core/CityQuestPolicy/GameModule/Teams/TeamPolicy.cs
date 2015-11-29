@@ -29,6 +29,22 @@ namespace CityQuest.CityQuestPolicy.GameModule.Teams
             return false;
         }
 
+        public bool CanRetrieveOnwTeam(long userId, Team entity)
+        {
+            if (userId == 0)
+                return false;
+
+            if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanAll) ||
+                PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieve) ||
+                PermissionChecker.IsGranted(CityQuestPermissionNames.CanAllTeam) ||
+                PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieveTeam))
+                return true;
+
+            // if member of team return true
+
+            return false;
+        }
+
         public override IQueryable<Team> CanRetrieveManyEntities(long userId, IQueryable<Team> entities)
         {
             if (userId == 0)
