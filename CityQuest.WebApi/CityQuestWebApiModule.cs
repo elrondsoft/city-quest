@@ -10,6 +10,7 @@ using CityQuest.ApplicationServices.GameModule.Divisions;
 using CityQuest.ApplicationServices.GameModule.Games;
 using CityQuest.ApplicationServices.GameModule.GameTasks;
 using CityQuest.ApplicationServices.GameModule.GameTaskTypes;
+using CityQuest.ApplicationServices.GameModule.Keys;
 using CityQuest.ApplicationServices.GameModule.Locations;
 using CityQuest.ApplicationServices.GameModule.Teams;
 using CityQuest.ApplicationServices.GameModule.Tips;
@@ -64,6 +65,8 @@ namespace CityQuest
             DynamicApiControllerBuilder.For<IConditionTypeAppService>("cityQuest/conditionType").Build();
 
             DynamicApiControllerBuilder.For<ITipAppService>("cityQuest/tip").Build();
+
+            DynamicApiControllerBuilder.For<IKeyAppService>("cityQuest/key").Build();
 
             #endregion
         }

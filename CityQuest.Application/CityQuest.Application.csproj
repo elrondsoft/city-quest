@@ -144,6 +144,12 @@
     <Compile Include="ApplicationServices\GameModule\GameTaskTypes\Dtos\RetrieveGameTaskTypeInput.cs" />
     <Compile Include="ApplicationServices\GameModule\GameTaskTypes\GameTaskTypeAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\GameTaskTypes\IGameTaskTypeAppService.cs" />
+    <Compile Include="ApplicationServices\GameModule\Keys\Dtos\ActivateKeyInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Keys\Dtos\ActivateKeyOutput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Keys\Dtos\GenerateKeysForGameInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Keys\Dtos\GenerateKeysForGameOutput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Keys\IKeyAppService.cs" />
+    <Compile Include="ApplicationServices\GameModule\Keys\KeyAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\Locations\Dtos\LocationDto.cs" />
     <Compile Include="ApplicationServices\GameModule\Locations\Dtos\RetrieveAllLocationInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Locations\Dtos\RetrieveAllLocationsLikeComboBoxesInput.cs" />

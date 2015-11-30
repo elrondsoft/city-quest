@@ -24,7 +24,7 @@ namespace CityQuest.Services.SafeGuidGenerationServices.KeyGenerationServices
             List<string> newGuids = GenerateNewGuids(count).Distinct().ToList();
             SeparateBadGuids(newGuids);
             int failsCounter = 0;
-            while (newGuids.Count != count || failsCounter < _maxCountOfFails)
+            while (newGuids.Count != count && failsCounter < _maxCountOfFails)
             {
                 failsCounter++;
                 List<string> reGeneratedGuids = GenerateNewGuids(count - newGuids.Count).Distinct().ToList();

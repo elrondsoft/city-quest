@@ -1,5 +1,58 @@
 ﻿<div ng-controller="app.views.home as vm">
     <h1>@L("WellcomeMessage")</h1>
-</div>
 
-<!-- test commint comment --> 
+    <h1>KeyGenerator: </h1>
+    <div class="row">
+        <div class="col-xs-2">
+            Count:
+        </div>
+        <div class="col-xs-2">
+            <input class="form-control cq-control"
+                   type="number" min="0" max="1000"
+                   ng-model="vm.keyGeneratorService.countForGenerate" />
+        </div>
+        <div class="col-xs-2">
+            Game:
+        </div>
+        <div class="col-xs-2">
+            <select class="form-control cq-control"
+                    ng-if="!vm.keyGeneratorService.gamesStore.length"
+                    ng-disabled="true"
+                    ng-readonly="true" />
+            <select class="form-control cq-control"
+                    ng-if="vm.keyGeneratorService.gamesStore.length"
+                    ng-model="vm.keyGeneratorService.gameIdForGenerate"
+                    ng-options="game.value as game.displayText for game in vm.keyGeneratorService.gamesStore" />
+        </div>
+        <div class="col-xs-2">
+            <button type="button"
+                    class="btn btn-success"
+                    ng-if="vm.keyGeneratorService.canGenerateKeys()"
+                    ng-click="vm.keyGeneratorService.generateKeys()">
+                Generate
+            </button>
+        </div>
+    </div>
+
+    <h1>KeyActivator: </h1>
+    <div class="row">
+        <div class="col-xs-2">
+            Key:
+        </div>
+        <div class="col-xs-6">
+            <input class="form-control cq-control"
+                   ng-model="vm.keyActivatorService.keyValue" />
+        </div>
+        <div class="col-xs-2">
+            <button type="button"
+                    class="btn btn-success"
+                    ng-if="vm.keyActivatorService.canActivateKey()"
+                    ng-click="vm.keyActivatorService.activateKey()">
+                Activate
+            </button>
+        </div>
+    </div>
+
+    <h1>ActivatedGames: </h1>
+    //TODO: list of my games
+</div>
