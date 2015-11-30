@@ -1,6 +1,7 @@
 ﻿(function () {
     var controllerId = 'app.views.locations.locationListController';
-    angular.module('app').controller(controllerId, ['$scope', '$modal', 'clientCityQuestConstService', 'clientPermissionService', 'abp.services.cityQuest.location',
+    angular.module('app').controller(controllerId, ['$scope', '$uibModal', 'clientCityQuestConstService',
+        'clientPermissionService', 'abp.services.cityQuest.location',
         function ($scope, modal, constSvc, permissionSvc, locationSvc) {
             var vm = this;
             vm.localize = constSvc.localize;

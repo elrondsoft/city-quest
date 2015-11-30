@@ -13,10 +13,10 @@
     </div>
 </div>
 <div class="modal-body">
-    <accordion close-others="oneAtATime">
-        <accordion-group heading="{{vm.localize('LocationMainInfo')}}"
-                         is-open="true"
-                         class="cq-main-info-accordion">
+    <uib-accordion close-others="oneAtATime">
+        <uib-accordion-group heading="{{vm.localize('LocationMainInfo')}}"
+                             is-open="true"
+                             class="cq-main-info-accordion">
             <div class="row cq-control-row">
                 <div class="col-xs-2 cq-control-label">
                     {{vm.localize('Name')}}:&nbsp;
@@ -64,8 +64,8 @@
                               ng-model="vm.entity.description" />
                 </div>
             </div>
-        </accordion-group>
-    </accordion>
+        </uib-accordion-group>
+    </uib-accordion>
 </div>
 <div class="modal-footer">
     <button type="button"

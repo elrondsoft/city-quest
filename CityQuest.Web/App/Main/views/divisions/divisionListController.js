@@ -1,6 +1,6 @@
 ﻿(function () {
     var controllerId = 'app.views.divisions.divisionListController';
-    angular.module('app').controller(controllerId, ['$scope', '$modal', 'clientCityQuestConstService',
+    angular.module('app').controller(controllerId, ['$scope', '$uibModal', 'clientCityQuestConstService',
         'clientPermissionService', 'abp.services.cityQuest.division',
         function ($scope, modal, constSvc, permissionSvc, divisionSvc) {
             var vm = this;

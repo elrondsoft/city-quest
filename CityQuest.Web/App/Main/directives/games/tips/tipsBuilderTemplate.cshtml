@@ -111,10 +111,10 @@
                 <div class="row tip-container-body">
                     <div class="col-xs-12"
                          ng-if="!tip.isMinimized">
-                        <accordion close-others="oneAtATime">
-                            <accordion-group heading="{{tipsBuilder.localize('TipMainInfo')}}"
-                                             is-open="true"
-                                             class="cq-tips-builder-accordion">
+                        <uib-accordion close-others="oneAtATime">
+                            <uib-accordion-group heading="{{tipsBuilder.localize('TipMainInfo')}}"
+                                                 is-open="true"
+                                                 class="cq-tips-builder-accordion">
                                 <div class="row cq-control-row">
                                     <div class="col-xs-2 cq-control-label">
                                         {{tipsBuilder.localize('Name')}}:&nbsp;
@@ -138,8 +138,8 @@
                                                   ng-model="tip.tipText" />
                                     </div>
                                 </div>
-                            </accordion-group>
-                        </accordion>
+                            </uib-accordion-group>
+                        </uib-accordion>
                     </div>
                 </div>
             </div>

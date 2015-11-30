@@ -1,6 +1,6 @@
 ﻿(function () {
     var controllerId = 'app.views.teams.teamListController';
-    angular.module('app').controller(controllerId, ['$scope', '$modal', 'clientCityQuestConstService',
+    angular.module('app').controller(controllerId, ['$scope', '$uibModal', 'clientCityQuestConstService',
         'clientPermissionService', 'abp.services.cityQuest.team',
         function ($scope, modal, constSvc, permissionSvc, teamSvc) {
             var vm = this;

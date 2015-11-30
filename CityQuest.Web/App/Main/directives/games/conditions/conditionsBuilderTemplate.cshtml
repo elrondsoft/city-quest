@@ -111,10 +111,10 @@
                 <div class="row condition-container-body">
                     <div class="col-xs-12"
                          ng-if="!condition.isMinimized">
-                        <accordion close-others="oneAtATime">
-                            <accordion-group heading="{{conditionsBuilder.localize('ConditionMainInfo')}}"
-                                             is-open="true"
-                                             class="cq-conditions-builder-accordion">
+                        <uib-accordion close-others="oneAtATime">
+                            <uib-accordion-group heading="{{conditionsBuilder.localize('ConditionMainInfo')}}"
+                                                 is-open="true"
+                                                 class="cq-conditions-builder-accordion">
                                 <div class="row cq-control-row">
                                     <div class="col-xs-2 cq-control-label">
                                         {{conditionsBuilder.localize('Name')}}:&nbsp;
@@ -155,8 +155,8 @@
                                                   ng-model="condition.description" />
                                     </div>
                                 </div>
-                            </accordion-group>
-                        </accordion>
+                            </uib-accordion-group>
+                        </uib-accordion>
                     </div>
                 </div>
             </div>

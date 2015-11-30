@@ -13,10 +13,10 @@
     </div>
 </div>
 <div class="modal-body">
-    <accordion close-others="oneAtATime">
-        <accordion-group heading="@L("TeamMainInfo")"
-                         is-open="true"
-                         class="cq-main-info-accordion">
+    <uib-accordion close-others="oneAtATime">
+        <uib-accordion-group heading="@L("TeamMainInfo")"
+                             is-open="true"
+                             class="cq-main-info-accordion">
             <div class="row cq-control-row">
                 <div class="col-xs-2 cq-control-label">
                     @L("Name"): &nbsp;
@@ -86,11 +86,11 @@
                             ng-options="player.value as player.displayText for player in vm.players" />
                 </div>
             </div>
-        </accordion-group>
-        <accordion-group is-open="false"
-                         ng-if="vm.templateMode.isInfo() || vm.templateMode.isUpdate()"
-                         heading="@L("Players") ({{vm.entity.players.length}})"
-                         class="cq-other-info-accordion">
+        </uib-accordion-group>
+        <uib-accordion-group is-open="false"
+                             ng-if="vm.templateMode.isInfo() || vm.templateMode.isUpdate()"
+                             heading="@L("Players") ({{vm.entity.players.length}})"
+                             class="cq-other-info-accordion">
             <div class="row"
                  ng-if="vm.entity.players && vm.entity.players.length">
                 <div class="col-xs-12">
@@ -106,8 +106,8 @@
                     </div>
                 </div>
             </div>
-        </accordion-group>
-    </accordion>
+        </uib-accordion-group>
+    </uib-accordion>
 </div>
 <div class="modal-footer">
     <button type="button"

@@ -129,10 +129,10 @@
                 <div class="row game-task-container-body">
                     <div class="col-xs-12"
                          ng-if="!gameTask.isMinimized">
-                        <accordion close-others="oneAtATime">
-                            <accordion-group heading="{{gameTasksBuilder.localize('GameTaskMainInfo')}}"
-                                             is-open="true"
-                                             class="cq-game-tasks-builder-accordion">
+                        <uib-accordion close-others="oneAtATime">
+                            <uib-accordion-group heading="{{gameTasksBuilder.localize('GameTaskMainInfo')}}"
+                                                 is-open="true"
+                                                 class="cq-game-tasks-builder-accordion">
                                 <div class="row cq-control-row">
                                     <div class="col-xs-2 cq-control-label">
                                         {{gameTasksBuilder.localize('Name')}}:&nbsp;
@@ -146,7 +146,7 @@
                                 </div>
                                 <div class="row cq-control-row">
                                     <div class="col-xs-2 cq-control-label">
-                                       {{gameTasksBuilder.localize('GameTaskType')}}:&nbsp;
+                                        {{gameTasksBuilder.localize('GameTaskType')}}:&nbsp;
                                     </div>
                                     <div class="col-xs-10">
                                         <select class="form-control cq-control"
@@ -163,7 +163,7 @@
                                 </div>
                                 <div class="row cq-control-row">
                                     <div class="col-xs-2 cq-control-label">
-                                       {{gameTasksBuilder.localize('Description')}}:&nbsp;
+                                        {{gameTasksBuilder.localize('Description')}}:&nbsp;
                                     </div>
                                     <div class="col-xs-10">
                                         <textarea class="form-control cq-control"
@@ -175,7 +175,7 @@
                                 </div>
                                 <div class="row cq-control-row">
                                     <div class="col-xs-2 cq-control-label">
-                                       {{gameTasksBuilder.localize('TaskText')}}:&nbsp;
+                                        {{gameTasksBuilder.localize('TaskText')}}:&nbsp;
                                     </div>
                                     <div class="col-xs-10">
                                         <textarea class="form-control cq-control"
@@ -185,25 +185,25 @@
                                                   ng-model="gameTask.taskText" />
                                     </div>
                                 </div>
-                            </accordion-group>
-                            <accordion-group is-open="false"
-                                             heading="{{gameTasksBuilder.localize('Conditions')}} ({{gameTask.conditions.length}})"
-                                             class="cq-game-tasks-builder-accordion">
+                            </uib-accordion-group>
+                            <uib-accordion-group is-open="false"
+                                                 heading="{{gameTasksBuilder.localize('Conditions')}} ({{gameTask.conditions.length}})"
+                                                 class="cq-game-tasks-builder-accordion">
                                 <conditions-builder ng-if="gameTask"
                                                     game-task-id="gameTask.id"
                                                     template-mode="gameTasksBuilder.templateModeState.templateMode"
                                                     conditions="gameTask.conditions"
                                                     condition-types="gameTasksBuilder.conditionTypes"></conditions-builder>
-                            </accordion-group>
-                            <accordion-group is-open="false"
-                                             heading="{{gameTasksBuilder.localize('Tips')}} ({{gameTask.tips.length}})"
-                                             class="cq-game-tasks-builder-accordion">
+                            </uib-accordion-group>
+                            <uib-accordion-group is-open="false"
+                                                 heading="{{gameTasksBuilder.localize('Tips')}} ({{gameTask.tips.length}})"
+                                                 class="cq-game-tasks-builder-accordion">
                                 <tips-builder ng-if="gameTask"
                                               game-task-id="gameTask.id"
                                               template-mode="gameTasksBuilder.templateModeState.templateMode"
                                               tips="gameTask.tips"></tips-builder>
-                            </accordion-group>
-                        </accordion>
+                            </uib-accordion-group>
+                        </uib-accordion>
                     </div>
                 </div>
             </div>
