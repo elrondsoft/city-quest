@@ -12,7 +12,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games.Dtos
     {
         public void Normalize()
         {
-            Entity.LocationName = null;
+            Entity.GameStatusId = 0;
         }
     }
 }

@@ -76,7 +76,8 @@ namespace CityQuest.ApplicationServices.GameModule.ConditionTypes
 
             IReadOnlyList<ComboboxItemDto> conditionTypesLikeComboBoxes = ConditionTypePolicy.CanRetrieveManyEntities(
                 ConditionTypeRepository.GetAll()).ToList()
-                .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name)).ToList();
+                .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name))
+                .OrderBy(r => r.DisplayText).ToList();
 
             return new RetrieveAllConditionTypesLikeComboBoxesOutput()
             {

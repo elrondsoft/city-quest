@@ -24,6 +24,7 @@ using CityQuest.Entities.MainModule.Authorization.RolePermissionSettings;
 using CityQuest.Entities.MainModule.Authorization.UserServices;
 using CityQuest.Entities.MainModule.Authorization.UserRoles;
 using CityQuest.Entities.GameModule.Locations;
+using CityQuest.Entities.GameModule.Games.GameStatuses;
 
 namespace CityQuest.EntityFramework
 {
@@ -51,6 +52,7 @@ namespace CityQuest.EntityFramework
         public virtual IDbSet<Team> Teams { get; set; }
         public virtual IDbSet<Key> Keys { get; set; }
         public virtual IDbSet<Game> Games { get; set; }
+        public virtual IDbSet<GameStatus> GameStatuses { get; set; }
         public virtual IDbSet<GameTask> GameTasks { get; set; }
         public virtual IDbSet<GameTaskType> GameTaskTypes { get; set; }
         public virtual IDbSet<Tip> Tips { get; set; }
@@ -151,6 +153,11 @@ namespace CityQuest.EntityFramework
                 .HasRequired(r => r.Location)
                 .WithMany(r => r.Games)
                 .HasForeignKey(r => r.LocationId)
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Game>()
+                .HasRequired(r => r.GameStatus)
+                .WithMany(r => r.Games)
+                .HasForeignKey(r => r.GameStatusId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<GameTask>()

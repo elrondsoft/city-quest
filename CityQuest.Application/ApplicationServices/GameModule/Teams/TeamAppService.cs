@@ -77,8 +77,10 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
             IReadOnlyList<ComboboxItemDto> teamsLikeComboBoxes = TeamPolicy.CanRetrieveManyEntities(
-                TeamRepository.GetAll()).ToList()
-                .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name)).ToList();
+                TeamRepository.GetAll()
+                .WhereIf(input.DivisionId != null, r => r.DivisionId == input.DivisionId)).ToList()
+                .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name))
+                .OrderBy(r => r.DisplayText).ToList();
 
             return new RetrieveAllTeamsLikeComboBoxesOutput()
             {

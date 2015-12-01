@@ -1,0 +1,10 @@
+﻿.dd-multiselect-row {
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.dd-multiselect-row:hover {
+    margin-top: 2px;
+    cursor: pointer;
+    background-color: #cccccc !important;
+}

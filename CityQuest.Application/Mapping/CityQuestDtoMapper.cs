@@ -2,6 +2,7 @@
 using CityQuest.ApplicationServices.GameModule.ConditionTypes.Dtos;
 using CityQuest.ApplicationServices.GameModule.Divisions.Dtos;
 using CityQuest.ApplicationServices.GameModule.Games.Dtos;
+using CityQuest.ApplicationServices.GameModule.GameStatuses.Dtos;
 using CityQuest.ApplicationServices.GameModule.GameTasks.Dtos;
 using CityQuest.ApplicationServices.GameModule.GameTaskTypes.Dtos;
 using CityQuest.ApplicationServices.GameModule.Locations.Dtos;
@@ -12,6 +13,7 @@ using CityQuest.ApplicationServices.MainModule.Roles.Dto;
 using CityQuest.ApplicationServices.MainModule.Users.Dto;
 using CityQuest.Entities.GameModule.Divisions;
 using CityQuest.Entities.GameModule.Games;
+using CityQuest.Entities.GameModule.Games.GameStatuses;
 using CityQuest.Entities.GameModule.Games.GameTasks;
 using CityQuest.Entities.GameModule.Games.GameTasks.Conditions;
 using CityQuest.Entities.GameModule.Games.GameTasks.Conditions.ConditionTypes;
@@ -86,10 +88,15 @@ namespace CityQuest.Mapping
                 .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
                 .ForMember(r => r.GameTasks, r => r.MapFrom(e => e.GameTasks.OrderBy(k => k.Order)))
                 .ForMember(r => r.LocationName, r => r.MapFrom(e => e.Location.DisplayName))
+                .ForMember(r => r.GameStatusName, r => r.MapFrom(e => e.GameStatus.Name))
                 .ReverseMap()
-                #warning TODO normanl datetime for game
+#warning TODO: normal datetime for game
                 .ForMember(r => r.StartDate, r => r.MapFrom(e => DateTime.Now));
 
+            AutoMapper.Mapper.CreateMap<GameStatus, GameStatusDto>()
+                .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))
+                .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
+                .ReverseMap();
 
             AutoMapper.Mapper.CreateMap<GameTask, GameTaskDto>()
                 .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))

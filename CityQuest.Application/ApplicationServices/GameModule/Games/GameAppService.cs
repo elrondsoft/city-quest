@@ -10,6 +10,7 @@ using CityQuest.ApplicationServices.Shared.Dtos.Output;
 using CityQuest.CityQuestConstants;
 using CityQuest.CityQuestPolicy.GameModule.Games;
 using CityQuest.Entities.GameModule.Games;
+using CityQuest.Entities.GameModule.Games.GameStatuses;
 using CityQuest.Entities.GameModule.Games.GameTasks;
 using CityQuest.Entities.GameModule.Games.GameTasks.Conditions;
 using CityQuest.Entities.GameModule.Games.GameTasks.Tips;
@@ -29,6 +30,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
 
         private IUnitOfWorkManager UowManager { get; set; }
         private IGameRepository GameRepository { get; set; }
+        private IGameStatusRepository GameStatusRepository { get; set; }
         private IGameTaskRepository GameTaskRepository { get; set; }
         private IConditionRepository ConditionRepository { get; set; }
         private ITipRepository TipRepository { get; set; }
@@ -40,6 +42,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
 
         public GameAppService(IUnitOfWorkManager uowManager, 
             IGameRepository gameRepository,
+            IGameStatusRepository gameStatusRepository,
             IGameTaskRepository gameTaskRepository,
             IConditionRepository conditionRepository,
             ITipRepository tipRepository,
@@ -47,6 +50,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
         {
             UowManager = uowManager;
             GameRepository = gameRepository;
+            GameStatusRepository = gameStatusRepository;
             GameTaskRepository = gameTaskRepository;
             ConditionRepository = conditionRepository;
             TipRepository = tipRepository;
@@ -60,6 +64,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             if (input.IsActive ?? true)
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
+            GameRepository.Includes.Add(r => r.Location);
+            GameRepository.Includes.Add(r => r.GameStatus);
             GameRepository.Includes.Add(r => r.LastModifierUser);
             GameRepository.Includes.Add(r => r.CreatorUser);
             GameRepository.Includes.Add(r => r.GameTasks);
@@ -91,7 +97,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games
 
             IReadOnlyList<ComboboxItemDto> gamesLikeComboBoxes = GamePolicy.CanRetrieveManyEntities(
                 GameRepository.GetAll()).ToList()
-                .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name)).ToList();
+                .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name))
+                .OrderBy(r => r.DisplayText).ToList();
 
             return new RetrieveAllGamesLikeComboBoxesOutput()
             {
@@ -123,6 +130,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             if (input.IsActive ?? true)
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
+            GameRepository.Includes.Add(r => r.Location);
+            GameRepository.Includes.Add(r => r.GameStatus);
             GameRepository.Includes.Add(r => r.GameTasks);
             GameRepository.Includes.Add(r => r.LastModifierUser);
             GameRepository.Includes.Add(r => r.CreatorUser);
@@ -156,8 +165,19 @@ namespace CityQuest.ApplicationServices.GameModule.Games
                 throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionCreateDenied, "\"Game\"");
 
             newGameEntity.IsActive = true;
+            try
+            {
+                newGameEntity.GameStatusId = GameStatusRepository.GetAll().Where(r => r.IsDefault).Single().Id;
+            }
+            catch
+            {
+                throw new UserFriendlyException("Default game status not found!", 
+                    "Default game status not found! Please contact your system administrator.");
+            }
 
             GameRepository.Includes.Add(r => r.GameTasks);
+            GameRepository.Includes.Add(r => r.Location);
+            GameRepository.Includes.Add(r => r.GameStatus);
             GameRepository.Includes.Add(r => r.LastModifierUser);
             GameRepository.Includes.Add(r => r.CreatorUser);
 
@@ -173,6 +193,9 @@ namespace CityQuest.ApplicationServices.GameModule.Games
 
         public UpdateOutput<GameDto, long> Update(UpdateGameInput input)
         {
+
+            GameRepository.Includes.Add(r => r.Location);
+            GameRepository.Includes.Add(r => r.GameStatus);
             GameRepository.Includes.Add(r => r.GameTasks);
             GameRepository.Includes.Add(r => r.LastModifierUser);
             GameRepository.Includes.Add(r => r.CreatorUser);
@@ -217,6 +240,9 @@ namespace CityQuest.ApplicationServices.GameModule.Games
 
         public ChangeActivityOutput<GameDto, long> ChangeActivity(ChangeActivityInput input)
         {
+
+            GameRepository.Includes.Add(r => r.Location);
+            GameRepository.Includes.Add(r => r.GameStatus);
             GameRepository.Includes.Add(r => r.GameTasks);
             GameRepository.Includes.Add(r => r.LastModifierUser);
             GameRepository.Includes.Add(r => r.CreatorUser);

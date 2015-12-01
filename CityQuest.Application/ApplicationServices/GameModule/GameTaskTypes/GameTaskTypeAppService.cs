@@ -76,7 +76,8 @@ namespace CityQuest.ApplicationServices.GameModule.GameTaskTypes
 
             IReadOnlyList<ComboboxItemDto> gameTaskTypesLikeComboBoxes = GameTaskTypePolicy.CanRetrieveManyEntities(
                 GameTaskTypeRepository.GetAll()).ToList()
-                .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name)).ToList();
+                .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name))
+                .OrderBy(r => r.DisplayText).ToList();
 
             return new RetrieveAllGameTaskTypesLikeComboBoxesOutput()
             {

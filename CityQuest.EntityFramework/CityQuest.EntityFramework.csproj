@@ -103,6 +103,7 @@
     <Compile Include="EntityFramework\Repositories\GameModule\ConditionTypeRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\DivisionRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\GameRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\GameModule\GameStatusRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\GameTaskRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\GameTaskTypeRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\KeyRepository.cs" />
@@ -137,6 +138,10 @@
     <Compile Include="Migrations\201511291601301_AddedLocationRelations.cs" />
     <Compile Include="Migrations\201511291601301_AddedLocationRelations.Designer.cs">
       <DependentUpon>201511291601301_AddedLocationRelations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512012156120_AddedGameStatuses.cs" />
+    <Compile Include="Migrations\201512012156120_AddedGameStatuses.Designer.cs">
+      <DependentUpon>201512012156120_AddedGameStatuses.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CityQuestDataModule.cs" />
@@ -173,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511291601301_AddedLocationRelations.resx">
       <DependentUpon>201511291601301_AddedLocationRelations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512012156120_AddedGameStatuses.resx">
+      <DependentUpon>201512012156120_AddedGameStatuses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

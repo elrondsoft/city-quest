@@ -130,6 +130,8 @@
     <Compile Include="CityQuestPolicy\GameModule\Divisions\IDivisionPolicy.cs" />
     <Compile Include="Entities\GameModule\Divisions\IDivisionRepository.cs" />
     <Compile Include="Entities\GameModule\Games\Game.cs" />
+    <Compile Include="Entities\GameModule\Games\GameStatuses\GameStatus.cs" />
+    <Compile Include="Entities\GameModule\Games\GameStatuses\IGameStatusRepository.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\Condition.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\ConditionTypes\ConditionType.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\ConditionTypes\IConditionTypeRepository.cs" />
