@@ -2,6 +2,7 @@
 using CityQuest.ApplicationServices.GameModule.ConditionTypes.Dtos;
 using CityQuest.ApplicationServices.GameModule.Divisions.Dtos;
 using CityQuest.ApplicationServices.GameModule.Games.Dtos;
+using CityQuest.ApplicationServices.GameModule.GamesLight.Dtos;
 using CityQuest.ApplicationServices.GameModule.GameStatuses.Dtos;
 using CityQuest.ApplicationServices.GameModule.GameTasks.Dtos;
 using CityQuest.ApplicationServices.GameModule.GameTaskTypes.Dtos;
@@ -70,6 +71,28 @@ namespace CityQuest.Mapping
 
             #region Game module mapping
 
+            #region GameLight entities mapping
+            //These entities are using for retrieve thats why no ReverseMap!
+
+            AutoMapper.Mapper.CreateMap<Game, GameLightDto>()
+                .ForMember(r => r.GameTasksCount, r => r.MapFrom(e => e.GameTasks.Count))
+                .ForMember(r => r.LocationName, r => r.MapFrom(e => e.Location.DisplayName))
+                .ForMember(r => r.GameStatusName, r => r.MapFrom(e => e.GameStatus.Name));
+
+            AutoMapper.Mapper.CreateMap<GameTask, GameTaskLightDto>()
+                .ForMember(r => r.Tips, r => r.MapFrom(e => e.Tips.OrderBy(k => k.Order)))
+                .ForMember(r => r.Conditions, r => r.MapFrom(e => e.Conditions.OrderBy(k => k.Order)));
+
+            AutoMapper.Mapper.CreateMap<GameTaskType, GameTaskTypeLightDto>();
+
+            AutoMapper.Mapper.CreateMap<Condition, ConditionLightDto>();
+
+            AutoMapper.Mapper.CreateMap<ConditionType, ConditionTypeLightDto>();
+
+            AutoMapper.Mapper.CreateMap<Tip, TipLightDto>();
+
+            #endregion
+
             AutoMapper.Mapper.CreateMap<Division, DivisionDto>()
                 .ForMember(r => r.TeamsCount, r => r.MapFrom(e => e.Teams.Count))
                 .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))
@@ -89,9 +112,7 @@ namespace CityQuest.Mapping
                 .ForMember(r => r.GameTasks, r => r.MapFrom(e => e.GameTasks.OrderBy(k => k.Order)))
                 .ForMember(r => r.LocationName, r => r.MapFrom(e => e.Location.DisplayName))
                 .ForMember(r => r.GameStatusName, r => r.MapFrom(e => e.GameStatus.Name))
-                .ReverseMap()
-#warning TODO: normal datetime for game
-                .ForMember(r => r.StartDate, r => r.MapFrom(e => DateTime.Now));
+                .ReverseMap();
 
             AutoMapper.Mapper.CreateMap<GameStatus, GameStatusDto>()
                 .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))

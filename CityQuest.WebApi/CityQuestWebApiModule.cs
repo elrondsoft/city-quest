@@ -8,6 +8,7 @@ using CityQuest.ApplicationServices.GameModule.Conditions;
 using CityQuest.ApplicationServices.GameModule.ConditionTypes;
 using CityQuest.ApplicationServices.GameModule.Divisions;
 using CityQuest.ApplicationServices.GameModule.Games;
+using CityQuest.ApplicationServices.GameModule.GamesLight;
 using CityQuest.ApplicationServices.GameModule.GameTasks;
 using CityQuest.ApplicationServices.GameModule.GameTaskTypes;
 using CityQuest.ApplicationServices.GameModule.Keys;
@@ -18,6 +19,7 @@ using CityQuest.ApplicationServices.MainModule.Permissions;
 using CityQuest.ApplicationServices.MainModule.Roles;
 using CityQuest.ApplicationServices.MainModule.Users;
 using CityQuest.Runtime.Sessions;
+using CityQuest.SignalR.GameChangeServices;
 using System.Reflection;
 
 namespace CityQuest
@@ -28,7 +30,8 @@ namespace CityQuest
         public override void PreInitialize()
         {
             IocManager.IocContainer.Register(
-                Component.For<IAbpSession, ICityQuestSession>().ImplementedBy<CityQuestSession>().LifestyleSingleton()
+                Component.For<IAbpSession, ICityQuestSession>().ImplementedBy<CityQuestSession>().LifestyleSingleton(),
+                Component.For<SignalRGameChangesNotifier>().ImplementedBy<SignalRGameChangesNotifier>().LifestyleSingleton()
                 );
         }
 
@@ -67,6 +70,8 @@ namespace CityQuest
             DynamicApiControllerBuilder.For<ITipAppService>("cityQuest/tip").Build();
 
             DynamicApiControllerBuilder.For<IKeyAppService>("cityQuest/key").Build();
+
+            DynamicApiControllerBuilder.For<IGameLightAppService>("cityQuest/gameLight").Build();
 
             #endregion
         }

@@ -2,6 +2,7 @@
 using Abp.Modules;
 using Castle.MicroKernel.Registration;
 using CityQuest.ApplicationServices.GameModule.Divisions;
+using CityQuest.Events.Notifiers;
 
 namespace CityQuest
 {
@@ -12,6 +13,8 @@ namespace CityQuest
         {
             IocManager.IocContainer.Register(
                 //Component.For<IDivisionAppService>().ImplementedBy<DivisionAppService>().LifestyleTransient()
+                Component.For<IGameChangesNotifier>().ImplementedBy<GameChangesNotifier>().LifestyleSingleton()
+                
                 );
             CityQuest.Mapping.CityQuestDtoMapper.Map();
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());

@@ -140,6 +140,8 @@ namespace CityQuest.ApplicationServices.GameModule.GameTaskTypes
 
         public CreateOutput<GameTaskTypeDto, long> Create(CreateInput<GameTaskTypeDto, long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             GameTaskType newGameTaskTypeEntity = input.Entity.MapTo<GameTaskType>();
 
             newGameTaskTypeEntity.IsDefault = false;
@@ -163,6 +165,8 @@ namespace CityQuest.ApplicationServices.GameModule.GameTaskTypes
 
         public UpdateOutput<GameTaskTypeDto, long> Update(UpdateInput<GameTaskTypeDto, long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             GameTaskType newGameTaskTypeEntity = input.Entity.MapTo<GameTaskType>();
 
             if (newGameTaskTypeEntity == null)
@@ -187,6 +191,8 @@ namespace CityQuest.ApplicationServices.GameModule.GameTaskTypes
 
         public DeleteOutput<long> Delete(DeleteInput<long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             GameTaskType gameTaskTypeEntityForDelete = GameTaskTypeRepository.Get(input.EntityId);
 
             if (gameTaskTypeEntityForDelete == null)

@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 using System.Web.Http;
 
 [assembly: OwinStartup(typeof(CityQuest.Web.App_Start.Startup))]
-
 namespace CityQuest.Web.App_Start
 {
     public class Startup
@@ -21,6 +20,7 @@ namespace CityQuest.Web.App_Start
 
         public void Configuration(IAppBuilder app)
         {
+            app.MapSignalR();
             HttpConfiguration config = GlobalConfiguration.Configuration;
             //config.Filters.Remove(config.Filters.First(r => r.Instance.GetType() == typeof(Abp.WebApi.Controllers.Filters.AbpExceptionFilterAttribute)).Instance);
             //config.Filters.Add(IocManager.Instance.Resolve<TestAbpExceptionFilterAttribute>());

@@ -14,6 +14,8 @@ using CityQuest.Entities.GameModule.Games.GameStatuses;
 using CityQuest.Entities.GameModule.Games.GameTasks;
 using CityQuest.Entities.GameModule.Games.GameTasks.Conditions;
 using CityQuest.Entities.GameModule.Games.GameTasks.Tips;
+using CityQuest.Events.Messages;
+using CityQuest.Events.Notifiers;
 using CityQuest.Exceptions;
 using CityQuest.Mapping;
 using System;
@@ -35,6 +37,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
         private IConditionRepository ConditionRepository { get; set; }
         private ITipRepository TipRepository { get; set; }
         private IGamePolicy GamePolicy { get; set; }
+        private IGameChangesNotifier GameChangesNotifier { get; set; }
 
         #endregion
 
@@ -46,7 +49,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             IGameTaskRepository gameTaskRepository,
             IConditionRepository conditionRepository,
             ITipRepository tipRepository,
-            IGamePolicy gamePolicy)
+            IGamePolicy gamePolicy,
+            IGameChangesNotifier gameChangesNotifier)
         {
             UowManager = uowManager;
             GameRepository = gameRepository;
@@ -55,6 +59,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             ConditionRepository = conditionRepository;
             TipRepository = tipRepository;
             GamePolicy = gamePolicy;
+            GameChangesNotifier = gameChangesNotifier;
         }
 
         #endregion
@@ -183,6 +188,11 @@ namespace CityQuest.ApplicationServices.GameModule.Games
 
             GameDto newGameDto = (GameRepository.Insert(newGameEntity)).MapTo<GameDto>();
 
+            UowManager.Current.Completed += (sender, e) =>
+            {
+                GameChangesNotifier.RaiseOnGameAdded(new GameAddedMessage(newGameDto.Id));
+            };
+
             GameRepository.Includes.Clear();
 
             return new CreateOutput<GameDto, long>()
@@ -212,6 +222,11 @@ namespace CityQuest.ApplicationServices.GameModule.Games
 
             GameDto newGameDto = (GameRepository.Get(input.Entity.Id)).MapTo<GameDto>();
 
+            UowManager.Current.Completed += (sender, e) =>
+            {
+                GameChangesNotifier.RaiseOnGameUpdated(new GameUpdatedMessage(newGameDto.Id));
+            };
+
             GameRepository.Includes.Clear();
 
             return new UpdateOutput<GameDto, long>()
@@ -231,6 +246,11 @@ namespace CityQuest.ApplicationServices.GameModule.Games
                 throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionDeleteDenied, "\"Game\"");
 
             GameRepository.Delete(gameEntityForDelete);
+
+            UowManager.Current.Completed += (sender, e) =>
+            {
+                GameChangesNotifier.RaiseOnGameDeleted(new GameDeletedMessage(input.EntityId));
+            };
 
             return new DeleteOutput<long>()
             {
@@ -260,6 +280,21 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             GameDto newGameDto = (gameEntity).MapTo<GameDto>();
 
             GameRepository.Update(gameEntity);
+
+            if (newGameDto.IsActive)
+            {
+                UowManager.Current.Completed += (sender, e) =>
+                {
+                    GameChangesNotifier.RaiseOnGameActivated(new GameActivatedMessage(input.EntityId));
+                };
+            }
+            else
+            {
+                UowManager.Current.Completed += (sender, e) =>
+                {
+                    GameChangesNotifier.RaiseOnGameDeactivated(new GameDeactivatedMessage(input.EntityId));
+                };
+            }
 
             GameRepository.Includes.Clear();
 

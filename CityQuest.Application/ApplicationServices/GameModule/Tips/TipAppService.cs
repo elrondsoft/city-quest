@@ -135,6 +135,8 @@ namespace CityQuest.ApplicationServices.GameModule.Tips
 
         public CreateOutput<TipDto, long> Create(CreateInput<TipDto, long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             Tip newTipEntity = input.Entity.MapTo<Tip>();
 
             if (!TipPolicy.CanCreateEntity(newTipEntity))
@@ -155,6 +157,8 @@ namespace CityQuest.ApplicationServices.GameModule.Tips
 
         public UpdateOutput<TipDto, long> Update(UpdateInput<TipDto, long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             Tip newTipEntity = input.Entity.MapTo<Tip>();
 
             if (newTipEntity == null)
@@ -179,6 +183,8 @@ namespace CityQuest.ApplicationServices.GameModule.Tips
 
         public DeleteOutput<long> Delete(DeleteInput<long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             Tip tipEntityForDelete = TipRepository.Get(input.EntityId);
 
             if (tipEntityForDelete == null)

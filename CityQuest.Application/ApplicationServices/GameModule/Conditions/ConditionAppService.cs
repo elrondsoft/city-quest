@@ -140,6 +140,8 @@ namespace CityQuest.ApplicationServices.GameModule.Conditions
 
         public CreateOutput<ConditionDto, long> Create(CreateInput<ConditionDto, long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             Condition newConditionEntity = input.Entity.MapTo<Condition>();
 
             if (!ConditionPolicy.CanCreateEntity(newConditionEntity))
@@ -161,6 +163,8 @@ namespace CityQuest.ApplicationServices.GameModule.Conditions
 
         public UpdateOutput<ConditionDto, long> Update(UpdateInput<ConditionDto, long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             Condition newConditionEntity = input.Entity.MapTo<Condition>();
 
             if (newConditionEntity == null)
@@ -186,6 +190,8 @@ namespace CityQuest.ApplicationServices.GameModule.Conditions
 
         public DeleteOutput<long> Delete(DeleteInput<long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             Condition conditionEntityForDelete = ConditionRepository.Get(input.EntityId);
 
             if (conditionEntityForDelete == null)

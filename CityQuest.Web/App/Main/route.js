@@ -28,6 +28,14 @@
                     menu: 'Login',
                     params: { returnState: null }
                 })
+                .state('gameCollection', {
+                    url: '/gameCollection',
+                    templateUrl: '/App/Main/views/gameCollections/gameCollectionView.cshtml',
+                    menu: 'GameCollection', 
+                    onEnter: onEnterAuthorizedRequired,
+                    controller: 'app.views.gameCollections.gameCollectionController',
+                    controllerAs: 'vm',
+                })
                 .state('users', {
                     url: '/users',
                     templateUrl: '/App/Main/views/users/userListView.cshtml',
