@@ -75,7 +75,7 @@
                             return '';
 
                         var activateTittleText = vm.localize('ActivateTittleText');
-                        var activateButtonText = '<i class="fa fa-toggle-on"></i>'; 
+                        var activateButtonText = '<i class="fa fa-toggle-on"></i>';
                         var result = '<button class="btn btn-sm btn-warning division-activate" id="' + entity.id +
                             '" title="' + activateTittleText + '">' + activateButtonText + ' </button>';
                         return result;
@@ -85,7 +85,7 @@
                             return '';
 
                         var deactivateTittleText = vm.localize('DeactivateTittleText');
-                        var deactivateButtonText = '<i class="fa fa-toggle-off"></i>'; 
+                        var deactivateButtonText = '<i class="fa fa-toggle-off"></i>';
                         var result = '<button class="btn btn-sm btn-warning division-deactivate" id="' + entity.id +
                             '" title="' + deactivateTittleText + '">' + deactivateButtonText + ' </button>';
                         return result;
@@ -345,7 +345,7 @@
                     items.push(filterItem);
                     return items;
                 },
-                getJTableToolsbar: function() {
+                getJTableToolsbar: function () {
                     var toolbar = {
                         hoverAnimation: true,
                         hoverAnimationDuration: 60,
@@ -371,8 +371,88 @@
                     vm.loaded = jTableInitializer.getJTableLoaded();
                 }
             };
-            
+
             jTableInitializer.initJTable();
         }
     ]);
 })();
+
+
+(function () {
+
+    angular.module('ui.bootstrap.demo').controller('DatepickerDemoCtrl', function ($scope) {
+        $scope.today = function () {
+            $scope.dt = new Date();
+        };
+        $scope.today();
+
+        $scope.clear = function () {
+            $scope.dt = null;
+        };
+
+        // Disable weekend selection
+        $scope.disabled = function (date, mode) {
+            return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
+        };
+
+        $scope.toggleMin = function () {
+            $scope.minDate = $scope.minDate ? null : new Date();
+        };
+        $scope.toggleMin();
+        $scope.maxDate = new Date(2020, 5, 22);
+
+        $scope.open = function ($event) {
+            $scope.status.opened = true;
+        };
+
+        $scope.setDate = function (year, month, day) {
+            $scope.dt = new Date(year, month, day);
+        };
+
+        $scope.dateOptions = {
+            formatYear: 'yy',
+            startingDay: 1
+        };
+
+        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+        $scope.format = $scope.formats[0];
+
+        $scope.status = {
+            opened: false
+        };
+
+        var tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        var afterTomorrow = new Date();
+        afterTomorrow.setDate(tomorrow.getDate() + 2);
+        $scope.events =
+          [
+            {
+                date: tomorrow,
+                status: 'full'
+            },
+            {
+                date: afterTomorrow,
+                status: 'partially'
+            }
+          ];
+
+        $scope.getDayClass = function (date, mode) {
+            if (mode === 'day') {
+                var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
+
+                for (var i = 0; i < $scope.events.length; i++) {
+                    var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
+
+                    if (dayToCheck === currentDay) {
+                        return $scope.events[i].status;
+                    }
+                }
+            }
+
+            return '';
+        };
+    });
+
+})();
+

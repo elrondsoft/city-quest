@@ -1,7 +1,6 @@
 ﻿(function () {
     var controllerId = 'app.views.locations.locationListController';
-    angular.module('app').controller(controllerId, ['$scope', '$modal', 'clientCityQuestConstService', 'clientPermissionService', 'abp.services.cityQuest.location',
-        function ($scope, modal, constSvc, permissionSvc, locationSvc) {
+    angular.module('app').controller(controllerId, ['$scope', '$modal', 'clientCityQuestConstService', 'clientPermissionService', 'abp.services.cityQuest.location', function ($scope, modal, constSvc, permissionSvc, locationSvc) {
             var vm = this;
             vm.localize = constSvc.localize;
             vm.title = vm.localize("Locations");
@@ -183,38 +182,24 @@
                             id: 'name-filter',
                             label: vm.localize('Name'),
                             type: 'input',
-                            assignedField: 'Name',
                         },
                         {
-                            id: 'name-2-filter',
-                            label: vm.localize('Name-2'),
-                            type: 'input',
-                            assignedField: 'Name-2',
+                            id: 'select-2-filter',
+                            label: vm.localize('City'),
+                            type: 'select',
+                            options: { 1: 'Kiev', 20: 'Sparta', 376: 'Rohan', 377: 'Rohan', 3764: 'Rohan1', 3376: 'Rohan2', 3764: 'Rohan', 2376: 'Rohan' }
                         },
                         {
                             id: 'name-3-filter',
                             label: vm.localize('Name-3'),
                             type: 'input',
-                            assignedField: 'Name-3',
                         },
                         {
                             id: 'name-4-filter',
                             label: vm.localize('Name-4'),
                             type: 'input',
-                            assignedField: 'Name-4',
-                        },
-                        {
-                            id: 'name-5-filter',
-                            label: vm.localize('Name-5'),
-                            type: 'input',
-                            assignedField: 'Name-5',
-                        },
-                        {
-                            id: 'name-6-filter',
-                            label: vm.localize('Name-6'),
-                            type: 'input',
-                            assignedField: 'Name-6',
                         }
+                        
                     ];
                     return filters;
                 },
