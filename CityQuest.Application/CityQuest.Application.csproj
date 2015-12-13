@@ -121,6 +121,10 @@
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\GameLightDto.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\GameTaskLightDto.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\GameTaskTypeLightDto.cs" />
+    <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveGameCollectionInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveGameCollectionOutput.cs" />
+    <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveGameLightInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveGameLightOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\TipLightDto.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\GameLightAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\IGameLightAppService.cs" />

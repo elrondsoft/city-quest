@@ -70,7 +70,22 @@
             vm.helpers = {
                 initOnGameGhangedEvents: function () {
                     vm.signalRGameChangesHub.client.onGameAdded = function (data) {
-                        vm.actions.loadAndAddNewGame(data.gameId);
+                        vm.actions.loadAndAddNewGame(data.GameId);
+                    };
+                    vm.signalRGameChangesHub.client.onGameUpdated = function (data) {
+                        vm.actions.loadAndAddNewGame(data.GameId);
+                    };
+                    vm.signalRGameChangesHub.client.onGameStatusChanged = function (data) {
+                        vm.actions.loadAndAddNewGame(data.GameId);
+                    };
+                    vm.signalRGameChangesHub.client.onGameDeleted = function (data) {
+                        vm.actions.removeGame(data.GameId);
+                    };
+                    vm.signalRGameChangesHub.client.onGameDeactivated = function (data) {
+                        vm.actions.loadAndAddNewGame(data.GameId);
+                    };
+                    vm.signalRGameChangesHub.client.onGameActivated = function (data) {
+                        vm.actions.loadAndAddNewGame(data.GameId);
                     };
                 },
                 getGameById: function (gameId) {
@@ -129,18 +144,35 @@
             //---------------------------------------------------------------------------------------------------------
             //--------------------------------------Template's actions-------------------------------------------------
             vm.actions = {
-                loadAllGameCollection: function () {
-
+                retrieveGameCollection: function () {
+                    var promise = gameLightSvc.retrieveGameCollection({})
+                        .success(function (data) {
+                            vm.gameCollection = data.gameCollection;
+                        }).finally(function (data) {
+                            vm.loadPromisesService.removeLoadPromise(promise);
+                            $scope.$digest();
+                        });
+                    vm.loadPromisesService.addLoadPromise(promise);
+                    return promise;
                 },
-                loadAndAddNewGame: function () {
-
+                loadAndAddNewGame: function (gameId) {
+                    var promise = gameLightSvc.retrieveGameLight({
+                        GameId: gameId
+                    }).success(function (data) {
+                        vm.helpers.addGame(data.game);
+                    }).finally(function (data) {
+                        $scope.$digest();
+                    });
+                    return promise;
                 },
-                removeGame: function () {
-
+                removeGame: function (gameId) {
+                    vm.helpers.addGame(gameId);
+                    $scope.$digest();
                 },
             };
             //---------------------------------------------------------------------------------------------------------
             //-------------------------------------------Initialize----------------------------------------------------
+            vm.actions.retrieveGameCollection();
 
             $.connection.hub.stop();
             vm.signalRGameChangesHub = $.connection.signalRGameChangesHub;

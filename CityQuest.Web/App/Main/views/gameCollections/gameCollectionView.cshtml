@@ -28,7 +28,31 @@
         </div>
         <div class="row game-collection-template-container-body">
             <div class="col-xs-12">
-
+                <div class="row filters-container">
+                    <div class="col-xs-12">
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th style="width:30%">{{vm.localize('GameID')}}</th>
+                                    <th style="width:30%">{{vm.localize('GameName')}}</th>
+                                    <th style="width:40%">{{vm.localize('IsActive')}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="game in vm.gameCollection">
+                                    <td>{{game.id}}</td>
+                                    <td>{{game.name}}</td>
+                                    <td>{{game.isActive}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row game-collection-template-container-footer">

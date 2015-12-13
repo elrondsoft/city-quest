@@ -1,5 +1,5 @@
 ﻿<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="app.views.layout.header as vm">
-    <div class="container">
+    <div class="city-quest-header-container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#/">
-                <i class="fa fa-map-signs"></i> 
+                <i class="fa fa-map-signs"></i>
                 @L("ApplicationName")
             </a>
         </div>
@@ -72,29 +72,30 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="" data-toggle="dropdown">
-                        <i ng-class="vm.currentLanguage.icon"></i> 
-                        <span>{{vm.currentLanguage.displayName}}</span> 
-                        <b class="caret"></b></a>
+                        <i ng-class="vm.currentLanguage.icon"></i>
+                        <span>{{vm.currentLanguage.displayName}}</span>
+                        <b class="caret"></b>
+                    </a>
                     <ul class="dropdown-menu">
-                        <li ng-repeat="language in vm.languages" 
+                        <li ng-repeat="language in vm.languages"
                             ng-hide="vm.currentLanguage.name == language.name">
                             <a href="~/AbpLocalization/ChangeCulture?cultureName={{language.name}}">
-                                <i ng-class="language.icon"></i> 
+                                <i ng-class="language.icon"></i>
                                 {{language.displayName}}
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li ng-if="vm.getAuthentication().isAuth" class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-                        {{vm.getAuthentication().userName}} 
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        {{vm.getAuthentication().userName}}
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a ng-click="vm.logout()"><i class="fa fa-sign-out"></i> @L("Logout") </a></li>
                     </ul>
                 </li>
-                <li ng-if="!vm.getAuthentication().isAuth" 
+                <li ng-if="!vm.getAuthentication().isAuth"
                     ng-class="{active: vm.isCurrentStateLogin()}">
                     <a ng-click="vm.login()"><i class="fa fa-sign-in"></i> @L("Login") </a>
                 </li>

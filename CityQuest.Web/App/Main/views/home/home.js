@@ -33,7 +33,7 @@
                     return promise;
                 },
             };
-            //209a6b39-8a46-4d1f-b898-c2cc1baaada2
+
             vm.keyGeneratorService.initGamesStore();
         }
     ]);

@@ -1,4 +1,5 @@
 ﻿using Abp.Application.Services;
+using CityQuest.ApplicationServices.GameModule.GamesLight.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,9 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
     /// </summary>
     public interface IGameLightAppService : IApplicationService
     {
-        //void RetrieveAllGameLight();
-        //void RetrieveGameLight();
+        RetrieveGameCollectionOutput RetrieveGameCollection(RetrieveGameCollectionInput input);
+        RetrieveGameLightOutput RetrieveGameLight(RetrieveGameLightInput input);
+
         //void RetrieveAllAllowedGameTasks();
         //void RetrieveNextAllowedGameTask();
     }
