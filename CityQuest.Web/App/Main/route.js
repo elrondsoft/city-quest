@@ -31,9 +31,16 @@
                 .state('gameCollection', {
                     url: '/gameCollection',
                     templateUrl: '/App/Main/views/gameCollections/gameCollectionView.cshtml',
-                    menu: 'GameCollection', 
+                    menu: 'GameCollection',
                     onEnter: onEnterAuthorizedRequired,
                     controller: 'app.views.gameCollections.gameCollectionController',
+                    controllerAs: 'vm',
+                })
+                .state('gamePage', {
+                    url: '/gamePage/:gameId',
+                    templateUrl: '/App/Main/views/gamePages/gamePageView.cshtml',
+                    onEnter: onEnterAuthorizedRequired,
+                    controller: 'app.views.gamePages.gamePageController',
                     controllerAs: 'vm',
                 })
                 .state('users', {
@@ -72,6 +79,9 @@
                     menu: 'LocationsMenuItem',
                     onEnter: onEnterAuthorizedRequired,
                 });
+
+            /// Is used like default source name for localization
+            abp.localization.defaultSourceName = "CityQuest";
         }
     ]);
 })();

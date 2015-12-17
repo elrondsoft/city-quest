@@ -4,10 +4,9 @@
             <div class="col-xs-12">
                 <div class="row key-activator-container">
                     <div class="col-xs-12">
-                        <h1>KeyActivator: </h1>
                         <div class="row">
                             <div class="col-xs-2">
-                                Key:
+                                {{vm.localize('Key')}}:
                             </div>
                             <div class="col-xs-6">
                                 <input class="form-control cq-control"
@@ -18,7 +17,7 @@
                                         class="btn btn-success"
                                         ng-if="vm.keyActivatorService.canActivateKey()"
                                         ng-click="vm.keyActivatorService.activateKey()">
-                                    Activate
+                                    {{vm.localize('ButtonActivateKey')}}
                                 </button>
                             </div>
                         </div>
@@ -30,24 +29,25 @@
             <div class="col-xs-12">
                 <div class="row filters-container">
                     <div class="col-xs-12">
-                        
+
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
                         <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th style="width:30%">{{vm.localize('GameID')}}</th>
-                                    <th style="width:30%">{{vm.localize('GameName')}}</th>
-                                    <th style="width:40%">{{vm.localize('IsActive')}}</th>
-                                </tr>
-                            </thead>
+                            @*<thead>
+                                    <tr>
+                                        <th style="width:40%">gamePicturePartialTemplate</th>
+                                        <th style="width:40%">gameDescriptionPartialTemplate</th>
+                                        <th style="width:20%">gameStatusPartialTemplate</th>
+                                    </tr>
+                                </thead>*@
                             <tbody>
-                                <tr data-ng-repeat="game in vm.gameCollection">
-                                    <td>{{game.id}}</td>
-                                    <td>{{game.name}}</td>
-                                    <td>{{game.isActive}}</td>
+                                <tr data-ng-repeat="game in vm.gameCollection"
+                                    ng-click="vm.actions.openGamePage(game)">
+                                    <td style="width:40%"><ng-include src="vm.partialTemplates.gamePicturePartialTemplate" /></td>
+                                    <td style="width:40%"><ng-include src="vm.partialTemplates.gameDescriptionPartialTemplate" /></td>
+                                    <td style="width:20%"><ng-include src="vm.partialTemplates.gameStatusPartialTemplate" /></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -57,7 +57,6 @@
         </div>
         <div class="row game-collection-template-container-footer">
             <div class="col-xs-12">
-
             </div>
         </div>
     </div>

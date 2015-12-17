@@ -1,43 +1,46 @@
 ﻿(function () {
     var controllerId = 'app.views.gameCollections.gameCollectionController';
-    angular.module('app').controller(controllerId, ['$scope', '$', 'clientCityQuestConstService',
+    angular.module('app').controller(controllerId, ['$scope', '$', '$state', 'clientCityQuestConstService',
         'clientPermissionService', 'abp.services.cityQuest.key', 'abp.services.cityQuest.gameLight',
-        function ($scope, $, constSvc, permissionSvc, keySvc, gameLightSvc) {
+        function ($scope, $, $state, constSvc, permissionSvc, keySvc, gameLightSvc) {
             var vm = this;
-
             //---------------------------------------------------------------------------------------------------------
             //-----------------------------------------PreInitialize---------------------------------------------------
-            /// Is used to store load promises
-            vm.loadPromisesService = {
-                loadPromises: [],
-                addLoadPromise: function (loadPromise) {
-                    vm.loadPromisesService.loadPromises.push(loadPromise);
-                    return vm.loadPromisesService.loadPromises;
-                },
-                removeLoadPromise: function (loadPromise) {
-                    if (loadPromise && vm.loadPromisesService.loadPromises &&
-                        vm.loadPromisesService.loadPromises.length &&
-                        vm.loadPromisesService.loadPromises.length > 0) {
-                        var index = null;
-                        for (var i = 0; i < vm.loadPromisesService.loadPromises.length; i++) {
-                            if (vm.loadPromisesService.loadPromises[i] == loadPromise) {
-                                index = i;
-                                i = vm.loadPromisesService.loadPromises.length;
-                            }
-                        }
-                        if (index != null && index > -1) {
-                            vm.loadPromisesService.loadPromises.splice(index, 1);
-                        }
-                    }
-                    return vm.loadPromisesService.loadPromises;
-                },
-            };
             /// Is used for localization
             vm.localize = constSvc.localize;
             /// Is used to store template's title
             vm.title = vm.localize("GameCollection");
             /// Is used to store game collection
             vm.gameCollection = [];
+            /// Initialize GameCollectionPartialTemplate's routes
+            vm.partialTemplates = constSvc.cityQuestPartialTemplates.gameCollectionPartialTemplates;
+            //---------------------------------------------------------------------------------------------------------
+            //---------------------------------------Promises service--------------------------------------------------
+            /// Is used to store load promises
+            vm.promisesService = {
+                globalPromises: [],
+                addGlobalPromise: function (promise) {
+                    vm.promisesService.globalPromises.push(promise);
+                    return vm.promisesService.globalPromises;
+                },
+                removeGlobalPromise: function (promise) {
+                    if (promise && vm.promisesService.globalPromises &&
+                        vm.promisesService.globalPromises.length &&
+                        vm.promisesService.globalPromises.length > 0) {
+                        var index = null;
+                        for (var i = 0; i < vm.promisesService.globalPromises.length; i++) {
+                            if (vm.promisesService.globalPromises[i] == promise) {
+                                index = i;
+                                i = vm.promisesService.globalPromises.length;
+                            }
+                        }
+                        if (index != null && index > -1) {
+                            vm.promisesService.globalPromises.splice(index, 1);
+                        }
+                    }
+                    return vm.promisesService.globalPromises;
+                },
+            };
             //---------------------------------------------------------------------------------------------------------
             //-------------------------------------Key activator service-----------------------------------------------
             vm.keyActivatorService = {
@@ -57,11 +60,11 @@
                         vm.keyActivatorService.keyValue = null;
                         vm.helpers.addGame(data.activatedGame);
                     }).finally(function (data) {
-                        vm.loadPromisesService.removeLoadPromise(promise);
+                        vm.promisesService.removeGlobalPromise(promise);
                         vm.keyActivatorService.keyActivationInProgress = false;
                         $scope.$digest();
                     });
-                    vm.loadPromisesService.addLoadPromise(promise);
+                    vm.promisesService.addGlobalPromise(promise);
                     return promise;
                 },
             };
@@ -139,7 +142,15 @@
             //---------------------------------------------------------------------------------------------------------
             //---------------------------------Template's permissions on actions---------------------------------------
             vm.permissionsOnActions = {
+                canOpenGamePage: function (game) {
+                    var result = false;
 
+                    if (game != null && game.id != null && game.id > 0) {
+                        result = true;
+                    }
+
+                    return result;
+                },
             };
             //---------------------------------------------------------------------------------------------------------
             //--------------------------------------Template's actions-------------------------------------------------
@@ -149,10 +160,10 @@
                         .success(function (data) {
                             vm.gameCollection = data.gameCollection;
                         }).finally(function (data) {
-                            vm.loadPromisesService.removeLoadPromise(promise);
+                            vm.promisesService.removeGlobalPromise(promise);
                             $scope.$digest();
                         });
-                    vm.loadPromisesService.addLoadPromise(promise);
+                    vm.promisesService.addGlobalPromise(promise);
                     return promise;
                 },
                 loadAndAddNewGame: function (gameId) {
@@ -169,15 +180,31 @@
                     vm.helpers.addGame(gameId);
                     $scope.$digest();
                 },
+                openGamePage: function (game) {
+                    if (vm.permissionsOnActions.canOpenGamePage(game)) {
+                        $state.go('gamePage', { gameId: game.id });
+                    }
+                    return false;
+                },
             };
             //---------------------------------------------------------------------------------------------------------
             //-------------------------------------------Initialize----------------------------------------------------
             vm.actions.retrieveGameCollection();
 
-            $.connection.hub.stop();
-            vm.signalRGameChangesHub = $.connection.signalRGameChangesHub;
-            vm.helpers.initOnGameGhangedEvents();
-            $.connection.hub.start().done(function () { });
+            /// Is used to start SignalR connection
+            var startSignalRConnection = function () {
+                $.connection.hub.stop();
+                vm.signalRGameChangesHub = $.connection.signalRGameChangesHub;
+                vm.helpers.initOnGameGhangedEvents();
+                $.connection.hub.start().done(function () { });
+            }();
+            /// Is used to restart SignalR connection
+            var restartSignalRConnectionWithInterval = setInterval(function () {
+                var needReconnect = $.connection.hub && $.connection.hub.state === $.signalR.connectionState.disconnected;
+                if (needReconnect) {
+                    startSignalRConnection();
+                }
+            }, 5000);
         }
     ]);
 })();

@@ -254,6 +254,8 @@
     <Content Include="App\Main\templates\teams\teamDetailsController.js" />
     <Content Include="App\Main\templates\users\userDetailsController.js" />
     <Content Include="App\Main\views\authorization\login.js" />
+    <Content Include="App\Main\views\gamePages\gamePageController.js" />
+    <Content Include="App\Main\views\gamePages\gamePageStyles.css" />
     <Content Include="App\Main\views\games\gameListController.js" />
     <Content Include="App\Main\views\locations\locationListController.js" />
     <Content Include="App\Main\views\divisions\divisionListController.js" />
@@ -273,6 +275,10 @@
     <Content Include="App\Main\templates\locations\locationDetailsTemplate.cshtml" />
     <Content Include="App\Main\directives\shared\dropdownMultiselectDirective\dropdownMultiselectTemplate.cshtml" />
     <Content Include="App\Main\views\gameCollections\gameCollectionView.cshtml" />
+    <Content Include="App\Main\views\gameCollections\partialTemplates\gamePicturePartialTemplate.cshtml" />
+    <Content Include="App\Main\views\gameCollections\partialTemplates\gameDescriptionPartialTemplate.cshtml" />
+    <Content Include="App\Main\views\gameCollections\partialTemplates\gameStatusPartialTemplate.cshtml" />
+    <Content Include="App\Main\views\gamePages\gamePageView.cshtml" />
     <None Include="App\Main\views\roles\roleListView.cshtml" />
     <Content Include="App\Main\views\teams\teamListController.js" />
     <Content Include="App\Main\views\users\userListController.js" />
