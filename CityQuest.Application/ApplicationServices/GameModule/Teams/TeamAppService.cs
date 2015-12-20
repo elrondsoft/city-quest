@@ -45,10 +45,9 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             if (input.IsActive ?? true)
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
-            TeamRepository.Includes.Add(r => r.Captain);
             TeamRepository.Includes.Add(r => r.LastModifierUser);
             TeamRepository.Includes.Add(r => r.CreatorUser);
-            TeamRepository.Includes.Add(r => r.Players);
+            TeamRepository.Includes.Add(r => r.PlayerCareers);
 
             IQueryable<Team> teamsQuery = TeamPolicy.CanRetrieveManyEntities( 
                 TeamRepository.GetAll()
@@ -77,8 +76,10 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
             IReadOnlyList<ComboboxItemDto> teamsLikeComboBoxes = TeamPolicy.CanRetrieveManyEntities(
-                TeamRepository.GetAll()).ToList()
-                .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name)).ToList();
+                TeamRepository.GetAll()
+                .WhereIf(input.DivisionId != null, r => r.DivisionId == input.DivisionId)).ToList()
+                .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name))
+                .OrderBy(r => r.DisplayText).ToList();
 
             return new RetrieveAllTeamsLikeComboBoxesOutput()
             {
@@ -91,10 +92,9 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             if (input.IsActive ?? true)
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
-            TeamRepository.Includes.Add(r => r.Captain);
             TeamRepository.Includes.Add(r => r.LastModifierUser);
             TeamRepository.Includes.Add(r => r.CreatorUser);
-            TeamRepository.Includes.Add(r => r.Players);
+            TeamRepository.Includes.Add(r => r.PlayerCareers);
 
             IList<Team> teamEntities = TeamPolicy.CanRetrieveManyEntities( 
                 TeamRepository.GetAll()
@@ -118,10 +118,9 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             if (input.IsActive ?? true)
                 UowManager.Current.EnableFilter(Filters.IPassivableFilter);
 
-            TeamRepository.Includes.Add(r => r.Captain);
             TeamRepository.Includes.Add(r => r.LastModifierUser);
             TeamRepository.Includes.Add(r => r.CreatorUser);
-            TeamRepository.Includes.Add(r => r.Players);
+            TeamRepository.Includes.Add(r => r.PlayerCareers);
 
             IList<Team> teamEntities = TeamRepository.GetAll()
                 .WhereIf(input.Id != null, r => r.Id == input.Id)
@@ -153,10 +152,9 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
 
             newTeamEntity.IsActive = true;
 
-            TeamRepository.Includes.Add(r => r.Captain);
             TeamRepository.Includes.Add(r => r.LastModifierUser);
             TeamRepository.Includes.Add(r => r.CreatorUser);
-            TeamRepository.Includes.Add(r => r.Players);
+            TeamRepository.Includes.Add(r => r.PlayerCareers);
 
             TeamDto newTeamDto = (TeamRepository.Insert(newTeamEntity)).MapTo<TeamDto>();
 
@@ -178,10 +176,9 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             if (!TeamPolicy.CanUpdateEntity(newTeamEntity))
                 throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionUpdateDenied, "\"Team\"");
 
-            TeamRepository.Includes.Add(r => r.Captain);
             TeamRepository.Includes.Add(r => r.LastModifierUser);
             TeamRepository.Includes.Add(r => r.CreatorUser);
-            TeamRepository.Includes.Add(r => r.Players);
+            TeamRepository.Includes.Add(r => r.PlayerCareers);
 
             TeamRepository.Update(newTeamEntity);
             TeamDto newTeamDto = (TeamRepository.Get(newTeamEntity.Id)).MapTo<TeamDto>();
@@ -214,10 +211,9 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
 
         public ChangeActivityOutput<TeamDto, long> ChangeActivity(ChangeActivityInput input)
         {
-            TeamRepository.Includes.Add(r => r.Captain);
             TeamRepository.Includes.Add(r => r.LastModifierUser);
             TeamRepository.Includes.Add(r => r.CreatorUser);
-            TeamRepository.Includes.Add(r => r.Players);
+            TeamRepository.Includes.Add(r => r.PlayerCareers);
 
             Team teamEntity = TeamRepository.Get(input.EntityId);
 

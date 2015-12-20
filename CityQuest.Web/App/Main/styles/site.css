@@ -1,4 +1,14 @@
-﻿input, button, select, textarea {
+﻿.city-quest-header-container {
+    margin-left: 15px;
+    margin-right: 20px;
+}
+
+.city-quest-body-container {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+input, button, select, textarea {
     color: #222222;
 }
 

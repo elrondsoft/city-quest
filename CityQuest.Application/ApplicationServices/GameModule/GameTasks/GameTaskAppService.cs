@@ -154,6 +154,8 @@ namespace CityQuest.ApplicationServices.GameModule.GameTasks
 
         public CreateOutput<GameTaskDto, long> Create(CreateInput<GameTaskDto, long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             GameTask newGameTaskEntity = input.Entity.MapTo<GameTask>();
 
             newGameTaskEntity.IsActive = true;
@@ -179,6 +181,8 @@ namespace CityQuest.ApplicationServices.GameModule.GameTasks
 
         public UpdateOutput<GameTaskDto, long> Update(UpdateInput<GameTaskDto, long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             GameTask newGameTaskEntity = input.Entity.MapTo<GameTask>();
 
             if (newGameTaskEntity == null)
@@ -206,6 +210,8 @@ namespace CityQuest.ApplicationServices.GameModule.GameTasks
 
         public DeleteOutput<long> Delete(DeleteInput<long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             GameTask gameTaskEntityForDelete = GameTaskRepository.Get(input.EntityId);
 
             if (gameTaskEntityForDelete == null)
@@ -224,6 +230,8 @@ namespace CityQuest.ApplicationServices.GameModule.GameTasks
 
         public ChangeActivityOutput<GameTaskDto, long> ChangeActivity(ChangeActivityInput input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             GameTaskRepository.Includes.Add(r => r.LastModifierUser);
             GameTaskRepository.Includes.Add(r => r.CreatorUser);
             GameTaskRepository.Includes.Add(r => r.GameTaskType);

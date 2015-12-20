@@ -57,14 +57,17 @@
     <Reference Include="Microsoft.Owin">
       <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security">
-      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies">
-      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth">
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -127,10 +130,14 @@
     <Compile Include="CityQuestPolicy\GameModule\Divisions\IDivisionPolicy.cs" />
     <Compile Include="Entities\GameModule\Divisions\IDivisionRepository.cs" />
     <Compile Include="Entities\GameModule\Games\Game.cs" />
+    <Compile Include="Entities\GameModule\Games\GameStatuses\GameStatus.cs" />
+    <Compile Include="Entities\GameModule\Games\GameStatuses\IGameStatusRepository.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\Condition.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\ConditionTypes\ConditionType.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\ConditionTypes\IConditionTypeRepository.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\IConditionRepository.cs" />
+    <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\PlayerAttempts\SuccessfulPlayerAttempt.cs" />
+    <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\PlayerAttempts\UnsuccessfulPlayerAttempt.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\GameTask.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\GameTaskTypes\GameTaskType.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\GameTaskTypes\IGameTaskTypeRepository.cs" />
@@ -143,6 +150,12 @@
     <Compile Include="Entities\GameModule\Locations\ILocationRepository.cs" />
     <Compile Include="Entities\GameModule\Locations\Location.cs" />
     <Compile Include="CityQuestPolicy\GameModule\Teams\ITeamPolicy.cs" />
+    <Compile Include="Entities\GameModule\PlayerCareers\IPlayerCareerRepository.cs" />
+    <Compile Include="Entities\GameModule\PlayerCareers\PlayerCareer.cs" />
+    <Compile Include="Entities\GameModule\Statistics\PlayerGameStatistics\PlayerGameStatistic.cs" />
+    <Compile Include="Entities\GameModule\Statistics\PlayerGameTaskStatistics\PlayerGameTaskStatistic.cs" />
+    <Compile Include="Entities\GameModule\Statistics\TeamGameStatistics\TeamGameStatistic.cs" />
+    <Compile Include="Entities\GameModule\Statistics\TeamGameTaskStatistics\TeamGameTaskStatistic.cs" />
     <Compile Include="Entities\GameModule\Teams\ITeamRepository.cs" />
     <Compile Include="Entities\GameModule\Teams\Team.cs" />
     <Compile Include="CityQuestPolicy\GameModule\Teams\TeamPolicy.cs" />
@@ -171,6 +184,7 @@
     <Compile Include="Entities\Shared\IHasOrder.cs" />
     <Compile Include="Exceptions\CityQuestItemNotFoundException.cs" />
     <Compile Include="Exceptions\CityQuestPolicyException.cs" />
+    <Compile Include="Exceptions\KeyActivationException.cs" />
     <Compile Include="Exceptions\SafeGuidGenerationServiceException.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="CityQuestPolicy\ICityQuestPolicyBase.cs" />

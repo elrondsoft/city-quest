@@ -133,5 +133,22 @@ namespace CityQuest.CityQuestPolicy.GameModule.Games
         {
             return CanChangeActivityForEntity(Session.UserId ?? 0, entity);
         }
+
+        public bool CanGenerateKeysForEntity(long userId, Game entity)
+        {
+            if (userId == 0)
+                return false;
+
+            if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanAll) ||
+                PermissionChecker.IsGranted(CityQuestPermissionNames.CanGenerateKeysForGame))
+                return true;
+
+            return false;
+        }
+
+        public bool CanGenerateKeysForEntity(Game entity)
+        {
+            return CanGenerateKeysForEntity(Session.UserId ?? 0, entity);
+        }
     }
 }

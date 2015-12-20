@@ -1,6 +1,6 @@
 ﻿(function () {
     var controllerId = 'app.views.users.userListController';
-    angular.module('app').controller(controllerId, ['$scope', '$modal', 'clientCityQuestConstService',
+    angular.module('app').controller(controllerId, ['$scope', '$uibModal', 'clientCityQuestConstService',
        'clientPermissionService', 'abp.services.cityQuest.user',
        function ($scope, modal, constSvc, permissionSvc, userSvc) {
            var vm = this;

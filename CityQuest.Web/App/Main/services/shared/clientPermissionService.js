@@ -119,7 +119,7 @@ angular.module('app').service('clientPermissionService', function () {
         }
     };
     //-----------------------------------------------------------------------------------------------------------------
-    //----------------------------------------Client's permissions for Game--------------------------------------------
+    //----------------------------------------Client's permissions for Location----------------------------------------
     this.location = {
         canRetrieve: function (entity) {
             return true;
@@ -131,6 +131,16 @@ angular.module('app').service('clientPermissionService', function () {
             return true;
         },
         canDelete: function (entity) {
+            return true;
+        },
+    };
+    //-----------------------------------------------------------------------------------------------------------------
+    //----------------------------------------Client's permissions for Key---------------------------------------------
+    this.key = {
+        canGenerate: function () {
+            return true;
+        },
+        canActivate: function () {
             return true;
         },
     };

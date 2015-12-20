@@ -1,0 +1,35 @@
+﻿<div class="btn-group"
+     ng-class="{open: ddMultiselect.open}">
+    <button class="btn">
+        {{ddMultiselect.localize(ddMultiselect.titleText)}}
+    </button>
+    <button class="btn dropdown-toggle"
+            ng-click="ddMultiselect.open = !ddMultiselect.open">
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+        <li>
+            <a class="dd-multiselect-row"
+               ng-click="ddMultiselect.actions.checkAll()">
+                <i ng-if="ddMultiselect.checkAllIconClass" class="{{ddMultiselect.checkAllIconClass}}"></i>
+                &nbsp;{{ddMultiselect.localize(ddMultiselect.checkAllText)}}&nbsp;
+            </a>
+        </li>
+        <li>
+            <a class="dd-multiselect-row"
+               ng-click="ddMultiselect.actions.unCheckAll()">
+                <i ng-if="ddMultiselect.unCheckAllIconClass" class="{{ddMultiselect.unCheckAllIconClass}}"></i>
+                &nbsp;{{ddMultiselect.localize(ddMultiselect.unCheckAllText)}}&nbsp;
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li ng-repeat="item in ddMultiselect.items">
+            <a class="dd-multiselect-row"
+               ng-click="ddMultiselect.actions.changeCheckForItem(item)">
+                <i ng-if="item.iconClass" class="{{item.iconClass}}"></i>
+                &nbsp;{{item.displayText}}&nbsp;
+                <i ng-if="item.isChecked" class="fa fa-check pull-right"></i>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -76,7 +76,8 @@ namespace CityQuest.ApplicationServices.GameModule.ConditionTypes
 
             IReadOnlyList<ComboboxItemDto> conditionTypesLikeComboBoxes = ConditionTypePolicy.CanRetrieveManyEntities(
                 ConditionTypeRepository.GetAll()).ToList()
-                .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name)).ToList();
+                .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name))
+                .OrderBy(r => r.DisplayText).ToList();
 
             return new RetrieveAllConditionTypesLikeComboBoxesOutput()
             {
@@ -139,6 +140,8 @@ namespace CityQuest.ApplicationServices.GameModule.ConditionTypes
 
         public CreateOutput<ConditionTypeDto, long> Create(CreateInput<ConditionTypeDto, long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             ConditionType newConditionTypeEntity = input.Entity.MapTo<ConditionType>();
 
             newConditionTypeEntity.IsDefault = false;
@@ -162,6 +165,8 @@ namespace CityQuest.ApplicationServices.GameModule.ConditionTypes
 
         public UpdateOutput<ConditionTypeDto, long> Update(UpdateInput<ConditionTypeDto, long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             ConditionType newConditionTypeEntity = input.Entity.MapTo<ConditionType>();
 
             if (newConditionTypeEntity == null)
@@ -186,6 +191,8 @@ namespace CityQuest.ApplicationServices.GameModule.ConditionTypes
 
         public DeleteOutput<long> Delete(DeleteInput<long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             ConditionType conditionTypeEntityForDelete = ConditionTypeRepository.Get(input.EntityId);
 
             if (conditionTypeEntityForDelete == null)

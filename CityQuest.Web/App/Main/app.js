@@ -22,10 +22,11 @@
     });
 
     app.value('params', null);
+    app.value('$', $);
 
-    app.config(function ($httpProvider) {
+    app.config(['$httpProvider', function ($httpProvider) {
         $httpProvider.interceptors.push('authInterceptorService');
-    });
+    }]);
 
     app.run(['authService', '$state', 'ngAuthSettings', function (authService, $state, ngAuthSettings) {
         authService.fillAuthData()

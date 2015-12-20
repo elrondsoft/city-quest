@@ -3,6 +3,8 @@ using Abp.Domain.Entities.Auditing;
 using CityQuest.Entities.GameModule.Games.GameTasks.Conditions;
 using CityQuest.Entities.GameModule.Games.GameTasks.GameTaskTypes;
 using CityQuest.Entities.GameModule.Games.GameTasks.Tips;
+using CityQuest.Entities.GameModule.Statistics.PlayerGameTaskStatistics;
+using CityQuest.Entities.GameModule.Statistics.TeamGameTaskStatistics;
 using CityQuest.Entities.MainModule.Users;
 using CityQuest.Entities.Shared;
 using System;
@@ -25,6 +27,9 @@ namespace CityQuest.Entities.GameModule.Games.GameTasks
 
         public virtual ICollection<Tip> Tips { get; set; }
         public virtual ICollection<Condition> Conditions { get; set; }
+
+        public virtual ICollection<PlayerGameTaskStatistic> PlayerGameTaskStatistics { get; set; }
+        public virtual ICollection<TeamGameTaskStatistic> TeamGameTaskStatistics { get; set; }
 
         #endregion
 

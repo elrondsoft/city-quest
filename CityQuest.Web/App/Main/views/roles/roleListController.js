@@ -1,6 +1,6 @@
 ﻿(function () {
     var controllerId = 'app.views.roles.roleListController';
-    angular.module('app').controller(controllerId, ['$scope', '$modal', 'clientCityQuestConstService',
+    angular.module('app').controller(controllerId, ['$scope', '$uibModal', 'clientCityQuestConstService',
        'clientPermissionService', 'abp.services.cityQuest.role',
        function ($scope, modal, constSvc, permissionSvc, roleSvc) {
            var vm = this;

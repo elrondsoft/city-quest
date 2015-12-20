@@ -23,6 +23,13 @@ namespace CityQuest.Web
                         )
                 ).AddItem(
                     new MenuItemDefinition(
+                        "GameCollection",
+                        new LocalizableString("GameCollection", CityQuestConsts.LocalizationSourceName),
+                        url: "#/gameCollection",
+                        icon: "fa fa-database"
+                        )
+                ).AddItem(
+                    new MenuItemDefinition(
                         "AdministrationMenuItem",
                         new LocalizableString("AdministrationMenuItem", CityQuestConsts.LocalizationSourceName),
                         icon: "fa fa-wrench"

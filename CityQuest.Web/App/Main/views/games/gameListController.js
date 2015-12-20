@@ -1,6 +1,6 @@
 ﻿(function () {
     var controllerId = 'app.views.games.gameListController';
-    angular.module('app').controller(controllerId, ['$scope', '$modal', 'clientCityQuestConstService',
+    angular.module('app').controller(controllerId, ['$scope', '$uibModal', 'clientCityQuestConstService',
         'clientPermissionService', 'abp.services.cityQuest.game',
         function ($scope, modal, constSvc, permissionSvc, gameSvc) {
             var vm = this;
@@ -23,7 +23,7 @@
                     return data.record.locationName;
                 },
                 displayGameTasksCount: function (data) {
-                    return data.record.gameTasks && data.record.gameTasks.length ? data.record.gameTasks.length : '-';
+                    return data.record.gameTasks && data.record.gameTasks.length ? data.record.gameTasks.length : '0';
                 },
                 displayIsActive: function (data) {
                     return data.record.isActive ? vm.localize('IsActiveTrue') : vm.localize('IsActiveFalse');

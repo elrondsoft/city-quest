@@ -76,7 +76,8 @@ namespace CityQuest.ApplicationServices.GameModule.GameTaskTypes
 
             IReadOnlyList<ComboboxItemDto> gameTaskTypesLikeComboBoxes = GameTaskTypePolicy.CanRetrieveManyEntities(
                 GameTaskTypeRepository.GetAll()).ToList()
-                .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name)).ToList();
+                .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name))
+                .OrderBy(r => r.DisplayText).ToList();
 
             return new RetrieveAllGameTaskTypesLikeComboBoxesOutput()
             {
@@ -139,6 +140,8 @@ namespace CityQuest.ApplicationServices.GameModule.GameTaskTypes
 
         public CreateOutput<GameTaskTypeDto, long> Create(CreateInput<GameTaskTypeDto, long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             GameTaskType newGameTaskTypeEntity = input.Entity.MapTo<GameTaskType>();
 
             newGameTaskTypeEntity.IsDefault = false;
@@ -162,6 +165,8 @@ namespace CityQuest.ApplicationServices.GameModule.GameTaskTypes
 
         public UpdateOutput<GameTaskTypeDto, long> Update(UpdateInput<GameTaskTypeDto, long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             GameTaskType newGameTaskTypeEntity = input.Entity.MapTo<GameTaskType>();
 
             if (newGameTaskTypeEntity == null)
@@ -186,6 +191,8 @@ namespace CityQuest.ApplicationServices.GameModule.GameTaskTypes
 
         public DeleteOutput<long> Delete(DeleteInput<long> input)
         {
+            throw new NotSupportedException("This method is implemented but it is not safely to use it.");
+
             GameTaskType gameTaskTypeEntityForDelete = GameTaskTypeRepository.Get(input.EntityId);
 
             if (gameTaskTypeEntityForDelete == null)

@@ -11,5 +11,8 @@ namespace CityQuest.CityQuestPolicy.GameModule.Games
     {
         bool CanChangeActivityForEntity(long userId, Game entity);
         bool CanChangeActivityForEntity(Game entity);
+
+        bool CanGenerateKeysForEntity(long userId, Game entity);
+        bool CanGenerateKeysForEntity(Game entity);
     }
 }

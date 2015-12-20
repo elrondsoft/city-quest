@@ -67,7 +67,10 @@ namespace CityQuest.Web
                         "~/Scripts/jtable/extensions/jquery.jtable.filter.js",
                         "~/Scripts/jtable/extensions/jquery.jtable.column_info.js",
 
-                        "~/Scripts/jquery.datetimepicker.full.min.js"
+                        "~/Scripts/jquery.datetimepicker.full.min.js",
+                        "~/Scripts/jtable/extensions/jquery.jtable.column_info.js",
+                        
+                        "~/Scripts/jquery.signalR-2.2.0.min.js"
                     )
                 );
 

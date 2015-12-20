@@ -1,6 +1,9 @@
 ﻿using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using CityQuest.Entities.GameModule.Divisions;
+using CityQuest.Entities.GameModule.PlayerCareers;
+using CityQuest.Entities.GameModule.Statistics.TeamGameStatistics;
+using CityQuest.Entities.GameModule.Statistics.TeamGameTaskStatistics;
 using CityQuest.Entities.MainModule.Users;
 using System;
 using System.Collections.Generic;
@@ -14,20 +17,36 @@ namespace CityQuest.Entities.GameModule.Teams
     {
         #region Relations
 
-        public long CaptainId { get; set; }
-        public User Captain { get; set; }
-
         public long DivisionId { get; set; }
         public virtual Division Division { get; set; }
 
-        public virtual ICollection<User> Players { get; set; }
+        public virtual ICollection<PlayerCareer> PlayerCareers { get; set; }
+        public virtual ICollection<TeamGameStatistic> TeamGameStatistics { get; set; }
+        public virtual ICollection<TeamGameTaskStatistic> TeamGameTaskStatistics { get; set; }
 
         #endregion
 
         public string Name { get; set; }
         public string Description { get; set; }
         public string Slogan { get; set; }
-
         public bool IsActive { get; set; }
+
+
+        public virtual PlayerCareer Captain
+        {
+            get
+            {
+                return PlayerCareers.SingleOrDefault(r => r.IsCaptain);
+            }
+        }
+        //public virtual ICollection<PlayerCareer> Players
+        //{
+        //    get
+        //    {
+        //        return PlayerCareers != null ?
+        //            (ICollection<PlayerCareer>)PlayerCareers.Where(r => r.CareerDateEnd == null) :
+        //            (ICollection<PlayerCareer>)(new List<PlayerCareer>().AsQueryable());
+        //    }
+        //}
     }
 }

@@ -47,6 +47,9 @@ namespace CityQuest.Web
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+#warning Is used to publish in release mode (need to resolve this later)
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

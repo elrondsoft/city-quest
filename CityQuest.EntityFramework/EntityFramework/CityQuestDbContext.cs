@@ -24,6 +24,13 @@ using CityQuest.Entities.MainModule.Authorization.RolePermissionSettings;
 using CityQuest.Entities.MainModule.Authorization.UserServices;
 using CityQuest.Entities.MainModule.Authorization.UserRoles;
 using CityQuest.Entities.GameModule.Locations;
+using CityQuest.Entities.GameModule.Games.GameStatuses;
+using CityQuest.Entities.GameModule.PlayerCareers;
+using CityQuest.Entities.GameModule.Games.GameTasks.Conditions.PlayerAttempts;
+using CityQuest.Entities.GameModule.Statistics.PlayerGameStatistics;
+using CityQuest.Entities.GameModule.Statistics.PlayerGameTaskStatistics;
+using CityQuest.Entities.GameModule.Statistics.TeamGameStatistics;
+using CityQuest.Entities.GameModule.Statistics.TeamGameTaskStatistics;
 
 namespace CityQuest.EntityFramework
 {
@@ -51,14 +58,27 @@ namespace CityQuest.EntityFramework
         public virtual IDbSet<Team> Teams { get; set; }
         public virtual IDbSet<Key> Keys { get; set; }
         public virtual IDbSet<Game> Games { get; set; }
+        public virtual IDbSet<GameStatus> GameStatuses { get; set; }
         public virtual IDbSet<GameTask> GameTasks { get; set; }
         public virtual IDbSet<GameTaskType> GameTaskTypes { get; set; }
         public virtual IDbSet<Tip> Tips { get; set; }
         public virtual IDbSet<Condition> Conditions { get; set; }
         public virtual IDbSet<ConditionType> ConditionTypes { get; set; }
+        public virtual IDbSet<PlayerCareer> PlayerCareers { get; set; }
+        public virtual IDbSet<SuccessfulPlayerAttempt> SuccessfulPlayerAttempts { get; set; }
+        public virtual IDbSet<UnsuccessfulPlayerAttempt> UnsuccessfulPlayerAttempts { get; set; }
+
+        #region Statistics
+
+        public virtual IDbSet<PlayerGameStatistic> PlayerGameStatistics { get; set; }
+        public virtual IDbSet<PlayerGameTaskStatistic> PlayerGameTaskStatistics { get; set; }
+        public virtual IDbSet<TeamGameStatistic> TeamGameStatistics { get; set; }
+        public virtual IDbSet<TeamGameTaskStatistic> TeamGameTaskStatistics { get; set; }
+        
+        #endregion
 
         #endregion
-        
+
         #endregion
 
         public CityQuestDbContext()
@@ -122,19 +142,92 @@ namespace CityQuest.EntityFramework
 
             #region GameModule
 
+            #region Statistics
+
+            modelBuilder.Entity<PlayerGameStatistic>()
+                .HasRequired(r => r.PlayerCareer)
+                .WithMany(r => r.PlayerGameStatistics)
+                .HasForeignKey(r => r.PlayerCareerId)
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<PlayerGameStatistic>()
+                .HasRequired(r => r.Game)
+                .WithMany(r => r.PlayerGameStatistics)
+                .HasForeignKey(r => r.GameId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<PlayerGameTaskStatistic>()
+                .HasRequired(r => r.PlayerCareer)
+                .WithMany(r => r.PlayerGameTaskStatistics)
+                .HasForeignKey(r => r.PlayerCareerId)
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<PlayerGameTaskStatistic>()
+                .HasRequired(r => r.GameTask)
+                .WithMany(r => r.PlayerGameTaskStatistics)
+                .HasForeignKey(r => r.GameTaskId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<TeamGameStatistic>()
+                .HasRequired(r => r.Team)
+                .WithMany(r => r.TeamGameStatistics)
+                .HasForeignKey(r => r.TeamId)
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<TeamGameStatistic>()
+                .HasRequired(r => r.Game)
+                .WithMany(r => r.TeamGameStatistics)
+                .HasForeignKey(r => r.GameId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<TeamGameTaskStatistic>()
+                .HasRequired(r => r.Team)
+                .WithMany(r => r.TeamGameTaskStatistics)
+                .HasForeignKey(r => r.TeamId)
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<TeamGameTaskStatistic>()
+                .HasRequired(r => r.GameTask)
+                .WithMany(r => r.TeamGameTaskStatistics)
+                .HasForeignKey(r => r.GameTaskId)
+                .WillCascadeOnDelete(false);
+
+            #endregion
+
             modelBuilder.Entity<Team>()
                 .HasRequired(r => r.Division)
                 .WithMany(r => r.Teams)
                 .HasForeignKey(r => r.DivisionId)
                 .WillCascadeOnDelete(false);
-            modelBuilder.Entity<Team>()
-                .HasRequired(r => r.Captain)
-                .WithMany(r => r.LeadedTeams)
-                .HasForeignKey(r => r.CaptainId)
+
+            modelBuilder.Entity<PlayerCareer>()
+                .HasRequired(r => r.User)
+                .WithMany(r => r.PlayerCareers)
+                .HasForeignKey(r => r.UserId)
                 .WillCascadeOnDelete(false);
-            modelBuilder.Entity<Team>()
-                .HasMany(r => r.Players)
-                .WithMany(r => r.Teams);
+            modelBuilder.Entity<PlayerCareer>()
+                .HasRequired(r => r.Team)
+                .WithMany(r => r.PlayerCareers)
+                .HasForeignKey(r => r.TeamId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<SuccessfulPlayerAttempt>()
+                .HasRequired(r => r.PlayerCareer)
+                .WithMany(r => r.SuccessfulPlayerAttempts)
+                .HasForeignKey(r => r.PlayerCareerId)
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<SuccessfulPlayerAttempt>()
+                .HasRequired(r => r.Condition)
+                .WithMany(r => r.SuccessfulPlayerAttempts)
+                .HasForeignKey(r => r.ConditionId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<UnsuccessfulPlayerAttempt>()
+                .HasRequired(r => r.PlayerCareer)
+                .WithMany(r => r.UnsuccessfulPlayerAttempts)
+                .HasForeignKey(r => r.PlayerCareerId)
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<UnsuccessfulPlayerAttempt>()
+                .HasRequired(r => r.Condition)
+                .WithMany(r => r.UnsuccessfulPlayerAttempts)
+                .HasForeignKey(r => r.ConditionId)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Key>()
                 .HasOptional(r => r.OwnerUser)
@@ -151,6 +244,11 @@ namespace CityQuest.EntityFramework
                 .HasRequired(r => r.Location)
                 .WithMany(r => r.Games)
                 .HasForeignKey(r => r.LocationId)
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Game>()
+                .HasRequired(r => r.GameStatus)
+                .WithMany(r => r.Games)
+                .HasForeignKey(r => r.GameStatusId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<GameTask>()

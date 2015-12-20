@@ -41,6 +41,7 @@ namespace CityQuest.CityQuestConstants
         public const string CanUpdateGame = "CanUpdateGame";
         public const string CanDeleteGame = "CanDeleteGame";
         public const string CanChangeGameActivity = "CanChangeGameActivity";
+        public const string CanGenerateKeysForGame = "CanGenerateKeysForGame";
 
         public const string CanAllTeam = "CanAllTeam";
         public const string CanRetrieveTeam = "CanRetrieveTeam";

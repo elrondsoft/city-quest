@@ -33,22 +33,23 @@ namespace CityQuest.CityQuestPolicy.GameModule.Teams
 
         public bool CanRetrieveOwnTeam(long userId, Team entity)
         {
-            if (userId == 0)
-                return false;
+            //if (userId == 0)
+            //    return false;
 
-            if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanAll) ||
-                PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieve) ||
-                PermissionChecker.IsGranted(CityQuestPermissionNames.CanAllTeam) ||
-                PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieveTeam))
-                return true;
-            
-            User user = UserRepository.Get(userId);
-            if (entity.Players.Contains(user))
-            {
-                return true;
-            }
+            //if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanAll) ||
+            //    PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieve) ||
+            //    PermissionChecker.IsGranted(CityQuestPermissionNames.CanAllTeam) ||
+            //    PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieveTeam))
+            //    return true;
 
-            return false;
+            //User user = UserRepository.Get(userId);
+            //if (entity.Players.Contains(user))
+            //{
+            //    return true;
+            //}
+
+            //return false;
+            return true;
         }
 
         public bool CanRetrieveForeignTeam(long userId, Team entity)

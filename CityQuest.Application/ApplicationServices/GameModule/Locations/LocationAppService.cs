@@ -71,8 +71,7 @@ namespace CityQuest.ApplicationServices.GameModule.Locations
             IReadOnlyList<ComboboxItemDto> locationsLikeComboBoxes = LocationPolicy.CanRetrieveManyEntities(
                 LocationRepository.GetAll()).ToList()
                 .Select(r => new ComboboxItemDto(r.Id.ToString(), r.DisplayName))
-                .OrderBy(r => r.DisplayText)
-                .ToList();
+                .OrderBy(r => r.DisplayText).ToList();
 
             return new RetrieveAllLocationsLikeComboBoxesOutput()
             {

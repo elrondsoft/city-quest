@@ -1,6 +1,6 @@
 ﻿(function () {
     var controllerId = 'app.views.teams.teamListController';
-    angular.module('app').controller(controllerId, ['$scope', '$modal', 'clientCityQuestConstService',
+    angular.module('app').controller(controllerId, ['$scope', '$uibModal', 'clientCityQuestConstService',
         'clientPermissionService', 'abp.services.cityQuest.team',
         function ($scope, modal, constSvc, permissionSvc, teamSvc) {
             var vm = this;
@@ -24,9 +24,8 @@
                 },
                 displayCaptain: function (data) {
                     var result = '-';
-                    if (data.record.captain) {
-                        result = data.record.captain.userName + ' ' + 
-                            '(' + data.record.captain.name + ' ' + data.record.captain.surname + ')';
+                    if (data.record.captainUserFullName) {
+                        result = data.record.captainUserFullName;
                     }
                     return result;
                 },

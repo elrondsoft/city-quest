@@ -37,7 +37,7 @@
     <script src="~/api/AbpServiceProxies/GetAll?type=angular"></script>
     <script src="~/api/AbpServiceProxies/GetAll?type=javascript"></script>
     <script src="~/AbpScripts/GetScripts" type="text/javascript"></script>
-
+    <script src="~/signalr/hubs"></script>
     @Scripts.Render("~/Bundles/App/Main/js")
     
     <script src="~/Abp/Framework/scripts/libs/abp.sweet-alert.js"></script>
@@ -46,16 +46,10 @@
     <div ng-app="app">
         <div ng-controller="app.views.layout as vm">
             <div ng-include="'/App/Main/views/layout/header.cshtml'"></div>
-            <div class="container">
+            <div class="city-quest-body-container">
                 <div class="angular-animation-container row">
                     <div ui-view class="shuffle-animation col-xs-12"></div>
                 </div>
-                @*<p>
-                    <small>
-                        @DateTime.Now.Year &copy; CityQuest ver.
-                    @System.Reflection.Assembly.GetAssembly(typeof(CityQuest.Web.MvcApplication)).GetName().Version.ToString()
-                    </small>
-                </p>*@
             </div>
         </div>
     </div>

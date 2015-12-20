@@ -7,6 +7,8 @@
         public const string CityQuestBDContextKey = "CityQuest";
         public const string FakePassword = "~@%PSWRD#~*";
         public const string PermissionKey = "CityQuestPermissionKey";
+
+        public const int MaxCountForKeyGeneration = 1000;
         
         #region Exception consts
 

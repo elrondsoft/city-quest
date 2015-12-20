@@ -102,6 +102,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -109,6 +115,9 @@
     </Reference>
     <Reference Include="Microsoft.Owin.Host.SystemWeb">
       <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -222,6 +231,8 @@
     <Content Include="App\Main\directives\games\tips\tipsBuilderController.js" />
     <Content Include="App\Main\directives\games\tips\tipsBuilderStyles.css" />
     <Content Include="App\Main\directives\jTableDirectives\jTableDirective.js" />
+    <Content Include="App\Main\directives\shared\dropdownMultiselectDirective\dropdownMultiselectComtroller.js" />
+    <Content Include="App\Main\directives\shared\dropdownMultiselectDirective\dropdownMultiselectStyles.css" />
     <Content Include="App\Main\main.css">
       <DependentUpon>main.less</DependentUpon>
     </Content>
@@ -243,12 +254,16 @@
     <Content Include="App\Main\templates\teams\teamDetailsController.js" />
     <Content Include="App\Main\templates\users\userDetailsController.js" />
     <Content Include="App\Main\views\authorization\login.js" />
+    <Content Include="App\Main\views\gamePages\gamePageController.js" />
+    <Content Include="App\Main\views\gamePages\gamePageStyles.css" />
     <Content Include="App\Main\views\games\gameListController.js" />
     <Content Include="App\Main\views\locations\locationListController.js" />
     <Content Include="App\Main\views\divisions\divisionListController.js" />
     <Content Include="App\Main\views\layout\header.js" />
     <Content Include="App\Main\views\layout\layout.js" />
     <Content Include="App\Main\views\home\home.js" />
+    <Content Include="App\Main\views\gameCollections\gameCollectionController.js" />
+    <Content Include="App\Main\views\gameCollections\gameCollectionStyles.css" />
     <Content Include="App\Main\views\roles\roleListController.js" />
     <Content Include="App\Main\templates\roles\roleDetailsTemplate.cshtml" />
     <Content Include="App\Main\templates\users\userDetailsTemplate.cshtml" />
@@ -258,6 +273,12 @@
     <Content Include="App\Main\directives\games\conditions\conditionsBuilderTemplate.cshtml" />
     <Content Include="App\Main\directives\games\tips\tipsBuilderTemplate.cshtml" />
     <Content Include="App\Main\templates\locations\locationDetailsTemplate.cshtml" />
+    <Content Include="App\Main\directives\shared\dropdownMultiselectDirective\dropdownMultiselectTemplate.cshtml" />
+    <Content Include="App\Main\views\gameCollections\gameCollectionView.cshtml" />
+    <Content Include="App\Main\views\gameCollections\partialTemplates\gamePicturePartialTemplate.cshtml" />
+    <Content Include="App\Main\views\gameCollections\partialTemplates\gameDescriptionPartialTemplate.cshtml" />
+    <Content Include="App\Main\views\gameCollections\partialTemplates\gameStatusPartialTemplate.cshtml" />
+    <Content Include="App\Main\views\gamePages\gamePageView.cshtml" />
     <None Include="App\Main\views\roles\roleListView.cshtml" />
     <Content Include="App\Main\views\teams\teamListController.js" />
     <Content Include="App\Main\views\users\userListController.js" />
@@ -1146,6 +1167,8 @@
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
     <Content Include="Scripts\jquery.blockUI.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
     <Content Include="Scripts\jquery.datetimepicker.full.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
