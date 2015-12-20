@@ -43,7 +43,9 @@ namespace CityQuest.Entities.GameModule.Teams
         //{
         //    get
         //    {
-        //        return (ICollection<PlayerCareer>)PlayerCareers.Where(r => r.CareerDateEnd == null);
+        //        return PlayerCareers != null ?
+        //            (ICollection<PlayerCareer>)PlayerCareers.Where(r => r.CareerDateEnd == null) :
+        //            (ICollection<PlayerCareer>)(new List<PlayerCareer>().AsQueryable());
         //    }
         //}
     }
