@@ -4,7 +4,6 @@
         _create: $.hik.jtable.prototype._create
     };
 
-    //extension members
     $.extend(true, $.hik.jtable.prototype, {
         options: {
             filters: [
@@ -68,8 +67,8 @@
                         if (currentFilterObject.type == 'input') {
                             self._createInput(currentFilterObject);
                         }
-                        else if (currentFilterObject.type == 'dateTimePicker') {
-                            self._createDateTimePicker(currentFilterObject);
+                        else if (currentFilterObject.type == 'datetime') {
+                            self._createDateTime(currentFilterObject);
                         }
                         else if (currentFilterObject.type == 'select') {
                             self._createSelect(currentFilterObject);
@@ -101,14 +100,20 @@
 									.appendTo(inputContainer);
 
                 if (inputObject.label) {
-                    var label = $('<label/>').addClass('cq-filter-label').text(inputObject.label).appendTo(leftContainer);
+                    var label = $('<label/>')
+                        .addClass('cq-filter-label')
+                        .text(inputObject.label)
+                        .appendTo(leftContainer);
                 }
 
                 if (!inputObject.id) {
                     $.extend(inputObject, { id: self._getRandomGuid() });
                 }
 
-                var input = $('<input/>').addClass('form-control cq-filter-input').attr('id', inputObject.id).appendTo(rightContainer);
+                var input = $('<input/>')
+                    .addClass('form-control cq-filter-input')
+                    .attr('id', inputObject.id)
+                    .appendTo(rightContainer);
             }
         },
 
@@ -142,78 +147,72 @@
                                     .attr('id', selectObject.id)
                                     .addClass('selectpicker form-control')
                                     .attr('multiple', true)
-                                    .attr('data-width', "100%")
+                                    .css('height', '44px')
                                     .appendTo(selectContainer);
 
                 if (selectObject.options) {
-                    var data = selectObject.options;
+                    var data = [];
 
-                    for (key in data) {
-                        $('<option/>').text(data[key]).val(key).appendTo(select);
+                    if (Object.prototype.toString.call(selectObject.options) === '[object Array]') {
+                        data = selectObject.options;
+                    }
+
+                    if (Object.prototype.toString.call(selectObject.options) === '[object Function]') {
+                        var params = selectObject.optionsParams || {};
+                        selectObject.options(params).success(function (outputData) {
+                            if (Object.prototype.toString.call(outputData.items) === '[object Array]') {
+                                data = outputData.items;
+                                var selectEntry = $('#' + selectObject.id);
+
+                                for (key in data) {
+                                    selectEntry
+                                        .append($("<option></option>")
+                                        .attr("value", data[key].value)
+                                        .text(data[key].displayText));
+                                }
+
+                            }
+                        });
                     }
                 }
-
-                $('#' + selectObject.id).selectpicker({});
             }
         },
 
-        _createCombobox: function (comboboxObject) {
+        _createDateTime: function (inputObject) {
             var self = this;
-            if (comboboxObject) {
+            if (inputObject) {
+                var filterContainer = $('<div/>')
+                                    .addClass('col-md-3 cq-filter-container')
+                                    .appendTo(self.$_currentFilterRow);
 
-                var combobox = $('<select/>').attr('id', comboboxObject.id);
-                if (comboboxObject.multiple) {
-                    combobox = combobox.attr('multiple', true);
+                var labelContainer = $('<div/>')
+                                    .addClass('cq-filter-label-container')
+                                    .appendTo(filterContainer);
+
+                var selectContainer = $('<div/>')
+                                    .addClass('cq-filter-datetime-container')
+                                    .appendTo(filterContainer);
+
+                if (inputObject.label) {
+                    var label = $('<label/>')
+                                    .addClass('cq-filter-label')
+                                    .text(inputObject.label)
+                                    .appendTo(labelContainer);
                 }
-                combobox = combobox.addClass('form-control').appendTo(rightContainer);
 
-                if (comboboxObject.method) {
-
-                    var _method = comboboxObject.methodParams ? comboboxObject.method(comboboxObject.methodParams) : comboboxObject.method({});
-
-                    _method.done(function (data) {
-                        var options = data;
-
-                        if (comboboxObject.map)
-                            options = self._mapOptions(options, comboboxObject.map);
-
-                        self._appendOptionsToComboBox(combobox, options, !comboboxObject.multiple);
-
-                        //combobox.SumoSelect(abp.appConfig.sumoselectConfig);
-                    })
-						.fail(function (error) {
-						    abp.message.error("Can't get options for filter : " + (comboboxObject.label || comboboxObject.assignedField));
-						});
+                if (!inputObject.id) {
+                    $.extend(inputObject, { id: self._getRandomGuid() });
                 }
-            }
-        },
 
-        _mapOptions: function (options, mapper) {
-            var self = this;
-            var result = [];
-            var iterator;
-            for (iterator = 0; iterator < options.length; iterator++) {
-                var currentOption = options[iterator];
-                var newOption = {
-                    id: currentOption[mapper.id],
-                    text: currentOption[mapper.text]
-                }
-                result.push(newOption);
-            }
+                var datetime = $('<input/>')
+                    .addClass('form-control cq-filter-datetime')
+                    .attr('id', inputObject.id)
+                    .appendTo(filterContainer)
+                    .datetimepicker({
+                        timepicker: true,
+                        format: 'Y-m-d H:i'
+                    });
 
-            return result;
-        },
-
-        _appendOptionsToComboBox: function (comboboxJquery, optionsToAppend, addEmptyOption) {
-            var self = this;
-            var iterator;
-            if (addEmptyOption)
-                var emptyOption = $('<option/>').appendTo(comboboxJquery);
-
-            for (iterator = 0; iterator < optionsToAppend.length; iterator++) {
-                var currentOption = optionsToAppend[iterator];
-
-                var option = $('<option/>').text(currentOption.text).val(currentOption.id).appendTo(comboboxJquery);
             }
         },
 
@@ -224,78 +223,6 @@
 			   .toString();
 
             return guid;
-        },
-
-        _createDateTimePicker: function (dateTimePickerObject) {
-            var self = this;
-            if (dateTimePickerObject) {
-                var inputContainer = $('<div/>')
-									.addClass('col-xs-3')
-									.appendTo(self.$_currentFilterRow);
-
-                var leftContainer = $('<div/>')
-									.css('float', 'left')
-									.appendTo(inputContainer);
-
-                var rightContainer = $('<div/>')
-									.css('float', 'right')
-									.appendTo(inputContainer);
-
-                if (dateTimePickerObject.label) {
-                    var label = $('<label/>')
-                        .addClass('jtable-filter-label')
-                        .text(dateTimePickerObject.label)
-                        .appendTo(leftContainer);
-                }
-
-                if (!dateTimePickerObject.id) {
-                    $.extend(dateTimePickerObject, { id: self._getRandomGuid() });
-                }
-
-                var input = $('<input/>')
-                    .addClass('cq-input')
-                    .attr('id', dateTimePickerObject.id)
-                    .width(dateTimePickerObject.width || '150px')
-                    .appendTo(rightContainer);
-
-                leftContainer.css('max-width', inputContainer.width() - input.width() - 6);
-                // Using to set DateTimePicker default value 
-                var setDateTimePickerDefaultValue = function () {
-                    if (dateTimePickerObject.defaultValue) {
-                        input.val(dateTimePickerObject.defaultValue);
-                    }
-                }
-                setDateTimePickerDefaultValue();
-                // Using to creta DateTimePicker from  input using options
-                var createDateTimePicker = function () {
-                    var getDateTimePickerSettingsDefaultObject = function () {
-                        var dateTimePickerSettingsObject = {
-                            timepicker: true,
-                            datepicker: true,
-                            format: 'm.d.Y H:i',
-                            allowBlank: true
-                        };
-                        return dateTimePickerSettingsObject;
-                    }
-                    var getDateTimePickerCustomSettingsObject = function (options) {
-                        var customSettingsObject = getDateTimePickerSettingsDefaultObject();
-                        var keys = Object.keys(options);
-                        for (var i = 0; i < keys.length; i++) {
-                            customSettingsObject[keys[i]] = options[keys[i]];
-                        }
-                        return customSettingsObject;
-                    }
-                    var dateTimePickerSettingsObject;
-                    if (dateTimePickerObject.options) {
-                        dateTimePickerSettingsObject = getDateTimePickerCustomSettingsObject(dateTimePickerObject.options);
-                    }
-                    else {
-                        dateTimePickerSettingsObject = getDateTimePickerSettingsDefaultObject();
-                    }
-                    input.datetimepicker(dateTimePickerSettingsObject);
-                }
-                createDateTimePicker();
-            }
         },
 
         _createFilterLoadBtn: function () {
@@ -330,16 +257,21 @@
                     continue;
                 }
 
-                var controlValue = $('#' + currentFilter.id).val();
+                var controlValue;
+
+                if (currentFilter.assignedField == "DateStart") {
+                    var val = $('#' + currentFilter.id).val();
+                    
+                    controlValue = moment(val, 'YYYY-MM-DD HH:mm').format('YYYY-MM-DDTHH:mm:ss');
+                } else {
+                    controlValue = $('#' + currentFilter.id).val();
+                }
 
                 if (!controlValue)
                     continue;
 
                 object[currentFilter.assignedField] = controlValue;
-
-                //Object.defineProperty(object, currentFilter.assignedField, {
-                //	value: controlValue
-                //});
+                
             }
 
             return object;
@@ -357,4 +289,4 @@
 // cq-filter-label
 // cq-filter-input
 // cq-filter-applybtn-container
-// cq-filter-applybtn 
+// cq-filter-applybtn // custom

@@ -53,7 +53,8 @@ namespace CityQuest.CityQuestPolicy.GameModule.Games
                 long count = KeyRepository.GetAll().Where(r => r.GameId == entity.Id && r.OwnerUserId == userId).Count();
                 result3 =  count > 0;
             }
-            #warning fix this results1, results2, results3 -> нормальное 
+
+            #warning TODO fix this results1, results2, results3 -> нормальное 
             return (result1 || result2 || result3);
         }
 

@@ -1,6 +1,7 @@
 ﻿using Abp.Authorization;
 using CityQuest.CityQuestConstants;
 using CityQuest.Entities.GameModule.Teams;
+using CityQuest.Entities.MainModule.Users;
 using CityQuest.Runtime.Sessions;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace CityQuest.CityQuestPolicy.GameModule.Teams
 {
     public class TeamPolicy : CityQuestPolicyBase<Team, long>, ITeamPolicy
     {
+        protected IUserRepository UserRepository { get; set; }
         public TeamPolicy(ICityQuestSession session, IPermissionChecker permissionChecker) 
             : base(session, permissionChecker) { }
 
@@ -29,7 +31,7 @@ namespace CityQuest.CityQuestPolicy.GameModule.Teams
             return false;
         }
 
-        public bool CanRetrieveOnwTeam(long userId, Team entity)
+        public bool CanRetrieveOwnTeam(long userId, Team entity)
         {
             if (userId == 0)
                 return false;
@@ -39,9 +41,18 @@ namespace CityQuest.CityQuestPolicy.GameModule.Teams
                 PermissionChecker.IsGranted(CityQuestPermissionNames.CanAllTeam) ||
                 PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieveTeam))
                 return true;
+            
+            User user = UserRepository.Get(userId);
+            if (entity.Players.Contains(user))
+            {
+                return true;
+            }
 
-            // if member of team return true
+            return false;
+        }
 
+        public bool CanRetrieveForeignTeam(long userId, Team entity)
+        {
             return false;
         }
 

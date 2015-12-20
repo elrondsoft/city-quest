@@ -43,10 +43,13 @@ namespace CityQuest.ApplicationServices.GameModule.Locations
             LocationRepository.Includes.Add(r => r.LastModifierUser);
             LocationRepository.Includes.Add(r => r.CreatorUser);
 
+            
             IQueryable<Location> locationsQuery = LocationPolicy.CanRetrieveManyEntities(
                 LocationRepository.GetAll()
                 .WhereIf(!input.LocationIds.IsNullOrEmpty(), r => input.LocationIds.Contains(r.Id))
-                .WhereIf(!String.IsNullOrEmpty(input.Name), r => r.Name.ToLower().Contains(input.Name.ToLower())));
+                .WhereIf(!String.IsNullOrEmpty(input.Name), r => r.Name.ToLower().Contains(input.Name.ToLower()))
+                .WhereIf(input.DateStart != null, r => (r.CreationTime > input.DateStart))
+                .WhereIf(input.DateEnd != null, r => (r.CreationTime < input.DateEnd)));
 
             int totalCount = locationsQuery.Count();
             IReadOnlyList<LocationDto> locationDtos = locationsQuery
@@ -86,6 +89,7 @@ namespace CityQuest.ApplicationServices.GameModule.Locations
                 LocationRepository.GetAll()
                 .WhereIf(!input.LocationIds.IsNullOrEmpty(), r => input.LocationIds.Contains(r.Id))
                 .WhereIf(!String.IsNullOrEmpty(input.Name), r => r.Name.ToLower().Contains(input.Name.ToLower())))
+                // .WhereIf(input.LocationIds, r => input.LocationIds)
                 .OrderBy(r => r.DisplayName)
                 .ToList();
 

@@ -44,6 +44,8 @@ namespace CityQuest.CityQuestConstants
 
         public const string CanAllTeam = "CanAllTeam";
         public const string CanRetrieveTeam = "CanRetrieveTeam";
+        public const string CanRetrieveOwnTeam = "CanRetrieveOwnTeam";
+        public const string CanRetrieveForeignTeam = "CanRetrieveForeignTeam";
         public const string CanCreateTeam = "CanCreateTeam";
         public const string CanUpdateTeam = "CanUpdateTeam";
         public const string CanDeleteTeam = "CanDeleteTeam";

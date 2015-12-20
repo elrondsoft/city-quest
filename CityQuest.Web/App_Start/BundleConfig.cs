@@ -20,6 +20,8 @@ namespace CityQuest.Web
                     .Include("~/Content/flags/famfamfam-flags.css", new CssRewriteUrlTransform())
                     .Include("~/Content/font-awesome.min.css", new CssRewriteUrlTransform())
                     .Include("~/Scripts/jtable/themes/metro/blue/jtable.min.css", new CssRewriteUrlTransform())
+                   
+                    .Include("~/Content/jquery.datetimepicker.css", new CssRewriteUrlTransform())
                 );
 
             //~/Bundles/App/vendor/js
@@ -63,7 +65,9 @@ namespace CityQuest.Web
                         "~/Scripts/jtable/jquery.jtable.min.js",
                         "~/Scripts/jtable/abp.jtable.js",
                         "~/Scripts/jtable/extensions/jquery.jtable.filter.js",
-                        "~/Scripts/jtable/extensions/jquery.jtable.column_info.js"
+                        "~/Scripts/jtable/extensions/jquery.jtable.column_info.js",
+
+                        "~/Scripts/jquery.datetimepicker.full.min.js"
                     )
                 );
 
