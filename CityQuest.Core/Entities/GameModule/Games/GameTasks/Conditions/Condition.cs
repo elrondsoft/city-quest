@@ -1,5 +1,6 @@
 ﻿using Abp.Domain.Entities.Auditing;
 using CityQuest.Entities.GameModule.Games.GameTasks.Conditions.ConditionTypes;
+using CityQuest.Entities.GameModule.Games.GameTasks.Conditions.PlayerAttempts;
 using CityQuest.Entities.MainModule.Users;
 using CityQuest.Entities.Shared;
 using System;
@@ -18,6 +19,9 @@ namespace CityQuest.Entities.GameModule.Games.GameTasks.Conditions
 
         public long ConditionTypeId { get; set; }
         public virtual ConditionType ConditionType { get; set; }
+
+        public ICollection<SuccessfulPlayerAttempt> SuccessfulPlayerAttempts { get; set; }
+        public ICollection<UnsuccessfulPlayerAttempt> UnsuccessfulPlayerAttempts { get; set; }
 
         #endregion
 

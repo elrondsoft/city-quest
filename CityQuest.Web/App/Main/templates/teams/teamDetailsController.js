@@ -51,7 +51,6 @@
                         slogan: null,
                         isActive: true,
                         players: [],
-                        captainId: null,
                         divisionId: null,
                     };
                     vm.entity = defaultEntity;

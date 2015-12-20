@@ -69,7 +69,7 @@
                             ng-options="division.value as division.displayText for division in vm.divisions" />
                 </div>
             </div>
-            <div class="row cq-control-row">
+            @*<div class="row cq-control-row">
                 <div class="col-xs-2 cq-control-label">
                     @L("Captain"): &nbsp;
                 </div>
@@ -85,7 +85,7 @@
                             ng-model="vm.entity.captainId"
                             ng-options="player.value as player.displayText for player in vm.players" />
                 </div>
-            </div>
+            </div>*@
         </uib-accordion-group>
         <uib-accordion-group is-open="false"
                              ng-if="vm.templateMode.isInfo() || vm.templateMode.isUpdate()"
@@ -100,8 +100,8 @@
                         <a href="#" ng-repeat="player in vm.entity.players"
                            class="list-group-item list-group-item-info"
                            style="padding: 1px 20px;">
-                            <span ng-bind="{{player.userName + ' ' + '(' + player.name + ' ' + player.surname + ')'}}"
-                                  ng-click="vm.openTeamInfo(player.id)"></span>
+                            <span ng-bind="{{player.FullUserName}}"
+                                  ng-click="vm.openPlayerInfo(player.id)"></span>
                         </a>
                     </div>
                 </div>

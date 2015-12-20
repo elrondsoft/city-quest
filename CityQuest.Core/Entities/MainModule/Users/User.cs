@@ -1,7 +1,7 @@
 ﻿using Abp.Domain.Entities.Auditing;
 using CityQuest.Entities.GameModule.Keys;
 using CityQuest.Entities.GameModule.Locations;
-using CityQuest.Entities.GameModule.Teams;
+using CityQuest.Entities.GameModule.PlayerCareers;
 using CityQuest.Entities.MainModule.Authorization.UserLogins;
 using CityQuest.Entities.MainModule.Authorization.UserRoles;
 using CityQuest.Entities.MainModule.Authorization.UserServices;
@@ -18,12 +18,12 @@ namespace CityQuest.Entities.MainModule.Users
     public class User : FullAuditedEntity<long, User>, IUser<long>
     {
         #region Relations
+
         public long? LocationId { get; set; }
         public Location Location { get; set; }
 
         public virtual ICollection<Key> ActivatedKeys { get; set; }
-        public virtual ICollection<Team> Teams { get; set; }
-        public virtual ICollection<Team> LeadedTeams { get; set; }
+        public virtual ICollection<PlayerCareer> PlayerCareers { get; set; }
 
         public virtual ICollection<UserLogin> Logins { get; set; }
         public virtual ICollection<UserRole> Roles { get; set; }

@@ -24,9 +24,8 @@
                 },
                 displayCaptain: function (data) {
                     var result = '-';
-                    if (data.record.captain) {
-                        result = data.record.captain.userName + ' ' + 
-                            '(' + data.record.captain.name + ' ' + data.record.captain.surname + ')';
+                    if (data.record.captainUserFullName) {
+                        result = data.record.captainUserFullName;
                     }
                     return result;
                 },

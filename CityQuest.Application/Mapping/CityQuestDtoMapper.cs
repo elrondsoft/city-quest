@@ -100,8 +100,9 @@ namespace CityQuest.Mapping
                 .ReverseMap();
 
             AutoMapper.Mapper.CreateMap<Team, TeamDto>()
-                .ForMember(r => r.Captain, r => r.MapFrom(e => e.Captain))
-                .ForMember(r => r.Players, r => r.MapFrom(e => e.Players))
+                .ForMember(r => r.CaptainUserFullName, r => r.MapFrom(e => e.Captain != null ? e.Captain.User.FullUserName : "-"))
+                .ForMember(r => r.CaptainUserId, r => r.MapFrom(e => e.Captain != null ? (long?)e.Captain.User.Id : null))
+                //.ForMember(r => r.Players, r => r.MapFrom(e => e.Players))
                 .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))
                 .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
                 .ReverseMap();

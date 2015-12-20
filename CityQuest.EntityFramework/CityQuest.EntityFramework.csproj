@@ -143,6 +143,14 @@
     <Compile Include="Migrations\201512012156120_AddedGameStatuses.Designer.cs">
       <DependentUpon>201512012156120_AddedGameStatuses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512192353467_AddedPlayerCareers.cs" />
+    <Compile Include="Migrations\201512192353467_AddedPlayerCareers.Designer.cs">
+      <DependentUpon>201512192353467_AddedPlayerCareers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512201414499_AddedStatistics.cs" />
+    <Compile Include="Migrations\201512201414499_AddedStatistics.Designer.cs">
+      <DependentUpon>201512201414499_AddedStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CityQuestDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -181,6 +189,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512012156120_AddedGameStatuses.resx">
       <DependentUpon>201512012156120_AddedGameStatuses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512192353467_AddedPlayerCareers.resx">
+      <DependentUpon>201512192353467_AddedPlayerCareers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512201414499_AddedStatistics.resx">
+      <DependentUpon>201512201414499_AddedStatistics.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

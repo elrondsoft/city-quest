@@ -12,8 +12,6 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions.Dtos
     {
         #region Relations
 
-        //public virtual ICollection<TeamDto> Teams { get; set; }
-
         public string LastModifierUserFullName { get; set; }
         public string CreatorUserFullName { get; set; }
         public int TeamsCount { get; set; }

@@ -186,12 +186,14 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             GameRepository.Includes.Add(r => r.LastModifierUser);
             GameRepository.Includes.Add(r => r.CreatorUser);
 
-            GameDto newGameDto = (GameRepository.Insert(newGameEntity)).MapTo<GameDto>();
+            long newGameId = GameRepository.InsertAndGetId(newGameEntity);
 
             UowManager.Current.Completed += (sender, e) =>
             {
-                GameChangesNotifier.RaiseOnGameAdded(new GameAddedMessage(newGameDto.Id));
+                GameChangesNotifier.RaiseOnGameAdded(new GameAddedMessage(newGameId));
             };
+
+            GameDto newGameDto = GameRepository.Get(newGameId).MapTo<GameDto>();
 
             GameRepository.Includes.Clear();
 

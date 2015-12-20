@@ -4,6 +4,8 @@ using CityQuest.Entities.GameModule.Games.GameStatuses;
 using CityQuest.Entities.GameModule.Games.GameTasks;
 using CityQuest.Entities.GameModule.Keys;
 using CityQuest.Entities.GameModule.Locations;
+using CityQuest.Entities.GameModule.Statistics.PlayerGameStatistics;
+using CityQuest.Entities.GameModule.Statistics.TeamGameStatistics;
 using CityQuest.Entities.MainModule.Users;
 using System;
 using System.Collections.Generic;
@@ -24,6 +26,9 @@ namespace CityQuest.Entities.GameModule.Games
 
         public virtual ICollection<Key> Keys { get; set; }
         public virtual ICollection<GameTask> GameTasks { get; set; }
+
+        public virtual ICollection<PlayerGameStatistic> PlayerGameStatistics { get; set; }
+        public virtual ICollection<TeamGameStatistic> TeamGameStatistics { get; set; }
 
         #endregion
 
