@@ -103,6 +103,7 @@
                                 conditionTypeId: null,
                                 name: null,
                                 description: null,
+                                valueToPass: null,
                                 order: null,
                             };
                             return emptyCondition;

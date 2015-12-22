@@ -14,5 +14,10 @@ namespace CityQuest.CityQuestPolicy.GameModule.Games
 
         bool CanGenerateKeysForEntity(long userId, Game entity);
         bool CanGenerateKeysForEntity(Game entity);
+
+        bool CanRetrieveEntityLight(long userId, Game entity);
+        bool CanRetrieveEntityLight(Game entity);
+        IQueryable<Game> CanRetrieveManyEntitiesLight(long userId, IQueryable<Game> entities);
+        IQueryable<Game> CanRetrieveManyEntitiesLight(IQueryable<Game> entities);
     }
 }

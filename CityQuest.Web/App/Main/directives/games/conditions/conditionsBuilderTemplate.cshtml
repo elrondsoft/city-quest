@@ -128,6 +128,18 @@
                                 </div>
                                 <div class="row cq-control-row">
                                     <div class="col-xs-2 cq-control-label">
+                                        {{conditionsBuilder.localize('Description')}}:&nbsp;
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <textarea class="form-control cq-control"
+                                                  ng-disabled="!(conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate())"
+                                                  ng-readonly="!(conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate())"
+                                                  rows="3"
+                                                  ng-model="condition.description" />
+                                    </div>
+                                </div>
+                                <div class="row cq-control-row">
+                                    <div class="col-xs-2 cq-control-label">
                                         {{conditionsBuilder.localize('ConditionType')}}:&nbsp;
                                     </div>
                                     <div class="col-xs-10">
@@ -145,14 +157,13 @@
                                 </div>
                                 <div class="row cq-control-row">
                                     <div class="col-xs-2 cq-control-label">
-                                        {{conditionsBuilder.localize('Description')}}:&nbsp;
+                                        {{conditionsBuilder.localize('ValueToPass')}}:&nbsp;
                                     </div>
                                     <div class="col-xs-10">
-                                        <textarea class="form-control cq-control"
-                                                  ng-disabled="!(conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate())"
-                                                  ng-readonly="!(conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate())"
-                                                  rows="3"
-                                                  ng-model="condition.description" />
+                                        <input class="form-control cq-control"
+                                               ng-disabled="!(conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate())"
+                                               ng-readonly="!(conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate())"
+                                               ng-model="condition.valueToPass" />
                                     </div>
                                 </div>
                             </uib-accordion-group>

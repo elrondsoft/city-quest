@@ -167,6 +167,8 @@
     <text name="ButtonCloseTitle" value="Close this template" />
     <text name="ButtonSaveTitle" value="Save changes for this entity" />
     <text name="ButtonDeleteTitle" value="Delete this entity" />
+    <text name="ValueToPass" value="Value to pass" />
+    
 
   </texts>
 </localizationDictionary>

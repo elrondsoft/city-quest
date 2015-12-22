@@ -25,6 +25,7 @@ namespace CityQuest.ApplicationServices.GameModule.Conditions.Dtos
 
         public string Name { get; set; }
         public string Description { get; set; }
+        public string ValueToPass { get; set; }
         public int Order { get; set; }
     }
 }

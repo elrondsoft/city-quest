@@ -136,6 +136,8 @@
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\ConditionTypes\ConditionType.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\ConditionTypes\IConditionTypeRepository.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\IConditionRepository.cs" />
+    <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\PlayerAttempts\ISuccessfulPlayerAttemptRepository.cs" />
+    <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\PlayerAttempts\IUnsuccessfulPlayerAttemptRepository.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\PlayerAttempts\SuccessfulPlayerAttempt.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\Conditions\PlayerAttempts\UnsuccessfulPlayerAttempt.cs" />
     <Compile Include="Entities\GameModule\Games\GameTasks\GameTask.cs" />

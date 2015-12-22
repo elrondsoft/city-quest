@@ -150,5 +150,43 @@ namespace CityQuest.CityQuestPolicy.GameModule.Games
         {
             return CanGenerateKeysForEntity(Session.UserId ?? 0, entity);
         }
+
+        #region GameLight (game entity for users with keys) policy
+#warning TODO: implement this policy!
+        public bool CanRetrieveEntityLight(long userId, Game entity)
+        {
+            if (userId == 0)
+                return false;
+
+            if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanAll))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool CanRetrieveEntityLight(Game entity) 
+        {
+            return CanRetrieveEntityLight(Session.UserId ?? 0, entity);
+        }
+
+        public IQueryable<Game> CanRetrieveManyEntitiesLight(long userId, IQueryable<Game> entities)
+        {
+            if (userId == 0)
+                return new List<Game>().AsQueryable();
+
+            if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanAll))
+                return entities;
+
+            return new List<Game>().AsQueryable();
+        }
+
+        public IQueryable<Game> CanRetrieveManyEntitiesLight(IQueryable<Game> entities)
+        {
+            return CanRetrieveManyEntitiesLight(Session.UserId ?? 0, entities);
+        }
+
+        #endregion
     }
 }

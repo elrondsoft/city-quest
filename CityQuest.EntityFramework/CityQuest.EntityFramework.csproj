@@ -108,8 +108,10 @@
     <Compile Include="EntityFramework\Repositories\GameModule\GameTaskTypeRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\KeyRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\LocationRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\GameModule\SuccessfulPlayerAttemptRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\TeamRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\TipRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\GameModule\UnsuccessfulPlayerAttemptRepository.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Migrations\201510111309189_InitialCreate.cs" />
     <Compile Include="Migrations\201510111309189_InitialCreate.Designer.cs">
@@ -150,6 +152,10 @@
     <Compile Include="Migrations\201512201414499_AddedStatistics.cs" />
     <Compile Include="Migrations\201512201414499_AddedStatistics.Designer.cs">
       <DependentUpon>201512201414499_AddedStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512222300246_UpdatedCondition.cs" />
+    <Compile Include="Migrations\201512222300246_UpdatedCondition.Designer.cs">
+      <DependentUpon>201512222300246_UpdatedCondition.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CityQuestDataModule.cs" />
@@ -195,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512201414499_AddedStatistics.resx">
       <DependentUpon>201512201414499_AddedStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512222300246_UpdatedCondition.resx">
+      <DependentUpon>201512222300246_UpdatedCondition.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

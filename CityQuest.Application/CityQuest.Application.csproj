@@ -121,11 +121,15 @@
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\GameLightDto.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\GameTaskLightDto.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\GameTaskTypeLightDto.cs" />
+    <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveGameResultsAndTasksInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveGameResultsAndTasksOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveGameCollectionInput.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveGameCollectionOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveGameLightInput.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveGameLightOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\TipLightDto.cs" />
+    <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\TryToPassConditionInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\TryToPassConditionOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\GameLightAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\IGameLightAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\GameStatuses\Dtos\GameStatusDto.cs" />
