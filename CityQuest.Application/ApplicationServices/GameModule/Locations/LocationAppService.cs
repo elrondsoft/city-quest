@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace CityQuest.ApplicationServices.GameModule.Locations
 {
+    [Abp.Authorization.AbpAuthorize]
     public class LocationAppService : ILocationAppService
     {
         #region Injected Dependencies
@@ -38,6 +39,7 @@ namespace CityQuest.ApplicationServices.GameModule.Locations
 
         #endregion
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllPagedResultOutput<LocationDto, long> RetrieveAllPagedResult(RetrieveAllLocationsPagedResultInput input)
         {
             LocationRepository.Includes.Add(r => r.LastModifierUser);
@@ -66,6 +68,7 @@ namespace CityQuest.ApplicationServices.GameModule.Locations
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllLocationsLikeComboBoxesOutput RetrieveAllLocationsLikeComboBoxes(RetrieveAllLocationsLikeComboBoxesInput input)
         {
             IReadOnlyList<ComboboxItemDto> locationsLikeComboBoxes = LocationPolicy.CanRetrieveManyEntities(
@@ -79,6 +82,7 @@ namespace CityQuest.ApplicationServices.GameModule.Locations
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllOutput<LocationDto, long> RetrieveAll(RetrieveAllLocationInput input)
         {
             LocationRepository.Includes.Add(r => r.LastModifierUser);
@@ -102,6 +106,7 @@ namespace CityQuest.ApplicationServices.GameModule.Locations
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveOutput<LocationDto, long> Retrieve(RetrieveLocationInput input)
         {
             LocationRepository.Includes.Add(r => r.LastModifierUser);
@@ -128,6 +133,7 @@ namespace CityQuest.ApplicationServices.GameModule.Locations
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public CreateOutput<LocationDto, long> Create(CreateInput<LocationDto, long> input)
         {
             Location newLocationEntity = input.Entity.MapTo<Location>();
@@ -148,6 +154,7 @@ namespace CityQuest.ApplicationServices.GameModule.Locations
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public UpdateOutput<LocationDto, long> Update(UpdateInput<LocationDto, long> input)
         {
             Location newLocationEntity = input.Entity.MapTo<Location>();
@@ -172,6 +179,7 @@ namespace CityQuest.ApplicationServices.GameModule.Locations
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public DeleteOutput<long> Delete(DeleteInput<long> input)
         {
             Location locationEntityForDelete = LocationRepository.Get(input.EntityId);

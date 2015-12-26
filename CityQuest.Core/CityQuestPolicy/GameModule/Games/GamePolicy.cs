@@ -1,6 +1,7 @@
 ﻿using Abp.Authorization;
 using CityQuest.CityQuestConstants;
 using CityQuest.Entities.GameModule.Games;
+using CityQuest.Entities.GameModule.Games.GameStatuses;
 using CityQuest.Entities.GameModule.Keys;
 using CityQuest.Entities.MainModule.Users;
 using CityQuest.Runtime.Sessions;
@@ -149,6 +150,34 @@ namespace CityQuest.CityQuestPolicy.GameModule.Games
         public bool CanGenerateKeysForEntity(Game entity)
         {
             return CanGenerateKeysForEntity(Session.UserId ?? 0, entity);
+        }
+
+        public bool CanChangeStatusForEntity(long userId, Game entity, GameStatus oldEntityStatus, GameStatus newEntityStatus)
+        {
+            if (userId == 0)
+                return false;
+
+            if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanAll) ||
+                PermissionChecker.IsGranted(CityQuestPermissionNames.CanUpdate) ||
+                PermissionChecker.IsGranted(CityQuestPermissionNames.CanAllGame) ||
+                PermissionChecker.IsGranted(CityQuestPermissionNames.CanUpdateGame) ||
+                PermissionChecker.IsGranted(CityQuestPermissionNames.CanChangeGameStatus))
+            {
+                bool result = false;
+                if (!String.IsNullOrEmpty(oldEntityStatus.NextAllowedStatusNames))
+                {
+                    List<string> nextAllowedStatusNames = oldEntityStatus.NextAllowedStatusNames.Split(',').ToList();
+                    result = nextAllowedStatusNames.Contains(newEntityStatus.Name);
+                }
+                return result;
+            }
+
+            return false;
+        }
+
+        public bool CanChangeStatusForEntity(Game entity, GameStatus oldEntityStatus, GameStatus newEntityStatus)
+        {
+            return CanChangeStatusForEntity(Session.UserId ?? 0, entity, oldEntityStatus, newEntityStatus);
         }
 
         #region GameLight (game entity for users with keys) policy

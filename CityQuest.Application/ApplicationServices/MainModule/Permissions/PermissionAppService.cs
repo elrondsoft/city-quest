@@ -10,8 +10,10 @@ using System.Threading.Tasks;
 
 namespace CityQuest.ApplicationServices.MainModule.Permissions
 {
+    [Abp.Authorization.AbpAuthorize]
     public class PermissionAppService : IPermissionAppService
     {
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllLikeComboBoxesOutput RetrieveAllLikeComboBoxes(RetrieveAllLikeComboBoxesInput input)
         {
             IReadOnlyList<ComboboxItemDto> permissions = CityQuestPermissionNames.GetAllPermission()

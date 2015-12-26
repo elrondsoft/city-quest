@@ -70,5 +70,12 @@ namespace CityQuest.ApplicationServices.GameModule.Games
         /// <param name="input">object with input params</param>
         /// <returns>object with output params</returns>
         ChangeActivityOutput<GameDto, long> ChangeActivity(ChangeActivityInput input);
+
+        /// <summary>
+        /// Is used to change status for entity (Game) 
+        /// </summary>
+        /// <param name="input">object with input params</param>
+        /// <returns>object with output params</returns>
+        ChangeGameStatusOutput ChangeGameStatus(ChangeGameStatusInput input);
     }
 }

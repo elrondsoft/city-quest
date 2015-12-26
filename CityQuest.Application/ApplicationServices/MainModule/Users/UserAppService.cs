@@ -51,6 +51,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users
 
         #endregion
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllPagedResultOutput<UserDto, long> RetrieveAllPagedResult(RetrieveAllUsersPagedResultInput input)
         {
             UserRepository.Includes.Add(r => r.LastModifierUser);
@@ -80,6 +81,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllUsersLikeComboBoxesOutput RetrieveAllUsersLikeComboBoxes(RetrieveAllUsersLikeComboBoxesInput input)
         {
             IReadOnlyList<ComboboxItemDto> usersLikeComboBoxes = UserRepository.GetAll()
@@ -96,6 +98,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllOutput<UserDto, long> RetrieveAll(RetrieveAllUsersInput input)
         {
             IList<User> userEntities = UserRepository.GetAll()
@@ -115,6 +118,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveOutput<UserDto, long> Retrieve(RetrieveUserInput input)
         {
             IList<User> userEntities = UserRepository.GetAll()
@@ -135,6 +139,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveOutput<UserDto, long> RetrieveCurrentUserInfo()
         {
             return Retrieve(new RetrieveUserInput() { Id = Session.UserId.Value });
@@ -188,6 +193,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public UpdateOutput<UserDto, long> Update(UpdateInput<UserDto, long> input)
         {
             User userEntityForUpdate = UserRepository.Get(input.Entity.Id);
@@ -237,6 +243,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public ChangePasswordOutput ChangePassword(ChangePasswordInput input)
         {
             User currentUser = UserRepository.FirstOrDefault(Session.UserId.Value);
@@ -255,6 +262,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users
             return new ChangePasswordOutput();
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public DeleteOutput<long> Delete(DeleteInput<long> input)
         {
             try

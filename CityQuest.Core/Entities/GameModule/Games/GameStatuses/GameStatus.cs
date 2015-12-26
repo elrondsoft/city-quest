@@ -18,6 +18,7 @@ namespace CityQuest.Entities.GameModule.Games.GameStatuses
 
         public string Name { get; set; }
         public string Description { get; set; }
+        public string NextAllowedStatusNames { get; set; }
         public bool IsDefault { get; set; }
     }
 }

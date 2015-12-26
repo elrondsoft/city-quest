@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace CityQuest.ApplicationServices.MainModule.Roles
 {
+    [Abp.Authorization.AbpAuthorize]
     public class RoleAppService : IRoleAppService
     {
         #region Injected Dependencies
@@ -39,6 +40,7 @@ namespace CityQuest.ApplicationServices.MainModule.Roles
 
         #endregion
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllPagedResultOutput<RoleDto, long> RetrieveAllPagedResult(RetrieveAllRolesPagedResultInput input)
         {
             RoleRepository.Includes.Add(r => r.LastModifierUser);
@@ -64,6 +66,7 @@ namespace CityQuest.ApplicationServices.MainModule.Roles
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllRolesLikeComboBoxesOutput RetrieveAllRolesLikeComboBoxes(RetrieveAllRolesLikeComboBoxesInput input)
         {
             IReadOnlyList<ComboboxItemDto> rolesLikeComboBoxes = RoleRepository.GetAll().ToList()
@@ -75,6 +78,7 @@ namespace CityQuest.ApplicationServices.MainModule.Roles
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllOutput<RoleDto, long> RetrieveAll(RetrieveAllRoleInput input)
         {
             IList<Role> roleEntities = RoleRepository.GetAll()
@@ -90,6 +94,7 @@ namespace CityQuest.ApplicationServices.MainModule.Roles
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveOutput<RoleDto, long> Retrieve(RetrieveRoleInput input)
         {
             IList<Role> roleEntities = RoleRepository.GetAll()
@@ -110,6 +115,7 @@ namespace CityQuest.ApplicationServices.MainModule.Roles
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public CreateOutput<RoleDto, long> Create(CreateInput<RoleDto, long> input)
         {
             Role newRoleEntity = new Role() 
@@ -142,6 +148,7 @@ namespace CityQuest.ApplicationServices.MainModule.Roles
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public UpdateOutput<RoleDto, long> Update(UpdateInput<RoleDto, long> input)
         {
             Role roleEntityForUpdate = RoleRepository.Get(input.Entity.Id);
@@ -178,6 +185,7 @@ namespace CityQuest.ApplicationServices.MainModule.Roles
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public DeleteOutput<long> Delete(DeleteInput<long> input)
         {
             Role roleEntityForDelete = RoleRepository.Get(input.EntityId);

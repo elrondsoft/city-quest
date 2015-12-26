@@ -24,6 +24,7 @@
         public const string CQPolicyExceptionUpdateDenied = "Your permissions do not allow you to perform this action: update selected entity ({0}).";
         public const string CQPolicyExceptionDeleteDenied = "Your permissions do not allow you to perform this action: delete selected entity ({0}).";
         public const string CQPolicyExceptionChangeActivityDenied = "Your permissions do not allow you to perform this action: change activity of selected entity ({0}).";
+        public const string CQPolicyExceptionChangeStatusDenied = "Your permissions do not allow you to perform this action: change status of selected entity ({0}).";
         
         #endregion
 

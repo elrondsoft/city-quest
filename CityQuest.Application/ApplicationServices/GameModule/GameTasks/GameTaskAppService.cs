@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 
 namespace CityQuest.ApplicationServices.GameModule.GameTasks
 {
+    [Abp.Authorization.AbpAuthorize]
     public class GameTaskAppService : IGameTaskAppService
     {
         #region Injected Dependencies
@@ -47,6 +48,7 @@ namespace CityQuest.ApplicationServices.GameModule.GameTasks
 
         #endregion
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllPagedResultOutput<GameTaskDto, long> RetrieveAllPagedResult(RetrieveAllGameTasksPagedResultInput input)
         {
             if (input.IsActive ?? true)
@@ -78,6 +80,7 @@ namespace CityQuest.ApplicationServices.GameModule.GameTasks
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllGameTasksLikeComboBoxesOutput RetrieveAllGameTasksLikeComboBoxes(RetrieveAllGameTasksLikeComboBoxesInput input)
         {
             if (input.IsActive ?? true)
@@ -93,6 +96,7 @@ namespace CityQuest.ApplicationServices.GameModule.GameTasks
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllOutput<GameTaskDto, long> RetrieveAll(RetrieveAllGameTaskInput input)
         {
             if (input.IsActive ?? true)
@@ -119,7 +123,8 @@ namespace CityQuest.ApplicationServices.GameModule.GameTasks
                 RetrievedEntities = result
             };
         }
-
+        
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveOutput<GameTaskDto, long> Retrieve(RetrieveGameTaskInput input)
         {
             if (input.IsActive ?? true)
@@ -151,7 +156,8 @@ namespace CityQuest.ApplicationServices.GameModule.GameTasks
                 RetrievedEntity = gameTaskEntity
             };
         }
-
+        
+        [Abp.Authorization.AbpAuthorize]
         public CreateOutput<GameTaskDto, long> Create(CreateInput<GameTaskDto, long> input)
         {
             throw new NotSupportedException("This method is implemented but it is not safely to use it.");
@@ -179,6 +185,7 @@ namespace CityQuest.ApplicationServices.GameModule.GameTasks
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public UpdateOutput<GameTaskDto, long> Update(UpdateInput<GameTaskDto, long> input)
         {
             throw new NotSupportedException("This method is implemented but it is not safely to use it.");
@@ -208,6 +215,7 @@ namespace CityQuest.ApplicationServices.GameModule.GameTasks
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public DeleteOutput<long> Delete(DeleteInput<long> input)
         {
             throw new NotSupportedException("This method is implemented but it is not safely to use it.");
@@ -228,6 +236,7 @@ namespace CityQuest.ApplicationServices.GameModule.GameTasks
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public ChangeActivityOutput<GameTaskDto, long> ChangeActivity(ChangeActivityInput input)
         {
             throw new NotSupportedException("This method is implemented but it is not safely to use it.");
@@ -260,6 +269,7 @@ namespace CityQuest.ApplicationServices.GameModule.GameTasks
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveGameTasksForGameOutput RetrieveGameTasksForGame(RetrieveGameTasksForGameInput input)
         {
             if (!(input.GameId > 0))

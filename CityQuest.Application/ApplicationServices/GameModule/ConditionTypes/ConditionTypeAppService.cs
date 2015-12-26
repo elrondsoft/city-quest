@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace CityQuest.ApplicationServices.GameModule.ConditionTypes
 {
+    [Abp.Authorization.AbpAuthorize]
     public class ConditionTypeAppService : IConditionTypeAppService
     {
         #region Injected Dependencies
@@ -39,6 +40,7 @@ namespace CityQuest.ApplicationServices.GameModule.ConditionTypes
 
         #endregion
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllPagedResultOutput<ConditionTypeDto, long> RetrieveAllPagedResult(
             RetrieveAllConditionTypesPagedResultInput input)
         {
@@ -68,6 +70,7 @@ namespace CityQuest.ApplicationServices.GameModule.ConditionTypes
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllConditionTypesLikeComboBoxesOutput RetrieveAllConditionTypesLikeComboBoxes(
             RetrieveAllConditionTypesLikeComboBoxesInput input)
         {
@@ -85,6 +88,7 @@ namespace CityQuest.ApplicationServices.GameModule.ConditionTypes
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllOutput<ConditionTypeDto, long> RetrieveAll(RetrieveAllConditionTypeInput input)
         {
             if (input.IsActive ?? true)
@@ -109,6 +113,7 @@ namespace CityQuest.ApplicationServices.GameModule.ConditionTypes
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveOutput<ConditionTypeDto, long> Retrieve(RetrieveConditionTypeInput input)
         {
             if (input.IsActive ?? true)
@@ -138,6 +143,7 @@ namespace CityQuest.ApplicationServices.GameModule.ConditionTypes
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public CreateOutput<ConditionTypeDto, long> Create(CreateInput<ConditionTypeDto, long> input)
         {
             throw new NotSupportedException("This method is implemented but it is not safely to use it.");
@@ -163,6 +169,7 @@ namespace CityQuest.ApplicationServices.GameModule.ConditionTypes
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public UpdateOutput<ConditionTypeDto, long> Update(UpdateInput<ConditionTypeDto, long> input)
         {
             throw new NotSupportedException("This method is implemented but it is not safely to use it.");
@@ -189,6 +196,7 @@ namespace CityQuest.ApplicationServices.GameModule.ConditionTypes
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public DeleteOutput<long> Delete(DeleteInput<long> input)
         {
             throw new NotSupportedException("This method is implemented but it is not safely to use it.");
@@ -209,6 +217,7 @@ namespace CityQuest.ApplicationServices.GameModule.ConditionTypes
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public ChangeActivityOutput<ConditionTypeDto, long> ChangeActivity(ChangeActivityInput input)
         {
             ConditionTypeRepository.Includes.Add(r => r.LastModifierUser);

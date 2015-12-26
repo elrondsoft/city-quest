@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 
 namespace CityQuest.ApplicationServices.GameModule.GamesLight
 {
+    [Abp.Authorization.AbpAuthorize]
     public class GameLightAppService : IGameLightAppService
     {
         #region Injected Dependencies
@@ -56,6 +57,7 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
 
         #endregion
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveGameCollectionOutput RetrieveGameCollection(RetrieveGameCollectionInput input)
         {
             if (Session.UserId == null) 
@@ -85,6 +87,7 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveGameLightOutput RetrieveGameLight(RetrieveGameLightInput input)
         {
             KeyRepository.Includes.Add(r => r.Game);
@@ -113,6 +116,7 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveGameResultsAndTasksOutput RetrieveGameResultsAndTasks(RetrieveGameResultsAndTasksInput input)
         {
             Game gameEntity = GameRepository.Get(input.GameId);
@@ -127,6 +131,7 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
             return new RetrieveGameResultsAndTasksOutput();
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public TryToPassConditionOutput TryToPassCondition(TryToPassConditionInput input)
         {
             bool result = false;

@@ -17,6 +17,7 @@ using CityQuest.Exceptions;
 
 namespace CityQuest.ApplicationServices.GameModule.Teams
 {
+    [Abp.Authorization.AbpAuthorize]
     public class TeamAppService : ITeamAppService
     {
         #region Injected Dependencies
@@ -40,6 +41,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
 
         #endregion
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllPagedResultOutput<TeamDto, long> RetrieveAllPagedResult(RetrieveAllTeamsPagedResultInput input)
         {
             if (input.IsActive ?? true)
@@ -70,6 +72,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllTeamsLikeComboBoxesOutput RetrieveAllTeamsLikeComboBoxes(RetrieveAllTeamsLikeComboBoxesInput input)
         {
             if (input.IsActive ?? true)
@@ -87,6 +90,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllOutput<TeamDto, long> RetrieveAll(RetrieveAllTeamsInput input)
         {
             if (input.IsActive ?? true)
@@ -113,6 +117,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveOutput<TeamDto, long> Retrieve(RetrieveTeamInput input)
         {
             if (input.IsActive ?? true)
@@ -143,6 +148,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public CreateOutput<TeamDto, long> Create(CreateTeamInput input)
         {
             Team newTeamEntity = input.Entity.MapTo<Team>();
@@ -166,6 +172,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public UpdateOutput<TeamDto, long> Update(UpdateTeamInput input)
         {
             Team newTeamEntity = input.Entity.MapTo<Team>();
@@ -191,6 +198,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public DeleteOutput<long> Delete(DeleteInput<long> input)
         {
             Team teamEntityForDelete = TeamRepository.Get(input.EntityId);
@@ -209,6 +217,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public ChangeActivityOutput<TeamDto, long> ChangeActivity(ChangeActivityInput input)
         {
             TeamRepository.Includes.Add(r => r.LastModifierUser);

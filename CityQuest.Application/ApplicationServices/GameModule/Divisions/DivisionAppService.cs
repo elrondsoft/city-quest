@@ -18,6 +18,7 @@ using System.Text;
 
 namespace CityQuest.ApplicationServices.GameModule.Divisions
 {
+    [Abp.Authorization.AbpAuthorize]
     public class DivisionAppService : IDivisionAppService
     {
         #region Injected Dependencies
@@ -41,6 +42,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
 
         #endregion
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllPagedResultOutput<DivisionDto, long> RetrieveAllPagedResult(RetrieveAllDivisionsPagedResultInput input)
         {
             if (input.IsActive ?? true)
@@ -70,6 +72,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllDivisionsLikeComboBoxesOutput RetrieveAllDivisionsLikeComboBoxes(RetrieveAllDivisionsLikeComboBoxesInput input)
         {
             if (input.IsActive ?? true)
@@ -85,6 +88,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllOutput<DivisionDto, long> RetrieveAll(RetrieveAllDivisionInput input)
         {
             if (input.IsActive ?? true)
@@ -110,6 +114,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveOutput<DivisionDto, long> Retrieve(RetrieveDivisionInput input)
         {
             if (input.IsActive ?? true)
@@ -140,6 +145,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public CreateOutput<DivisionDto, long> Create(CreateInput<DivisionDto, long> input)
         {
             Division newDivisionEntity = input.Entity.MapTo<Division>();
@@ -164,6 +170,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public UpdateOutput<DivisionDto, long> Update(UpdateInput<DivisionDto, long> input)
         {
             Division newDivisionEntity = input.Entity.MapTo<Division>();
@@ -189,6 +196,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public DeleteOutput<long> Delete(DeleteInput<long> input)
         {
             Division divisionEntityForDelete = DivisionRepository.Get(input.EntityId);
@@ -207,6 +215,7 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public ChangeActivityOutput<DivisionDto, long> ChangeActivity(ChangeActivityInput input)
         {
             DivisionRepository.Includes.Add(r => r.LastModifierUser);

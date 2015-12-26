@@ -138,6 +138,8 @@
     <Compile Include="ApplicationServices\GameModule\GameStatuses\Dtos\RetrieveAllGameStatusesLikeComboBoxesOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\GameStatuses\GameStatusAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\GameStatuses\IGameStatusAppService.cs" />
+    <Compile Include="ApplicationServices\GameModule\Games\Dtos\ChangeGameStatusInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Games\Dtos\ChangeGameStatusOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\Games\Dtos\CreateGameInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Games\Dtos\GameDto.cs" />
     <Compile Include="ApplicationServices\GameModule\Games\Dtos\RetrieveAllGamesInput.cs" />

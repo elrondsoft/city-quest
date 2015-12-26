@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 
 namespace CityQuest.ApplicationServices.GameModule.Tips
 {
+    [Abp.Authorization.AbpAuthorize]
     public class TipAppService : ITipAppService
     {
         #region Injected Dependencies
@@ -47,6 +48,7 @@ namespace CityQuest.ApplicationServices.GameModule.Tips
 
         #endregion
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllPagedResultOutput<TipDto, long> RetrieveAllPagedResult(RetrieveAllTipsPagedResultInput input)
         {
             TipRepository.Includes.Add(r => r.LastModifierUser);
@@ -73,6 +75,7 @@ namespace CityQuest.ApplicationServices.GameModule.Tips
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllTipsLikeComboBoxesOutput RetrieveAllTipsLikeComboBoxes(RetrieveAllTipsLikeComboBoxesInput input)
         {
             IReadOnlyList<ComboboxItemDto> tipsLikeComboBoxes = TipPolicy.CanRetrieveManyEntities(
@@ -85,6 +88,7 @@ namespace CityQuest.ApplicationServices.GameModule.Tips
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllOutput<TipDto, long> RetrieveAll(RetrieveAllTipInput input)
         {
             TipRepository.Includes.Add(r => r.LastModifierUser);
@@ -107,6 +111,7 @@ namespace CityQuest.ApplicationServices.GameModule.Tips
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveOutput<TipDto, long> Retrieve(RetrieveTipInput input)
         {
             TipRepository.Includes.Add(r => r.LastModifierUser);
@@ -133,6 +138,7 @@ namespace CityQuest.ApplicationServices.GameModule.Tips
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public CreateOutput<TipDto, long> Create(CreateInput<TipDto, long> input)
         {
             throw new NotSupportedException("This method is implemented but it is not safely to use it.");
@@ -155,6 +161,7 @@ namespace CityQuest.ApplicationServices.GameModule.Tips
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public UpdateOutput<TipDto, long> Update(UpdateInput<TipDto, long> input)
         {
             throw new NotSupportedException("This method is implemented but it is not safely to use it.");
@@ -181,6 +188,7 @@ namespace CityQuest.ApplicationServices.GameModule.Tips
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public DeleteOutput<long> Delete(DeleteInput<long> input)
         {
             throw new NotSupportedException("This method is implemented but it is not safely to use it.");
@@ -201,6 +209,7 @@ namespace CityQuest.ApplicationServices.GameModule.Tips
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveTipsForGameTaskOutput RetrieveTipsForGameTask(RetrieveTipsForGameTaskInput input)
         {
             if (!(input.GameTaskId > 0))

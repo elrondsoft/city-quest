@@ -19,6 +19,7 @@ using System.Threading.Tasks;
 
 namespace CityQuest.ApplicationServices.GameModule.Keys
 {
+    [Abp.Authorization.AbpAuthorize]
     public class KeyAppService : IKeyAppService
     {
         #region Injected Dependencies
@@ -55,6 +56,7 @@ namespace CityQuest.ApplicationServices.GameModule.Keys
 
         #endregion
 
+        [Abp.Authorization.AbpAuthorize]
         public GenerateKeysForGameOutput GenerateKeysForGame(GenerateKeysForGameInput input)
         {
             Game gameEntity = GameRepository.Get(input.GameId);
@@ -80,6 +82,7 @@ namespace CityQuest.ApplicationServices.GameModule.Keys
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public ActivateKeyOutput ActivateKey(ActivateKeyInput input)
         {
             IList<Key> keys = KeyRepository.GetAll().Where(r => r.KeyValue == input.Key && r.OwnerUserId == null).ToList();

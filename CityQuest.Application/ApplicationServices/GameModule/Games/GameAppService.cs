@@ -3,6 +3,7 @@ using Abp.Domain.Uow;
 using Abp.UI;
 using CityQuest.ApplicationServices.GameModule.Conditions.Dtos;
 using CityQuest.ApplicationServices.GameModule.Games.Dtos;
+using CityQuest.ApplicationServices.GameModule.GameStatuses.Dtos;
 using CityQuest.ApplicationServices.GameModule.GameTasks.Dtos;
 using CityQuest.ApplicationServices.GameModule.Tips.Dtos;
 using CityQuest.ApplicationServices.Shared.Dtos.Input;
@@ -26,6 +27,7 @@ using System.Threading.Tasks;
 
 namespace CityQuest.ApplicationServices.GameModule.Games
 {
+    [Abp.Authorization.AbpAuthorize]
     public class GameAppService : IGameAppService
     {
         #region Injected Dependencies
@@ -64,6 +66,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
 
         #endregion
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllPagedResultOutput<GameDto, long> RetrieveAllPagedResult(RetrieveAllGamesPagedResultInput input)
         {
             if (input.IsActive ?? true)
@@ -95,6 +98,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllGamesLikeComboBoxesOutput RetrieveAllGamesLikeComboBoxes(RetrieveAllGamesLikeComboBoxesInput input)
         {
             if (input.IsActive ?? true)
@@ -111,6 +115,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllOutput<GameDto, long> RetrieveAll(RetrieveAllGamesInput input)
         {
             if (input.IsActive ?? true)
@@ -130,6 +135,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveOutput<GameDto, long> Retrieve(RetrieveGameInput input)
         {
             if (input.IsActive ?? true)
@@ -162,6 +168,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public CreateOutput<GameDto, long> Create(CreateGameInput input)
         {
             Game newGameEntity = input.Entity.MapTo<Game>();
@@ -203,6 +210,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public UpdateOutput<GameDto, long> Update(UpdateGameInput input)
         {
 
@@ -237,6 +245,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public DeleteOutput<long> Delete(DeleteInput<long> input)
         {
             Game gameEntityForDelete = GameRepository.Get(input.EntityId);
@@ -260,9 +269,9 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public ChangeActivityOutput<GameDto, long> ChangeActivity(ChangeActivityInput input)
         {
-
             GameRepository.Includes.Add(r => r.Location);
             GameRepository.Includes.Add(r => r.GameStatus);
             GameRepository.Includes.Add(r => r.GameTasks);
@@ -303,6 +312,53 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             return new ChangeActivityOutput<GameDto, long>()
             {
                 Entity = newGameDto
+            };
+        }
+
+        [Abp.Authorization.AbpAuthorize]
+        public ChangeGameStatusOutput ChangeGameStatus(ChangeGameStatusInput input)
+        {
+            GameRepository.Includes.Add(r => r.GameStatus);
+            GameRepository.Includes.Add(r => r.GameStatus.CreatorUser);
+            GameRepository.Includes.Add(r => r.GameStatus.LastModifierUser);
+
+            Game gameEntity = GameRepository.Get(input.GameId);
+
+            if (gameEntity == null)
+                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Game\"");
+
+            GameStatusDto newGameStatusDto = gameEntity.GameStatus.MapTo<GameStatusDto>();
+
+            if (gameEntity.GameStatusId != input.NewGameStatusId)
+            {
+                GameStatusRepository.Includes.Add(r => r.CreatorUser);
+                GameStatusRepository.Includes.Add(r => r.LastModifierUser);
+
+                GameStatus newGameStatus = GameStatusRepository.Get(input.NewGameStatusId);
+
+                if (!GamePolicy.CanChangeStatusForEntity(gameEntity, gameEntity.GameStatus, newGameStatus))
+                    throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionChangeStatusDenied, "\"Game\"");
+
+                gameEntity.GameStatusId = newGameStatus.Id;
+                gameEntity.GameStatus = null;
+                GameRepository.Update(gameEntity);
+
+                newGameStatusDto = newGameStatus.MapTo<GameStatusDto>();
+
+                UowManager.Current.Completed += (sender, e) =>
+                {
+                    GameChangesNotifier.RaiseOnGameStatusChanged(
+                        new GameStatusChangedMessage(input.GameId, input.NewGameStatusId, newGameStatusDto));
+                };
+
+            }
+
+            GameStatusRepository.Includes.Clear();
+            GameRepository.Includes.Clear();
+
+            return new ChangeGameStatusOutput()
+            {
+                NewGameStatus = newGameStatusDto
             };
         }
 

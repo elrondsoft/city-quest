@@ -11,15 +11,25 @@ using System.Threading.Tasks;
 
 namespace CityQuest.ApplicationServices.GameModule.GameStatuses
 {
+    [Abp.Authorization.AbpAuthorize]
     public class GameStatusAppService : IGameStatusAppService
     {
+        #region Injected Dependencies
+
         private IGameStatusRepository GameStatusRepository { get; set; }
+
+        #endregion
+
+        #region ctors
 
         public GameStatusAppService(IGameStatusRepository gameStatusRepository)
         {
             GameStatusRepository = gameStatusRepository;
         }
 
+        #endregion
+
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllOutput<GameStatusDto, long> RetrieveAll(RetrieveAllGameStatusesInput input)
         {
             GameStatusRepository.Includes.Add(r => r.LastModifierUser);
@@ -37,6 +47,7 @@ namespace CityQuest.ApplicationServices.GameModule.GameStatuses
             };
         }
 
+        [Abp.Authorization.AbpAuthorize]
         public RetrieveAllGameStatusesLikeComboBoxesOutput RetrieveAllGameStatusesLikeComboBoxes(RetrieveAllGameStatusesLikeComboBoxesInput input)
         {
             IReadOnlyList<ComboboxItemDto> gameStatusesLikeComboBoxes = GameStatusRepository.GetAll().ToList()
