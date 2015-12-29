@@ -249,6 +249,7 @@
     <Content Include="App\Main\styles\site.css" />
     <Content Include="App\Main\templates\divisions\divisionDetailsController.js" />
     <Content Include="App\Main\templates\games\gameDetailsController.js" />
+    <Content Include="App\Main\templates\games\gameProcessManagementController.js" />
     <Content Include="App\Main\templates\locations\locationDetailsController.js" />
     <Content Include="App\Main\templates\roles\roleDetailsController.js" />
     <Content Include="App\Main\templates\teams\teamDetailsController.js" />
@@ -279,6 +280,7 @@
     <Content Include="App\Main\views\gameCollections\partialTemplates\gameDescriptionPartialTemplate.cshtml" />
     <Content Include="App\Main\views\gameCollections\partialTemplates\gameStatusPartialTemplate.cshtml" />
     <Content Include="App\Main\views\gamePages\gamePageView.cshtml" />
+    <Content Include="App\Main\templates\games\gameProcessManagementTemplate.cshtml" />
     <None Include="App\Main\views\roles\roleListView.cshtml" />
     <Content Include="App\Main\views\teams\teamListController.js" />
     <Content Include="App\Main\views\users\userListController.js" />

@@ -11,13 +11,14 @@ namespace CityQuest.ApplicationServices.GameModule.GameStatuses.Dtos
     {
         #region Relations
 
-        public string LastModifierUserFullName { get; set; }
-        public string CreatorUserFullName { get; set; }
+        //public string LastModifierUserFullName { get; set; }
+        //public string CreatorUserFullName { get; set; }
 
         #endregion
 
         public string Name { get; set; }
         public string Description { get; set; }
+        public List<string> NextAllowedStatuses { get; set; }
         public bool IsDefault { get; set; }
     }
 }

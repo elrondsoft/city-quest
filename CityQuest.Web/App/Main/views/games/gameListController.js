@@ -93,8 +93,18 @@
                             '" title="' + deactivateTittleText + '">' + deactivateButtonText + ' </button>';
                         return result;
                     };
-                    return getInfoButton(record) + getEditButton(record) + getActivateButton(record) +
-                        getDeactivateButton(record) + getDeleteButton(record);
+                    var getGameProcessManagementButton = function (entity) {
+                        if (!permissionSvc.game.canManageGameProcess(entity))
+                            return '';
+
+                        var tittleText = vm.localize('ButtonGameProcessManagementTittleText');
+                        var buttonText = '<i class="fa fa-cogs"></i>';
+                        var result = '<button class="btn btn-sm btn-success game-process-management" id="' + entity.id +
+                            '" title="' + tittleText + '">' + buttonText + ' </button>';
+                        return result;
+                    };
+                    return getInfoButton(record) + getGameProcessManagementButton(record) + getEditButton(record) +
+                        getActivateButton(record) + getDeactivateButton(record) + getDeleteButton(record);
                 }
             };
             //---------------------------------------------------------------------------------------------------------
@@ -221,7 +231,29 @@
                                     });
                             }
                         });
-                }
+                },
+                openGameProcessManagementTemplate: function (event) {
+                    event.preventDefault();
+                    var newModalOptions = {
+                        templateUrl: constSvc.viewRoutes.gameProcessManagementTemplate,
+                        controller: constSvc.ctrlRoutes.gameProcessManagementCtrl,
+                        resolve: {
+                            serviceData: function () {
+                                var result = {
+                                    gameId: event.currentTarget.id,
+                                    jTableName: 'gameTable',
+                                    updateCallback: function () {
+                                        vm.recordsLoaded();
+                                    }
+                                };
+                                return result;
+                            },
+                        }
+                    };
+                    var modalOptions = angular.merge({}, constSvc.defaultModalOptions, newModalOptions);
+                    modal.open(modalOptions);
+                    return false;
+                },
             };
             //---------------------------------------------------------------------------------------------------------
             //-------------------------------Initializing jTable-------------------------------------------------------
@@ -328,6 +360,9 @@
                         });
                         $(".game-deactivate").click(function (event) {
                             return gameActions.deactivateGame(event);
+                        });
+                        $(".game-process-management").click(function (event) {
+                            return gameActions.openGameProcessManagementTemplate(event);
                         });
                     };
                     return recordsLoaded;

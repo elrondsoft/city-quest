@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace CityQuest.ApplicationServices.GameModule.Games.Dtos
 {
-    public class ChangeGameStatusInput: IInputDto
+    public class StartGameInput: IInputDto
     {
         public long GameId { get; set; }
-        public long? NewGameStatusId { get; set; }
-        public string NewGameStatusName { get; set; }
     }
 }

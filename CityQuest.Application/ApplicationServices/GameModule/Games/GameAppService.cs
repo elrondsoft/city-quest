@@ -315,6 +315,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             };
         }
 
+        #region Game process management
+
         [Abp.Authorization.AbpAuthorize]
         public ChangeGameStatusOutput ChangeGameStatus(ChangeGameStatusInput input)
         {
@@ -334,7 +336,17 @@ namespace CityQuest.ApplicationServices.GameModule.Games
                 GameStatusRepository.Includes.Add(r => r.CreatorUser);
                 GameStatusRepository.Includes.Add(r => r.LastModifierUser);
 
-                GameStatus newGameStatus = GameStatusRepository.Get(input.NewGameStatusId);
+                GameStatus newGameStatus;
+                try
+                {
+                    newGameStatus = input.NewGameStatusId != null ? GameStatusRepository.Get((long)input.NewGameStatusId) :
+                        GameStatusRepository.Single(r => r.Name == input.NewGameStatusName);
+                }
+                catch
+                {
+                    throw new UserFriendlyException("Wrong game status!",
+                        "Trying to get wrong game status! Please, contact your system administrator.");
+                }
 
                 if (!GamePolicy.CanChangeStatusForEntity(gameEntity, gameEntity.GameStatus, newGameStatus))
                     throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionChangeStatusDenied, "\"Game\"");
@@ -348,7 +360,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
                 UowManager.Current.Completed += (sender, e) =>
                 {
                     GameChangesNotifier.RaiseOnGameStatusChanged(
-                        new GameStatusChangedMessage(input.GameId, input.NewGameStatusId, newGameStatusDto));
+                        new GameStatusChangedMessage(input.GameId, newGameStatus.Id, newGameStatusDto));
                 };
 
             }
@@ -361,6 +373,60 @@ namespace CityQuest.ApplicationServices.GameModule.Games
                 NewGameStatus = newGameStatusDto
             };
         }
+
+        [Abp.Authorization.AbpAuthorize]
+        public ChangeGameStatusOutput StartGame(StartGameInput input) 
+        {
+            string newGameStatusName = "GameStatus_InProgress";
+
+            return ChangeGameStatus(new ChangeGameStatusInput() 
+                { 
+                    GameId = input.GameId, 
+                    NewGameStatusId = null,
+                    NewGameStatusName = newGameStatusName
+                });
+        }
+
+        [Abp.Authorization.AbpAuthorize]
+        public ChangeGameStatusOutput PauseGame(PauseGameInput input) 
+        {
+            string newGameStatusName = "GameStatus_Paused";
+
+            return ChangeGameStatus(new ChangeGameStatusInput()
+            {
+                GameId = input.GameId,
+                NewGameStatusId = null,
+                NewGameStatusName = newGameStatusName
+            });
+        }
+
+        [Abp.Authorization.AbpAuthorize]
+        public ChangeGameStatusOutput ResumeGame(ResumeGameInput input) 
+        {
+            string newGameStatusName = "GameStatus_InProgress";
+
+            return ChangeGameStatus(new ChangeGameStatusInput()
+            {
+                GameId = input.GameId,
+                NewGameStatusId = null,
+                NewGameStatusName = newGameStatusName
+            });
+        }
+
+        [Abp.Authorization.AbpAuthorize]
+        public ChangeGameStatusOutput EndGame(EndGameInput input) 
+        {
+            string newGameStatusName = "GameStatus_Completed";
+
+            return ChangeGameStatus(new ChangeGameStatusInput()
+            {
+                GameId = input.GameId,
+                NewGameStatusId = null,
+                NewGameStatusName = newGameStatusName
+            });
+        }
+
+        #endregion
 
         #region Helpers
 

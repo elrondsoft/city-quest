@@ -84,6 +84,7 @@ angular.module('app').service('clientCityQuestConstService', function () {
         roleDetailsCtrl: 'app.templates.roles.roleDetailsController',
         gameListCtrl: 'app.views.games.gameListController',
         gameDetailsCtrl: 'app.templates.games.gameDetailsController',
+        gameProcessManagementCtrl: 'app.templates.games.gameProcessManagementController',
     };
     //-------------------------------------------------------------------------------------------------------------
     //----------------------------------------Constants for Templates/Views----------------------------------------
@@ -101,6 +102,7 @@ angular.module('app').service('clientCityQuestConstService', function () {
         roleDetailsTemplate: '/App/Main/templates/roles/roleDetailsTemplate.cshtml',
         gameListView: '/App/Main/views/games/gameListView.cshtml',
         gameDetailsTemplate: '/App/Main/templates/games/gameDetailsTemplate.cshtml',
+        gameProcessManagementTemplate: '/App/Main/templates/games/gameProcessManagementTemplate.cshtml',
     };
     //-------------------------------------------------------------------------------------------------------------
     //----------------------------------------Constants for Templates/Views----------------------------------------

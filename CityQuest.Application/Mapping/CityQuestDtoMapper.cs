@@ -112,12 +112,12 @@ namespace CityQuest.Mapping
                 .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
                 .ForMember(r => r.GameTasks, r => r.MapFrom(e => e.GameTasks.OrderBy(k => k.Order)))
                 .ForMember(r => r.LocationName, r => r.MapFrom(e => e.Location.DisplayName))
-                .ForMember(r => r.GameStatusName, r => r.MapFrom(e => e.GameStatus.Name))
                 .ReverseMap();
 
             AutoMapper.Mapper.CreateMap<GameStatus, GameStatusDto>()
-                .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))
-                .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
+                .ForMember(r => r.NextAllowedStatuses, r => r.MapFrom(e => e.GetNextAllowedGameStatusNames))
+                //.ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))
+                //.ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
                 .ReverseMap();
 
             AutoMapper.Mapper.CreateMap<GameTask, GameTaskDto>()

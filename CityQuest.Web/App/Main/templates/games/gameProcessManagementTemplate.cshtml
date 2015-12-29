@@ -1,0 +1,79 @@
+﻿<div class="modal-header">
+    <div class="row row-centered">
+        <div class="col-xs-12 text-center">
+            <button type="button"
+                    class="close"
+                    title="{{vm.localize('ButtonCloseTitle')}}"
+                    ng-click="vm.templateActions.close()">
+                &times;
+            </button>
+            <label class="cq-modal-title-label">
+                {{vm.title}}
+            </label>
+        </div>
+    </div>
+</div>
+<div class="modal-body">
+    <div class="col-xs-12">
+        <div class="row game-process-management-buttons-area">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12">
+                        {{vm.localize(vm.gameEntity.gameStatusName)}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <button type="button"
+                                class="btn btn-primary"
+                                title="{{vm.localize('ButtonStartGameTitleText')}}"
+                                ng-if="vm.templatePermissionsOnActions.canStartGame(vm.gameEntity)"
+                                ng-click="vm.templateActions.startGame(vm.gameEntity.id)">
+                            {{vm.localize('ButtonStartGame')}}
+                        </button>
+                    </div>
+                    <div class="col-xs-3">
+                        <button type="button"
+                                class="btn btn-primary"
+                                title="{{vm.localize('ButtonPauseGameTitleText')}}"
+                                ng-if="vm.templatePermissionsOnActions.canPauseGame(vm.gameEntity)"
+                                ng-click="vm.templateActions.pauseGame(vm.gameEntity.id)">
+                            {{vm.localize('ButtonPauseGame')}}
+                        </button>
+                    </div>
+                    <div class="col-xs-3">
+                        <button type="button"
+                                class="btn btn-primary"
+                                title="{{vm.localize('ButtonResumeGameTitleText')}}"
+                                ng-if="vm.templatePermissionsOnActions.canResumeGame(vm.gameEntity)"
+                                ng-click="vm.templateActions.resumeGame(vm.gameEntity.id)">
+                            {{vm.localize('ButtonResumeGame')}}
+                        </button>
+                    </div>
+                    <div class="col-xs-3">
+                        <button type="button"
+                                class="btn btn-primary"
+                                title="{{vm.localize('ButtonEndGameTitleText')}}"
+                                ng-if="vm.templatePermissionsOnActions.canEndGame(vm.gameEntity)"
+                                ng-click="vm.templateActions.endGame(vm.gameEntity.id)">
+                            {{vm.localize('ButtonEndGame')}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row game-statistics-area">
+            <div class="col-xs-12">
+                game statistics area
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button"
+            class="btn btn-primary"
+            title="{{vm.localize('ButtonCloseTitle')}}"
+            ng-click="vm.templateActions.close()">
+        {{vm.localize('ButtonClose')}}
+    </button>
+</div>

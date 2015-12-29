@@ -166,7 +166,7 @@ namespace CityQuest.CityQuestPolicy.GameModule.Games
                 bool result = false;
                 if (!String.IsNullOrEmpty(oldEntityStatus.NextAllowedStatusNames))
                 {
-                    List<string> nextAllowedStatusNames = oldEntityStatus.NextAllowedStatusNames.Split(',').ToList();
+                    List<string> nextAllowedStatusNames = oldEntityStatus.GetNextAllowedGameStatusNames.ToList();
                     result = nextAllowedStatusNames.Contains(newEntityStatus.Name);
                 }
                 return result;

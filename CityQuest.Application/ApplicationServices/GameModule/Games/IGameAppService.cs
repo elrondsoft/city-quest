@@ -77,5 +77,33 @@ namespace CityQuest.ApplicationServices.GameModule.Games
         /// <param name="input">object with input params</param>
         /// <returns>object with output params</returns>
         ChangeGameStatusOutput ChangeGameStatus(ChangeGameStatusInput input);
+
+        /// <summary>
+        /// Is used to change status for entity (Game) that means: game in progress
+        /// </summary>
+        /// <param name="input">object with input params</param>
+        /// <returns>object with output params</returns>
+        ChangeGameStatusOutput StartGame(StartGameInput input);
+
+        /// <summary>
+        /// Is used to change status for entity (Game) that means: game in paused
+        /// </summary>
+        /// <param name="input">object with input params</param>
+        /// <returns>object with output params</returns>
+        ChangeGameStatusOutput PauseGame(PauseGameInput input);
+
+        /// <summary>
+        /// Is used to change status for entity (Game) that means: game in progress
+        /// </summary>
+        /// <param name="input">object with input params</param>
+        /// <returns>object with output params</returns>
+        ChangeGameStatusOutput ResumeGame(ResumeGameInput input);
+
+        /// <summary>
+        /// Is used to change status for entity (Game) that means: game in completed
+        /// </summary>
+        /// <param name="input">object with input params</param>
+        /// <returns>object with output params</returns>
+        ChangeGameStatusOutput EndGame(EndGameInput input);
     }
 }

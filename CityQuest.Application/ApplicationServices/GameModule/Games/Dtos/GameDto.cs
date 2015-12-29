@@ -1,5 +1,6 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.Domain.Entities;
+using CityQuest.ApplicationServices.GameModule.GameStatuses.Dtos;
 using CityQuest.ApplicationServices.GameModule.GameTasks.Dtos;
 using System;
 using System.Collections.Generic;
@@ -15,13 +16,13 @@ namespace CityQuest.ApplicationServices.GameModule.Games.Dtos
 
         public long LocationId { get; set; }
         public long GameStatusId { get; set; }
+        public GameStatusDto GameStatus { get; set; }
 
         public IList<GameTaskDto> GameTasks { get; set; }
 
         public string LastModifierUserFullName { get; set; }
         public string CreatorUserFullName { get; set; }
         public string LocationName { get; set;}
-        public string GameStatusName { get; set; }
 
         #endregion
 
