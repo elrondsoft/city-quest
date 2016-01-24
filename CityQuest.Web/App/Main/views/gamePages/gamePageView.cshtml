@@ -1,1 +1,18 @@
-﻿{{vm.gameId}}
+﻿<div class="row game-page-game-info-area">
+    <div class="col-xs-12">
+        TODO: game info here! => {{vm.gameId}}
+    </div>
+</div>
+<div class="row game-page-game-tasks-area">
+    <div class="col-xs-12">
+        <div class="row game-page-game-task"
+             ng-repeat="gameTask in vm.gameTasks">
+            <ng-include src="vm.partialTemplates.gameTaskPartialTemplate" />
+        </div>
+    </div>
+</div>
+<div class="row game-page-game-statistics-area">
+    <div class="col-xs-12">
+        TODO: statistics info here!
+    </div>
+</div>

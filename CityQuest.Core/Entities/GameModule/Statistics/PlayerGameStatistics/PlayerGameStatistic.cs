@@ -31,5 +31,22 @@ namespace CityQuest.Entities.GameModule.Statistics.PlayerGameStatistics
 
 
         #endregion
+
+        #region Ctors
+
+        public PlayerGameStatistic() { }
+
+        public PlayerGameStatistic(long gameId, long playerCareerId, DateTime gameStartDateTime, DateTime gameEndDateTime, long? durationLag = null)
+        {
+            GameId = gameId;
+            PlayerCareerId = playerCareerId;
+            GameStartDateTime = gameStartDateTime;
+            GameEndDateTime = gameEndDateTime;
+            GameDurationInTicks = durationLag == null ?
+                gameEndDateTime.Ticks - gameStartDateTime.Ticks :
+                gameEndDateTime.Ticks - gameStartDateTime.Ticks - (long)durationLag;
+        }
+
+        #endregion
     }
 }

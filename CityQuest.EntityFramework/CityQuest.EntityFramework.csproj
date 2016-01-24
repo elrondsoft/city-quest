@@ -108,10 +108,10 @@
     <Compile Include="EntityFramework\Repositories\GameModule\GameTaskTypeRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\KeyRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\LocationRepository.cs" />
-    <Compile Include="EntityFramework\Repositories\GameModule\SuccessfulPlayerAttemptRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\GameModule\SuccessfullPlayerAttemptRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\TeamRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GameModule\TipRepository.cs" />
-    <Compile Include="EntityFramework\Repositories\GameModule\UnsuccessfulPlayerAttemptRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\GameModule\UnsuccessfullPlayerAttemptRepository.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Migrations\201510111309189_InitialCreate.cs" />
     <Compile Include="Migrations\201510111309189_InitialCreate.Designer.cs">

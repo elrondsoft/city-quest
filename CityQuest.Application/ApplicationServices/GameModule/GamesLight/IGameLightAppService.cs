@@ -16,7 +16,8 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
     {
         RetrieveGameCollectionOutput RetrieveGameCollection(RetrieveGameCollectionInput input);
         RetrieveGameLightOutput RetrieveGameLight(RetrieveGameLightInput input);
-        RetrieveGameResultsAndTasksOutput RetrieveGameResultsAndTasks(RetrieveGameResultsAndTasksInput input);
+        RetrieveGameLightTasksOutput RetrieveGameLightTasks(RetrieveGameLightTasksInput input);
         TryToPassConditionOutput TryToPassCondition(TryToPassConditionInput input);
+        RetrieveGameTaskResultsOutput RetrieveGameTaskResults(RetrieveGameTaskResultsInput input);
     }
 }

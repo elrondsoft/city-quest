@@ -67,6 +67,36 @@ namespace CityQuest.Entities.MainModule.Users
             }
         }
 
+        public PlayerCareer CurrentPlayerCareer 
+        {
+            get 
+            {
+                return GetPlayerCareer(DateTime.Now);
+            }
+        }
+
+        public long? CurrentPlayerTeamId
+        {
+            get
+            {
+                return GetPlayerTeamId(DateTime.Now);
+            }
+        }
+
+        public PlayerCareer GetPlayerCareer(DateTime dateTime)
+        {
+            return PlayerCareers
+                .Where(r => r.CareerDateStart <= dateTime && (r.CareerDateEnd == null || r.CareerDateEnd >= dateTime))
+                .SingleOrDefault();
+        }
+
+        public long? GetPlayerTeamId(DateTime dateTime)
+        {
+            PlayerCareer playerCareer = GetPlayerCareer(dateTime);
+
+            return playerCareer != null ? (long?)playerCareer.TeamId : null;
+        }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager manager)
         {
             // authenticationType have match with CookieAuthenticationOptions.AuthenticationType

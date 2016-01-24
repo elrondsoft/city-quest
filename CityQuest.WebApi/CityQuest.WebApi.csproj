@@ -146,6 +146,8 @@
     <Compile Include="Runtime\Sessions\CityQuestSession.cs" />
     <Compile Include="SignalR\GameChangeServices\SignalRGameChangesHub.cs" />
     <Compile Include="SignalR\GameChangeServices\SignalRGameChangesNotifier.cs" />
+    <Compile Include="SignalR\StatisticsChangesServices\SignalRStatisticsChangesHub.cs" />
+    <Compile Include="SignalR\StatisticsChangesServices\SignalRStatisticsChangesNotifier.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

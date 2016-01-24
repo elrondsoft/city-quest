@@ -21,6 +21,7 @@ using CityQuest.Entities.GameModule.Games.GameTasks.Conditions.ConditionTypes;
 using CityQuest.Entities.GameModule.Games.GameTasks.GameTaskTypes;
 using CityQuest.Entities.GameModule.Games.GameTasks.Tips;
 using CityQuest.Entities.GameModule.Locations;
+using CityQuest.Entities.GameModule.Statistics.TeamGameTaskStatistics;
 using CityQuest.Entities.GameModule.Teams;
 using CityQuest.Entities.MainModule.Authorization.RolePermissionSettings;
 using CityQuest.Entities.MainModule.Authorization.UserRoles;
@@ -90,6 +91,14 @@ namespace CityQuest.Mapping
             AutoMapper.Mapper.CreateMap<ConditionType, ConditionTypeLightDto>();
 
             AutoMapper.Mapper.CreateMap<Tip, TipLightDto>();
+
+            #endregion
+
+            #region GameStatistics entities mapping
+
+            AutoMapper.Mapper.CreateMap<TeamGameTaskStatistic, TeamGameTaskStatisticDto>()
+                .ForMember(r => r.GameTaskName, r => r.MapFrom(e => e.GameTask.Name))
+                .ForMember(r => r.TeamName, r => r.MapFrom(e => e.Team.Name));
 
             #endregion
 

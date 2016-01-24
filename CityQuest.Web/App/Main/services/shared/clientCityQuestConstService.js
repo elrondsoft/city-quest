@@ -1,6 +1,7 @@
 ﻿/// Is used to get all Application constants/enums/primitive actions/routes by one service
 angular.module('app').service('clientCityQuestConstService', function () {
-    //----------------------------------------Global constants-----------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------------
+    //----------------------------------------Global constants---------------------------------------------------------------
     /// Is used for localization
     this.localize = function (key) {
         return abp.localization.localize(key, 'CityQuest');
@@ -39,7 +40,8 @@ angular.module('app').service('clientCityQuestConstService', function () {
             serviceData: null
         },
     };
-    //----------------------------------------Features for jTable--------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------------
+    //----------------------------------------Features for jTable------------------------------------------------------------
     /// Is used to reload jTable data
     this.loadJTable = function (jTableName) {
         $('#' + jTableName).jtable('load');
@@ -68,8 +70,8 @@ angular.module('app').service('clientCityQuestConstService', function () {
                 });
         }
     };
-    //-------------------------------------------------------------------------------------------------------------
-    //----------------------------------------Constants for Controllers--------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------------
+    //----------------------------------------Constants for Controllers------------------------------------------------------
     /// Is used to store Angular's controllers's ids for CityQuest  
     this.ctrlRoutes = {
         divisionViewCtrl: 'app.views.divisions.divisionListController',
@@ -86,8 +88,8 @@ angular.module('app').service('clientCityQuestConstService', function () {
         gameDetailsCtrl: 'app.templates.games.gameDetailsController',
         gameProcessManagementCtrl: 'app.templates.games.gameProcessManagementController',
     };
-    //-------------------------------------------------------------------------------------------------------------
-    //----------------------------------------Constants for Templates/Views----------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------------
+    //----------------------------------------Constants for Templates/Views--------------------------------------------------
     /// Is used to store Angular's Templates/Views routes for CityQuest  
     this.viewRoutes = {
         divisionView: '/App/Main/views/divisions/divisionListView.cshtml',
@@ -104,8 +106,8 @@ angular.module('app').service('clientCityQuestConstService', function () {
         gameDetailsTemplate: '/App/Main/templates/games/gameDetailsTemplate.cshtml',
         gameProcessManagementTemplate: '/App/Main/templates/games/gameProcessManagementTemplate.cshtml',
     };
-    //-------------------------------------------------------------------------------------------------------------
-    //----------------------------------------Constants for Templates/Views----------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------------
+    //----------------------------------------Constants for partial templates------------------------------------------------
     /// Is used to store Angular's partial template's routes for CityQuest  
     this.cityQuestPartialTemplates = {
         gameCollectionPartialTemplates: {
@@ -113,6 +115,11 @@ angular.module('app').service('clientCityQuestConstService', function () {
             gameDescriptionPartialTemplate: '/App/Main/views/gameCollections/partialTemplates/gameDescriptionPartialTemplate.cshtml',
             gameStatusPartialTemplate: '/App/Main/views/gameCollections/partialTemplates/gameStatusPartialTemplate.cshtml',
         },
+        gamePagePartialTemplates: {
+            gameTaskPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskPartialTemplate.cshtml',
+            gameTaskConditionPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskConditionPartialTemplate.cshtml',
+            gameTaskTipPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskTipPartialTemplate.cshtml',
+        },
     };
-    //-------------------------------------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------------
 });

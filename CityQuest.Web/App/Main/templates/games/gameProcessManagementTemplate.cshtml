@@ -63,8 +63,13 @@
             </div>
         </div>
         <div class="row game-statistics-area">
-            <div class="col-xs-12">
-                game statistics area
+            <div class="col-xs-10">
+                <canvas id="line"
+                        class="chart chart-line"
+                        chart-data="vm.gameStatistics.data"
+                        chart-labels="vm.gameStatistics.labels"
+                        chart-legend="{{vm.gameStatistics.series && (vm.gameStatistics.series.length > 0)}}"
+                        chart-series="vm.gameStatistics.series"></canvas>
             </div>
         </div>
     </div>

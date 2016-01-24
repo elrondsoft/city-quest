@@ -45,8 +45,8 @@ namespace CityQuest
                 Component.For<ICityQuestRepositoryBase<Condition, long>, IConditionRepository>().ImplementedBy<ConditionRepository>().LifestyleTransient(),
                 Component.For<ICityQuestRepositoryBase<ConditionType, long>, IConditionTypeRepository>().ImplementedBy<ConditionTypeRepository>().LifestyleTransient(),
                 Component.For<ICityQuestRepositoryBase<Tip, long>, ITipRepository>().ImplementedBy<TipRepository>().LifestyleTransient(),
-                Component.For<ICityQuestRepositoryBase<SuccessfulPlayerAttempt, long>, ISuccessfulPlayerAttemptRepository>().ImplementedBy<SuccessfulPlayerAttemptRepository>().LifestyleTransient(),
-                Component.For<ICityQuestRepositoryBase<UnsuccessfulPlayerAttempt, long>, IUnsuccessfulPlayerAttemptRepository>().ImplementedBy<UnsuccessfulPlayerAttemptRepository>().LifestyleTransient(),
+                Component.For<ICityQuestRepositoryBase<SuccessfulPlayerAttempt, long>, ISuccessfullPlayerAttemptRepository>().ImplementedBy<SuccessfullPlayerAttemptRepository>().LifestyleTransient(),
+                Component.For<ICityQuestRepositoryBase<UnsuccessfulPlayerAttempt, long>, IUnsuccessfullPlayerAttemptRepository>().ImplementedBy<UnsuccessfullPlayerAttemptRepository>().LifestyleTransient(),
 
                 Component.For<ICityQuestRepositoryBase<UserRole, long>, IUserRoleRepository>().ImplementedBy<CityQuestRepositoryBase<UserRole, long>>().LifestyleTransient(),
                 Component.For<ICityQuestRepositoryBase<User, long>, IUserRepository>().ImplementedBy<CityQuestRepositoryBase<User, long>>().LifestyleTransient(),

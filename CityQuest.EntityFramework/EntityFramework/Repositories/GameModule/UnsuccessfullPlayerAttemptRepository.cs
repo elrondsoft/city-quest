@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace CityQuest.EntityFramework.Repositories.GameModule
 {
-    public class UnsuccessfulPlayerAttemptRepository : CityQuestRepositoryBase<UnsuccessfulPlayerAttempt, long>, IUnsuccessfulPlayerAttemptRepository
+    public class UnsuccessfullPlayerAttemptRepository : CityQuestRepositoryBase<UnsuccessfulPlayerAttempt, long>, IUnsuccessfullPlayerAttemptRepository
     {
-        public UnsuccessfulPlayerAttemptRepository(IDbContextProvider<CityQuestDbContext> dbContextProvider)
+        public UnsuccessfullPlayerAttemptRepository(IDbContextProvider<CityQuestDbContext> dbContextProvider)
             : base(dbContextProvider) { }
     }
 }

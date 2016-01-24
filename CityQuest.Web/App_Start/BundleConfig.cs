@@ -20,7 +20,10 @@ namespace CityQuest.Web
                     .Include("~/Content/flags/famfamfam-flags.css", new CssRewriteUrlTransform())
                     .Include("~/Content/font-awesome.min.css", new CssRewriteUrlTransform())
                     .Include("~/Scripts/jtable/themes/metro/blue/jtable.min.css", new CssRewriteUrlTransform())
-                   
+
+                    .Include("~/Scripts/angular-chart.js/angular-chart.min.css", new CssRewriteUrlTransform())
+                    //.Include("~/Scripts/angular-chart.js/angular-chart.min.css.map", new CssRewriteUrlTransform())
+
                     .Include("~/Content/jquery.datetimepicker.css", new CssRewriteUrlTransform())
                 );
 
@@ -69,7 +72,11 @@ namespace CityQuest.Web
 
                         "~/Scripts/jquery.datetimepicker.full.min.js",
                         "~/Scripts/jtable/extensions/jquery.jtable.column_info.js",
-                        
+
+                        "~/Scripts/Chart.min.js",
+                        "~/Scripts/angular-chart.js/angular-chart.min.js",
+                        //"~/Scripts/angular-chart.js/angular-chart.min.js.map",
+
                         "~/Scripts/jquery.signalR-2.2.0.min.js"
                     )
                 );

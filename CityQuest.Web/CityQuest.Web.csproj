@@ -281,6 +281,9 @@
     <Content Include="App\Main\views\gameCollections\partialTemplates\gameStatusPartialTemplate.cshtml" />
     <Content Include="App\Main\views\gamePages\gamePageView.cshtml" />
     <Content Include="App\Main\templates\games\gameProcessManagementTemplate.cshtml" />
+    <Content Include="App\Main\views\gamePages\partialTemplates\gameTaskPartialTemplate.cshtml" />
+    <Content Include="App\Main\views\gamePages\partialTemplates\gameTaskConditionPartialTemplate.cshtml" />
+    <Content Include="App\Main\views\gamePages\partialTemplates\gameTaskTipPartialTemplate.cshtml" />
     <None Include="App\Main\views\roles\roleListView.cshtml" />
     <Content Include="App\Main\views\teams\teamListController.js" />
     <Content Include="App\Main\views\users\userListController.js" />
@@ -350,6 +353,10 @@
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
     <Content Include="Scripts\angular-aria.min.js" />
+    <Content Include="Scripts\angular-chart.js\angular-chart.css" />
+    <Content Include="Scripts\angular-chart.js\angular-chart.js" />
+    <Content Include="Scripts\angular-chart.js\angular-chart.min.css" />
+    <Content Include="Scripts\angular-chart.js\angular-chart.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
     <Content Include="Scripts\angular-cookies.min.js" />
     <Content Include="Scripts\angular-csp.css" />
@@ -394,6 +401,8 @@
     <Content Include="Abp\Framework\styles\abp.mixings.less" />
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-touch.min.js.map" />
@@ -417,6 +426,8 @@
     <Content Include="App\Main\templates\teams\teamDetailsTemplate.cshtml" />
     <Content Include="App\Main\views\authorization\login.cshtml" />
     <Content Include="App\Main\views\locations\locationListView.cshtml" />
+    <Content Include="Scripts\angular-chart.js\angular-chart.min.css.map" />
+    <Content Include="Scripts\angular-chart.js\angular-chart.min.js.map" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />

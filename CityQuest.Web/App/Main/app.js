@@ -8,7 +8,7 @@
         'ui.router',
         'ui.bootstrap',
         'ui.jq',
-
+        'chart.js',
         'abp'
     ]);
 

@@ -15,6 +15,10 @@ using CityQuest.Entities.GameModule.Games.GameStatuses;
 using CityQuest.Entities.GameModule.Games.GameTasks;
 using CityQuest.Entities.GameModule.Games.GameTasks.Conditions;
 using CityQuest.Entities.GameModule.Games.GameTasks.Tips;
+using CityQuest.Entities.GameModule.Statistics.PlayerGameStatistics;
+using CityQuest.Entities.GameModule.Statistics.PlayerGameTaskStatistics;
+using CityQuest.Entities.GameModule.Statistics.TeamGameStatistics;
+using CityQuest.Entities.GameModule.Statistics.TeamGameTaskStatistics;
 using CityQuest.Events.Messages;
 using CityQuest.Events.Notifiers;
 using CityQuest.Exceptions;
@@ -38,8 +42,13 @@ namespace CityQuest.ApplicationServices.GameModule.Games
         private IGameTaskRepository GameTaskRepository { get; set; }
         private IConditionRepository ConditionRepository { get; set; }
         private ITipRepository TipRepository { get; set; }
+        private ICityQuestRepositoryBase<PlayerGameTaskStatistic, long> PlayerGameTaskStatisticRepository { get; set; }
+        private ICityQuestRepositoryBase<TeamGameTaskStatistic, long> TeamGameTaskStatisticRepository { get; set; }
+        private ICityQuestRepositoryBase<PlayerGameStatistic, long> PlayerGameStatisticRepository { get; set; }
+        private ICityQuestRepositoryBase<TeamGameStatistic, long> TeamGameStatisticRepository { get; set; }
         private IGamePolicy GamePolicy { get; set; }
         private IGameChangesNotifier GameChangesNotifier { get; set; }
+        private IStatisticsChangesNotifier StatisticsChangesNotifier { get; set; }
 
         #endregion
 
@@ -51,8 +60,13 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             IGameTaskRepository gameTaskRepository,
             IConditionRepository conditionRepository,
             ITipRepository tipRepository,
+            ICityQuestRepositoryBase<PlayerGameTaskStatistic, long> playerGameTaskStatisticRepository,
+            ICityQuestRepositoryBase<TeamGameTaskStatistic, long> teamGameTaskStatisticRepository,
+            ICityQuestRepositoryBase<PlayerGameStatistic, long> playerGameStatisticRepository,
+            ICityQuestRepositoryBase<TeamGameStatistic, long> teamGameStatisticRepository,
             IGamePolicy gamePolicy,
-            IGameChangesNotifier gameChangesNotifier)
+            IGameChangesNotifier gameChangesNotifier,
+            IStatisticsChangesNotifier statisticsChangesNotifier)
         {
             UowManager = uowManager;
             GameRepository = gameRepository;
@@ -60,8 +74,13 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             GameTaskRepository = gameTaskRepository;
             ConditionRepository = conditionRepository;
             TipRepository = tipRepository;
+            PlayerGameTaskStatisticRepository = playerGameTaskStatisticRepository;
+            TeamGameTaskStatisticRepository = teamGameTaskStatisticRepository;
+            PlayerGameStatisticRepository = playerGameStatisticRepository;
+            TeamGameStatisticRepository = teamGameStatisticRepository;
             GamePolicy = gamePolicy;
             GameChangesNotifier = gameChangesNotifier;
+            StatisticsChangesNotifier = statisticsChangesNotifier;
         }
 
         #endregion
@@ -417,6 +436,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games
         public ChangeGameStatusOutput EndGame(EndGameInput input) 
         {
             string newGameStatusName = "GameStatus_Completed";
+#warning GameStartTime!
+            HandleCalculatingGameStatistics(input.GameId, DateTime.Now, DateTime.Now);
 
             return ChangeGameStatus(new ChangeGameStatusInput()
             {
@@ -540,6 +561,82 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             existTip.Order = newTip.Order;
 
             return TipRepository.Update(existTip);
+        }
+
+        private void HandleCalculatingGameStatistics(long gameId, DateTime gameStartTime, DateTime gameEndTime)
+        {
+            #region Checking\Deleting old game statistics
+            // No way to have game statistics here if business process was not wrong
+            // but ppl like to make incorrect DB changes using scripts (without CityQuest ui)
+            // thats why would be better to check this here and delete.
+
+            IList<PlayerGameStatistic> oldPlayerGameStatistics = PlayerGameStatisticRepository.GetAll().Where(r => r.GameId == gameId).ToList();
+
+            if (oldPlayerGameStatistics.Count > 0)
+            {
+                //Log this WARNING
+                PlayerGameStatisticRepository.RemoveRange(oldPlayerGameStatistics);
+            }
+
+            IList<TeamGameStatistic> oldTeamGameStatistics = TeamGameStatisticRepository.GetAll().Where(r => r.GameId == gameId).ToList();
+
+            if (oldPlayerGameStatistics.Count > 0)
+            {
+                //Log this WARNING
+                TeamGameStatisticRepository.RemoveRange(oldTeamGameStatistics);
+            }
+
+            #endregion
+
+            #region Calculating game statistic for players
+
+            PlayerGameTaskStatisticRepository.Includes.Add(r => r.GameTask);
+
+            List<PlayerGameTaskStatistic> playerGameTaskStatistics = PlayerGameTaskStatisticRepository.GetAll()
+                .Where(r => r.GameTask.GameId == gameId).ToList();
+
+            IList<PlayerGameStatistic> newPlayerGameStatistics = new List<PlayerGameStatistic>();
+            foreach (long playerCareerId in playerGameTaskStatistics.Select(r => r.PlayerCareerId).Distinct().ToList())
+            {
+#warning TODO: Calculate parameters here
+                newPlayerGameStatistics.Add(new PlayerGameStatistic(gameId, playerCareerId, gameStartTime, gameEndTime));
+            }
+            PlayerGameStatisticRepository.AddRange(newPlayerGameStatistics);
+
+            UowManager.Current.Completed += (sender, e) =>
+                {
+                    StatisticsChangesNotifier.RaiseOnPlayerGameStatisticChanged(
+                        new PlayerGameStatisticChangedMessage(gameId, playerGameTaskStatistics.Select(r => r.PlayerCareerId).Distinct().ToList()));
+                };
+
+            PlayerGameTaskStatisticRepository.Includes.Clear();
+
+            #endregion
+
+            #region Calculating game statistic for teams
+
+            TeamGameTaskStatisticRepository.Includes.Add(r => r.GameTask);
+
+            List<TeamGameTaskStatistic> teamGameTaskStatistics = TeamGameTaskStatisticRepository.GetAll()
+                .Where(r => r.GameTask.GameId == gameId).ToList();
+
+            IList<TeamGameStatistic> newTeamGameStatistics = new List<TeamGameStatistic>(); 
+            foreach (long teamId in teamGameTaskStatistics.Select(r => r.TeamId).Distinct().ToList())
+            {
+#warning TODO: Calculate parameters here
+                newTeamGameStatistics.Add(new TeamGameStatistic(gameId, teamId, gameStartTime, gameEndTime));
+            }
+            TeamGameStatisticRepository.AddRange(newTeamGameStatistics);
+
+            UowManager.Current.Completed += (sender, e) =>
+                {
+                    StatisticsChangesNotifier.RaiseOnTeamGameStatisticChanged(
+                        new TeamGameStatisticChangedMessage(gameId, teamGameTaskStatistics.Select(r => r.TeamId).Distinct().ToList()));
+                };
+
+            TeamGameTaskStatisticRepository.Includes.Clear();
+
+            #endregion
         }
 
         #endregion

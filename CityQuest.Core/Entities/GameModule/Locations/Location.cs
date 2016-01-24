@@ -12,8 +12,10 @@ namespace CityQuest.Entities.GameModule.Locations
     public class Location : FullAuditedEntity<long, User>
     {
         #region Relations
+
         public virtual ICollection<Game> Games { get; set; }
         public virtual ICollection<User> Users { get; set; }
+
         #endregion
 
         public string Name { get; set; }

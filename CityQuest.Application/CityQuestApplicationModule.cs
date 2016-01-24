@@ -12,11 +12,12 @@ namespace CityQuest
         public override void Initialize()
         {
             IocManager.IocContainer.Register(
-                //Component.For<IDivisionAppService>().ImplementedBy<DivisionAppService>().LifestyleTransient()
-                Component.For<IGameChangesNotifier>().ImplementedBy<GameChangesNotifier>().LifestyleSingleton()
-                
+                Component.For<IGameChangesNotifier>().ImplementedBy<GameChangesNotifier>().LifestyleSingleton(),
+                Component.For<IStatisticsChangesNotifier>().ImplementedBy<StatisticsChangesNotifier>().LifestyleSingleton()
                 );
+
             CityQuest.Mapping.CityQuestDtoMapper.Map();
+
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
         }
     }

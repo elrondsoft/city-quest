@@ -1,0 +1,35 @@
+﻿<div class="col-xs-12">
+    <div class="row game-page-game-task-header">
+        <div class="col-xs-12">
+            <i class="pull-left fa fa-check fa-lg"></i>
+            <i class="pull-left fa fa-spinner fa-lg"></i>
+            <i class="pull-left fa fa-exclamation fa-lg"></i>
+            <label>{{gameTask.name}}</label>
+        </div>
+    </div>
+    <div class="row game-page-game-task-body">
+        <div class="col-xs-12">
+            <div class="row game-page-game-task-body-task-text-area">
+                <div class="col-xs-12">
+                    {{gameTask.taskText}}
+                </div>
+            </div>
+            <div class="row game-page-game-task-conditions-area">
+                <div class="col-xs-12">
+                    <div class="row game-page-game-task-condition"
+                         ng-repeat="condition in gameTask.conditions">
+                        <ng-include src="vm.partialTemplates.gameTaskConditionPartialTemplate" />
+                    </div>
+                </div>
+            </div>
+            <div class="row game-page-game-task-tips-area">
+                <div class="col-xs-12">
+                    <div class="row game-page-game-task-tip"
+                         ng-repeat="tip in gameTask.tips">
+                        <ng-include src="vm.partialTemplates.gameTaskTipPartialTemplate" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

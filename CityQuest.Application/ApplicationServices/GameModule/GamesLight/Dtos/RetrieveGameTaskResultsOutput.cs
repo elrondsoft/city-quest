@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace CityQuest.ApplicationServices.GameModule.GamesLight.Dtos
 {
-    public class RetrieveGameResultsAndTasksInput : IInputDto
+    public class RetrieveGameTaskResultsOutput : IOutputDto
     {
-        public long GameId { get; set; }
+        public IList<TeamGameTaskStatisticDto> TeamGameTaskStatistics { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CityQuest.Entities.GameModule.Games.GameTasks.Conditions.PlayerAttempts
 {
-    public interface IUnsuccessfulPlayerAttemptRepository : ICityQuestRepositoryBase<UnsuccessfulPlayerAttempt, long>
+    public interface IUnsuccessfullPlayerAttemptRepository : ICityQuestRepositoryBase<UnsuccessfulPlayerAttempt, long>
     {
     }
 }
