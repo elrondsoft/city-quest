@@ -9,7 +9,16 @@
         public const string PermissionKey = "CityQuestPermissionKey";
 
         public const int MaxCountForKeyGeneration = 1000;
-        
+
+        #region CityQuest GameStatus's consts
+
+        public const string GameStatusPlannedName = "GameStatus_Planned";
+        public const string GameStatusInProgressName = "GameStatus_InProgress";
+        public const string GameStatusPausedName = "GameStatus_Paused";
+        public const string GameStatusCompletedName = "GameStatus_Completed";
+
+        #endregion
+
         #region Exception consts
 
         public const string CityQuestUserFriendlyStandartExceptionHeader = "Unexpected error!";
