@@ -1,0 +1,39 @@
+﻿<div class="col-xs-12">
+    <div class="row game-page-game-task-completed-header"
+         ng-click="vm.gameRelationActions.changeGameTaskViewMode(gameTask)">
+        <div class="col-xs-12">
+            <i class="game-page-relation-completed-icon pull-left fa fa-check fa-2x"></i>
+            <span class="game-page-relation-completed-name">{{gameTask.name}}</span>
+        </div>
+    </div>
+    <div class="row game-page-game-task-completed-body"
+         ng-if="!gameTask.isShortViewMode">
+        <div class="col-xs-12">
+            <div class="row game-page-game-task-completed-body-task-text-area">
+                <div class="col-xs-12">
+                    {{gameTask.taskText}}
+                </div>
+            </div>
+            <hr class="game-page-game-task-completed-body-hr"
+                ng-if="(gameTask.tips.length > 0) || (gameTask.conditions.length > 0)" />
+            <div class="row game-page-game-task-completed-conditions-area">
+                <div class="col-xs-12">
+                    <div class="row game-page-game-task-completed-condition"
+                         ng-repeat="condition in gameTask.conditions">
+                        <ng-include src="vm.partialTemplates.gameTaskCompletedConditionPartialTemplate" />
+                    </div>
+                </div>
+            </div>
+            <hr class="game-page-game-task-completed-body-hr"
+                ng-if="(gameTask.tips.length > 0) && (gameTask.conditions.length > 0)" />
+            <div class="row game-page-game-task-completed-tips-area">
+                <div class="col-xs-12">
+                    <div class="row game-page-game-task-completed-tip"
+                         ng-repeat="tip in gameTask.tips">
+                        <ng-include src="vm.partialTemplates.gameTaskCompletedTipPartialTemplate" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

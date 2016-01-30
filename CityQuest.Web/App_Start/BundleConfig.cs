@@ -18,6 +18,7 @@ namespace CityQuest.Web
                     .Include("~/Content/bootstrap.min.css", new CssRewriteUrlTransform())
                     .Include("~/Content/toastr.min.css")
                     .Include("~/Scripts/sweetalert/sweet-alert.css")
+                    .Include("~/Content/awesome-bootstrap-checkbox.css")
                     .Include("~/Content/flags/famfamfam-flags.css", new CssRewriteUrlTransform())
                     .Include("~/Content/font-awesome.min.css", new CssRewriteUrlTransform())
                     .Include("~/Scripts/jtable/themes/metro/blue/jtable.min.css", new CssRewriteUrlTransform())

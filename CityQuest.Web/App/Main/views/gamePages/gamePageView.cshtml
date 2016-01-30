@@ -5,9 +5,15 @@
 </div>
 <div class="row game-page-game-tasks-area">
     <div class="col-xs-12">
-        <div class="row game-page-game-task"
-             ng-repeat="gameTask in vm.gameTasks">
-            <ng-include src="vm.partialTemplates.gameTaskPartialTemplate" />
+        <div class="row game-page-game-task-in-progress"
+             ng-repeat="gameTask in vm.actions.getNotCompletedGameTasks()">
+            <ng-include src="vm.partialTemplates.gameTaskInProgressPartialTemplate" />
+        </div>
+        <hr class="game-page-game-tasks-area-hr"
+            ng-if="((vm.actions.getNotCompletedGameTasks()).length > 0) && ((vm.actions.getCompletedGameTasks()).length > 0)" />
+        <div class="row game-page-game-task-completed"
+             ng-repeat="gameTask in vm.actions.getCompletedGameTasks()">
+            <ng-include src="vm.partialTemplates.gameTaskCompletedPartialTemplate" />
         </div>
     </div>
 </div>

@@ -1,0 +1,39 @@
+﻿<div class="col-xs-12">
+    <div class="row game-page-game-task-in-progress-header"
+         ng-click="vm.gameRelationActions.changeGameTaskViewMode(gameTask)">
+        <div class="col-xs-12">
+            <i class="game-page-relation-in-progress-icon pull-left fa fa-spinner fa-pulse fa-2x"></i>
+            <span class="game-page-relation-in-progress-name">{{gameTask.name}}</span>
+        </div>
+    </div>
+    <div class="row game-page-game-task-in-progress-body"
+         ng-if="!gameTask.isShortViewMode">
+        <div class="col-xs-12">
+            <div class="row game-page-game-task-in-progress-body-task-text-area">
+                <div class="col-xs-12">
+                    {{gameTask.taskText}}
+                </div>
+            </div>
+            <hr class="game-page-game-task-in-progress-body-hr"
+                ng-if="(gameTask.tips.length > 0) || (gameTask.conditions.length > 0)" />
+            <div class="row game-page-game-task-in-progress-conditions-area">
+                <div class="col-xs-12">
+                    <div class="row game-page-game-task-in-progress-condition"
+                         ng-repeat="condition in gameTask.conditions">
+                        <ng-include src="vm.partialTemplates.gameTaskInProgressConditionPartialTemplate" />
+                    </div>
+                </div>
+            </div>
+            <hr class="game-page-game-task-in-progress-body-hr"
+                ng-if="(gameTask.tips.length > 0) && (gameTask.conditions.length > 0)" />
+            <div class="row game-page-game-task-in-progress-tips-area">
+                <div class="col-xs-12">
+                    <div class="row game-page-game-task-in-progress-tip"
+                         ng-repeat="tip in gameTask.tips">
+                        <ng-include src="vm.partialTemplates.gameTaskInProgressTipPartialTemplate" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

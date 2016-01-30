@@ -116,9 +116,12 @@ angular.module('app').service('clientCityQuestConstService', function () {
             gameStatusPartialTemplate: '/App/Main/views/gameCollections/partialTemplates/gameStatusPartialTemplate.cshtml',
         },
         gamePagePartialTemplates: {
-            gameTaskPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskPartialTemplate.cshtml',
-            gameTaskConditionPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskConditionPartialTemplate.cshtml',
-            gameTaskTipPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskTipPartialTemplate.cshtml',
+            gameTaskCompletedPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskCompletedPartialTemplate.cshtml',
+            gameTaskCompletedTipPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskCompletedTipPartialTemplate.cshtml',
+            gameTaskCompletedConditionPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskCompletedConditionPartialTemplate.cshtml',
+            gameTaskInProgressPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskInProgressPartialTemplate.cshtml',
+            gameTaskInProgressConditionPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskInProgressConditionPartialTemplate.cshtml',
+            gameTaskInProgressTipPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskInProgressTipPartialTemplate.cshtml',
         },
     };
     //-----------------------------------------------------------------------------------------------------------------------

@@ -1,4 +1,22 @@
-﻿.city-quest-header-container {
+﻿body {
+    background-color: #FFFAFA;
+}
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+.city-quest-header-container {
     margin-left: 15px;
     margin-right: 20px;
 }

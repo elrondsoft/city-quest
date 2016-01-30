@@ -7,91 +7,26 @@
 }
 
 .game-page-game-tasks-area {
-
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #B9F6CA;
 }
 
-.game-page-game-task {
-
+.game-page-relation-name{
+    margin-left: 10px;
 }
 
-.game-page-game-task-header {
-
+.game-page-relation-icon{
+    margin-top: -6px;
 }
 
-.game-page-game-task-body {
-
-}
-
-.game-page-game-task-body-task-text-area {
-
-}
-
-.game-page-game-task-conditions-area {
-
-}
-
-.game-page-game-task-tips-area {
-
-}
-
-.game-page-game-task-condition {
-
-}
-
-.game-page-game-task-condition-header {
-
-}
-
-.game-page-game-task-condition-body {
-
-}
-
-.game-page-game-task-condition-body {
-
-}
-
-.game-page-game-task-tip {
-
-}
-
-.game-page-game-task-tip-header {
-
-}
-
-.game-page-game-task-tip-body {
-
-}
-
-.test {
-
-}
-
-.test {
-
-}
-
-.test {
-
-}
-
-.test {
-
-}
-
-.test {
-
-}
-
-.test {
-
-}
-
-.test {
-
-}
-
-.test {
-
+.game-page-game-tasks-area-hr {
+    border-top: 1px solid black;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
 .test {

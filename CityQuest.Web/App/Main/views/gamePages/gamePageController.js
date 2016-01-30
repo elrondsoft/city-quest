@@ -102,6 +102,42 @@
                     });
                     return promise;
                 },
+                getCompletedGameTasks: function () {
+                    var result = [];
+                    if (vm.gameTasks != null && vm.gameTasks.length > 0) {
+                        for (var i = 0; i < vm.gameTasks.length; i++) {
+                            if (vm.gameTasks[i].isCompleted == true) {
+                                result.push(vm.gameTasks[i]);
+                            }
+                        }
+                    }
+                    return result;
+                },
+                getNotCompletedGameTasks: function () {
+                    var result = [];
+                    if (vm.gameTasks != null && vm.gameTasks.length > 0) {
+                        for (var i = 0; i < vm.gameTasks.length; i++) {
+                            if (vm.gameTasks[i].isCompleted == false) {
+                                result.push(vm.gameTasks[i]);
+                            }
+                        }
+                    }
+                    return result;
+                },
+            };
+            vm.gameRelationActions = {
+                changeGameTaskViewMode: function (gameTask) {
+                    gameTask.isShortViewMode = !gameTask.isShortViewMode;
+                    return gameTask;
+                },
+                changeConditionViewMode: function (condition) {
+                    condition.isShortViewMode = !condition.isShortViewMode;
+                    return condition;
+                },
+                changeTipViewMode: function (tip) {
+                    tip.isShortViewMode = !tip.isShortViewMode;
+                    return tip;
+                },
             };
             //---------------------------------------------------------------------------------------------------------------
             //------------------------------------------Initialize-----------------------------------------------------------
