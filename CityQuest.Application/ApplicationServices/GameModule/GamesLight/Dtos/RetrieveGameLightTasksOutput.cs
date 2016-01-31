@@ -9,6 +9,7 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight.Dtos
 {
     public class RetrieveGameLightTasksOutput : IOutputDto
     {
+        public GameLightDto Game { get; set; }
         public IList<GameTaskLightDto> GameTasks { get; set; }
         public IList<long> CompletedGameTaskIds { get; set; }
         public long? InProgressGameTaskId { get; set; }

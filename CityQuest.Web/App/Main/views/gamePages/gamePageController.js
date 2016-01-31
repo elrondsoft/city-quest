@@ -14,6 +14,7 @@
             vm.gameId = params.gameId;
             /// Is used to store available game's tasks
             vm.gameTasks = [];
+            vm.game = null;
             /// Initialize PartialTemplate's routes
             vm.partialTemplates = constSvc.cityQuestPartialTemplates.gamePagePartialTemplates;
             //---------------------------------------------------------------------------------------------------------------
@@ -30,9 +31,26 @@
                                 }
                                 return result;
                             };
+                            var setIsShortViewMode = function (gameTask) {
+                                var isShortViewMode = gameTask.isCompleted;
+                                gameTask.isShortViewMode = isShortViewMode;
+                                if (gameTask.conditions != null && gameTask.conditions.length > 0) {
+                                    for (var r = 0; r < gameTask.conditions.length; r++) {
+                                        gameTask.conditions[r].isShortViewMode = isShortViewMode;
+                                    }
+                                }
+                                if (gameTask.tips != null && gameTask.tips.length > 0) {
+                                    for (var r = 0; r < gameTask.tips.length; r++) {
+                                        gameTask.tips[r].isShortViewMode = isShortViewMode;
+                                    }
+                                }
+                                return gameTask;
+                            };
+                            vm.game = data.game;
                             vm.gameTasks = data.gameTasks;
                             for (var i = 0; i < vm.gameTasks.length; i++) {
                                 vm.gameTasks[i].isCompleted = checkIsCompleted(vm.gameTasks[i]);
+                                setIsShortViewMode(vm.gameTasks[i]);
                             }
                             return vm.gameTasks;
                         })
@@ -56,22 +74,34 @@
                 },
                 initOnGameGhangedEvents: function () {
                     vm.signalRGameChangesHub.client.onGameAdded = function (data) {
-                        vm.actions.loadAndAddNewGame(data.GameId);
+                        if (data.GameId == vm.gameId)
+                            return helpers.loadAvailableGameTasks();
+                        return false;
                     };
                     vm.signalRGameChangesHub.client.onGameUpdated = function (data) {
-                        vm.actions.loadAndAddNewGame(data.GameId);
+                        if (data.GameId == vm.gameId)
+                            return helpers.loadAvailableGameTasks();
+                        return false;
                     };
                     vm.signalRGameChangesHub.client.onGameStatusChanged = function (data) {
-                        vm.actions.loadAndAddNewGame(data.GameId);
+                        if (data.GameId == vm.gameId)
+                            return helpers.loadAvailableGameTasks();
+                        return false;
                     };
                     vm.signalRGameChangesHub.client.onGameDeleted = function (data) {
-                        vm.actions.removeGame(data.GameId);
+                        if (data.GameId == vm.gameId)
+                            return helpers.loadAvailableGameTasks();
+                        return false;
                     };
                     vm.signalRGameChangesHub.client.onGameDeactivated = function (data) {
-                        vm.actions.loadAndAddNewGame(data.GameId);
+                        if (data.GameId == vm.gameId)
+                            return helpers.loadAvailableGameTasks();
+                        return false;
                     };
                     vm.signalRGameChangesHub.client.onGameActivated = function (data) {
-                        vm.actions.loadAndAddNewGame(data.GameId);
+                        if (data.GameId == vm.gameId)
+                            return helpers.loadAvailableGameTasks();
+                        return false;
                     };
                 },
             };
@@ -79,7 +109,7 @@
             //--------------------------------------Permissions on actions---------------------------------------------------
             vm.permissionsOnActions = {
                 canTryToPassCondition: function (gameTask, condition, value) {
-                    return true;
+                    return vm.actions.isGameInProgress();
                 },
             };
             //---------------------------------------------------------------------------------------------------------------
@@ -124,6 +154,27 @@
                     }
                     return result;
                 },
+                isGamePaused: function () {
+                    var result = false;
+                    if (vm.game != null && vm.game.gameStatusName === 'GameStatus_Paused') {
+                        result = true;
+                    }
+                    return result;
+                },
+                isGamePlanned: function () {
+                    var result = false;
+                    if (vm.game != null && vm.game.gameStatusName === 'GameStatus_Planned') {
+                        result = true;
+                    }
+                    return result;
+                },
+                isGameInProgress: function () {
+                    var result = false;
+                    if (vm.game != null && vm.game.gameStatusName === 'GameStatus_InProgress') {
+                        result = true;
+                    }
+                    return result;
+                },
             };
             vm.gameRelationActions = {
                 changeGameTaskViewMode: function (gameTask) {
@@ -143,20 +194,23 @@
             //------------------------------------------Initialize-----------------------------------------------------------
             helpers.loadAvailableGameTasks();
 
-            /// Is used to start SignalR connection
-            var startSignalRConnection = function () {
-                $.connection.hub.stop();
-                vm.signalRGameChangesHub = $.connection.signalRGameChangesHub;
-                helpers.initOnGameGhangedEvents();
-                vm.signalRStatisticsChangesHub = $.connection.signalRStatisticsChangesHub;
-                helpers.initStatisticsGhangedEvents();
-                $.connection.hub.start().done(function () { });
-            }();
+            vm.signalRHelper = {
+                /// Is used to start SignalR connection
+                startSignalRConnection: function () {
+                    $.connection.hub.stop();
+                    vm.signalRGameChangesHub = $.connection.signalRGameChangesHub;
+                    helpers.initOnGameGhangedEvents();
+                    vm.signalRStatisticsChangesHub = $.connection.signalRStatisticsChangesHub;
+                    helpers.initStatisticsGhangedEvents();
+                    $.connection.hub.start().done(function () { });
+                },
+            }
+            vm.signalRHelper.startSignalRConnection();
             /// Is used to restart SignalR connection
             var restartSignalRConnectionWithInterval = setInterval(function () {
                 var needReconnect = $.connection.hub && $.connection.hub.state === $.signalR.connectionState.disconnected;
                 if (needReconnect) {
-                    startSignalRConnection();
+                    vm.signalRHelper.startSignalRConnection();
                 }
             }, 5000);
         }

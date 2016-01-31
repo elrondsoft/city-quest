@@ -201,6 +201,18 @@
                             (vm.conditions[index]).isMinimized = false;
                             return vm.conditions;
                         },
+                        hasValueInput: function (condition) {
+                            var result = false;
+                            if (condition != null && condition.conditionTypeId != null) {
+                                for (var i = 0; i < vm.conditionTypes.length; i++) {
+                                    if (condition.conditionTypeId == vm.conditionTypes[i].value) {
+                                        result = vm.conditionTypes[i].displayText === 'Condition_JustInputCode';
+                                        i = vm.conditionTypes.length;
+                                    }
+                                }
+                            }
+                            return result;
+                        },
                     };
                     //---------------------------------------------------------------------------------------------------------
                 }

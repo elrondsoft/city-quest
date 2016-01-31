@@ -27,7 +27,7 @@
     padding-bottom: 7px;
     background-color: #F44336;
     border: 1px solid #B71C1C;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .game-page-game-task-in-progress-body {
@@ -35,7 +35,7 @@
     border-left: 1px solid #B71C1C;
     border-right: 1px solid #B71C1C;
     border-bottom: 1px solid #B71C1C;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0px 0px 5px 5px;
 }
 
 .game-page-game-task-in-progress-body-task-text-area {
@@ -78,7 +78,7 @@
     padding-bottom: 7px;
     background-color: #F44336;
     border: 1px solid #B71C1C;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .game-page-game-task-in-progress-condition-type-input-body {
@@ -86,11 +86,11 @@
     border-left: 1px solid #B71C1C;
     border-right: 1px solid #B71C1C;
     border-bottom: 1px solid #B71C1C;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0px 0px 5px 5px;
 }
 
 .game-page-game-task-in-progress-condition-type-input-body-text {
-    background-color: #FFEBEE;
+    /*background-color: #FFEBEE;*/
     padding: 5px;
     margin-left: 5px;
     margin-right: 5px;
@@ -110,7 +110,7 @@
 }
 
 .game-page-game-task-in-progress-condition-type-time-body-text {
-    background-color: #FFEBEE;
+    /*background-color: #FFEBEE;*/
     padding: 5px;
     margin-left: 5px;
     margin-right: 5px;
@@ -130,7 +130,7 @@
     padding-bottom: 7px;
     background-color: #F44336;
     border: 1px solid #B71C1C;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .game-page-game-task-in-progress-condition-type-time-body {
@@ -138,7 +138,7 @@
     border-left: 1px solid #B71C1C;
     border-right: 1px solid #B71C1C;
     border-bottom: 1px solid #B71C1C;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0px 0px 5px 5px;
 }
 
 .game-page-game-task-in-progress-tip {
@@ -156,7 +156,7 @@
     padding-bottom: 7px;
     background-color: #FFC107;
     border: 1px solid #FF6F00;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .game-page-game-task-in-progress-tip-body {
@@ -165,7 +165,7 @@
     border-left: 1px solid #FF6F00;
     border-right: 1px solid #FF6F00;
     border-bottom: 1px solid #FF6F00;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0px 0px 5px 5px;
 }
 
 .game-page-game-task-in-progress-tip-body-text {

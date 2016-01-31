@@ -19,6 +19,13 @@
 
         #endregion
 
+        #region CityQuest ConditionType's consts
+
+        public const string ConditionJustInputCode = "Condition_JustInputCode";
+        public const string ConditionTime = "Condition_Time";
+
+        #endregion
+
         #region Exception consts
 
         public const string CityQuestUserFriendlyStandartExceptionHeader = "Unexpected error!";

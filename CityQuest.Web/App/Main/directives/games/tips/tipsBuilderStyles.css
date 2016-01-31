@@ -2,11 +2,13 @@
     margin-top: 0;
     margin-left: 0;
     margin-right: 0;
-    /*background-color: green;*/
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    padding: 5px;
+    background-color: #009688;
+    border-top: 1px solid #004D40;
+    border-left: 1px solid #004D40;
+    border-right: 1px solid #004D40;
+    border-bottom: 1px solid #004D40;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .cq-tips-directive-btn {
@@ -16,11 +18,12 @@
 .tips-container-body {
     margin-left: 0;
     margin-right: 0;
-    /*background-color: yellow;*/
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    background-color: #E0F2F1;
+    /*border-top: 1px solid #004D40;*/
+    border-left: 1px solid #004D40;
+    border-right: 1px solid #004D40;
+    border-bottom: 1px solid #004D40;
+    border-radius: 0px 0px 5px 5px;
 }
 
 .tip-container {
@@ -32,11 +35,12 @@
     margin-left: -5px;
     margin-right: -5px;
     margin-bottom: 0px;
-    /*background-color: blue;*/
-    border-top: 1px solid blue;
-    border-left: 1px solid blue;
-    border-right: 1px solid blue;
-    border-bottom: 1px solid blue;
+    background-color: #00796B;
+    border-top: 1px solid #004D40;
+    border-left: 1px solid #004D40;
+    border-right: 1px solid #004D40;
+    border-bottom: 1px solid #004D40;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .tip-container-header-button-row {
@@ -44,11 +48,13 @@
 }
 
 .tip-container-header-text-row {
-
+    padding: 5px;
+    padding-left: 10px;
 }
 
 .tip-name-in-container-header {
-
+    padding: 5px;
+    padding-left: 10px;
 }
 
 .tip-container-body {
@@ -56,13 +62,14 @@
     margin-left: -5px;
     margin-right: -5px;
     margin-bottom: 5px;
-    /*background-color: lightblue;*/
-    border-left: 1px solid blue;
-    border-right: 1px solid blue;
-    border-bottom: 1px solid blue;
+    background-color: #80CBC4;
+    border-left: 1px solid #004D40;
+    border-right: 1px solid #004D40;
+    border-bottom: 1px solid #004D40;
+    border-radius: 0px 0px 5px 5px;
 }
 
 .cq-tips-builder-accordion {
     margin-top: 15px;
-    /*background-color: aliceblue;*/
+    background-color: #E0F2F1;
 }

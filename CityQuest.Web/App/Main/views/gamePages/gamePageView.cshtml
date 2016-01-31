@@ -3,7 +3,8 @@
         TODO: game info here! => {{vm.gameId}}
     </div>
 </div>
-<div class="row game-page-game-tasks-area">
+<div class="row game-page-game-tasks-area"
+     ng-if="vm.game != null && !vm.actions.isGamePaused() && !vm.actions.isGamePlanned()">
     <div class="col-xs-12">
         <div class="row game-page-game-task-in-progress"
              ng-repeat="gameTask in vm.actions.getNotCompletedGameTasks()">
@@ -16,6 +17,13 @@
             <ng-include src="vm.partialTemplates.gameTaskCompletedPartialTemplate" />
         </div>
     </div>
+</div>
+<div class="row row-centered game-page-game-tasks-paused-area"
+     ng-if="vm.game != null && vm.actions.isGamePaused()">
+    <h1>
+        <i class="fa fa-spinner fa-pulse fa-5x"
+           title="{{vm.localize('GameIsPausedTittleText')}}"></i>
+    </h1>
 </div>
 <div class="row game-page-game-statistics-area">
     <div class="col-xs-12">

@@ -27,7 +27,7 @@
     padding-bottom: 7px;
     background-color: #689F38;
     border: 1px solid #33691E;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .game-page-game-task-completed-body {
@@ -35,7 +35,7 @@
     border-left: 1px solid #33691E;
     border-right: 1px solid #33691E;
     border-bottom: 1px solid #33691E;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0px 0px 5px 5px;
 }
 
 .game-page-game-task-completed-body-task-text-area {
@@ -78,7 +78,7 @@
     padding-bottom: 7px;
     background-color: #689F38;
     border: 1px solid #33691E;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .game-page-game-task-completed-condition-type-input-body {
@@ -86,11 +86,11 @@
     border-left: 1px solid #33691E;
     border-right: 1px solid #33691E;
     border-bottom: 1px solid #33691E;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0px 0px 5px 5px;
 }
 
 .game-page-game-task-completed-condition-type-input-body-text {
-    background-color: #F1F8E9;
+    /*background-color: #F1F8E9;*/
     padding: 5px;
     margin-left: 5px;
     margin-right: 5px;
@@ -110,7 +110,7 @@
 }
 
 .game-page-game-task-completed-condition-type-time-body-text {
-    background-color: #F1F8E9;
+    /*background-color: #F1F8E9;*/
     padding: 5px;
     margin-left: 5px;
     margin-right: 5px;
@@ -130,7 +130,7 @@
     padding-bottom: 7px;
     background-color: #689F38;
     border: 1px solid #33691E;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .game-page-game-task-completed-condition-type-time-body {
@@ -138,7 +138,7 @@
     border-left: 1px solid #33691E;
     border-right: 1px solid #33691E;
     border-bottom: 1px solid #33691E;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0px 0px 5px 5px;
 }
 
 .game-page-game-task-completed-tip {
@@ -156,7 +156,7 @@
     padding-bottom: 7px;
     background-color: #FFC107;
     border: 1px solid #FF6F00;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .game-page-game-task-completed-tip-body {
@@ -165,7 +165,7 @@
     border-left: 1px solid #FF6F00;
     border-right: 1px solid #FF6F00;
     border-bottom: 1px solid #FF6F00;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0px 0px 5px 5px;
 }
 
 .game-page-game-task-completed-tip-body-text {
