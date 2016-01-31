@@ -163,7 +163,8 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
             {
                 return new RetrieveGameLightTasksOutput()
                 {
-                    GameTasks = gameTasks
+                    Game = gameEntity.MapTo<GameLightDto>(),
+                    GameTasks = gameTasks,
                 };
             }
 
@@ -188,6 +189,7 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
 
             return new RetrieveGameLightTasksOutput()
                 {
+                    Game = gameEntity.MapTo<GameLightDto>(),
                     GameTasks = availableGameTasks,
                     CompletedGameTaskIds = completedGameTaskIds,
                     InProgressGameTaskId = inProgressGameTaskId
@@ -216,6 +218,7 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
                 #region Retrieving current condition
 
                 ConditionRepository.Includes.Add(r => r.GameTask.Game);
+                ConditionRepository.Includes.Add(r => r.ConditionType);
 
                 Condition currentCondition = ConditionRepository.Get(input.ConditionId);
                 if (currentCondition == null || currentCondition.GameTask == null || currentCondition.GameTask.Game == null ||
@@ -276,6 +279,22 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
 
         private bool HandleAttempt(Condition condition, PlayerCareer playerCareer, string inputedValue)
         {
+            if (condition.ConditionType.Name == CityQuestConsts.ConditionJustInputCode)
+            {
+                return HandleAttemptForInputCodeCondition(condition, playerCareer, inputedValue);
+            }
+            else if (condition.ConditionType.Name == CityQuestConsts.ConditionTime)
+            {
+                return HandleAttemptForTimeCondition(condition, playerCareer);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool HandleAttemptForInputCodeCondition(Condition condition, PlayerCareer playerCareer, string inputedValue)
+        {
             var attemptResult = false;
             DateTime attemptDateTime = DateTime.Now;
             if (String.Equals(inputedValue, condition.ValueToPass))
@@ -292,7 +311,7 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
                 SuccessfullPlayerAttemptRepository.Insert(newSuccessfullAttempt);
 
                 IList<long> userCompleterIds = new List<long>();
-                
+
                 #region Creating Statistic entities
 
                 IList<PlayerGameTaskStatistic> newPlayerGameTaskStatistics = new List<PlayerGameTaskStatistic>();
@@ -300,44 +319,102 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
                 {
                     newPlayerGameTaskStatistics.Add(
                         new PlayerGameTaskStatistic()
-                            {
-                                GameTaskId = condition.GameTaskId,
-                                PlayerCareerId = item.Id,
-                                GameTaskStartDateTime = attemptDateTime,
-                                GameTaskEndDateTime = attemptDateTime,
-                                GameTaskDurationInTicks = 0
-                            });
+                        {
+                            GameTaskId = condition.GameTaskId,
+                            PlayerCareerId = item.Id,
+                            GameTaskStartDateTime = attemptDateTime,
+                            GameTaskEndDateTime = attemptDateTime,
+                            GameTaskDurationInTicks = 0
+                        });
                     userCompleterIds.Add(item.UserId);
                 }
                 PlayerGameTaskStatisticRepository.AddRange(newPlayerGameTaskStatistics);
 
                 TeamGameTaskStatistic newTeamGameTaskStatistic = new TeamGameTaskStatistic()
-                    {
-                        GameTaskId = condition.GameTaskId,
-                        TeamId = playerCareer.TeamId,
-                        GameTaskStartDateTime = attemptDateTime,
-                        GameTaskEndDateTime = attemptDateTime,
-                        GameTaskDurationInTicks = 0
-                    };
+                {
+                    GameTaskId = condition.GameTaskId,
+                    TeamId = playerCareer.TeamId,
+                    GameTaskStartDateTime = attemptDateTime,
+                    GameTaskEndDateTime = attemptDateTime,
+                    GameTaskDurationInTicks = 0
+                };
                 TeamGameTaskStatisticRepository.Insert(newTeamGameTaskStatistic);
 
                 #endregion
 
                 UowManager.Current.Completed += (sender, e) =>
-                    {
-                        StatisticsChangesNotifier.RaiseOnGameTaskCompleted(new GameTaskCompletedMessage(condition.GameTaskId, userCompleterIds));
-                    };
+                {
+                    StatisticsChangesNotifier.RaiseOnGameTaskCompleted(new GameTaskCompletedMessage(condition.GameTaskId, userCompleterIds));
+                };
             }
             else
             {
-                UnsuccessfulPlayerAttempt newUnsuccessfulAttempt = new UnsuccessfulPlayerAttempt()
+                UnsuccessfulPlayerAttempt newUnsuccessfullAttempt = new UnsuccessfulPlayerAttempt()
                 {
                     AttemptDateTime = attemptDateTime,
                     ConditionId = condition.Id,
                     InputedValue = inputedValue,
                     PlayerCareerId = playerCareer.Id
                 };
-                UnsuccessfullPlayerAttemptRepository.Insert(newUnsuccessfulAttempt);
+                UnsuccessfullPlayerAttemptRepository.Insert(newUnsuccessfullAttempt);
+            }
+            return attemptResult;
+        }
+
+        private bool HandleAttemptForTimeCondition(Condition condition, PlayerCareer playerCareer)
+        {
+            var attemptResult = false;
+            DateTime attemptDateTime = DateTime.Now;
+#warning TODO: handle Condition_Time
+            if (true)
+            {
+                attemptResult = true;
+
+                SuccessfulPlayerAttempt newSuccessfullAttempt = new SuccessfulPlayerAttempt()
+                {
+                    AttemptDateTime = attemptDateTime,
+                    ConditionId = condition.Id,
+                    InputedValue = String.Empty,
+                    PlayerCareerId = playerCareer.Id
+                };
+                SuccessfullPlayerAttemptRepository.Insert(newSuccessfullAttempt);
+
+                IList<long> userCompleterIds = new List<long>();
+
+                #region Creating Statistic entities
+
+                IList<PlayerGameTaskStatistic> newPlayerGameTaskStatistics = new List<PlayerGameTaskStatistic>();
+                foreach (var item in playerCareer.Team.PlayerCareers)
+                {
+                    newPlayerGameTaskStatistics.Add(
+                        new PlayerGameTaskStatistic()
+                        {
+                            GameTaskId = condition.GameTaskId,
+                            PlayerCareerId = item.Id,
+                            GameTaskStartDateTime = attemptDateTime,
+                            GameTaskEndDateTime = attemptDateTime,
+                            GameTaskDurationInTicks = 0
+                        });
+                    userCompleterIds.Add(item.UserId);
+                }
+                PlayerGameTaskStatisticRepository.AddRange(newPlayerGameTaskStatistics);
+
+                TeamGameTaskStatistic newTeamGameTaskStatistic = new TeamGameTaskStatistic()
+                {
+                    GameTaskId = condition.GameTaskId,
+                    TeamId = playerCareer.TeamId,
+                    GameTaskStartDateTime = attemptDateTime,
+                    GameTaskEndDateTime = attemptDateTime,
+                    GameTaskDurationInTicks = 0
+                };
+                TeamGameTaskStatisticRepository.Insert(newTeamGameTaskStatistic);
+
+                #endregion
+
+                UowManager.Current.Completed += (sender, e) =>
+                {
+                    StatisticsChangesNotifier.RaiseOnGameTaskCompleted(new GameTaskCompletedMessage(condition.GameTaskId, userCompleterIds));
+                };
             }
             return attemptResult;
         }

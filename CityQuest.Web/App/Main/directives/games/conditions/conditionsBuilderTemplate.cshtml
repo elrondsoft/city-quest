@@ -152,10 +152,11 @@
                                                 ng-disabled="!(conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate())"
                                                 ng-readonly="!(conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate())"
                                                 ng-model="condition.conditionTypeId"
-                                                ng-options="conditionType.value as conditionType.displayText for conditionType in conditionsBuilder.conditionTypes" />
+                                                ng-options="conditionType.value as conditionsBuilder.localize(conditionType.displayText) for conditionType in conditionsBuilder.conditionTypes" />
                                     </div>
                                 </div>
-                                <div class="row cq-control-row">
+                                <div class="row cq-control-row"
+                                     ng-if="conditionsBuilder.conditionActions.hasValueInput(condition)">
                                     <div class="col-xs-2 cq-control-label">
                                         {{conditionsBuilder.localize('ValueToPass')}}:&nbsp;
                                     </div>

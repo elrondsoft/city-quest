@@ -26,8 +26,6 @@ using CityQuest.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CityQuest.ApplicationServices.GameModule.Games
 {
@@ -84,6 +82,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games
         }
 
         #endregion
+
+        #region CRUD methods
 
         [Abp.Authorization.AbpAuthorize]
         public RetrieveAllPagedResultOutput<GameDto, long> RetrieveAllPagedResult(RetrieveAllGamesPagedResultInput input)
@@ -288,6 +288,86 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             };
         }
 
+        #endregion
+
+        #region Game process management
+
+        [Abp.Authorization.AbpAuthorize]
+        public ChangeGameStatusOutput ChangeGameStatus(ChangeGameStatusInput input) 
+        {
+            GameStatusDto newGameStatus = UpdateGameStatus(input.GameId, null, input.NewGameStatusId, input.NewGameStatusName);
+
+            return new ChangeGameStatusOutput()
+                {
+                    NewGameStatus = newGameStatus
+                };
+        }
+
+        [Abp.Authorization.AbpAuthorize]
+        public ChangeGameStatusOutput StartGame(StartGameInput input) 
+        {
+            return ChangeGameStatus(new ChangeGameStatusInput() 
+                { 
+                    GameId = input.GameId, 
+                    NewGameStatusId = null,
+                    NewGameStatusName = CityQuestConsts.GameStatusInProgressName
+                });
+        }
+
+        [Abp.Authorization.AbpAuthorize]
+        public ChangeGameStatusOutput PauseGame(PauseGameInput input) 
+        {
+            return ChangeGameStatus(new ChangeGameStatusInput()
+                {
+                    GameId = input.GameId,
+                    NewGameStatusId = null,
+                    NewGameStatusName = CityQuestConsts.GameStatusPausedName
+                });
+        }
+
+        [Abp.Authorization.AbpAuthorize]
+        public ChangeGameStatusOutput ResumeGame(ResumeGameInput input) 
+        {
+            return ChangeGameStatus(new ChangeGameStatusInput()
+                {
+                    GameId = input.GameId,
+                    NewGameStatusId = null,
+                    NewGameStatusName = CityQuestConsts.GameStatusInProgressName
+                });
+        }
+
+        [Abp.Authorization.AbpAuthorize]
+        public ChangeGameStatusOutput EndGame(EndGameInput input)
+        {
+            #region Retrieving Game entity 
+
+            GameRepository.Includes.Add(r => r.GameStatus);
+            GameRepository.Includes.Add(r => r.GameStatus.CreatorUser);
+            GameRepository.Includes.Add(r => r.GameStatus.LastModifierUser);
+
+            Game gameEntity = GameRepository.Get(input.GameId);
+
+            if (gameEntity == null)
+                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Game\"");
+
+            GameRepository.Includes.Clear();
+
+            #endregion
+
+            HandleCalculatingGameStatistics(input.GameId, gameEntity.StartDate, DateTime.Now);
+
+            GameStatusDto newGameStatus = UpdateGameStatus(input.GameId, gameEntity, null, CityQuestConsts.GameStatusCompletedName);
+
+            return new ChangeGameStatusOutput() 
+                {
+                    NewGameStatus = newGameStatus
+                };
+        }
+
+        #endregion
+
+        #region Other methods
+
         [Abp.Authorization.AbpAuthorize]
         public ChangeActivityOutput<GameDto, long> ChangeActivity(ChangeActivityInput input)
         {
@@ -334,23 +414,41 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             };
         }
 
-        #region Game process management
+        #endregion
 
-        [Abp.Authorization.AbpAuthorize]
-        public ChangeGameStatusOutput ChangeGameStatus(ChangeGameStatusInput input)
+        #region Helpers
+
+        /// <summary>
+        /// Is used to update GameStatus for Game entity
+        /// </summary>
+        /// <param name="gameId">game's Id (not required if gameEntity parameter inputed)</param>
+        /// <param name="gameEntity">game's entity (not required if gameId parameter inputed)</param>
+        /// <param name="newGameStatusId">new GameStatus's Id (not required if newGameStatusName parameter inputed)</param>
+        /// <param name="newGameStatusName">new GameStatus's Name (not required if newGameStatusId parameter inputed)</param>
+        /// <returns>new game's status dto</returns>
+        private GameStatusDto UpdateGameStatus(long? gameId, Game gameEntity, long? newGameStatusId, string newGameStatusName)
         {
-            GameRepository.Includes.Add(r => r.GameStatus);
-            GameRepository.Includes.Add(r => r.GameStatus.CreatorUser);
-            GameRepository.Includes.Add(r => r.GameStatus.LastModifierUser);
+            if (gameEntity == null && gameId != null)
+            {
+                #region Retrieving Game entity
 
-            Game gameEntity = GameRepository.Get(input.GameId);
+                GameRepository.Includes.Add(r => r.GameStatus);
+                GameRepository.Includes.Add(r => r.GameStatus.CreatorUser);
+                GameRepository.Includes.Add(r => r.GameStatus.LastModifierUser);
+
+                gameEntity = GameRepository.Get((long)gameId);
+
+                GameStatusRepository.Includes.Clear();
+
+                #endregion
+            }
 
             if (gameEntity == null)
                 throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Game\"");
 
             GameStatusDto newGameStatusDto = gameEntity.GameStatus.MapTo<GameStatusDto>();
 
-            if (gameEntity.GameStatusId != input.NewGameStatusId)
+            if (gameEntity.GameStatusId != newGameStatusId)
             {
                 GameStatusRepository.Includes.Add(r => r.CreatorUser);
                 GameStatusRepository.Includes.Add(r => r.LastModifierUser);
@@ -358,8 +456,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games
                 GameStatus newGameStatus;
                 try
                 {
-                    newGameStatus = input.NewGameStatusId != null ? GameStatusRepository.Get((long)input.NewGameStatusId) :
-                        GameStatusRepository.Single(r => r.Name == input.NewGameStatusName);
+                    newGameStatus = newGameStatusId != null ? GameStatusRepository.Get((long)newGameStatusId) :
+                        GameStatusRepository.Single(r => r.Name == newGameStatusName);
                 }
                 catch
                 {
@@ -379,77 +477,12 @@ namespace CityQuest.ApplicationServices.GameModule.Games
                 UowManager.Current.Completed += (sender, e) =>
                 {
                     GameChangesNotifier.RaiseOnGameStatusChanged(
-                        new GameStatusChangedMessage(input.GameId, newGameStatus.Id, newGameStatusDto));
+                        new GameStatusChangedMessage(gameEntity.Id, newGameStatus.Id, newGameStatusDto));
                 };
-
             }
 
-            GameStatusRepository.Includes.Clear();
-            GameRepository.Includes.Clear();
-
-            return new ChangeGameStatusOutput()
-            {
-                NewGameStatus = newGameStatusDto
-            };
+            return newGameStatusDto;
         }
-
-        [Abp.Authorization.AbpAuthorize]
-        public ChangeGameStatusOutput StartGame(StartGameInput input) 
-        {
-            string newGameStatusName = "GameStatus_InProgress";
-
-            return ChangeGameStatus(new ChangeGameStatusInput() 
-                { 
-                    GameId = input.GameId, 
-                    NewGameStatusId = null,
-                    NewGameStatusName = newGameStatusName
-                });
-        }
-
-        [Abp.Authorization.AbpAuthorize]
-        public ChangeGameStatusOutput PauseGame(PauseGameInput input) 
-        {
-            string newGameStatusName = "GameStatus_Paused";
-
-            return ChangeGameStatus(new ChangeGameStatusInput()
-            {
-                GameId = input.GameId,
-                NewGameStatusId = null,
-                NewGameStatusName = newGameStatusName
-            });
-        }
-
-        [Abp.Authorization.AbpAuthorize]
-        public ChangeGameStatusOutput ResumeGame(ResumeGameInput input) 
-        {
-            string newGameStatusName = "GameStatus_InProgress";
-
-            return ChangeGameStatus(new ChangeGameStatusInput()
-            {
-                GameId = input.GameId,
-                NewGameStatusId = null,
-                NewGameStatusName = newGameStatusName
-            });
-        }
-
-        [Abp.Authorization.AbpAuthorize]
-        public ChangeGameStatusOutput EndGame(EndGameInput input) 
-        {
-            string newGameStatusName = "GameStatus_Completed";
-#warning GameStartTime!
-            HandleCalculatingGameStatistics(input.GameId, DateTime.Now, DateTime.Now);
-
-            return ChangeGameStatus(new ChangeGameStatusInput()
-            {
-                GameId = input.GameId,
-                NewGameStatusId = null,
-                NewGameStatusName = newGameStatusName
-            });
-        }
-
-        #endregion
-
-        #region Helpers
 
         private Game UpdateGameEntity(Game existGameEntity, GameDto newGameEntity)
         {

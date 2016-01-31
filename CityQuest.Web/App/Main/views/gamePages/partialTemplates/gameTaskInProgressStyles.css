@@ -1,0 +1,183 @@
+﻿.game-page-relation-in-progress-icon{
+    margin-top: -6px;
+    color: #FAFAFA;
+}
+
+.game-page-relation-in-progress-icon-condition {
+    color: #FAFAFA;
+}
+
+.game-page-relation-in-progress-name{
+    margin-left: 10px;
+    color: #212121;
+}
+
+.game-page-game-task-in-progress {
+    /*background-color: black;*/
+    /*margin-left: 5px;*/
+    /*margin-right: 5px;*/
+    margin-top: 2px;
+    /*margin-bottom: 10px;*/
+}
+
+.game-page-game-task-in-progress-header {
+    cursor: pointer;
+    margin-top: 2px;
+    padding-top: 13px;
+    padding-bottom: 7px;
+    background-color: #F44336;
+    border: 1px solid #B71C1C;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.game-page-game-task-in-progress-body {
+    background-color: #FFEBEE;
+    border-left: 1px solid #B71C1C;
+    border-right: 1px solid #B71C1C;
+    border-bottom: 1px solid #B71C1C;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.game-page-game-task-in-progress-body-task-text-area {
+    /*background-color: #FFEBEE;*/
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.game-page-game-task-in-progress-conditions-area {
+    /*background-color: black;*/
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.game-page-game-task-in-progress-tips-area {
+    /*background-color: black;*/
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.game-page-game-task-in-progress-condition {
+    /*background-color: black;*/
+    /*margin-left: 5px;*/
+    /*margin-right: 5px;*/
+    margin-top: 2px;
+    /*margin-bottom: 10px;*/
+}
+
+.game-page-game-task-in-progress-condition-type-input-header {
+    cursor: pointer;
+    margin-top: 2px;
+    padding-top: 13px;
+    padding-bottom: 7px;
+    background-color: #F44336;
+    border: 1px solid #B71C1C;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.game-page-game-task-in-progress-condition-type-input-body {
+    background-color: #FFCDD2;
+    border-left: 1px solid #B71C1C;
+    border-right: 1px solid #B71C1C;
+    border-bottom: 1px solid #B71C1C;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.game-page-game-task-in-progress-condition-type-input-body-text {
+    /*background-color: #FFEBEE;*/
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.game-page-game-task-in-progress-condition-type-input-body-control {
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.game-page-game-task-in-progress-condition-type-input-body-button {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.game-page-game-task-in-progress-condition-type-time-body-text {
+    /*background-color: #FFEBEE;*/
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.game-page-game-task-in-progress-condition-type-time-body-button {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.game-page-game-task-in-progress-condition-type-time-header {
+    cursor: pointer;
+    margin-top: 2px;
+    padding-top: 13px;
+    padding-bottom: 7px;
+    background-color: #F44336;
+    border: 1px solid #B71C1C;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.game-page-game-task-in-progress-condition-type-time-body {
+    background-color: #FFCDD2;
+    border-left: 1px solid #B71C1C;
+    border-right: 1px solid #B71C1C;
+    border-bottom: 1px solid #B71C1C;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.game-page-game-task-in-progress-tip {
+    /*background-color: black;*/
+    /*margin-left: 5px;*/
+    /*margin-right: 5px;*/
+    margin-top: 2px;
+    /*margin-bottom: 10px;*/
+}
+
+.game-page-game-task-in-progress-tip-header {
+    cursor: pointer;
+    margin-top: 2px;
+    padding-top: 13px;
+    padding-bottom: 7px;
+    background-color: #FFC107;
+    border: 1px solid #FF6F00;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.game-page-game-task-in-progress-tip-body {
+    background-color: #FFECB3;
+    padding: 5px;
+    border-left: 1px solid #FF6F00;
+    border-right: 1px solid #FF6F00;
+    border-bottom: 1px solid #FF6F00;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.game-page-game-task-in-progress-tip-body-text {
+    /*background-color: #FFECB3;*/
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.game-page-game-task-in-progress-body-hr {
+    border-top: 1px solid #B71C1C;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}

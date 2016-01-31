@@ -1,0 +1,68 @@
+﻿<div class="col-xs-12"
+     ng-if="condition.conditionType.name === 'Condition_JustInputCode'">
+    <div class="row game-page-game-task-in-progress-condition-type-input-header"
+         ng-click="vm.gameRelationActions.changeConditionViewMode(condition)">
+        <div class="col-xs-12">
+            <i class="game-page-relation-in-progress-icon-condition pull-left fa fa-hand-o-right fa-lg"></i>
+            <span class="game-page-relation-in-progress-name">{{condition.name}}</span>
+        </div>
+    </div>
+    <div class="row game-page-game-task-in-progress-condition-type-input-body"
+         ng-if="!condition.isShortViewMode">
+        <div class="col-xs-12">
+            <div class="row game-page-game-task-in-progress-condition-type-input-body-text">
+                {{condition.description}}
+            </div>
+            <div class="row row-centered game-page-game-task-in-progress-condition-type-input-body-control">
+                <div class="col-xs-12 col-centered">
+                    <input class="form-control"
+                           ng-disabled="gameTask.isCompleted || condition.lockedForPass"
+                           ng-readonly="gameTask.isCompleted || condition.lockedForPass"
+                           ng-model="condition.tryPassValue" />
+                </div>
+            </div>
+            <div class="row row-centered game-page-game-task-in-progress-condition-type-input-body-button">
+                <div class="col-xs-12 col-centered">
+                    <button type="button"
+                            class="btn btn-success pull-right"
+                            style="width: 120px;"
+                            ng-disabled="gameTask.isCompleted || condition.lockedForPass"
+                            ng-if="vm.permissionsOnActions.canTryToPassCondition(gameTask, condition, condition.tryPassValue)"
+                            ng-click="vm.actions.tryToPassCondition(gameTask, condition, condition.tryPassValue)">
+                        {{vm.localize("Submit")}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-xs-12"
+     ng-if="condition.conditionType.name === 'Condition_Time'">
+    <div class="row game-page-game-task-in-progress-condition-type-input-header"
+         ng-click="vm.gameRelationActions.changeConditionViewMode(condition)">
+        <div class="col-xs-12">
+            <i class="game-page-relation-in-progress-icon-condition pull-left fa fa-hand-o-right fa-lg"></i>
+            <span class="game-page-relation-in-progress-name">{{condition.name}}</span>
+        </div>
+    </div>
+    <div class="row game-page-game-task-in-progress-condition-type-time-body"
+         ng-if="!condition.isShortViewMode">
+        <div class="col-xs-12">
+            <div class="row game-page-game-task-in-progress-condition-type-time-body-text">
+                {{condition.description}}
+            </div>
+            <div class="row row-centered game-page-game-task-in-progress-condition-type-time-body-button">
+                <div class="col-xs-12 col-centered">
+                    <button type="button"
+                            class="btn btn-success pull-right"
+                            style="width: 120px;"
+                            ng-disabled="gameTask.isCompleted || condition.lockedForPass"
+                            ng-if="vm.permissionsOnActions.canTryToPassCondition(gameTask, condition, condition.tryPassValue)"
+                            ng-click="vm.actions.tryToPassCondition(gameTask, condition, condition.tryPassValue)">
+                        {{vm.localize("Submit")}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
