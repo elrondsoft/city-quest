@@ -22,6 +22,8 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -246,7 +248,9 @@
     <Content Include="App\Main\services\shared\clientPermissionService.js" />
     <Content Include="App\Main\services\shared\dataStorageService.js" />
     <Content Include="App\Main\directives\games\gameTasks\gameTaskBuilderStyles.css" />
+    <Content Include="App\Main\styles\tableButtonStyles.css" />
     <Content Include="App\Main\styles\site.css" />
+    <Content Include="App\Main\styles\tableFilters.css" />
     <Content Include="App\Main\templates\divisions\divisionDetailsController.js" />
     <Content Include="App\Main\templates\games\gameDetailsController.js" />
     <Content Include="App\Main\templates\games\gameProcessManagementController.js" />
@@ -254,6 +258,7 @@
     <Content Include="App\Main\templates\roles\roleDetailsController.js" />
     <Content Include="App\Main\templates\teams\teamDetailsController.js" />
     <Content Include="App\Main\templates\users\userDetailsController.js" />
+    <Content Include="App\Main\views\achievements\achievementListController.js" />
     <Content Include="App\Main\views\authorization\login.js" />
     <Content Include="App\Main\views\gamePages\gamePageController.js" />
     <Content Include="App\Main\views\gamePages\gamePageStyles.css" />
@@ -284,6 +289,7 @@
     <Content Include="App\Main\views\gamePages\partialTemplates\gameTaskPartialTemplate.cshtml" />
     <Content Include="App\Main\views\gamePages\partialTemplates\gameTaskConditionPartialTemplate.cshtml" />
     <Content Include="App\Main\views\gamePages\partialTemplates\gameTaskTipPartialTemplate.cshtml" />
+    <Content Include="App\Main\views\achievements\achievementListView.cshtml" />
     <None Include="App\Main\views\roles\roleListView.cshtml" />
     <Content Include="App\Main\views\teams\teamListController.js" />
     <Content Include="App\Main\views\users\userListController.js" />

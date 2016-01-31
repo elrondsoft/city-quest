@@ -49,6 +49,11 @@ namespace CityQuest.Web
                             url: "#/locations",
                             icon: "fa fa-list-alt"
                         )).AddItem(new MenuItemDefinition(
+                            "AchievementsMenuItem",
+                            new LocalizableString("AchievementsMenuItem", CityQuestConsts.LocalizationSourceName),
+                            url: "#/achievements",
+                            icon: "fa fa-list-alt"
+                        )).AddItem(new MenuItemDefinition(
                             "DivisionsMenuItem",
                             new LocalizableString("DivisionsMenuItem", CityQuestConsts.LocalizationSourceName),
                             url: "#/divisions",
