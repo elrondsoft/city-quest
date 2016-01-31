@@ -233,6 +233,10 @@
     <Content Include="App\Main\directives\jTableDirectives\jTableDirective.js" />
     <Content Include="App\Main\directives\shared\dropdownMultiselectDirective\dropdownMultiselectComtroller.js" />
     <Content Include="App\Main\directives\shared\dropdownMultiselectDirective\dropdownMultiselectStyles.css" />
+    <Content Include="App\Main\directives\statistics\scoreBoardForGameProcessByTeamsDirective\scoreBoardForGameProcessByTeamsController.js" />
+    <Content Include="App\Main\directives\statistics\scoreBoardForGameProcessByTeamsDirective\scoreBoardForGameProcessByTeamsStyles.css" />
+    <Content Include="App\Main\directives\statistics\statisticsForGameProcessByTeamsDirective\statisticsForGameProcessByTeamsController.js" />
+    <Content Include="App\Main\directives\statistics\statisticsForGameProcessByTeamsDirective\statisticsForGameProcessByTeamsStyles.css" />
     <Content Include="App\Main\main.css">
       <DependentUpon>main.less</DependentUpon>
     </Content>
@@ -289,6 +293,8 @@
     <Content Include="App\Main\views\gamePages\partialTemplates\gameTaskCompletedPartialTemplate.cshtml" />
     <Content Include="App\Main\views\gamePages\partialTemplates\gameTaskCompletedConditionPartialTemplate.cshtml" />
     <Content Include="App\Main\views\gamePages\partialTemplates\gameTaskCompletedTipPartialTemplate.cshtml" />
+    <Content Include="App\Main\directives\statistics\statisticsForGameProcessByTeamsDirective\statisticsForGameProcessByTeamsTemplate.cshtml" />
+    <Content Include="App\Main\directives\statistics\scoreBoardForGameProcessByTeamsDirective\scoreBoardForGameProcessByTeamsTemplate.cshtml" />
     <None Include="App\Main\views\roles\roleListView.cshtml" />
     <Content Include="App\Main\views\teams\teamListController.js" />
     <Content Include="App\Main\views\users\userListController.js" />

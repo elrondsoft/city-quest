@@ -169,6 +169,22 @@
     <text name="ButtonDeleteTitle" value="Delete this entity" />
     <text name="ValueToPass" value="Value to pass" />
     
+    <text name="ButtonGameProcessManagementTittleText" value="Game process management" />
+    <text name="ButtonStartGameTitleText" value="Start the game" />
+    <text name="ButtonStartGame" value="Start the game" />
+    <text name="ButtonPauseGameTitleText" value="Pause the game" />
+    <text name="ButtonPauseGame" value="Pause the game" />
+    <text name="ButtonResumeGameTitleText" value="Resume (unpause) the game" />
+    <text name="ButtonResumeGame" value="Resume the game" />
+    <text name="ButtonEndGameTitleText" value="End the game and calculate results" />
+    <text name="ButtonEndGame" value="End the game" />
+    <text name="GameStatus_Planned" value="Planned" />
+    <text name="GameStatus_InProgress" value="In progress" />
+    <text name="GameStatus_Paused" value="Paused" />
+    <text name="GameStatus_Completed" value="Completed" />
+    <text name="GameIsPausedTittleText" value="Game is paused!" />
+    <text name="Condition_JustInputCode" value="Code-condition" />
+    <text name="Condition_Time" value="Time-condition" />
 
   </texts>
 </localizationDictionary>

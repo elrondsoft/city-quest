@@ -32,16 +32,15 @@
                                 return result;
                             };
                             var setIsShortViewMode = function (gameTask) {
-                                var isShortViewMode = gameTask.isCompleted;
-                                gameTask.isShortViewMode = isShortViewMode;
+                                gameTask.isShortViewMode = gameTask.isCompleted;
                                 if (gameTask.conditions != null && gameTask.conditions.length > 0) {
                                     for (var r = 0; r < gameTask.conditions.length; r++) {
-                                        gameTask.conditions[r].isShortViewMode = isShortViewMode;
+                                        gameTask.conditions[r].isShortViewMode = true;
                                     }
                                 }
                                 if (gameTask.tips != null && gameTask.tips.length > 0) {
                                     for (var r = 0; r < gameTask.tips.length; r++) {
-                                        gameTask.tips[r].isShortViewMode = isShortViewMode;
+                                        gameTask.tips[r].isShortViewMode = true;
                                     }
                                 }
                                 return gameTask;

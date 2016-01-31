@@ -1,5 +1,23 @@
 ﻿body {
-    background-color: #FFFAFA;
+    background-color: #FFF;
+}
+
+.modal-header {
+    background-color: #009688;
+    border-radius: 5px 5px 0px 0px;
+    color: #FAFAFA;
+}
+
+.modal-body {
+    background-color: #B2DFDB;
+    border-radius: 0px 0px 0px 0px;
+    color: #333333;
+}
+
+.modal-footer {
+    background-color: #009688;
+    border-radius: 0px 0px 5px 5px;
+    color: #FAFAFA;
 }
 
 /* centered columns styles */
@@ -27,7 +45,7 @@
 }
 
 input, button, select, textarea {
-    color: #222222;
+    color: #333333;
 }
 
 .cq-icon-white-button {
@@ -37,13 +55,19 @@ input, button, select, textarea {
 }
 
 .cq-icon-black-button {
-    color: #000000;
+    color: #333333;
     margin-left: 1px;
     margin-right: 1px;
 }
 
 .cq-main-info-accordion {
+    color: #333333;
+    background-color: #E0F2F1;
+}
 
+.cq-other-info-accordion {
+    color: #333333;
+    background-color: #E0F2F1;
 }
 
 .cq-control {

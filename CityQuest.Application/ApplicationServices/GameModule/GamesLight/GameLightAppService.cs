@@ -218,6 +218,7 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
                 #region Retrieving current condition
 
                 ConditionRepository.Includes.Add(r => r.GameTask.Game);
+                ConditionRepository.Includes.Add(r => r.ConditionType);
 
                 Condition currentCondition = ConditionRepository.Get(input.ConditionId);
                 if (currentCondition == null || currentCondition.GameTask == null || currentCondition.GameTask.Game == null ||
