@@ -87,6 +87,8 @@ angular.module('app').service('clientCityQuestConstService', function () {
         gameListCtrl: 'app.views.games.gameListController',
         gameDetailsCtrl: 'app.templates.games.gameDetailsController',
         gameProcessManagementCtrl: 'app.templates.games.gameProcessManagementController',
+        scoreBoardController: 'app.templates.statistics.scoreBoards.scoreBoardController',
+        gameTaskByTeamStatisticController: 'app.templates.statistics.gameTaskByTeamStatistics.gameTaskByTeamStatisticController',
     };
     //-----------------------------------------------------------------------------------------------------------------------
     //----------------------------------------Constants for Templates/Views--------------------------------------------------
@@ -105,6 +107,8 @@ angular.module('app').service('clientCityQuestConstService', function () {
         gameListView: '/App/Main/views/games/gameListView.cshtml',
         gameDetailsTemplate: '/App/Main/templates/games/gameDetailsTemplate.cshtml',
         gameProcessManagementTemplate: '/App/Main/templates/games/gameProcessManagementTemplate.cshtml',
+        scoreBoardTemplate: '/App/Main/templates/statistics/scoreBoards/scoreBoardTemplate.cshtml',
+        gameTaskByTeamStatisticTemplate: '/App/Main/templates/statistics/gameTaskByTeamStatistics/gameTaskByTeamStatisticTemplate.cshtml',
     };
     //-----------------------------------------------------------------------------------------------------------------------
     //----------------------------------------Constants for partial templates------------------------------------------------

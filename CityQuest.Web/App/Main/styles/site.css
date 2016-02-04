@@ -1,21 +1,24 @@
 ﻿body {
-    background-color: #FFF;
+    background-color: #E8F5E9;
 }
 
 .modal-header {
-    background-color: #009688;
+    /*background-color: #009688;*/
+    background-color: #00BFA5;
     border-radius: 5px 5px 0px 0px;
     color: #FAFAFA;
 }
 
 .modal-body {
-    background-color: #B2DFDB;
+    /*background-color: #B2DFDB;*/
+    background-color: #E0F2F1;
     border-radius: 0px 0px 0px 0px;
     color: #333333;
 }
 
 .modal-footer {
-    background-color: #009688;
+    /*background-color: #009688;*/
+    background-color: #00BFA5;
     border-radius: 0px 0px 5px 5px;
     color: #FAFAFA;
 }

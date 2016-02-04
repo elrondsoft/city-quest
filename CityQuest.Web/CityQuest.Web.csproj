@@ -260,6 +260,10 @@
     <Content Include="App\Main\templates\games\gameProcessManagementController.js" />
     <Content Include="App\Main\templates\locations\locationDetailsController.js" />
     <Content Include="App\Main\templates\roles\roleDetailsController.js" />
+    <Content Include="App\Main\templates\statistics\gameTaskByTeamStatistics\gameTaskByTeamStatisticController.js" />
+    <Content Include="App\Main\templates\statistics\gameTaskByTeamStatistics\gameTaskByTeamStatisticStyles.css" />
+    <Content Include="App\Main\templates\statistics\scoreBoards\scoreBoardController.js" />
+    <Content Include="App\Main\templates\statistics\scoreBoards\scoreBoardStyles.css" />
     <Content Include="App\Main\templates\teams\teamDetailsController.js" />
     <Content Include="App\Main\templates\users\userDetailsController.js" />
     <Content Include="App\Main\views\achievements\achievementListController.js" />
@@ -301,6 +305,8 @@
     <Content Include="App\Main\directives\statistics\statisticsForGameProcessByTeamsDirective\statisticsForGameProcessByTeamsTemplate.cshtml" />
     <Content Include="App\Main\directives\statistics\scoreBoardForGameProcessByTeamsDirective\scoreBoardForGameProcessByTeamsTemplate.cshtml" />
     <Content Include="App\Main\views\achievements\achievementListView.cshtml" />
+    <Content Include="App\Main\templates\statistics\scoreBoards\scoreBoardTemplate.cshtml" />
+    <Content Include="App\Main\templates\statistics\gameTaskByTeamStatistics\gameTaskByTeamStatisticTemplate.cshtml" />
     <None Include="App\Main\views\roles\roleListView.cshtml" />
     <Content Include="App\Main\views\teams\teamListController.js" />
     <Content Include="App\Main\views\users\userListController.js" />
