@@ -1,2 +1,21 @@
-﻿body {
+﻿.score-board-title {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.btn-refresh-score-board {
+
+}
+
+.score-board {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.score-board-header-row {
+
+}
+
+.score-board-body-row {
+    margin-top: 10px;
 }

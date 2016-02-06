@@ -186,5 +186,12 @@
     <text name="Condition_JustInputCode" value="Code-condition" />
     <text name="Condition_Time" value="Time-condition" />
 
+    <text name="GameCollection" value="Game collection" />    
+    <text name="TeamName" value="Team name" />
+    <text name="CompletedTasksCount" value="Completed tasks count" />
+    <text name="Score" value="Score" />
+    <text name="RefreshScoreBoardButtonTittleText" value="Refresh score board" />
+    <text name="RefreshScoreBoardButtonText" value="Refresh score board" />
+
   </texts>
 </localizationDictionary>

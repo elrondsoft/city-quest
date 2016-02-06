@@ -21,6 +21,8 @@ angular.module('app').service('clientCityQuestConstService', function () {
         update: 'update',
         info: 'info'
     };
+    /// Interval for chacking signalR connection
+    this.signalRReconnetInterval = 10000;
     /// Is used like default controllerAs name
     this.controllerAsName = 'vm';
     /// Is used like default options for modal view (bootstrap)

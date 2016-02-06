@@ -204,7 +204,7 @@
                 if (needReconnect) {
                     startSignalRConnection();
                 }
-            }, 5000);
+            }, constSvc.signalRReconnetInterval);
         }
     ]);
 })();

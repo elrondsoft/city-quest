@@ -249,7 +249,7 @@
                 if (needReconnect) {
                     vm.signalRHelper.startSignalRConnection();
                 }
-            }, 5000);
+            }, constSvc.signalRReconnetInterval);
         }
     ]);
 })();

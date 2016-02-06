@@ -13,8 +13,8 @@
     </div>
 </div>
 <div class="modal-body">
-    <div class="row row-centered">
-        <div class="col-centered col-xs-10">
+    <div class="row">
+        <div class="col-xs-12">
             <score-board-for-game-process-by-teams>
             </score-board-for-game-process-by-teams>
         </div>
@@ -24,6 +24,6 @@
     <button type="button"
             class="btn btn-primary"
             ng-click="vm.templateActions.close()">
-        @L("ButtonClose")
+        {{vm.localize("ButtonClose")}}
     </button>
 </div>

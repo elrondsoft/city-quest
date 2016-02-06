@@ -275,6 +275,33 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
                 };
         }
 
+        [Abp.Authorization.AbpAuthorize]
+        public RetrieveScoreBoardForGameOutput RetrieveScoreBoardForGame(RetrieveScoreBoardForGameInput input) 
+        {
+            Game gameEntity = GameRepository.FirstOrDefault(r => r.Id == input.GameId);
+
+            if (gameEntity == null || !GamePolicy.CanRetrieveEntityLight(gameEntity))
+            {
+                return new RetrieveScoreBoardForGameOutput();
+            }
+
+            TeamGameTaskStatisticRepository.Includes.Add(r => r.Team);
+            TeamGameTaskStatisticRepository.Includes.Add(r => r.GameTask);
+
+            IList<TeamGameTaskStatistic> teamGameTaskStatistics = TeamGameTaskStatisticRepository.GetAll()
+                .Where(r => r.GameTask.GameId == input.GameId)
+                .ToList();
+
+            IList<ScoreBoardDataDto> scoreBoardData = CalculateScoreBoardData(teamGameTaskStatistics);
+
+            TeamGameTaskStatisticRepository.Includes.Clear();
+
+            return new RetrieveScoreBoardForGameOutput() 
+                {
+                    ScoreBoardData = scoreBoardData
+                };
+        }
+
         #region Helpers
 
         private bool HandleAttempt(Condition condition, PlayerCareer playerCareer, string inputedValue)
@@ -417,6 +444,47 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
                 };
             }
             return attemptResult;
+        }
+
+        private IList<ScoreBoardDataDto> CalculateScoreBoardData(IList<TeamGameTaskStatistic> teamGameTaskStatistics)
+        {
+            IList<ScoreBoardDataDto> scoreBoardData = new List<ScoreBoardDataDto>();
+
+            if (teamGameTaskStatistics.Count > 0)
+            {
+                #region Calculating score board data
+
+                foreach (var teamId in teamGameTaskStatistics.Select(r => r.TeamId).Distinct())
+                {
+                    List<TeamGameTaskStatistic> teamGameTaskStatistic = teamGameTaskStatistics.Where(r => r.TeamId == teamId).ToList();
+                    scoreBoardData.Add(new ScoreBoardDataDto()
+                    {
+                        CompletedTasksCount = teamGameTaskStatistic.Count(),
+                        Score = teamGameTaskStatistic.Sum(r => (int)r.ReceivedPoints),
+                        TeamId = teamId,
+                        TeamName = teamGameTaskStatistic.First() != null ? teamGameTaskStatistic.First().Team.Name : teamId.ToString(),
+                    });
+                }
+
+                #endregion
+
+                #region Sorting score board data
+
+                scoreBoardData.OrderBy(r => r.Score);
+
+                int position = 1;
+                int previousScore = scoreBoardData.First().Score;
+
+                foreach (var item in scoreBoardData)
+                {
+                    position = (item.Score == previousScore) ? position : (position + 1);
+                    item.Position = position;
+                }
+
+                #endregion
+            }
+
+            return scoreBoardData;
         }
 
         #endregion

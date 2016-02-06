@@ -134,6 +134,9 @@
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveGameLightOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveGameTaskResultsInput.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveGameTaskResultsOutput.cs" />
+    <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveScoreBoardForGameInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveScoreBoardForGameOutput.cs" />
+    <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\ScoreBoardDataDto.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\TeamGameTaskStatisticDto.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\TipLightDto.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\TryToPassConditionInput.cs" />
