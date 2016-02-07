@@ -192,6 +192,21 @@
     <text name="Score" value="Score" />
     <text name="RefreshScoreBoardButtonTittleText" value="Refresh score board" />
     <text name="RefreshScoreBoardButtonText" value="Refresh score board" />
+    <text name="NoAvailableDataForScoreBoard" value="No available data" />
+    <text name="ScoreBoardTemplateTitle" value="Score board" />
+    <text name="GameTaskByTeamStatisticTemplateTitle" value="Game's statistics" />
+    <text name="PointsForPass" value="Point for pass" />
+    <text name="NoAvailableDataForGameProcessByTeams" value="No available data" />
+    <text name="RefreshStatisticsForGameByTeamsButtonTittleText" value="Refresh statistics" />
+    <text name="RefreshStatisticsForGameByTeamsButtonText" value="Refresh statistics" />
+    <text name="CurrentGameStatusIs" value="Current game status is" />
+    <text name="GameProcessManagement" value="Game process management" />
+    <text name="GamePageViewTitle" value="Game page" />
+    <text name="OpenScoreBoardButtonTitleText" value="Open the game's score board" />
+    <text name="OpenScoreBoardButtonText" value="Score board" />
+    <text name="OpenStatisticsButtonTitleText" value="Open the game's statistics" />
+    <text name="OpenStatisticsButtonText" value="Statistics" />
 
+  
   </texts>
 </localizationDictionary>

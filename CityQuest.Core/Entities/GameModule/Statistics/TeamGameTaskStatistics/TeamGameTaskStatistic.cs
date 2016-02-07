@@ -31,5 +31,28 @@ namespace CityQuest.Entities.GameModule.Statistics.TeamGameTaskStatistics
         public int? ReceivedPoints { get; set; }
 
         #endregion
+
+        #region Ctors
+
+        public TeamGameTaskStatistic() { }
+
+        public TeamGameTaskStatistic(long gameTaskId, long teamId, DateTime gameTaskStartDateTime, DateTime gameTaskEndDateTime,
+            int? receivedPoints, long? durationLag = null)
+            : this()
+        {
+            durationLag = durationLag == null ? 0 : (((durationLag + (CityQuestConsts.TicksToRoundDateTime / 2) + 1) /
+                CityQuestConsts.TicksToRoundDateTime) * CityQuestConsts.TicksToRoundDateTime);
+
+            GameTaskId = gameTaskId;
+            TeamId = teamId;
+            GameTaskStartDateTime = gameTaskStartDateTime.RoundDateTime();
+            GameTaskEndDateTime = gameTaskEndDateTime.RoundDateTime();
+            GameTaskDurationInTicks = durationLag == null ?
+                GameTaskEndDateTime.Ticks - GameTaskStartDateTime.Ticks :
+                GameTaskEndDateTime.Ticks - GameTaskStartDateTime.Ticks - (long)durationLag;
+            ReceivedPoints = receivedPoints;
+        }
+
+        #endregion
     }
 }

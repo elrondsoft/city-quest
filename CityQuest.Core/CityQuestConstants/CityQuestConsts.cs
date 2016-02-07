@@ -10,6 +10,8 @@
 
         public const int MaxCountForKeyGeneration = 1000;
 
+        public const long TicksToRoundDateTime = System.TimeSpan.TicksPerSecond;
+
         #region CityQuest GameStatus's consts
 
         public const string GameStatusPlannedName = "GameStatus_Planned";

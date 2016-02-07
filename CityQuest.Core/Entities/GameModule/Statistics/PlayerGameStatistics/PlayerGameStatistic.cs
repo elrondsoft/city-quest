@@ -36,15 +36,21 @@ namespace CityQuest.Entities.GameModule.Statistics.PlayerGameStatistics
 
         public PlayerGameStatistic() { }
 
-        public PlayerGameStatistic(long gameId, long playerCareerId, DateTime gameStartDateTime, DateTime gameEndDateTime, long? durationLag = null)
+        public PlayerGameStatistic(long gameId, long playerCareerId, DateTime gameStartDateTime, DateTime gameEndDateTime, 
+            int? receivedPoints, long? durationLag = null)
+            : this()
         {
+            durationLag = durationLag == null ? 0 : (((durationLag + (CityQuestConsts.TicksToRoundDateTime / 2) + 1) /
+                CityQuestConsts.TicksToRoundDateTime) * CityQuestConsts.TicksToRoundDateTime);
+
             GameId = gameId;
             PlayerCareerId = playerCareerId;
-            GameStartDateTime = gameStartDateTime;
-            GameEndDateTime = gameEndDateTime;
+            GameStartDateTime = gameStartDateTime.RoundDateTime();
+            GameEndDateTime = gameEndDateTime.RoundDateTime();
             GameDurationInTicks = durationLag == null ?
-                gameEndDateTime.Ticks - gameStartDateTime.Ticks :
-                gameEndDateTime.Ticks - gameStartDateTime.Ticks - (long)durationLag;
+                GameEndDateTime.Ticks - GameStartDateTime.Ticks :
+                GameEndDateTime.Ticks - GameStartDateTime.Ticks - (long)durationLag;
+            ReceivedPoints = receivedPoints;
         }
 
         #endregion

@@ -98,6 +98,7 @@ namespace CityQuest.Mapping
 
             AutoMapper.Mapper.CreateMap<TeamGameTaskStatistic, TeamGameTaskStatisticDto>()
                 .ForMember(r => r.GameTaskName, r => r.MapFrom(e => e.GameTask.Name))
+                .ForMember(r => r.GameTaskOrder, r => r.MapFrom(e => e.GameTask.Order))
                 .ForMember(r => r.TeamName, r => r.MapFrom(e => e.Team.Name));
 
             #endregion

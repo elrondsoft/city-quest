@@ -15,7 +15,7 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight.Dtos
         public string TeamName { get; set; }
 
         public int CompletedTasksCount { get; set; }
-
+        public long TotalDuration { get; set; }
         public int Score { get; set; }
     }
 }

@@ -15,9 +15,7 @@
                 controllerAs: 'conditionsBuilder',
                 controller: function ($scope) {
                     var vm = this;
-
                     vm.localize = constSvc.localize;
-
                     //---------------------------------------------------------------------------------------------------------
                     //-----------------------------------------Load promise----------------------------------------------------
                     /// Is used to store current load promise
@@ -105,6 +103,7 @@
                                 description: null,
                                 valueToPass: null,
                                 order: null,
+                                points: null,
                             };
                             return emptyCondition;
                         },

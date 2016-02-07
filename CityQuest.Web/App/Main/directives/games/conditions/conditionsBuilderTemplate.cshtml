@@ -167,6 +167,19 @@
                                                ng-model="condition.valueToPass" />
                                     </div>
                                 </div>
+                                <div class="row cq-control-row"
+                                     ng-if="conditionsBuilder.conditionActions.hasValueInput(condition)">
+                                    <div class="col-xs-2 cq-control-label">
+                                        {{conditionsBuilder.localize('PointsForPass')}}:&nbsp;
+                                    </div>
+                                    <div class="col-xs-10">
+                                        <input class="form-control cq-control"
+                                               type="number"
+                                               ng-disabled="!(conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate())"
+                                               ng-readonly="!(conditionsBuilder.templateModeState.isCreate() || conditionsBuilder.templateModeState.isUpdate())"
+                                               ng-model="condition.points" />
+                                    </div>
+                                </div>
                             </uib-accordion-group>
                         </uib-accordion>
                     </div>

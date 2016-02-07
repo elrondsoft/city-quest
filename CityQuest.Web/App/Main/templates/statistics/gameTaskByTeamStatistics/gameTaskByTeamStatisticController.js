@@ -7,7 +7,7 @@
             //-----------------------------------------PreInitializing-------------------------------------------------
             var vm = this;
             vm.localize = constSvc.localize;
-            vm.title = vm.localize('gameTaskByTeamStatisticTemplateTitle');
+            vm.title = vm.localize('GameTaskByTeamStatisticTemplateTitle');
             vm.templateModeState = serviceData.templateMode;
             vm.gameId = serviceData.gameId;
             //---------------------------------------------------------------------------------------------------------

@@ -15,7 +15,7 @@
 <div class="modal-body">
     <div class="row row-centered">
         <div class="col-centered col-xs-10">
-            <statistics-for-game-process-by-teams>
+            <statistics-for-game-process-by-teams game-id="vm.gameId">
             </statistics-for-game-process-by-teams>
         </div>
     </div>
@@ -24,6 +24,6 @@
     <button type="button"
             class="btn btn-primary"
             ng-click="vm.templateActions.close()">
-        @L("ButtonClose")
+        {{vm.localize("ButtonClose")}}
     </button>
 </div>

@@ -14,65 +14,55 @@
     </div>
 </div>
 <div class="modal-body">
-    <div class="col-xs-12">
-        <div class="row game-process-management-buttons-area">
+        <div class="row game-process-management-buttons-area"
+             ng-if="vm.gameEntity != null">
             <div class="col-xs-12">
                 <div class="row">
                     <div class="col-xs-12">
-                        {{vm.localize(vm.gameEntity.gameStatusName)}}
+                        {{vm.localize('CurrentGameStatusIs')}}:&nbsp;{{vm.localize(vm.gameEntity.gameStatus.name)}}.
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-3">
+                    <div class="col-xs-10">
                         <button type="button"
                                 class="btn btn-primary"
                                 title="{{vm.localize('ButtonStartGameTitleText')}}"
                                 ng-if="vm.templatePermissionsOnActions.canStartGame(vm.gameEntity)"
                                 ng-click="vm.templateActions.startGame(vm.gameEntity.id)">
-                            {{vm.localize('ButtonStartGame')}}
+                            <i class="fa fa-play" style="color: #E0F2F1;"></i>&nbsp;&nbsp;{{vm.localize('ButtonStartGame')}}
                         </button>
-                    </div>
-                    <div class="col-xs-3">
                         <button type="button"
                                 class="btn btn-primary"
                                 title="{{vm.localize('ButtonPauseGameTitleText')}}"
                                 ng-if="vm.templatePermissionsOnActions.canPauseGame(vm.gameEntity)"
                                 ng-click="vm.templateActions.pauseGame(vm.gameEntity.id)">
-                            {{vm.localize('ButtonPauseGame')}}
+                            <i class="fa fa-pause" style="color: #E0F2F1;"></i>&nbsp;&nbsp;{{vm.localize('ButtonPauseGame')}}
                         </button>
-                    </div>
-                    <div class="col-xs-3">
                         <button type="button"
                                 class="btn btn-primary"
                                 title="{{vm.localize('ButtonResumeGameTitleText')}}"
                                 ng-if="vm.templatePermissionsOnActions.canResumeGame(vm.gameEntity)"
                                 ng-click="vm.templateActions.resumeGame(vm.gameEntity.id)">
-                            {{vm.localize('ButtonResumeGame')}}
+                            <i class="fa fa-play" style="color: #E0F2F1;"></i>&nbsp;&nbsp;{{vm.localize('ButtonResumeGame')}}
                         </button>
-                    </div>
-                    <div class="col-xs-3">
                         <button type="button"
                                 class="btn btn-primary"
                                 title="{{vm.localize('ButtonEndGameTitleText')}}"
                                 ng-if="vm.templatePermissionsOnActions.canEndGame(vm.gameEntity)"
                                 ng-click="vm.templateActions.endGame(vm.gameEntity.id)">
-                            {{vm.localize('ButtonEndGame')}}
+                            <i class="fa fa-stop" style="color: #E0F2F1;"></i>&nbsp;&nbsp;{{vm.localize('ButtonEndGame')}}
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row game-statistics-area">
-            <div class="col-xs-10">
-                <canvas id="line"
-                        class="chart chart-line"
-                        chart-data="vm.gameStatistics.data"
-                        chart-labels="vm.gameStatistics.labels"
-                        chart-legend="{{vm.gameStatistics.series && (vm.gameStatistics.series.length > 0)}}"
-                        chart-series="vm.gameStatistics.series"></canvas>
+    <hr style="color: black; border-top: 1px solid black;"/>
+        <div class="row row-centered game-process-management-statistics-area">
+            <div class="col-centered col-xs-10">
+                <statistics-for-game-process-by-teams game-id="vm.gameId">
+                </statistics-for-game-process-by-teams>
             </div>
         </div>
-    </div>
 </div>
 <div class="modal-footer">
     <button type="button"

@@ -45,7 +45,7 @@
                             return promise;
                         },
                         reloadScoreBoard: function () {
-                            return vm.helpers.getScoreBoardForGame('scoreBoardLoadPromise');
+                            return vm.helpers.getScoreBoardForGame('scoreBoardReloadPromise');
                         },
                         isGoldenPosition: function (teamScore) {
                             var result = teamScore.position != null && teamScore.position == 1;

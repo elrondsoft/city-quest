@@ -258,6 +258,7 @@
     <Content Include="App\Main\templates\divisions\divisionDetailsController.js" />
     <Content Include="App\Main\templates\games\gameDetailsController.js" />
     <Content Include="App\Main\templates\games\gameProcessManagementController.js" />
+    <Content Include="App\Main\templates\games\gameProcessManagementStyles.css" />
     <Content Include="App\Main\templates\locations\locationDetailsController.js" />
     <Content Include="App\Main\templates\roles\roleDetailsController.js" />
     <Content Include="App\Main\templates\statistics\gameTaskByTeamStatistics\gameTaskByTeamStatisticController.js" />

@@ -8,12 +8,14 @@
         <div class="row ">
             <div class="col-xs-12">
                 <button class="btn btn-primary"
+                        title="{{vm.localize('OpenScoreBoardButtonTitleText')}}"
                         ng-click="vm.gameRelationActions.openScoreBoardTemplate()">
-                    OpenScoreBoard
+                    <i class="fa fa-list-alt"></i>&nbsp;&nbsp;{{vm.localize('OpenScoreBoardButtonText')}}
                 </button>
                 <button class="btn btn-primary"
+                        title="{{vm.localize('OpenStatisticsButtonTitleText')}}"
                         ng-click="vm.gameRelationActions.openGameTaskByTeamsStatisticTemplate()">
-                    OpenStatistics
+                    <i class="fa fa-line-chart"></i>&nbsp;&nbsp;{{vm.localize('OpenStatisticsButtonText')}}
                 </button>
             </div>
         </div>

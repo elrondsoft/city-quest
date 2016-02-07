@@ -9,7 +9,7 @@
             /// Is used for localization
             vm.localize = constSvc.localize;
             /// Is used to store template's title
-            vm.title = vm.localize("GamePage");
+            vm.title = vm.localize("GamePageViewTitle");
             /// Is used to store game's id
             vm.gameId = params.gameId;
             /// Is used to store available game's tasks
