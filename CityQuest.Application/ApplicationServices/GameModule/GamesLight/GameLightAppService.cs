@@ -460,7 +460,7 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
                     scoreBoardData.Add(new ScoreBoardDataDto()
                     {
                         CompletedTasksCount = teamGameTaskStatistic.Count(),
-                        Score = teamGameTaskStatistic.Sum(r => (int)r.ReceivedPoints),
+                        Score = teamGameTaskStatistic.Where(r => r.ReceivedPoints != null).Sum(r => (int)r.ReceivedPoints),
                         TeamId = teamId,
                         TeamName = teamGameTaskStatistic.First() != null ? teamGameTaskStatistic.First().Team.Name : teamId.ToString(),
                     });

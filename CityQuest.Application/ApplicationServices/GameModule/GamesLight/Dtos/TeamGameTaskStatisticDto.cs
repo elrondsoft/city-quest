@@ -25,7 +25,7 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight.Dtos
 
         #region Criterions for statistics
 
-
+        public int? ReceivedPoints { get; set; }
 
         #endregion
     }

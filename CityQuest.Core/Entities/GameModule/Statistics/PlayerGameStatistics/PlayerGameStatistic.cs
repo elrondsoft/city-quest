@@ -28,7 +28,7 @@ namespace CityQuest.Entities.GameModule.Statistics.PlayerGameStatistics
 
         #region Criterions for statistics
 
-
+        public int? ReceivedPoints { get; set; }
 
         #endregion
 

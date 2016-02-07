@@ -161,6 +161,10 @@
     <Compile Include="Migrations\201512252346567_ChangedGameStatuses.Designer.cs">
       <DependentUpon>201512252346567_ChangedGameStatuses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602070718248_AddedReceivedPointsToStatistics.cs" />
+    <Compile Include="Migrations\201602070718248_AddedReceivedPointsToStatistics.Designer.cs">
+      <DependentUpon>201602070718248_AddedReceivedPointsToStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CityQuestDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -211,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512252346567_ChangedGameStatuses.resx">
       <DependentUpon>201512252346567_ChangedGameStatuses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602070718248_AddedReceivedPointsToStatistics.resx">
+      <DependentUpon>201602070718248_AddedReceivedPointsToStatistics.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
