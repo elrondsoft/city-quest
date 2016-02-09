@@ -18,7 +18,6 @@ namespace CityQuest.Entities.MainModule.Authorization
             {
                 context.CreatePermission(item, new FixedLocalizableString(item));//localize!
             }
-
         }
     }
 }

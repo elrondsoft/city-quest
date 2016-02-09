@@ -29,5 +29,14 @@ namespace CityQuest.Entities.MainModule.Authorization.UserLogins
         public virtual string ProviderKey { get; set; }
 
         public virtual ICollection<User> Users { get; set; }
+
+        #region Ctors
+
+        public UserLogin()
+        {
+            Users = new HashSet<User>();
+        }
+
+        #endregion
     }
 }

@@ -14,6 +14,7 @@
             vm.gameCollection = [];
             /// Initialize GameCollectionPartialTemplate's routes
             vm.partialTemplates = constSvc.cityQuestPartialTemplates.gameCollectionPartialTemplates;
+            vm.keyActivationAreaIsOpened = false;
             //---------------------------------------------------------------------------------------------------------
             //---------------------------------------Promises service--------------------------------------------------
             /// Is used to store load promises
@@ -66,6 +67,10 @@
                     });
                     vm.promisesService.addGlobalPromise(promise);
                     return promise;
+                },
+                openActivateKeyArea: function () {
+                    vm.keyActivationAreaIsOpened = !vm.keyActivationAreaIsOpened;
+                    return vm.keyActivationAreaIsOpened;
                 },
             };
             //---------------------------------------------------------------------------------------------------------

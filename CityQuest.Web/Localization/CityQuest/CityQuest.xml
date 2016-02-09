@@ -206,7 +206,12 @@
     <text name="OpenScoreBoardButtonText" value="Score board" />
     <text name="OpenStatisticsButtonTitleText" value="Open the game's statistics" />
     <text name="OpenStatisticsButtonText" value="Statistics" />
-
-  
+    <text name="ActivateKeyButtonTitleText" value="Activate key" />
+    <text name="ActivateKeyButtonText" value="Activate key" />
+    <text name="SubmitActivateKeyButtonTitleText" value="Submit key activation" />
+    <text name="SubmitActivateKeyButtonText" value="Submit" />
+    <text name="ActivateKeyInputPlaceholder" value="XXXX-XXXXXXXX-XXXX" />
+    <text name="ActivateKeyInputTitleText" value="Input your key here to activate the game" />
+     
   </texts>
 </localizationDictionary>

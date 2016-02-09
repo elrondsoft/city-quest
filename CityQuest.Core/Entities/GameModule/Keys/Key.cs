@@ -22,5 +22,11 @@ namespace CityQuest.Entities.GameModule.Keys
         #endregion
 
         public string KeyValue { get; set; }
+
+        #region Ctors
+
+        public Key() { }
+
+        #endregion
     }
 }

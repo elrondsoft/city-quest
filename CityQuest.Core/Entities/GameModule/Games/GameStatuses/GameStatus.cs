@@ -21,7 +21,16 @@ namespace CityQuest.Entities.GameModule.Games.GameStatuses
         public string NextAllowedStatusNames { get; set; }
         public bool IsDefault { get; set; }
 
-        public IList<string> GetNextAllowedGameStatusNames
+        #region Ctors
+
+        public GameStatus()
+        {
+            Games = new HashSet<Game>();
+        }
+
+        #endregion
+
+        public IList<string> GetNextAllowedGameStatusNames 
         {
             get
             {

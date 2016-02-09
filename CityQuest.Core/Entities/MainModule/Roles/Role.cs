@@ -13,6 +13,13 @@ namespace CityQuest.Entities.MainModule.Roles
 {
     public class Role : FullAuditedEntity<long, User>, IRole<long>
     {
+        #region Relations
+
+        public virtual ICollection<RolePermissionSetting> Permissions { get; set; }
+        public virtual ICollection<UserRole> UserRoles { get; set; }
+
+        #endregion
+
         /// <summary>
         /// Unique name of this role.
         /// </summary>
@@ -36,16 +43,22 @@ namespace CityQuest.Entities.MainModule.Roles
         /// </summary>
         public bool IsDefault { get; set; }
 
-        public virtual ICollection<RolePermissionSetting> Permissions { get; set; }
-        public virtual ICollection<UserRole> UserRoles { get; set; }
+        #region Ctors
 
-        public Role() { }
+        public Role() 
+        {
+            Permissions = new HashSet<RolePermissionSetting>();
+            UserRoles = new HashSet<UserRole>();
+        }
 
         public Role(string name, string displayName)
+            : this()
         {
             Name = name;
             DisplayName = displayName;
         }
+
+        #endregion
 
         public override string ToString()
         {

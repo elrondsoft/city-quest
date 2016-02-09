@@ -169,6 +169,10 @@
     <Compile Include="Migrations\201602071339167_AddedPointsToCOnditions.Designer.cs">
       <DependentUpon>201602071339167_AddedPointsToCOnditions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602090731403_AddedTeamRequests.cs" />
+    <Compile Include="Migrations\201602090731403_AddedTeamRequests.Designer.cs">
+      <DependentUpon>201602090731403_AddedTeamRequests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CityQuestDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -225,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602071339167_AddedPointsToCOnditions.resx">
       <DependentUpon>201602071339167_AddedPointsToCOnditions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602090731403_AddedTeamRequests.resx">
+      <DependentUpon>201602090731403_AddedTeamRequests.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

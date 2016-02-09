@@ -169,6 +169,8 @@
     <Compile Include="Entities\GameModule\Teams\ITeamRepository.cs" />
     <Compile Include="Entities\GameModule\Teams\Team.cs" />
     <Compile Include="CityQuestPolicy\GameModule\Teams\TeamPolicy.cs" />
+    <Compile Include="Entities\GameModule\Teams\TeamRequests\ITeamRequestRepository.cs" />
+    <Compile Include="Entities\GameModule\Teams\TeamRequests\TeamRequest.cs" />
     <Compile Include="Entities\MainModule\Authorization\CityQuestAuthorizationProvider.cs" />
     <Compile Include="Entities\MainModule\Authorization\CityQuestUserPermissionProvider.cs" />
     <Compile Include="Entities\MainModule\Authorization\PermissionChecker.cs" />

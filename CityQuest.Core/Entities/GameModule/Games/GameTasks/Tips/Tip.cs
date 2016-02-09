@@ -21,5 +21,11 @@ namespace CityQuest.Entities.GameModule.Games.GameTasks.Tips
         public string Name { get; set; }
         public string TipText { get; set; }
         public int Order { get; set; }
+
+        #region Ctors
+
+        public Tip() { }
+
+        #endregion
     }
 }

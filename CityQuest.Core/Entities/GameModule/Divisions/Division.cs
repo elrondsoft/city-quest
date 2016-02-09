@@ -23,5 +23,14 @@ namespace CityQuest.Entities.GameModule.Divisions
         public bool IsDefault { get; set; }
 
         public bool IsActive { get; set; }
+
+        #region Ctors
+
+        public Division()
+        {
+            Teams = new HashSet<Team>();
+        }
+
+        #endregion
     }
 }
