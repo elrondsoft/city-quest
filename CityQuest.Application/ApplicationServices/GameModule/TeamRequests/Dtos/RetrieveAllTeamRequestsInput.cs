@@ -9,6 +9,7 @@ namespace CityQuest.ApplicationServices.GameModule.TeamRequests.Dtos
 {
     public class RetrieveAllTeamRequestsInput : RetrieveAllInput
     {
-        public long UserId { get; set; }
+        public long? UserId { get; set; }
+        public long? TeamId { get; set; }
     }
 }

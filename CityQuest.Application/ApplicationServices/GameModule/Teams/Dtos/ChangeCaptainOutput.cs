@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CityQuest.ApplicationServices.GameModule.TeamRequests.Dtos
+namespace CityQuest.ApplicationServices.GameModule.Teams.Dtos
 {
-    public class DenyRequestInput : IInputDto
+    public class ChangeCaptainOutput : IOutputDto
     {
-        public long TeamRequestId { get; set; }
     }
 }

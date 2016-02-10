@@ -207,6 +207,8 @@
     <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\TeamRequestDto.cs" />
     <Compile Include="ApplicationServices\GameModule\TeamRequests\ITeamRequestAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\TeamRequests\TeamRequestAppService.cs" />
+    <Compile Include="ApplicationServices\GameModule\Teams\Dtos\ChangeCaptainInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Teams\Dtos\ChangeCaptainOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\CreateTeamInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsLikeComboBoxesInput.cs" />
