@@ -28,5 +28,11 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight.Dtos
         public DateTime StartDate { get; set; }
 
         public bool IsActive { get; set; }
+
+        #region Ctors
+
+        public GameLightDto() { }
+
+        #endregion
     }
 }

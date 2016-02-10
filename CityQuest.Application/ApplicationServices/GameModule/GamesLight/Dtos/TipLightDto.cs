@@ -19,5 +19,11 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight.Dtos
         public string Name { get; set; }
         public string TipText { get; set; }
         public int Order { get; set; }
+
+        #region Ctors
+
+        public TipLightDto() { }
+
+        #endregion
     }
 }

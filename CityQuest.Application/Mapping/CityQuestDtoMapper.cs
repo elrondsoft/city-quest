@@ -7,6 +7,7 @@ using CityQuest.ApplicationServices.GameModule.GameStatuses.Dtos;
 using CityQuest.ApplicationServices.GameModule.GameTasks.Dtos;
 using CityQuest.ApplicationServices.GameModule.GameTaskTypes.Dtos;
 using CityQuest.ApplicationServices.GameModule.Locations.Dtos;
+using CityQuest.ApplicationServices.GameModule.PlayerCareers.Dtos;
 using CityQuest.ApplicationServices.GameModule.Teams.Dtos;
 using CityQuest.ApplicationServices.GameModule.Tips.Dtos;
 using CityQuest.ApplicationServices.MainModule.Permissions.Dto;
@@ -21,6 +22,7 @@ using CityQuest.Entities.GameModule.Games.GameTasks.Conditions.ConditionTypes;
 using CityQuest.Entities.GameModule.Games.GameTasks.GameTaskTypes;
 using CityQuest.Entities.GameModule.Games.GameTasks.Tips;
 using CityQuest.Entities.GameModule.Locations;
+using CityQuest.Entities.GameModule.PlayerCareers;
 using CityQuest.Entities.GameModule.Statistics.TeamGameTaskStatistics;
 using CityQuest.Entities.GameModule.Teams;
 using CityQuest.Entities.MainModule.Authorization.RolePermissionSettings;
@@ -109,10 +111,15 @@ namespace CityQuest.Mapping
                 .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
                 .ReverseMap();
 
+            AutoMapper.Mapper.CreateMap<PlayerCareer, PlayerCareerDto>()
+                .ForMember(r => r.FullUserName, r => r.MapFrom(e => e.User.FullUserName))
+                .ForMember(r => r.TeamName, r => r.MapFrom(e => e.Team.Name))
+                .ReverseMap();
+
             AutoMapper.Mapper.CreateMap<Team, TeamDto>()
                 .ForMember(r => r.CaptainUserFullName, r => r.MapFrom(e => e.Captain != null ? e.Captain.User.FullUserName : "-"))
                 .ForMember(r => r.CaptainUserId, r => r.MapFrom(e => e.Captain != null ? (long?)e.Captain.User.Id : null))
-                //.ForMember(r => r.Players, r => r.MapFrom(e => e.PlayerCareers.Where(k => k.CareerDateEnd == null)))
+                .ForMember(r => r.Players, r => r.MapFrom(e => e.CurrentPlayers.ToList()))
                 .ForMember(r => r.CreatorUserFullName, r => r.MapFrom(e => e.CreatorUser.FullUserName))
                 .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
                 .ReverseMap();

@@ -34,5 +34,15 @@ namespace CityQuest.ApplicationServices.GameModule.GameTasks.Dtos
         public int Order { get; set; }
 
         public bool IsActive { get; set; }
+
+        #region Ctors
+
+        public GameTaskDto()
+        {
+            Tips = new List<TipDto>();
+            Conditions = new List<ConditionDto>();
+        }
+
+        #endregion
     }
 }

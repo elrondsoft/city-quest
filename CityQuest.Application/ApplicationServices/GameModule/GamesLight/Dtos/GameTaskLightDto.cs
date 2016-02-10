@@ -29,5 +29,15 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight.Dtos
         public int Order { get; set; }
 
         public bool IsActive { get; set; }
+
+        #region Ctors
+
+        public GameTaskLightDto()
+        {
+            Tips = new List<TipLightDto>();
+            Conditions = new List<ConditionLightDto>();
+        }
+
+        #endregion
     }
 }

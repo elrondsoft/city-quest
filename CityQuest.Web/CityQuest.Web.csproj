@@ -312,6 +312,7 @@
     <Content Include="App\Main\views\teams\teamListController.js" />
     <Content Include="App\Main\views\users\userListController.js" />
     <None Include="App\Main\views\users\userListView.cshtml" />
+    <Content Include="App\Main\views\userTeams\userTeamController.js" />
     <Content Include="Content\awesome-bootstrap-checkbox.css" />
     <Content Include="Content\bootstrap-cosmo.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -454,6 +455,7 @@
     <Content Include="App\Main\views\locations\locationListView.cshtml" />
     <Content Include="Scripts\angular-chart.js\angular-chart.min.css.map" />
     <Content Include="Scripts\angular-chart.js\angular-chart.min.js.map" />
+    <Content Include="App\Main\views\userTeams\userTeamView.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />

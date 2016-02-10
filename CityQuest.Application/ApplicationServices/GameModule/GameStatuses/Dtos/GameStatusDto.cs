@@ -20,5 +20,11 @@ namespace CityQuest.ApplicationServices.GameModule.GameStatuses.Dtos
         public string Description { get; set; }
         public List<string> NextAllowedStatuses { get; set; }
         public bool IsDefault { get; set; }
+
+        #region Ctors
+
+        public GameStatusDto() { }
+
+        #endregion
     }
 }

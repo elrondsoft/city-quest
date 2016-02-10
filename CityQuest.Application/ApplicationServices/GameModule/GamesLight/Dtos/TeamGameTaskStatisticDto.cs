@@ -29,5 +29,11 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight.Dtos
         public int? ReceivedPoints { get; set; }
 
         #endregion
+
+        #region Ctors
+
+        public TeamGameTaskStatisticDto() { }
+
+        #endregion
     }
 }

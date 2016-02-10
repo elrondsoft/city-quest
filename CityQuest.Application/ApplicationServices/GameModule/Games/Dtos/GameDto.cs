@@ -31,5 +31,14 @@ namespace CityQuest.ApplicationServices.GameModule.Games.Dtos
         public DateTime StartDate { get; set; }
 
         public bool IsActive { get; set; }
+
+        #region Ctors
+
+        public GameDto()
+        {
+            GameTasks = new List<GameTaskDto>();
+        }
+
+        #endregion
     }
 }

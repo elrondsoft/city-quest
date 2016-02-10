@@ -15,5 +15,11 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight.Dtos
         public bool IsDefault { get; set; }
 
         public bool IsActive { get; set; }
+
+        #region Ctors
+
+        public GameTaskTypeLightDto() { }
+
+        #endregion
     }
 }

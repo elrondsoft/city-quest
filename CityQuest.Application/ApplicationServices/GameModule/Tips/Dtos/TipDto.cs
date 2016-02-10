@@ -23,5 +23,11 @@ namespace CityQuest.ApplicationServices.GameModule.Tips.Dtos
         public string Name { get; set; }
         public string TipText { get; set; }
         public int Order { get; set; }
+
+        #region Ctors
+
+        public TipDto() { }
+
+        #endregion
     }
 }

@@ -21,5 +21,14 @@ namespace CityQuest.ApplicationServices.MainModule.Users.Dto
         public IList<RoleDto> Roles { get; set; }
 
         public string LastModifierUserFullName { get; set; }
+
+        #region Ctors
+
+        public UserDto()
+        {
+            Roles = new List<RoleDto>();
+        }
+
+        #endregion
     }
 }

@@ -22,5 +22,11 @@ namespace CityQuest.ApplicationServices.GameModule.ConditionTypes.Dtos
         public bool IsDefault { get; set; }
 
         public bool IsActive { get; set; }
+
+        #region Ctors
+
+        public ConditionTypeDto() { }
+
+        #endregion
     }
 }

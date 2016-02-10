@@ -22,5 +22,11 @@ namespace CityQuest.ApplicationServices.GameModule.GameTaskTypes.Dtos
         public bool IsDefault { get; set; }
 
         public bool IsActive { get; set; }
+
+        #region Ctors
+
+        public GameTaskTypeDto() { }
+
+        #endregion
     }
 }
