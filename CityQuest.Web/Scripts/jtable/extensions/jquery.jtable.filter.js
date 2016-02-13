@@ -88,11 +88,12 @@
             var self = this;
             if (inputObject) {
                 var inputContainer = $('<div/>')
-									.addClass('col-sm-3 cq-filter-container')
+									.addClass('col-md-3 col-sm-12 cq-filter-container form-group')
 									.appendTo(self.$_currentFilterRow);
 
-                var leftContainer = $('<div/>')
+                var leftContainer = $('<label/>')
                                     .addClass('cq-filter-label-container')
+                                    .attr('value', 'test')
 									.appendTo(inputContainer);
 
                 var rightContainer = $('<div/>')
@@ -121,10 +122,10 @@
             var self = this;
             if (selectObject) {
                 var filterContainer = $('<div/>')
-                                    .addClass('col-md-3 cq-filter-container')
+                                    .addClass('col-md-3 col-sm-12 cq-filter-container form-group')
                                     .appendTo(self.$_currentFilterRow);
 
-                var labelContainer = $('<div/>')
+                var labelContainer = $('<label/>')
                                     .addClass('cq-filter-label-container')
                                     .appendTo(filterContainer);
 
@@ -182,10 +183,10 @@
             var self = this;
             if (inputObject) {
                 var filterContainer = $('<div/>')
-                                    .addClass('col-md-3 cq-filter-container')
+                                    .addClass('col-md-3 col-sm-12 cq-filter-container form-group ')
                                     .appendTo(self.$_currentFilterRow);
 
-                var labelContainer = $('<div/>')
+                var labelContainer = $('<label/>')
                                     .addClass('cq-filter-label-container')
                                     .appendTo(filterContainer);
 
@@ -261,7 +262,7 @@
 
                 if (currentFilter.assignedField == "DateStart") {
                     var val = $('#' + currentFilter.id).val();
-                    
+
                     controlValue = moment(val, 'YYYY-MM-DD HH:mm').format('YYYY-MM-DDTHH:mm:ss');
                 } else {
                     controlValue = $('#' + currentFilter.id).val();
@@ -271,7 +272,7 @@
                     continue;
 
                 object[currentFilter.assignedField] = controlValue;
-                
+
             }
 
             return object;
@@ -280,13 +281,3 @@
 
 })(jQuery);
 
-
-// cq-filter-panel
-// cq-filter-row
-// cq-filter-container
-// cq-filter-label-container
-// cq-filter-input-container
-// cq-filter-label
-// cq-filter-input
-// cq-filter-applybtn-container
-// cq-filter-applybtn // custom

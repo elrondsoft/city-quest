@@ -21,7 +21,7 @@ namespace CityQuest.Web
                     .Include("~/Content/awesome-bootstrap-checkbox.css")
                     .Include("~/Content/flags/famfamfam-flags.css", new CssRewriteUrlTransform())
                     .Include("~/Content/font-awesome.min.css", new CssRewriteUrlTransform())
-                    .Include("~/Scripts/jtable/themes/metro/blue/jtable.min.css", new CssRewriteUrlTransform())
+                    .Include("~/Scripts/jtable/themes/metro/cityquest/jtable.min.css", new CssRewriteUrlTransform())
 
                     .Include("~/Scripts/angular-chart.js/angular-chart.min.css", new CssRewriteUrlTransform())
                     //.Include("~/Scripts/angular-chart.js/angular-chart.min.css.map", new CssRewriteUrlTransform())

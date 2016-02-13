@@ -1,14 +1,40 @@
-﻿/* cq-table TODO: move styles to appropriate file */
-.cq-filter-panel {
-  border-left: 2px solid #2d89ef;
-  border-right: 2px solid #2d89ef;
-  padding: 10px;
+﻿.cq-filter-panel {
+    border-left: 2px solid #009688;
+    border-right: 2px solid #009688;
+    padding: 10px;
 }
 
 .jtable-main-container .jtable-title {
-  border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
 }
 
 .jtable-main-container .jtable-bottom-panel {
     border-radius: 0px 0px 6px 6px;
+}
+
+.cq-filter-panel {
+}
+
+.cq-filter-row {
+}
+
+.cq-filter-container {
+}
+
+.cq-filter-label-container {
+}
+
+.cq-filter-input-container {
+}
+
+.cq-filter-label {
+}
+
+.cq-filter-input {
+}
+
+.cq-filter-applybtn-container {
+}
+
+.cq-filter-applybtn {
 }

@@ -1,30 +1,53 @@
-﻿.team-info {
+﻿.team-info, .team-edit, .team-activate, .team-deactivate, .team-delete {
     height: 30px;
     margin: 1px;
     width: 30px;
+    padding: 6px;
+    font-size: 15px;
+    line-height: 1;
 }
 
-.team-edit {
+.game-info, .game-edit, .game-delete, .game-activate, .game-deactivate, .game-delete, .game-process-management {
     height: 30px;
     margin: 1px;
     width: 30px;
+    padding: 6px;
+    font-size: 15px;
+    line-height: 1;
 }
 
-.team-activate {
+.division-info, .division-edit, .division-delete, .division-activate, .division-deactivate {
     height: 30px;
     margin: 1px;
     width: 30px;
+    padding: 6px;
+    font-size: 15px;
+    line-height: 1;
 }
 
-.team-deactivate {
+.location-info, .location-edit, .location-delete {
     height: 30px;
     margin: 1px;
     width: 30px;
+    padding: 6px;
+    font-size: 15px;
+    line-height: 1;
 }
 
-.team-delete {
+.role-info, .role-edit, .role-delete {
     height: 30px;
     margin: 1px;
     width: 30px;
+    padding: 6px;
+    font-size: 15px;
+    line-height: 1;
 }
 
+.user-info, .user-edit, .user-delete {
+    height: 30px;
+    margin: 1px;
+    width: 30px;
+    padding: 6px;
+    font-size: 15px;
+    line-height: 1;
+}
