@@ -1,0 +1,35 @@
+﻿<div class="row user-profile-page-user-profile-template"
+     ng-if="vm.user != null">
+    <div class="col-xs-12">
+        <div class="row user-profile-page-user-profile-template-row">
+            <div class="col-xs-12">
+                <span class="user-profile-page-user-profile-template-row-label">{{vm.localize('UserName')}}:</span>&nbsp;&nbsp;
+                <span class="user-profile-page-user-profile-template-row-entity-property">{{vm.user.userName}}</span>
+            </div>
+        </div>
+        <div class="row user-profile-page-user-profile-template-row">
+            <div class="col-xs-12">
+                <span class="user-profile-page-user-profile-template-row-label">{{vm.localize('Name')}}:</span>&nbsp;&nbsp;
+                <span class="user-profile-page-user-profile-template-row-entity-property">{{vm.user.name}}</span>
+            </div>
+        </div>
+        <div class="row user-profile-page-user-profile-template-row">
+            <div class="col-xs-12">
+                <span class="user-profile-page-user-profile-template-row-label">{{vm.localize('Surname')}}:</span>&nbsp;&nbsp;
+                <span class="user-profile-page-user-profile-template-row-entity-property">{{vm.user.surname}}</span>
+            </div>
+        </div>
+        <div class="row user-profile-page-user-profile-template-row">
+            <div class="col-xs-12">
+                <span class="user-profile-page-user-profile-template-row-label">{{vm.localize('Email')}}:</span>&nbsp;&nbsp;
+                <span class="user-profile-page-user-profile-template-row-entity-property">{{vm.user.emailAddress}}</span>
+            </div>
+        </div>
+        <div class="row user-profile-page-user-profile-template-row">
+            <div class="col-xs-12">
+                <span class="user-profile-page-user-profile-template-row-label">{{vm.localize('PhoneNumber')}}:</span>&nbsp;&nbsp;
+                <span class="user-profile-page-user-profile-template-row-entity-property">{{vm.user.phoneNumber}}</span>
+            </div>
+        </div>
+    </div>
+</div>

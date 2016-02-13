@@ -12,6 +12,14 @@
         function ($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise('/home');
             $stateProvider
+                .state('login', {
+                    url: '/login',
+                    templateUrl: '/App/Main/views/authorization/login.cshtml',
+                    controller: 'app.views.authorization.login',
+                    controllerAs: 'login',
+                    menu: 'Login',
+                    params: { returnState: null }
+                })
                 .state('home', {
                     url: '/home',
                     templateUrl: '/App/Main/views/home/home.cshtml',
@@ -20,13 +28,14 @@
                     controller: 'app.views.home',
                     controllerAs: 'vm',
                 })
-                .state('login', {
-                    url: '/login',
-                    templateUrl: '/App/Main/views/authorization/login.cshtml',
-                    controller: 'app.controllers.authorization.login',
-                    controllerAs: 'login',
-                    menu: 'Login',
-                    params: { returnState: null }
+                .state('userProfilePage', {
+                    url: '/userProfilePage',
+                    templateUrl: '/App/Main/views/userProfilePages/userProfilePageTemplate.cshtml',
+                    controller: 'app.views.userProfilePages.userProfilePageController',
+                    controllerAs: 'vm',
+                    menu: 'userProfilePage',
+                    onEnter: onEnterAuthorizedRequired,
+                    //params: { returnState: null }
                 })
                 .state('gameCollection', {
                     url: '/gameCollection',

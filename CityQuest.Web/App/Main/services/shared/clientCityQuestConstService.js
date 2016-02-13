@@ -129,6 +129,10 @@ angular.module('app').service('clientCityQuestConstService', function () {
             gameTaskInProgressConditionPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskInProgressConditionPartialTemplate.cshtml',
             gameTaskInProgressTipPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskInProgressTipPartialTemplate.cshtml',
         },
+        userProfilePartialTemplates: {
+            userProfilePartialTemplate: '/App/Main/views/userProfilePages/partialTemplates/userProfilePartialTemplate.cshtml',
+            userTeamProfilePartialTemplate: '/App/Main/views/userProfilePages/partialTemplates/userTeamProfilePartialTemplate.cshtml',
+        },
     };
     //-----------------------------------------------------------------------------------------------------------------------
 });

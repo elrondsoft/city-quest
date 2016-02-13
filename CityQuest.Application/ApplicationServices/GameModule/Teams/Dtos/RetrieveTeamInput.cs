@@ -11,5 +11,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams.Dtos
     {
         public bool? IsActive { get; set; }
         public string Name { get; set; }
+        //Using to retrieve team for player
+        public long? UserId { get; set; }
     }
 }

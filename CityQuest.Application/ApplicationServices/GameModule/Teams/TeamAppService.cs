@@ -133,6 +133,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
 
             IList<Team> teamEntities = TeamRepository.GetAll()
                 .WhereIf(input.Id != null, r => r.Id == input.Id)
+                .WhereIf(input.UserId != null, r => r.PlayerCareers.Any(e => e.CareerDateEnd == null && e.UserId == input.UserId))
                 .WhereIf(!String.IsNullOrEmpty(input.Name), r => r.Name.ToLower().Contains(input.Name.ToLower()))
                 .ToList();
 

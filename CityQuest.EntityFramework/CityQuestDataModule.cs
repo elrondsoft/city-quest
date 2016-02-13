@@ -11,6 +11,7 @@ using CityQuest.Entities.GameModule.Games.GameTasks.Conditions.PlayerAttempts;
 using CityQuest.Entities.GameModule.Games.GameTasks.GameTaskTypes;
 using CityQuest.Entities.GameModule.Games.GameTasks.Tips;
 using CityQuest.Entities.GameModule.Locations;
+using CityQuest.Entities.GameModule.PlayerCareers;
 using CityQuest.Entities.GameModule.Teams;
 using CityQuest.Entities.GameModule.Teams.TeamRequests;
 using CityQuest.Entities.MainModule.Authorization.RolePermissionSettings;
@@ -48,6 +49,7 @@ namespace CityQuest
                 Component.For<ICityQuestRepositoryBase<Tip, long>, ITipRepository>().ImplementedBy<TipRepository>().LifestyleTransient(),
                 Component.For<ICityQuestRepositoryBase<SuccessfulPlayerAttempt, long>, ISuccessfullPlayerAttemptRepository>().ImplementedBy<SuccessfullPlayerAttemptRepository>().LifestyleTransient(),
                 Component.For<ICityQuestRepositoryBase<UnsuccessfulPlayerAttempt, long>, IUnsuccessfullPlayerAttemptRepository>().ImplementedBy<UnsuccessfullPlayerAttemptRepository>().LifestyleTransient(),
+                Component.For<ICityQuestRepositoryBase<PlayerCareer, long>, IPlayerCareerRepository>().ImplementedBy<CityQuestRepositoryBase<PlayerCareer, long>>().LifestyleTransient(),
                 Component.For<ICityQuestRepositoryBase<TeamRequest, long>>().ImplementedBy<CityQuestRepositoryBase<TeamRequest, long>>().LifestyleTransient(),
 
                 Component.For<ICityQuestRepositoryBase<UserRole, long>, IUserRoleRepository>().ImplementedBy<CityQuestRepositoryBase<UserRole, long>>().LifestyleTransient(),
