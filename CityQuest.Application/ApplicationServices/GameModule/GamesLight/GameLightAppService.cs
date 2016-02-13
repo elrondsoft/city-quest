@@ -275,6 +275,33 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
                 };
         }
 
+        [Abp.Authorization.AbpAuthorize]
+        public RetrieveScoreBoardForGameOutput RetrieveScoreBoardForGame(RetrieveScoreBoardForGameInput input) 
+        {
+            Game gameEntity = GameRepository.FirstOrDefault(r => r.Id == input.GameId);
+
+            if (gameEntity == null || !GamePolicy.CanRetrieveEntityLight(gameEntity))
+            {
+                return new RetrieveScoreBoardForGameOutput();
+            }
+
+            TeamGameTaskStatisticRepository.Includes.Add(r => r.Team);
+            TeamGameTaskStatisticRepository.Includes.Add(r => r.GameTask);
+
+            IList<TeamGameTaskStatistic> teamGameTaskStatistics = TeamGameTaskStatisticRepository.GetAll()
+                .Where(r => r.GameTask.GameId == input.GameId)
+                .ToList();
+
+            IList<ScoreBoardDataDto> scoreBoardData = CalculateScoreBoardData(teamGameTaskStatistics);
+
+            TeamGameTaskStatisticRepository.Includes.Clear();
+
+            return new RetrieveScoreBoardForGameOutput() 
+                {
+                    ScoreBoardData = scoreBoardData
+                };
+        }
+
         #region Helpers
 
         private bool HandleAttempt(Condition condition, PlayerCareer playerCareer, string inputedValue)
@@ -296,7 +323,7 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
         private bool HandleAttemptForInputCodeCondition(Condition condition, PlayerCareer playerCareer, string inputedValue)
         {
             var attemptResult = false;
-            DateTime attemptDateTime = DateTime.Now;
+            DateTime attemptDateTime = (DateTime.Now).RoundDateTime();
             if (String.Equals(inputedValue, condition.ValueToPass))
             {
                 attemptResult = true;
@@ -306,7 +333,7 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
                     AttemptDateTime = attemptDateTime,
                     ConditionId = condition.Id,
                     InputedValue = inputedValue,
-                    PlayerCareerId = playerCareer.Id
+                    PlayerCareerId = playerCareer.Id,
                 };
                 SuccessfullPlayerAttemptRepository.Insert(newSuccessfullAttempt);
 
@@ -314,30 +341,26 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
 
                 #region Creating Statistic entities
 
+                List<DateTime> previousTaskEndDTs = TeamGameTaskStatisticRepository.GetAll()
+                    .Where(r => r.TeamId == playerCareer.TeamId)
+                    .Select(r => r.GameTaskEndDateTime)
+                    .Distinct().ToList();
+                DateTime gameTaskStartTime = previousTaskEndDTs.Count > 0 ? previousTaskEndDTs.Max() : condition.GameTask.Game.StartDate;
+
+#warning Set correct points
+                int points = condition.Points ?? 0;
+
                 IList<PlayerGameTaskStatistic> newPlayerGameTaskStatistics = new List<PlayerGameTaskStatistic>();
                 foreach (var item in playerCareer.Team.PlayerCareers)
                 {
-                    newPlayerGameTaskStatistics.Add(
-                        new PlayerGameTaskStatistic()
-                        {
-                            GameTaskId = condition.GameTaskId,
-                            PlayerCareerId = item.Id,
-                            GameTaskStartDateTime = attemptDateTime,
-                            GameTaskEndDateTime = attemptDateTime,
-                            GameTaskDurationInTicks = 0
-                        });
+                    newPlayerGameTaskStatistics.Add(new PlayerGameTaskStatistic(condition.GameTaskId,
+                        item.Id, gameTaskStartTime, attemptDateTime, points));
                     userCompleterIds.Add(item.UserId);
                 }
                 PlayerGameTaskStatisticRepository.AddRange(newPlayerGameTaskStatistics);
 
-                TeamGameTaskStatistic newTeamGameTaskStatistic = new TeamGameTaskStatistic()
-                {
-                    GameTaskId = condition.GameTaskId,
-                    TeamId = playerCareer.TeamId,
-                    GameTaskStartDateTime = attemptDateTime,
-                    GameTaskEndDateTime = attemptDateTime,
-                    GameTaskDurationInTicks = 0
-                };
+                TeamGameTaskStatistic newTeamGameTaskStatistic = new TeamGameTaskStatistic(condition.GameTaskId,
+                    playerCareer.TeamId, gameTaskStartTime, attemptDateTime, points);
                 TeamGameTaskStatisticRepository.Insert(newTeamGameTaskStatistic);
 
                 #endregion
@@ -363,8 +386,8 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
 
         private bool HandleAttemptForTimeCondition(Condition condition, PlayerCareer playerCareer)
         {
-            var attemptResult = false;
-            DateTime attemptDateTime = DateTime.Now;
+            bool attemptResult = false;
+            DateTime attemptDateTime = (DateTime.Now).RoundDateTime();
 #warning TODO: handle Condition_Time
             if (true)
             {
@@ -383,30 +406,23 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
 
                 #region Creating Statistic entities
 
+                List<DateTime> previousTaskEndDTs = TeamGameTaskStatisticRepository.GetAll()
+                    .Where(r => r.TeamId == playerCareer.TeamId)
+                    .Select(r => r.GameTaskEndDateTime)
+                    .Distinct().ToList();
+                DateTime gameTaskStartTime = previousTaskEndDTs.Count > 0 ? previousTaskEndDTs.Max() : condition.GameTask.Game.StartDate;
+
                 IList<PlayerGameTaskStatistic> newPlayerGameTaskStatistics = new List<PlayerGameTaskStatistic>();
                 foreach (var item in playerCareer.Team.PlayerCareers)
                 {
-                    newPlayerGameTaskStatistics.Add(
-                        new PlayerGameTaskStatistic()
-                        {
-                            GameTaskId = condition.GameTaskId,
-                            PlayerCareerId = item.Id,
-                            GameTaskStartDateTime = attemptDateTime,
-                            GameTaskEndDateTime = attemptDateTime,
-                            GameTaskDurationInTicks = 0
-                        });
+                    newPlayerGameTaskStatistics.Add(new PlayerGameTaskStatistic(condition.GameTaskId,
+                        item.Id, gameTaskStartTime, attemptDateTime, (condition.Points ?? 0)));
                     userCompleterIds.Add(item.UserId);
                 }
                 PlayerGameTaskStatisticRepository.AddRange(newPlayerGameTaskStatistics);
 
-                TeamGameTaskStatistic newTeamGameTaskStatistic = new TeamGameTaskStatistic()
-                {
-                    GameTaskId = condition.GameTaskId,
-                    TeamId = playerCareer.TeamId,
-                    GameTaskStartDateTime = attemptDateTime,
-                    GameTaskEndDateTime = attemptDateTime,
-                    GameTaskDurationInTicks = 0
-                };
+                TeamGameTaskStatistic newTeamGameTaskStatistic = new TeamGameTaskStatistic(condition.GameTaskId,
+                    playerCareer.TeamId, gameTaskStartTime, attemptDateTime, (condition.Points ?? 0));
                 TeamGameTaskStatisticRepository.Insert(newTeamGameTaskStatistic);
 
                 #endregion
@@ -417,6 +433,54 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight
                 };
             }
             return attemptResult;
+        }
+
+        private IList<ScoreBoardDataDto> CalculateScoreBoardData(IList<TeamGameTaskStatistic> teamGameTaskStatistics)
+        {
+            IList<ScoreBoardDataDto> scoreBoardData = new List<ScoreBoardDataDto>();
+
+            if (teamGameTaskStatistics.Count > 0)
+            {
+                #region Calculating score board data
+
+                foreach (var teamId in teamGameTaskStatistics.Select(r => r.TeamId).Distinct())
+                {
+                    List<TeamGameTaskStatistic> teamGameTaskStatistic = teamGameTaskStatistics.Where(r => r.TeamId == teamId).ToList();
+                    scoreBoardData.Add(new ScoreBoardDataDto()
+                    {
+                        CompletedTasksCount = teamGameTaskStatistic.Count(),
+                        Score = teamGameTaskStatistic.Where(r => r.ReceivedPoints != null).Sum(r => (int)r.ReceivedPoints),
+                        TotalDuration = teamGameTaskStatistic.Sum(r => r.GameTaskDurationInTicks),
+                        TeamId = teamId,
+                        TeamName = teamGameTaskStatistic.First() != null ? teamGameTaskStatistic.First().Team.Name : teamId.ToString(),
+                    });
+                }
+
+                #endregion
+
+                #region Sorting score board data
+
+                scoreBoardData
+                    .OrderBy(r => r.Score)
+                    .ThenBy(r => r.CompletedTasksCount)
+                    .ThenBy(r => r.TotalDuration);
+
+                int position = 1;
+                int previousScore = scoreBoardData.First().Score;
+                int previousCompletedTasksCount = scoreBoardData.First().CompletedTasksCount;
+                long totalDuration = scoreBoardData.First().TotalDuration;
+
+                foreach (var item in scoreBoardData)
+                {
+                    position = (item.Score == previousScore && item.CompletedTasksCount == previousCompletedTasksCount &&
+                        item.TotalDuration == totalDuration) ? position : (position + 1);
+                    item.Position = position;
+                }
+
+                #endregion
+            }
+
+            return scoreBoardData;
         }
 
         #endregion

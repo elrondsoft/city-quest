@@ -20,8 +20,8 @@ namespace CityQuest.Entities.GameModule.Games.GameTasks.Conditions
         public long ConditionTypeId { get; set; }
         public virtual ConditionType ConditionType { get; set; }
 
-        public ICollection<SuccessfulPlayerAttempt> SuccessfulPlayerAttempts { get; set; }
-        public ICollection<UnsuccessfulPlayerAttempt> UnsuccessfulPlayerAttempts { get; set; }
+        public ICollection<SuccessfulPlayerAttempt> SuccessfullPlayerAttempts { get; set; }
+        public ICollection<UnsuccessfulPlayerAttempt> UnsuccessfullPlayerAttempts { get; set; }
 
         #endregion
 
@@ -29,5 +29,16 @@ namespace CityQuest.Entities.GameModule.Games.GameTasks.Conditions
         public string Description { get; set; }
         public string ValueToPass { get; set; }
         public int Order { get; set; }
+        public int? Points { get; set; }
+
+        #region Ctors
+
+        public Condition()
+        {
+            SuccessfullPlayerAttempts = new HashSet<SuccessfulPlayerAttempt>();
+            UnsuccessfullPlayerAttempts = new HashSet<UnsuccessfulPlayerAttempt>();
+        }
+
+        #endregion
     }
 }

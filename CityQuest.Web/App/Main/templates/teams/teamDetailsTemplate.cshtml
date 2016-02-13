@@ -100,8 +100,8 @@
                         <a href="#" ng-repeat="player in vm.entity.players"
                            class="list-group-item list-group-item-info"
                            style="padding: 1px 20px;">
-                            <span ng-bind="{{player.FullUserName}}"
-                                  ng-click="vm.openPlayerInfo(player.id)"></span>
+                            <i class="fa fa-flag" ng-if="player.isCaptain"></i>&nbsp;
+                            <span ng-click="vm.openPlayerInfo(player.id)">{{player.fullUserName}}</span>
                         </a>
                     </div>
                 </div>

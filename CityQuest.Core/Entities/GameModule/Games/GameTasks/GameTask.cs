@@ -39,5 +39,17 @@ namespace CityQuest.Entities.GameModule.Games.GameTasks
         public int Order { get; set; }
 
         public bool IsActive { get; set; }
+
+        #region Ctors
+
+        public GameTask()
+        {
+            Tips = new HashSet<Tip>();
+            Conditions = new HashSet<Condition>();
+            PlayerGameTaskStatistics = new HashSet<PlayerGameTaskStatistic>();
+            TeamGameTaskStatistics = new HashSet<TeamGameTaskStatistic>();
+        }
+
+        #endregion
     }
 }

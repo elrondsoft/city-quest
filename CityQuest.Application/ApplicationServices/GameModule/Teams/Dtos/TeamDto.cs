@@ -34,5 +34,14 @@ namespace CityQuest.ApplicationServices.GameModule.Teams.Dtos
         public string Slogan { get; set; }
 
         public bool IsActive { get; set; }
+
+        #region Ctors
+
+        public TeamDto()
+        {
+            Players = new List<PlayerCareerDto>();
+        }
+
+        #endregion
     }
 }

@@ -38,5 +38,17 @@ namespace CityQuest.Entities.GameModule.Games
         public DateTime StartDate { get; set; }
         
         public bool IsActive { get; set; }
+
+        #region Ctors
+
+        public Game()
+        {
+            Keys = new HashSet<Key>();
+            GameTasks = new HashSet<GameTask>();
+            PlayerGameStatistics = new HashSet<PlayerGameStatistic>();
+            TeamGameStatistics = new HashSet<TeamGameStatistic>();
+        }
+
+        #endregion
     }
 }

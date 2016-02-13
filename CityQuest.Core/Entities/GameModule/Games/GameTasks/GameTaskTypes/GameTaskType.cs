@@ -21,5 +21,14 @@ namespace CityQuest.Entities.GameModule.Games.GameTasks.GameTaskTypes
         public bool IsDefault { get; set; }
 
         public bool IsActive { get; set; }
+
+        #region Ctors
+
+        public GameTaskType()
+        {
+            GameTasks = new HashSet<GameTask>();
+        }
+
+        #endregion
     }
 }

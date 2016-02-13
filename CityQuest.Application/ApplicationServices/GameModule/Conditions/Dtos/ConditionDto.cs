@@ -27,5 +27,12 @@ namespace CityQuest.ApplicationServices.GameModule.Conditions.Dtos
         public string Description { get; set; }
         public string ValueToPass { get; set; }
         public int Order { get; set; }
+        public int? Points { get; set; }
+
+        #region Ctors
+
+        public ConditionDto() { }
+
+        #endregion
     }
 }

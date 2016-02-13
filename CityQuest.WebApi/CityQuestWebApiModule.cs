@@ -13,6 +13,7 @@ using CityQuest.ApplicationServices.GameModule.GameTasks;
 using CityQuest.ApplicationServices.GameModule.GameTaskTypes;
 using CityQuest.ApplicationServices.GameModule.Keys;
 using CityQuest.ApplicationServices.GameModule.Locations;
+using CityQuest.ApplicationServices.GameModule.TeamRequests;
 using CityQuest.ApplicationServices.GameModule.Teams;
 using CityQuest.ApplicationServices.GameModule.Tips;
 using CityQuest.ApplicationServices.MainModule.Permissions;
@@ -72,6 +73,8 @@ namespace CityQuest
             DynamicApiControllerBuilder.For<IKeyAppService>("cityQuest/key").Build();
 
             DynamicApiControllerBuilder.For<IGameLightAppService>("cityQuest/gameLight").Build();
+
+            DynamicApiControllerBuilder.For<ITeamRequestAppService>("cityQuest/teamRequest").Build();
 
             #endregion
         }

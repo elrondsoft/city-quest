@@ -1,15 +1,15 @@
 ﻿(function () {
     var controllerId = 'app.views.gamePages.gamePageController';
-    angular.module('app').controller(controllerId, ['$scope', '$stateParams', '$', 'clientCityQuestConstService',
+    angular.module('app').controller(controllerId, ['$scope', '$uibModal', '$stateParams', '$', 'clientCityQuestConstService',
         'clientPermissionService', 'abp.services.cityQuest.gameLight',
-        function ($scope, params, $, constSvc, permissionSvc, gameLightSvc) {
+        function ($scope, modal, params, $, constSvc, permissionSvc, gameLightSvc) {
             //---------------------------------------------------------------------------------------------------------------
             //-----------------------------------------PreInitialize---------------------------------------------------------
             var vm = this;
             /// Is used for localization
             vm.localize = constSvc.localize;
             /// Is used to store template's title
-            vm.title = vm.localize("GamePage");
+            vm.title = vm.localize("GamePageViewTitle");
             /// Is used to store game's id
             vm.gameId = params.gameId;
             /// Is used to store available game's tasks
@@ -176,6 +176,44 @@
                 },
             };
             vm.gameRelationActions = {
+                openScoreBoardTemplate: function () {
+                    var newModalOptions = {
+                        size: '',
+                        templateUrl: constSvc.viewRoutes.scoreBoardTemplate,
+                        controller: constSvc.ctrlRoutes.scoreBoardController,
+                        resolve: {
+                            serviceData: function () {
+                                var result = {
+                                    templateMode: constSvc.formModes.info,
+                                    gameId: vm.gameId
+                                };
+                                return result;
+                            },
+                        }
+                    };
+                    var modalOptions = angular.merge({}, constSvc.defaultModalOptions, newModalOptions);
+                    modal.open(modalOptions);
+                    return false;
+                },
+                openGameTaskByTeamsStatisticTemplate: function () {
+                    var newModalOptions = {
+                        size: 'lg',
+                        templateUrl: constSvc.viewRoutes.gameTaskByTeamStatisticTemplate,
+                        controller: constSvc.ctrlRoutes.gameTaskByTeamStatisticController,
+                        resolve: {
+                            serviceData: function () {
+                                var result = {
+                                    templateMode: constSvc.formModes.info,
+                                    gameId: vm.gameId
+                                };
+                                return result;
+                            },
+                        }
+                    };
+                    var modalOptions = angular.merge({}, constSvc.defaultModalOptions, newModalOptions);
+                    modal.open(modalOptions);
+                    return false;
+                },
                 changeGameTaskViewMode: function (gameTask) {
                     gameTask.isShortViewMode = !gameTask.isShortViewMode;
                     return gameTask;
@@ -211,7 +249,7 @@
                 if (needReconnect) {
                     vm.signalRHelper.startSignalRConnection();
                 }
-            }, 5000);
+            }, constSvc.signalRReconnetInterval);
         }
     ]);
 })();

@@ -22,5 +22,14 @@ namespace CityQuest.Entities.GameModule.Games.GameTasks.Conditions.ConditionType
         public bool IsDefault { get; set; }
 
         public bool IsActive { get; set; }
+
+        #region Ctors
+
+        public ConditionType()
+        {
+            Conditions = new HashSet<Condition>();
+        }
+
+        #endregion
     }
 }

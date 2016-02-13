@@ -14,6 +14,7 @@ using Abp.Application.Services.Dto;
 using Abp.UI;
 using CityQuest.CityQuestPolicy.GameModule.Teams;
 using CityQuest.Exceptions;
+using CityQuest.Entities.GameModule.PlayerCareers;
 
 namespace CityQuest.ApplicationServices.GameModule.Teams
 {
@@ -25,6 +26,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
         private IUnitOfWorkManager UowManager { get; set; }
         private ITeamRepository TeamRepository { get; set; }
         private ITeamPolicy TeamPolicy { get; set; }
+        private IPlayerCareerRepository PlayerCareerRepository { get; set; }
 
         #endregion
 
@@ -32,11 +34,13 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
 
         public TeamAppService(IUnitOfWorkManager uowManager, 
             ITeamRepository teamRepository, 
-            ITeamPolicy teamPolicy)
+            ITeamPolicy teamPolicy,
+            IPlayerCareerRepository playerCareerRepository)
         {
             UowManager = uowManager;
             TeamRepository = teamRepository;
             TeamPolicy = teamPolicy;
+            PlayerCareerRepository = playerCareerRepository;
         }
 
         #endregion
@@ -129,6 +133,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
 
             IList<Team> teamEntities = TeamRepository.GetAll()
                 .WhereIf(input.Id != null, r => r.Id == input.Id)
+                .WhereIf(input.UserId != null, r => r.PlayerCareers.Any(e => e.CareerDateEnd == null && e.UserId == input.UserId))
                 .WhereIf(!String.IsNullOrEmpty(input.Name), r => r.Name.ToLower().Contains(input.Name.ToLower()))
                 .ToList();
 
@@ -237,12 +242,55 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
 
             TeamRepository.Update(teamEntity);
 
+            #region Closing player careers
+
+            if (teamEntity.CurrentPlayers.Count() > 0) 
+            {
+                DateTime currDT = DateTime.Now;
+                var players = teamEntity.CurrentPlayers.ToList();
+                foreach(var item in players)
+                {
+                    item.CareerDateEnd = currDT;
+                    PlayerCareerRepository.Update(item);
+                }
+            }
+
+            #endregion
+
             TeamRepository.Includes.Clear();
 
             return new ChangeActivityOutput<TeamDto, long>()
             {
                 Entity = newTeamDto
             };
+        }
+
+        [Abp.Authorization.AbpAuthorize]
+        public ChangeCaptainOutput ChangeCaptain(ChangeCaptainInput input)
+        {
+            TeamRepository.Includes.Add(r => r.PlayerCareers);
+
+            Team teamEntity = TeamRepository.Get(input.TeamId);
+
+            if (teamEntity == null)
+                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Team\"");
+
+            if (!TeamPolicy.CanChangeCaptainForEntity(teamEntity))
+                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionUpdateDenied, "\"Team\"");
+
+            var newCap = teamEntity.PlayerCareers.SingleOrDefault(r => r.Id == input.NewCaptainCareerId);
+            if (newCap != null)
+            {
+                var oldCap = teamEntity.Captain;
+
+                newCap.IsCaptain = true;
+                PlayerCareerRepository.Update(newCap);
+
+                oldCap.IsCaptain = false;
+                PlayerCareerRepository.Update(oldCap);
+            }
+
+            return new ChangeCaptainOutput();
         }
     }
 }

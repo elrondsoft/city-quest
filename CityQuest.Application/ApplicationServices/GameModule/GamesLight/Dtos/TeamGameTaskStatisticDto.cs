@@ -13,6 +13,7 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight.Dtos
 
         public long GameTaskId { get; set; }
         public string GameTaskName { get; set; }
+        public int GameTaskOrder { get; set; }
 
         public long TeamId { get; set; }
         public string TeamName { get; set; }
@@ -25,7 +26,13 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight.Dtos
 
         #region Criterions for statistics
 
+        public int? ReceivedPoints { get; set; }
 
+        #endregion
+
+        #region Ctors
+
+        public TeamGameTaskStatisticDto() { }
 
         #endregion
     }

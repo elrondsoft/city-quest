@@ -1,3 +1,103 @@
-﻿<div class="row">
-    TODO: scoreboard (like table)
+﻿<div class="row score-board-title">
+    <div class="col-xs-12">
+        <button type="button"
+                class="btn btn-success pull-left btn-refresh-score-board"
+                title="{{vm.localize('RefreshScoreBoardButtonTittleText')}}"
+                ng-disabled="!((vm.scoreBoardReloadPromise == null) && (vm.scoreBoardLoadPromise == null))"
+                ng-click="vm.helpers.reloadScoreBoard()">
+            <i class="fa fa-refresh fa-pulse"
+               ng-if="!((vm.scoreBoardReloadPromise == null) && (vm.scoreBoardLoadPromise == null))"></i>
+            <i class="fa fa-refresh"
+               ng-if="((vm.scoreBoardReloadPromise == null) && (vm.scoreBoardLoadPromise == null))"></i>
+            &nbsp;{{vm.localize('RefreshScoreBoardButtonText')}}
+        </button>
+    </div>
+</div>
+<div class="row score-board">
+    <div class="col-xs-12">
+        <div class="row score-board-header-row">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-5">
+                {{vm.localize('TeamName')}}
+            </div>
+            <div class="col-xs-4">
+                {{vm.localize('CompletedTasksCount')}}
+            </div>
+            <div class="col-xs-2">
+                {{vm.localize('Score')}}
+            </div>
+        </div>
+        <div class="row score-board-common-row"
+             ng-if="!(vm.scoreBoardData != null && vm.scoreBoardData.length > 0)">
+            <div class="col-xs-12">
+                {{vm.localize('NoAvailableDataForScoreBoard')}}
+            </div>
+        </div>
+        <div class="row score-board-body-row"
+             ng-if="vm.scoreBoardData != null && vm.scoreBoardData.length > 0"
+             ng-repeat="teamScore in vm.scoreBoardData">
+            <div class="col-xs-12">
+                <div class="row score-board-golden-row"
+                     ng-if="vm.helpers.isGoldenPosition(teamScore)">
+                    <div class="col-xs-1">
+                        {{teamScore.position}}
+                    </div>
+                    <div class="col-xs-5">
+                        {{teamScore.teamName}}
+                    </div>
+                    <div class="col-xs-4">
+                        {{teamScore.completedTasksCount}}
+                    </div>
+                    <div class="col-xs-2">
+                        {{teamScore.score}}
+                    </div>
+                </div>
+                <div class="row score-board-silver-row"
+                     ng-if="vm.helpers.isSilverPosition(teamScore)">
+                    <div class="col-xs-1">
+                        {{teamScore.position}}
+                    </div>
+                    <div class="col-xs-5">
+                        {{teamScore.teamName}}
+                    </div>
+                    <div class="col-xs-4">
+                        {{teamScore.completedTasksCount}}
+                    </div>
+                    <div class="col-xs-2">
+                        {{teamScore.score}}
+                    </div>
+                </div>
+                <div class="row score-board-bronze-row"
+                     ng-if="vm.helpers.isBronzePosition(teamScore)">
+                    <div class="col-xs-1">
+                        {{teamScore.position}}
+                    </div>
+                    <div class="col-xs-5">
+                        {{teamScore.teamName}}
+                    </div>
+                    <div class="col-xs-4">
+                        {{teamScore.completedTasksCount}}
+                    </div>
+                    <div class="col-xs-2">
+                        {{teamScore.score}}
+                    </div>
+                </div>
+                <div class="row score-board-common-row"
+                     ng-if="vm.helpers.isCommonPosition(teamScore)">
+                    <div class="col-xs-1">
+                        {{teamScore.position}}
+                    </div>
+                    <div class="col-xs-5">
+                        {{teamScore.teamName}}
+                    </div>
+                    <div class="col-xs-4">
+                        {{teamScore.completedTasksCount}}
+                    </div>
+                    <div class="col-xs-2">
+                        {{teamScore.score}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

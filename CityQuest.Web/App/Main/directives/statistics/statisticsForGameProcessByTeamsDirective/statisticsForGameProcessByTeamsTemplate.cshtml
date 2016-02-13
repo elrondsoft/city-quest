@@ -1,10 +1,36 @@
-﻿<div class="row row-centered">
+﻿<div class="row statistics-for-game-by-teams-title">
+    <div class="col-xs-12">
+        <button type="button"
+                class="btn btn-success pull-left btn-refresh-statistics-for-game-by-teams"
+                title="{{vm.localize('RefreshStatisticsForGameByTeamsButtonTittleText')}}"
+                ng-disabled="!((vm.statisticsReloadPromise == null) && (vm.statisticsLoadPromise == null))"
+                ng-click="vm.helpers.reloadStatistics()">
+            <i class="fa fa-refresh fa-pulse"
+               ng-if="!((vm.statisticsReloadPromise == null) && (vm.statisticsLoadPromise == null))"></i>
+            <i class="fa fa-refresh"
+               ng-if="((vm.statisticsReloadPromise == null) && (vm.statisticsLoadPromise == null))"></i>
+            &nbsp;{{vm.localize('RefreshStatisticsForGameByTeamsButtonText')}}
+        </button>
+    </div>
+</div>
+<div class="row row-centered">
     <div class="col-xs-12 col-centered">
-        <canvas id="line"
-                class="chart chart-line"
-                chart-data="vm.data"
-                chart-labels="vm.labels"
-                chart-legend="true"
-                chart-series="vm.series"></canvas>
+        <div class="row"
+             ng-if="!vm.helpers.isStatisticsAvailable()">
+            <div class="col-xs-12">
+                {{vm.localize('NoAvailableDataForGameProcessByTeams')}}
+            </div>
+        </div>
+        <div class="row"
+             ng-if="vm.helpers.isStatisticsAvailable()">
+            <div class="col-xs-12">
+                <canvas id="line"
+                        class="chart chart-line"
+                        chart-data="vm.data"
+                        chart-labels="vm.labels"
+                        chart-legend="true"
+                        chart-series="vm.series"></canvas>
+            </div>
+        </div>
     </div>
 </div>

@@ -16,6 +16,17 @@ namespace CityQuest.ApplicationServices.MainModule.Roles.Dto
         public string Name { get; set; }
         public string DisplayName { get; set; }
         public IList<PermissionDto> Permissions { get; set; }
+        public bool IsStatic { get; set; }
+        public bool IsDefault { get; set; }
+
+        #region Ctors
+
+        public RoleDto()
+        {
+            Permissions = new List<PermissionDto>();
+        }
+
+        #endregion
 
         public string DisplayPermissions
         {

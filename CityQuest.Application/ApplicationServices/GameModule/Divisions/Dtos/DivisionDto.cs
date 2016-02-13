@@ -23,5 +23,11 @@ namespace CityQuest.ApplicationServices.GameModule.Divisions.Dtos
         public bool IsDefault { get; set; }
 
         public bool IsActive { get; set; }
+
+        #region Ctors
+
+        public DivisionDto() { }
+
+        #endregion
     }
 }

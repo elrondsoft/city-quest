@@ -1,25 +1,20 @@
 ﻿(function () {
     var controllerId = 'app.templates.games.gameProcessManagementController';
     angular.module('app').controller(controllerId, ['$scope', 'serviceData', 'clientCityQuestConstService',
-        'clientPermissionService', 'abp.services.cityQuest.game', 'abp.services.cityQuest.gameLight',
-        function ($scope, serviceData, constSvc, permissionSvc, gameSvc, gameLightSvc) {
+        'clientPermissionService', 'abp.services.cityQuest.game', 
+        function ($scope, serviceData, constSvc, permissionSvc, gameSvc) {
             //---------------------------------------------------------------------------------------------------------------
             //------------------------------------------PreInitialize--------------------------------------------------------
             var vm = this;
             vm.localize = constSvc.localize;
             vm.title = vm.localize('GameProcessManagement');
-            vm.gameStatistics = {
-                series: [],
-                labels: [""],
-                data: [[0]]
-            };
+            vm.gameId = serviceData.gameId;
             //---------------------------------------------------------------------------------------------------------------
             //------------------------------------Template's promise service-------------------------------------------------
             vm.templatePromiseService = {
                 templatePromisesGroups:{
                     globalTemplatePromises: [],
                     gameEntityPromises: [],
-                    gameStatisticsPromises: [],
                 },
                 getPromisesGroup: function (promisesGroupName) {
                     var promisesGroup = null;
@@ -71,69 +66,12 @@
 
                     return promise;
                 },
-                retrieveGameStatistics: function (gameId) {
-                    if (vm.templatePromiseService.gameStatisticsPromises &&
-                        vm.templatePromiseService.gameStatisticsPromises.length < 1) {
-                        return false;
-                    }
-
-                    var promise = gameLightSvc.retrieveGameTaskResults({
-                        GameId: gameId
-                    }).success(function (data) {
-                        vm.teamGameTaskStatistics = data.teamGameTaskStatistics;
-                    }).finally(function (data) {
-                        vm.templatePromiseService.removePromise('gameStatisticsPromises', promise);
-                        $scope.$digest();
-                    });
-
-                    vm.templatePromiseService.addPromise('gameStatisticsPromises', promise);
-
-                    return promise;
-                },
                 initTemplateData: function () {
-                    if (serviceData.gameId) {
-                        helpers.retrieveGame(serviceData.gameId);
-                        helpers.retrieveGameStatistics(serviceData.gameId);
+                    if (vm.gameId) {
+                        helpers.retrieveGame(vm.gameId);
                         return true;
                     }
                     return false;
-                },
-                calculateGameStatistics: function (teamGameTaskStatistics) {
-                    if (teamGameTaskStatistics != null) {
-                        var sortTeamGameTaskStatisticsByValue = function (dataToSort) {
-                            //TODO: sort
-
-                            return dataToSort;
-                        };
-                        var mapTeamGameTaskStatisticsToStatisticsData = function (teamGameTaskStatisticsData) {
-                            teamGameTaskStatisticsData = sortTeamGameTaskStatisticsByValue(teamGameTaskStatisticsData);
-                            var mapDataValue = function (value) {
-                                var result = moment(value).format("YYYY-MM-DD HH:mm:ss");
-                                return result;
-                            };
-                            var statisticsData = [];
-                            for (var i = 0; i < teamGameTaskStatisticsData.length; i++) {
-                                var a = {
-                                    seriesValue: teamGameTaskStatisticsData[i].teamName,
-                                    labelValue: teamGameTaskStatisticsData[i].gameTaskName,
-                                    dataValue: mapDataValue(teamGameTaskStatisticsData[i].GameTaskEndDateTime),
-                                }
-                                statisticsData.push();
-                            }
-                            return statisticsData;
-                        };
-                        var fillStatistics = function (data) {
-                            var statisticsData = mapTeamGameTaskStatisticsToStatisticsData(data);
-                            var unicValues = Enumerable.From(statisticsData).Select(function (x) { return x.dataValue; }).Distinct().ToArray();
-
-                            for (var i = 0; i < unicValues.length; i++) {
-                                //TODO:
-                            }
-                        };
-
-                        fillStatistics(teamGameTaskStatistics);
-                    }
-                    return vm.gameStatistics;
                 },
             };
             //---------------------------------------------------------------------------------------------------------------
@@ -217,11 +155,6 @@
             };
             //---------------------------------------------------------------------------------------------------------------
             //--------------------------------------------Initialize---------------------------------------------------------
-            var listenerForStatistics = $scope.$watch(vm.teamGameTaskStatistics,
-                function (newValue, oldValue) {
-                    return helpers.calculateGameStatistics(vm.teamGameTaskStatistics);
-                }, true);
-
             helpers.initTemplateData();
             //---------------------------------------------------------------------------------------------------------------
         }

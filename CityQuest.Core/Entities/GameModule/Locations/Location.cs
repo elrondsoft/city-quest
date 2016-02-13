@@ -22,5 +22,15 @@ namespace CityQuest.Entities.GameModule.Locations
         public string Description { get; set; }
         public string ShortName { get; set; }
         public string DisplayName { get; set; }
+
+        #region Ctors
+
+        public Location()
+        {
+            Games = new HashSet<Game>();
+            Users = new HashSet<User>();
+        }
+
+        #endregion
     }
 }

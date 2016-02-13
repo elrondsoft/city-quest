@@ -132,5 +132,17 @@ namespace CityQuest.CityQuestPolicy.GameModule.Teams
         {
             return CanChangeActivityForEntity(Session.UserId ?? 0, entity);
         }
+
+
+        public bool CanChangeCaptainForEntity(long userId, Team entity)
+        {
+#warning Implement this!
+            return true;
+        }
+
+        public bool CanChangeCaptainForEntity(Team entity)
+        {
+            return CanChangeCaptainForEntity(Session.UserId ?? 0, entity);
+        }
     }
 }

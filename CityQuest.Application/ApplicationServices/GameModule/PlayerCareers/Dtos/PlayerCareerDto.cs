@@ -29,5 +29,11 @@ namespace CityQuest.ApplicationServices.GameModule.PlayerCareers.Dtos
         public DateTime? DateEnd { get; set; }
 
         public bool IsActive { get; set; }
+
+        #region Ctors
+
+        public PlayerCareerDto() { }
+
+        #endregion
     }
 }

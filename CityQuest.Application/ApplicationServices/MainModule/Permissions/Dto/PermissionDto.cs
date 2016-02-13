@@ -11,5 +11,11 @@ namespace CityQuest.ApplicationServices.MainModule.Permissions.Dto
     {
         public string Value { get; set; }
         public string DisplayText { get; set; }
+
+        #region Ctors
+
+        public PermissionDto() { }
+
+        #endregion
     }
 }

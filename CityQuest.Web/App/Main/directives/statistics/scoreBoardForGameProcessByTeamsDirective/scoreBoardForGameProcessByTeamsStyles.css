@@ -1,2 +1,55 @@
-﻿body {
+﻿.score-board-title {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.btn-refresh-score-board {
+
+}
+
+.score-board {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    border: 1px solid black;
+}
+
+.score-board-header-row {
+    background-color: #444;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+
+.score-board-body-row {
+
+}
+
+.score-board-golden-row {
+    background-color: gold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+
+.score-board-silver-row {
+    background-color: silver;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+
+.score-board-bronze-row {
+    background-color: #A57164;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+
+.score-board-common-row {
+    background-color: #E0F2F1;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }

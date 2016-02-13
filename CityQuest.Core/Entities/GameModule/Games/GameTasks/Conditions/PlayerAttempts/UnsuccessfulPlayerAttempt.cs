@@ -23,5 +23,11 @@ namespace CityQuest.Entities.GameModule.Games.GameTasks.Conditions.PlayerAttempt
 
         public string InputedValue { get; set; }
         public DateTime AttemptDateTime { get; set; }
+
+        #region Ctors
+
+        public UnsuccessfulPlayerAttempt() { }
+
+        #endregion
     }
 }

@@ -134,6 +134,9 @@
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveGameLightOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveGameTaskResultsInput.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveGameTaskResultsOutput.cs" />
+    <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveScoreBoardForGameInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\RetrieveScoreBoardForGameOutput.cs" />
+    <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\ScoreBoardDataDto.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\TeamGameTaskStatisticDto.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\TipLightDto.cs" />
     <Compile Include="ApplicationServices\GameModule\GamesLight\Dtos\TryToPassConditionInput.cs" />
@@ -195,6 +198,17 @@
     <Compile Include="ApplicationServices\GameModule\Locations\ILocationAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\Locations\LocationAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\PlayerCareers\Dtos\PlayerCareerDto.cs" />
+    <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\AnswerOnRequestInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\AnswerOnRequestOutput.cs" />
+    <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\DenyRequestInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\DenyRequestOutput.cs" />
+    <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\RetrieveAllTeamRequestsInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\RetrieveTeamRequestInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\TeamRequestDto.cs" />
+    <Compile Include="ApplicationServices\GameModule\TeamRequests\ITeamRequestAppService.cs" />
+    <Compile Include="ApplicationServices\GameModule\TeamRequests\TeamRequestAppService.cs" />
+    <Compile Include="ApplicationServices\GameModule\Teams\Dtos\ChangeCaptainInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\Teams\Dtos\ChangeCaptainOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\CreateTeamInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsInput.cs" />
     <Compile Include="ApplicationServices\GameModule\Teams\Dtos\RetrieveAllTeamsLikeComboBoxesInput.cs" />

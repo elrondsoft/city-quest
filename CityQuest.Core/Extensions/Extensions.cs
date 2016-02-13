@@ -127,7 +127,6 @@ namespace CityQuest
                 list.AddRange(newCollection);
         }
 
-
         public static string EmptyIfNull(this string value)
         {
             if (value == null)
@@ -156,7 +155,6 @@ namespace CityQuest
                 return true;
             return false;
         }
-
 
         public static string JoinAsString<T>(this IEnumerable<T> collection, string separator)
         {
@@ -198,6 +196,12 @@ namespace CityQuest
                 }
             }
             return dictionary;
+        }
+
+        public static DateTime RoundDateTime(this DateTime value)
+        {
+            return new DateTime(((value.Ticks + (CityQuestConsts.TicksToRoundDateTime / 2) + 1) /
+                CityQuestConsts.TicksToRoundDateTime) * CityQuestConsts.TicksToRoundDateTime);
         }
     }
 }

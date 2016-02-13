@@ -1,0 +1,37 @@
+﻿.user-profile-page-header {
+
+}
+
+.user-profile-page-body {
+    margin-top: 10px;
+}
+
+.user-profile-page-footer {
+
+}
+
+.user-profile-page-user-profile-template {
+    background-color: #fff;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.user-profile-page-user-profile-template-row {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.user-profile-page-user-profile-template-row-label {
+
+}
+
+.user-profile-page-user-profile-template-row-entity-property {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.user-profile-page-user-team-profile-template {
+    background-color: #fff;
+    margin-left: 0px;
+    margin-right: 0px;
+}

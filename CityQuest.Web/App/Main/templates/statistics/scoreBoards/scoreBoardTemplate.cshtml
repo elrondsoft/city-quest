@@ -1,0 +1,29 @@
+﻿<div class="modal-header">
+    <div class="row row-centered">
+        <div class="col-xs-12 text-center">
+            <button type="button"
+                    class="close"
+                    ng-click="vm.templateActions.close()">
+                &times;
+            </button>
+            <label class="cq-modal-title-label">
+                {{vm.title}}
+            </label>
+        </div>
+    </div>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-xs-12">
+            <score-board-for-game-process-by-teams game-id="vm.gameId">
+            </score-board-for-game-process-by-teams>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button"
+            class="btn btn-primary"
+            ng-click="vm.templateActions.close()">
+        {{vm.localize("ButtonClose")}}
+    </button>
+</div>

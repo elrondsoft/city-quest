@@ -21,6 +21,8 @@ angular.module('app').service('clientCityQuestConstService', function () {
         update: 'update',
         info: 'info'
     };
+    /// Interval for chacking signalR connection
+    this.signalRReconnetInterval = 10000;
     /// Is used like default controllerAs name
     this.controllerAsName = 'vm';
     /// Is used like default options for modal view (bootstrap)
@@ -87,6 +89,8 @@ angular.module('app').service('clientCityQuestConstService', function () {
         gameListCtrl: 'app.views.games.gameListController',
         gameDetailsCtrl: 'app.templates.games.gameDetailsController',
         gameProcessManagementCtrl: 'app.templates.games.gameProcessManagementController',
+        scoreBoardController: 'app.templates.statistics.scoreBoards.scoreBoardController',
+        gameTaskByTeamStatisticController: 'app.templates.statistics.gameTaskByTeamStatistics.gameTaskByTeamStatisticController',
     };
     //-----------------------------------------------------------------------------------------------------------------------
     //----------------------------------------Constants for Templates/Views--------------------------------------------------
@@ -105,6 +109,8 @@ angular.module('app').service('clientCityQuestConstService', function () {
         gameListView: '/App/Main/views/games/gameListView.cshtml',
         gameDetailsTemplate: '/App/Main/templates/games/gameDetailsTemplate.cshtml',
         gameProcessManagementTemplate: '/App/Main/templates/games/gameProcessManagementTemplate.cshtml',
+        scoreBoardTemplate: '/App/Main/templates/statistics/scoreBoards/scoreBoardTemplate.cshtml',
+        gameTaskByTeamStatisticTemplate: '/App/Main/templates/statistics/gameTaskByTeamStatistics/gameTaskByTeamStatisticTemplate.cshtml',
     };
     //-----------------------------------------------------------------------------------------------------------------------
     //----------------------------------------Constants for partial templates------------------------------------------------
@@ -122,6 +128,10 @@ angular.module('app').service('clientCityQuestConstService', function () {
             gameTaskInProgressPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskInProgressPartialTemplate.cshtml',
             gameTaskInProgressConditionPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskInProgressConditionPartialTemplate.cshtml',
             gameTaskInProgressTipPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskInProgressTipPartialTemplate.cshtml',
+        },
+        userProfilePartialTemplates: {
+            userProfilePartialTemplate: '/App/Main/views/userProfilePages/partialTemplates/userProfilePartialTemplate.cshtml',
+            userTeamProfilePartialTemplate: '/App/Main/views/userProfilePages/partialTemplates/userTeamProfilePartialTemplate.cshtml',
         },
     };
     //-----------------------------------------------------------------------------------------------------------------------

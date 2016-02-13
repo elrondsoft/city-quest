@@ -1,0 +1,22 @@
+﻿<div class="row user-profile-page-header">
+    <div class="col-xs-12">
+        <h1>{{vm.localize(vm.title)}}</h1>
+    </div>
+</div>
+<div class="row user-profile-page-body">
+    <div class="col-xs-12">
+        <uib-tabset>
+            <uib-tab heading="{{vm.localize('UserProfile')}}">
+                <ng-include src="vm.partialTemplates.userProfilePartialTemplate" />
+            </uib-tab>
+            <uib-tab heading="{{vm.localize('UserTeamProfile')}}">
+                <ng-include src="vm.partialTemplates.userTeamProfilePartialTemplate" />
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</div>
+<div class="row user-profile-page-footer">
+    <div class="col-xs-12">
+
+    </div>
+</div>

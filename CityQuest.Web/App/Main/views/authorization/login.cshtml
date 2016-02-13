@@ -1,4 +1,4 @@
-﻿<div ng-controller="app.controllers.authorization.login as login">
+﻿<div ng-controller="app.views.authorization.login as login">
     <div class="container">
         <div style="margin-top:50px;"
              class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"
@@ -32,7 +32,7 @@
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="checkbox checkbox-info">
-                                            <input id="persist" 
+                                            <input id="persist"
                                                    class="checkbox-primary"
                                                    ng-model="login.loginData.isPersist"
                                                    type="checkbox"
@@ -144,12 +144,12 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-3 col-md-9">
-                                <button class="btn btn-success pull-left" 
+                                <button class="btn btn-success pull-left"
                                         type="submit"
                                         ng-click="login.signUp()">
                                     <span>@L("SignUp")</span>
                                 </button>
-                                <button class="btn btn-primary pull-right" 
+                                <button class="btn btn-primary pull-right"
                                         ng-click="login.changeState(login.loginStates.signIn)">
                                     <span>@L("BackButton")</span>
                                 </button>

@@ -70,5 +70,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
         /// <param name="input">object with input params</param>
         /// <returns>object with output params</returns>
         ChangeActivityOutput<TeamDto, long> ChangeActivity(ChangeActivityInput input);
+
+        ChangeCaptainOutput ChangeCaptain(ChangeCaptainInput input);
     }
 }

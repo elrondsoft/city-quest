@@ -354,7 +354,9 @@ namespace CityQuest.ApplicationServices.GameModule.Games
 
             #endregion
 
-            HandleCalculatingGameStatistics(input.GameId, gameEntity.StartDate, DateTime.Now);
+            DateTime realGameEndTime = (DateTime.Now).RoundDateTime();
+
+            HandleCalculatingGameStatistics(input.GameId, gameEntity.StartDate, realGameEndTime);
 
             GameStatusDto newGameStatus = UpdateGameStatus(input.GameId, gameEntity, null, CityQuestConsts.GameStatusCompletedName);
 
@@ -583,6 +585,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             existCondition.ConditionTypeId = newCondition.ConditionTypeId;
             existCondition.Name = newCondition.Name;
             existCondition.Order = newCondition.Order;
+            existCondition.Points = newCondition.Points;
+            existCondition.ValueToPass = newCondition.ValueToPass;
 
             return ConditionRepository.Update(existCondition);
         }
@@ -632,7 +636,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             foreach (long playerCareerId in playerGameTaskStatistics.Select(r => r.PlayerCareerId).Distinct().ToList())
             {
 #warning TODO: Calculate parameters here
-                newPlayerGameStatistics.Add(new PlayerGameStatistic(gameId, playerCareerId, gameStartTime, gameEndTime));
+                newPlayerGameStatistics.Add(new PlayerGameStatistic(gameId, playerCareerId, gameStartTime, gameEndTime, 
+                    playerGameTaskStatistics.Select(r => r.ReceivedPoints ?? 0).Sum()));
             }
             PlayerGameStatisticRepository.AddRange(newPlayerGameStatistics);
 
@@ -657,7 +662,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             foreach (long teamId in teamGameTaskStatistics.Select(r => r.TeamId).Distinct().ToList())
             {
 #warning TODO: Calculate parameters here
-                newTeamGameStatistics.Add(new TeamGameStatistic(gameId, teamId, gameStartTime, gameEndTime));
+                newTeamGameStatistics.Add(new TeamGameStatistic(gameId, teamId, gameStartTime, gameEndTime, 
+                    teamGameTaskStatistics.Select(r => r.ReceivedPoints ?? 0).Sum()));
             }
             TeamGameStatisticRepository.AddRange(newTeamGameStatistics);
 

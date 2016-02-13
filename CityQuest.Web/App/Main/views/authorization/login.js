@@ -1,5 +1,5 @@
 ﻿(function () {
-    var controllerId = 'app.controllers.authorization.login';
+    var controllerId = 'app.views.authorization.login';
     angular.module('app').controller(controllerId, [
         '$scope', '$state', 'authService', 'ngAuthSettings', '$stateParams', '$http', 'abp.services.cityQuest.user',
         function ($scope, $state, authService, ngAuthSettings, $stateParams, $http, userSvc) {

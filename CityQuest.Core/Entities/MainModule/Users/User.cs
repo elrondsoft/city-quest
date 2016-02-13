@@ -2,6 +2,7 @@
 using CityQuest.Entities.GameModule.Keys;
 using CityQuest.Entities.GameModule.Locations;
 using CityQuest.Entities.GameModule.PlayerCareers;
+using CityQuest.Entities.GameModule.Teams.TeamRequests;
 using CityQuest.Entities.MainModule.Authorization.UserLogins;
 using CityQuest.Entities.MainModule.Authorization.UserRoles;
 using CityQuest.Entities.MainModule.Authorization.UserServices;
@@ -17,6 +18,20 @@ namespace CityQuest.Entities.MainModule.Users
 {
     public class User : FullAuditedEntity<long, User>, IUser<long>
     {
+        #region Ctors
+
+        public User()
+        {
+            ActivatedKeys = new HashSet<Key>();
+            PlayerCareers = new HashSet<PlayerCareer>();
+            TeamRequests = new HashSet<TeamRequest>();
+            Logins = new HashSet<UserLogin>();
+            Roles = new HashSet<UserRole>();
+            Permissions = new HashSet<UserPermissionSetting>();
+        }
+
+        #endregion
+
         #region Relations
 
         public long? LocationId { get; set; }
@@ -24,6 +39,7 @@ namespace CityQuest.Entities.MainModule.Users
 
         public virtual ICollection<Key> ActivatedKeys { get; set; }
         public virtual ICollection<PlayerCareer> PlayerCareers { get; set; }
+        public virtual ICollection<TeamRequest> TeamRequests { get; set; }
 
         public virtual ICollection<UserLogin> Logins { get; set; }
         public virtual ICollection<UserRole> Roles { get; set; }
@@ -51,7 +67,7 @@ namespace CityQuest.Entities.MainModule.Users
         /// </summary>
         public virtual DateTime? LastLoginTime { get; set; }
 
-        public string FullName
+        public string FullName 
         {
             get
             {
@@ -59,7 +75,7 @@ namespace CityQuest.Entities.MainModule.Users
             }
         }
 
-        public string FullUserName
+        public string FullUserName 
         {
             get
             {

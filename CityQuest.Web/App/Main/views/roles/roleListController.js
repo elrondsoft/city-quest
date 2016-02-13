@@ -66,7 +66,7 @@
                        return result;
                    };
                    var getDeleteButton = function (entity) {
-                       if (!permissionSvc.role.canDelete(entity))
+                       if (!permissionSvc.role.canDelete(entity) || entity.isStatic || entity.isDefault)
                            return '';
 
                        var deleteTittleText = vm.localize('DeleteTittleText');

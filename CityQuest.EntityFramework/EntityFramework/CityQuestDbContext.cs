@@ -3,39 +3,47 @@ using Abp.EntityFramework;
 #region using CityQuest.GameModule...
 using CityQuest.Entities.GameModule.Divisions;
 using CityQuest.Entities.GameModule.Games;
+using CityQuest.Entities.GameModule.Games.GameStatuses;
 using CityQuest.Entities.GameModule.Games.GameTasks;
 using CityQuest.Entities.GameModule.Games.GameTasks.Conditions;
 using CityQuest.Entities.GameModule.Games.GameTasks.Conditions.ConditionTypes;
+using CityQuest.Entities.GameModule.Games.GameTasks.Conditions.PlayerAttempts;
 using CityQuest.Entities.GameModule.Games.GameTasks.GameTaskTypes;
 using CityQuest.Entities.GameModule.Games.GameTasks.Tips;
 using CityQuest.Entities.GameModule.Keys;
-using CityQuest.Entities.GameModule.Teams;
-#endregion
-#region using CityQuest.Entities.MainModule...
-using CityQuest.Entities.MainModule.Users;
-#endregion
-using System.Data.Entity;
-using global::EntityFramework.DynamicFilters;
-using System.Diagnostics;
-using CityQuest.Entities.MainModule.Roles;
-using CityQuest.Entities.MainModule.Authorization.UserLogins;
-using CityQuest.Entities.MainModule.Authorization;
-using CityQuest.Entities.MainModule.Authorization.RolePermissionSettings;
-using CityQuest.Entities.MainModule.Authorization.UserServices;
-using CityQuest.Entities.MainModule.Authorization.UserRoles;
 using CityQuest.Entities.GameModule.Locations;
-using CityQuest.Entities.GameModule.Games.GameStatuses;
 using CityQuest.Entities.GameModule.PlayerCareers;
-using CityQuest.Entities.GameModule.Games.GameTasks.Conditions.PlayerAttempts;
 using CityQuest.Entities.GameModule.Statistics.PlayerGameStatistics;
 using CityQuest.Entities.GameModule.Statistics.PlayerGameTaskStatistics;
 using CityQuest.Entities.GameModule.Statistics.TeamGameStatistics;
 using CityQuest.Entities.GameModule.Statistics.TeamGameTaskStatistics;
+using CityQuest.Entities.GameModule.Teams;
+using CityQuest.Entities.GameModule.Teams.TeamRequests;
+#endregion
+#region using CityQuest.Entities.MainModule...
+using CityQuest.Entities.MainModule.Authorization;
+using CityQuest.Entities.MainModule.Authorization.RolePermissionSettings;
+using CityQuest.Entities.MainModule.Authorization.UserLogins;
+using CityQuest.Entities.MainModule.Authorization.UserRoles;
+using CityQuest.Entities.MainModule.Authorization.UserServices;
+using CityQuest.Entities.MainModule.Roles;
+using CityQuest.Entities.MainModule.Users;
+#endregion
+using global::EntityFramework.DynamicFilters;
+using System.Data.Entity;
+using System.Diagnostics;
+
 
 namespace CityQuest.EntityFramework
 {
     public class CityQuestDbContext : AbpDbContext
     {
+        #region Consts
+
+        public const int CityQuestDatabaseCommandTimeout = 3600;
+
+        #endregion
+
         #region DataBase Sets
 
         #region MainModule DbSets
@@ -56,6 +64,7 @@ namespace CityQuest.EntityFramework
         public virtual IDbSet<Location> Locations { get; set; }
         public virtual IDbSet<Division> Divisions { get; set; }
         public virtual IDbSet<Team> Teams { get; set; }
+        public virtual IDbSet<TeamRequest> TeamRequests { get; set; }
         public virtual IDbSet<Key> Keys { get; set; }
         public virtual IDbSet<Game> Games { get; set; }
         public virtual IDbSet<GameStatus> GameStatuses { get; set; }
@@ -81,19 +90,23 @@ namespace CityQuest.EntityFramework
 
         #endregion
 
+        #region Ctors
+
         public CityQuestDbContext()
             : base(CityQuestConsts.ConnectionStringName)
         {
-            this.Database.CommandTimeout = 3600;
+            this.Database.CommandTimeout = CityQuestDatabaseCommandTimeout;
             this.Database.Log = (r) => Trace.WriteLine(r);
         }
 
         public CityQuestDbContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
         {
-            this.Database.CommandTimeout = 3600;
+            this.Database.CommandTimeout = CityQuestDatabaseCommandTimeout;
             this.Database.Log = (r) => Trace.WriteLine(r);
         }
+
+        #endregion
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -195,6 +208,16 @@ namespace CityQuest.EntityFramework
                 .WithMany(r => r.Teams)
                 .HasForeignKey(r => r.DivisionId)
                 .WillCascadeOnDelete(false);
+            modelBuilder.Entity<TeamRequest>()
+                .HasRequired(r => r.Team)
+                .WithMany(r => r.TeamRequests)
+                .HasForeignKey(r => r.TeamId)
+                .WillCascadeOnDelete(true);
+            modelBuilder.Entity<TeamRequest>()
+                .HasRequired(r => r.InvitedUser)
+                .WithMany(r => r.TeamRequests)
+                .HasForeignKey(r => r.InvitedUserId)
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<PlayerCareer>()
                 .HasRequired(r => r.User)
@@ -214,7 +237,7 @@ namespace CityQuest.EntityFramework
                 .WillCascadeOnDelete(false);
             modelBuilder.Entity<SuccessfulPlayerAttempt>()
                 .HasRequired(r => r.Condition)
-                .WithMany(r => r.SuccessfulPlayerAttempts)
+                .WithMany(r => r.SuccessfullPlayerAttempts)
                 .HasForeignKey(r => r.ConditionId)
                 .WillCascadeOnDelete(false);
 
@@ -225,7 +248,7 @@ namespace CityQuest.EntityFramework
                 .WillCascadeOnDelete(false);
             modelBuilder.Entity<UnsuccessfulPlayerAttempt>()
                 .HasRequired(r => r.Condition)
-                .WithMany(r => r.UnsuccessfulPlayerAttempts)
+                .WithMany(r => r.UnsuccessfullPlayerAttempts)
                 .HasForeignKey(r => r.ConditionId)
                 .WillCascadeOnDelete(false);
 

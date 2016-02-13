@@ -17,9 +17,6 @@ namespace CityQuest.Entities.MainModule.Authorization.RoleServices
         private readonly IRolePermissionSettingRepository _rolePermissionSettingRepository;
         private readonly IAbpSession _session;
 
-        /// <summary>
-        /// Constructor.
-        /// </summary>
         public RoleStore(
             IRoleRepository roleRepository,
             IRolePermissionSettingRepository rolePermissionSettingRepository,

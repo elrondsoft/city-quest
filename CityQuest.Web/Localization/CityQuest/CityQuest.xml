@@ -186,5 +186,32 @@
     <text name="Condition_JustInputCode" value="Code-condition" />
     <text name="Condition_Time" value="Time-condition" />
 
+    <text name="GameCollection" value="Game collection" />    
+    <text name="TeamName" value="Team name" />
+    <text name="CompletedTasksCount" value="Completed tasks count" />
+    <text name="Score" value="Score" />
+    <text name="RefreshScoreBoardButtonTittleText" value="Refresh score board" />
+    <text name="RefreshScoreBoardButtonText" value="Refresh score board" />
+    <text name="NoAvailableDataForScoreBoard" value="No available data" />
+    <text name="ScoreBoardTemplateTitle" value="Score board" />
+    <text name="GameTaskByTeamStatisticTemplateTitle" value="Game's statistics" />
+    <text name="PointsForPass" value="Point for pass" />
+    <text name="NoAvailableDataForGameProcessByTeams" value="No available data" />
+    <text name="RefreshStatisticsForGameByTeamsButtonTittleText" value="Refresh statistics" />
+    <text name="RefreshStatisticsForGameByTeamsButtonText" value="Refresh statistics" />
+    <text name="CurrentGameStatusIs" value="Current game status is" />
+    <text name="GameProcessManagement" value="Game process management" />
+    <text name="GamePageViewTitle" value="Game page" />
+    <text name="OpenScoreBoardButtonTitleText" value="Open the game's score board" />
+    <text name="OpenScoreBoardButtonText" value="Score board" />
+    <text name="OpenStatisticsButtonTitleText" value="Open the game's statistics" />
+    <text name="OpenStatisticsButtonText" value="Statistics" />
+    <text name="ActivateKeyButtonTitleText" value="Activate key" />
+    <text name="ActivateKeyButtonText" value="Activate key" />
+    <text name="SubmitActivateKeyButtonTitleText" value="Submit key activation" />
+    <text name="SubmitActivateKeyButtonText" value="Submit" />
+    <text name="ActivateKeyInputPlaceholder" value="XXXX-XXXXXXXX-XXXX" />
+    <text name="ActivateKeyInputTitleText" value="Input your key here to activate the game" />
+     
   </texts>
 </localizationDictionary>

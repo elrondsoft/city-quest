@@ -1,8 +1,8 @@
-﻿.game-page-game-info-area {
-
+﻿.game-page-body{
+    /*background-color: #B9F6CA;*/
 }
 
-.game-page-game-statistics-area {
+.game-page-game-info-area {
 
 }
 
@@ -15,7 +15,7 @@
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
-    background-color: #B9F6CA;
+    /*background-color: #B9F6CA;*/
 }
 
 .game-page-game-tasks-paused-area {
