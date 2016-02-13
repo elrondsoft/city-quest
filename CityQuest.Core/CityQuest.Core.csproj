@@ -201,6 +201,9 @@
     <Compile Include="ICityQuestRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runtime\Sessions\ICityQuestSession.cs" />
+    <Compile Include="Services\FileGeneratorService\Data\GenerateFileInput.cs" />
+    <Compile Include="Services\FileGeneratorService\FileGeneratorService.cs" />
+    <Compile Include="Services\FileGeneratorService\IFileGeneratorService.cs" />
     <Compile Include="Services\SafeGuidGenerationServices\ISafeGuidGenerationService.cs" />
     <Compile Include="Services\SafeGuidGenerationServices\KeyGenerationServices\IKeyGenerationService.cs" />
     <Compile Include="Services\SafeGuidGenerationServices\KeyGenerationServices\KeyGenerationService.cs" />
@@ -211,6 +214,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Services\FileGeneratorService\PDFFileGeneratorService\Templates\KeyTemplate.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

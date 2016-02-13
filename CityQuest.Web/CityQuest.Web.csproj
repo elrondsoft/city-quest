@@ -252,6 +252,7 @@
     <Content Include="App\Main\services\shared\clientPermissionService.js" />
     <Content Include="App\Main\services\shared\dataStorageService.js" />
     <Content Include="App\Main\directives\games\gameTasks\gameTaskBuilderStyles.css" />
+    <Content Include="App\Main\styles\table.css" />
     <Content Include="App\Main\styles\tableButtonStyles.css" />
     <Content Include="App\Main\styles\site.css" />
     <Content Include="App\Main\styles\tableFilters.css" />
@@ -1287,6 +1288,8 @@
     <Content Include="Scripts\jtable\themes\metro\brown\jtable.css" />
     <Content Include="Scripts\jtable\themes\metro\brown\jtable.min.css" />
     <Content Include="Scripts\jtable\themes\metro\brown\loading.gif" />
+    <Content Include="Scripts\jtable\themes\metro\cityquest\jtable.css" />
+    <Content Include="Scripts\jtable\themes\metro\cityquest\jtable.min.css" />
     <Content Include="Scripts\jtable\themes\metro\close.png" />
     <Content Include="Scripts\jtable\themes\metro\column-asc.png" />
     <Content Include="Scripts\jtable\themes\metro\column-desc.png" />
