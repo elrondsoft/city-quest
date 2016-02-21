@@ -201,7 +201,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users
             if (userEntityForUpdate == null)
                 throw new UserFriendlyException("Inaccessible action!", String.Format("There are no User for update."));
 
-            #region Updating fields foor entity User
+            #region Updating fields for entity User
 
             UserRoleRepository.RemoveRange(userEntityForUpdate.Roles);
             userEntityForUpdate.Roles.Clear();
@@ -235,7 +235,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users
 
             #endregion
 
-            UserDto userEntityDto = (UserRepository.Update(userEntityForUpdate)).MapTo<UserDto>(); ;
+            UserDto userEntityDto = (UserRepository.Update(userEntityForUpdate)).MapTo<UserDto>(); 
 
             return new UpdateOutput<UserDto, long>()
             {
@@ -251,15 +251,53 @@ namespace CityQuest.ApplicationServices.MainModule.Users
             if (currentUser == null)
                 throw new UserFriendlyException("Inaccessible action!", String.Format("There are no User for update."));
 
-            if (currentUser.Password != input.CurrentPassword)
+            PasswordHasher passwordHasher = new PasswordHasher();
+
+            if (input.CurrentPassword.IsNullOrEmpty() || 
+                passwordHasher.VerifyHashedPassword(currentUser.Password, input.CurrentPassword) == PasswordVerificationResult.Failed)
             {
                 throw new UserFriendlyException("Wrong password!", String.Format("Old password is not correct."));
             }
 
+            if (input.NewPassword.IsNullOrEmpty())
+            {
+                throw new UserFriendlyException("Wrong new password!", String.Format("New password is not correct."));
+            }
+
             currentUser.Password = input.NewPassword;
-            currentUser.Password = new PasswordHasher().HashPassword(currentUser.Password);
+            currentUser.Password = passwordHasher.HashPassword(currentUser.Password);
 
             return new ChangePasswordOutput();
+        }
+
+        [Abp.Authorization.AbpAuthorize]
+        public UpdatePublicUserFieldsOutput UpdatePublicUserFields(UpdatePublicUserFieldsInput input)
+        {
+            User userEntityForUpdate = UserRepository.Get(input.Id);
+
+            if (userEntityForUpdate == null)
+                throw new UserFriendlyException("Inaccessible action!", String.Format("There are no User for update."));
+
+            #region Updating public fields for entity User
+
+            userEntityForUpdate.Name = String.IsNullOrEmpty(input.Name) ? userEntityForUpdate.Name : input.Name;
+            userEntityForUpdate.Surname = String.IsNullOrEmpty(input.Surname) ? userEntityForUpdate.Surname : input.Surname;
+            userEntityForUpdate.PhoneNumber = String.IsNullOrEmpty(input.PhoneNumber) ? userEntityForUpdate.PhoneNumber : input.PhoneNumber;
+
+            if (!String.IsNullOrEmpty(input.EmailAddress) && userEntityForUpdate.EmailAddress != input.EmailAddress)
+            {
+                userEntityForUpdate.EmailAddress = input.EmailAddress;
+                userEntityForUpdate.IsEmailConfirmed = true;
+            }
+
+            #endregion
+
+            UserDto userEntityDto = (UserRepository.Update(userEntityForUpdate)).MapTo<UserDto>(); 
+
+            return new UpdatePublicUserFieldsOutput() 
+                {
+                    User = userEntityDto
+                };
         }
 
         [Abp.Authorization.AbpAuthorize]

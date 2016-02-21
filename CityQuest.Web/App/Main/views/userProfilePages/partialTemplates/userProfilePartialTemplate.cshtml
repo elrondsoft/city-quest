@@ -4,32 +4,132 @@
         <div class="row user-profile-page-user-profile-template-row">
             <div class="col-xs-12">
                 <span class="user-profile-page-user-profile-template-row-label">{{vm.localize('UserName')}}:</span>&nbsp;&nbsp;
-                <span class="user-profile-page-user-profile-template-row-entity-property">{{vm.user.userName}}</span>
+                <span class="user-profile-page-user-profile-template-row-entity-property">
+                    {{vm.user.userName}}
+                </span>
             </div>
         </div>
         <div class="row user-profile-page-user-profile-template-row">
             <div class="col-xs-12">
                 <span class="user-profile-page-user-profile-template-row-label">{{vm.localize('Name')}}:</span>&nbsp;&nbsp;
-                <span class="user-profile-page-user-profile-template-row-entity-property">{{vm.user.name}}</span>
+                <span class="user-profile-page-user-profile-template-row-entity-property"
+                      ng-if="!vm.isEditUserProfile">
+                    {{vm.user.name}}
+                </span>
+                <input class="form-control user-profile-page-user-profile-template-row-entity-property-control"
+                       placeholder="{{vm.localize('NamePlaceholder')}}"
+                       ng-if="vm.isEditUserProfile"
+                       ng-model="vm.user.name" />
             </div>
         </div>
         <div class="row user-profile-page-user-profile-template-row">
             <div class="col-xs-12">
                 <span class="user-profile-page-user-profile-template-row-label">{{vm.localize('Surname')}}:</span>&nbsp;&nbsp;
-                <span class="user-profile-page-user-profile-template-row-entity-property">{{vm.user.surname}}</span>
+                <span class="user-profile-page-user-profile-template-row-entity-property"
+                      ng-if="!vm.isEditUserProfile">
+                    {{vm.user.surname}}
+                </span>
+                <input class="form-control user-profile-page-user-profile-template-row-entity-property-control"
+                       placeholder="{{vm.localize('SurnamePlaceholder')}}"
+                       ng-if="vm.isEditUserProfile"
+                       ng-model="vm.user.surname" />
             </div>
         </div>
         <div class="row user-profile-page-user-profile-template-row">
             <div class="col-xs-12">
                 <span class="user-profile-page-user-profile-template-row-label">{{vm.localize('Email')}}:</span>&nbsp;&nbsp;
-                <span class="user-profile-page-user-profile-template-row-entity-property">{{vm.user.emailAddress}}</span>
+                <span class="user-profile-page-user-profile-template-row-entity-property"
+                      ng-if="!vm.isEditUserProfile">
+                    {{vm.user.emailAddress}}
+                </span>
+                <input class="form-control user-profile-page-user-profile-template-row-entity-property-control"
+                       placeholder="{{vm.localize('EmailPlaceholder')}}"
+                       ng-if="vm.isEditUserProfile"
+                       ng-model="vm.user.emailAddress" />
             </div>
         </div>
         <div class="row user-profile-page-user-profile-template-row">
             <div class="col-xs-12">
                 <span class="user-profile-page-user-profile-template-row-label">{{vm.localize('PhoneNumber')}}:</span>&nbsp;&nbsp;
-                <span class="user-profile-page-user-profile-template-row-entity-property">{{vm.user.phoneNumber}}</span>
+                <span class="user-profile-page-user-profile-template-row-entity-property"
+                      ng-if="!vm.isEditUserProfile">
+                    {{vm.user.phoneNumber}}
+                </span>
+                <input class="form-control user-profile-page-user-profile-template-row-entity-property-control"
+                       placeholder="{{vm.localize('PhoneNumberPlaceholder')}}"
+                       ng-if="vm.isEditUserProfile"
+                       ng-model="vm.user.phoneNumber" />
             </div>
+        </div>
+        <div class="row user-profile-page-user-profile-template-row"
+             ng-if="!vm.isEditUserProfile">
+            <div class="col-xs-12">
+                <span class="user-profile-page-user-profile-template-row-label"
+                      ng-if="vm.isChangePasswordUserProfile">{{vm.localize('CurrentPassword')}}:</span>&nbsp;&nbsp;
+                <input class="form-control user-profile-page-user-profile-template-row-entity-property-control"
+                       type="password"
+                       placeholder="{{vm.localize('CurrentPasswordPlaceholder')}}"
+                       ng-if="vm.isChangePasswordUserProfile"
+                       ng-model="vm.user.currentPassword" />
+                <span class="user-profile-page-user-profile-template-row-label"
+                      ng-if="vm.isChangePasswordUserProfile">{{vm.localize('NewPassword')}}:</span>&nbsp;&nbsp;
+                <input class="form-control user-profile-page-user-profile-template-row-entity-property-control"
+                       type="password"
+                       placeholder="{{vm.localize('NewPasswordPlaceholder')}}"
+                       ng-if="vm.isChangePasswordUserProfile"
+                       ng-model="vm.user.newPassword" />
+                <span class="user-profile-page-user-profile-template-row-label"
+                      ng-if="vm.isChangePasswordUserProfile">{{vm.localize('NewPasswordRepeat')}}:</span>&nbsp;&nbsp;
+                <input class="form-control user-profile-page-user-profile-template-row-entity-property-control"
+                       type="password"
+                       placeholder="{{vm.localize('NewPasswordRepeatPlaceholder')}}"
+                       ng-if="vm.isChangePasswordUserProfile"
+                       ng-model="vm.user.newPasswordRepeat" />
+            </div>
+        </div>
+        <div class="row user-profile-page-user-profile-template-row-buttons">
+            <button type="button"
+                    class="btn btn-primary"
+                    ng-if="!vm.isChangePasswordUserProfile && !vm.isEditUserProfile"
+                    title="{{vm.localize('ButtonChangePasswordTitleText')}}"
+                    ng-click="vm.helpers.changeIsChangePasswordUserProfile()">
+                {{vm.localize('ButtonChangePasswordText')}}
+            </button>
+            <button type="button"
+                    class="btn btn-primary pull-right cq-pull-btn"
+                    ng-if="vm.isChangePasswordUserProfile && !vm.isEditUserProfile"
+                    title="{{vm.localize('ButtonCancelTitleText')}}"
+                    ng-click="vm.actions.cancelChangePassword()">
+                {{vm.localize('ButtonCancelText')}}
+            </button>
+            <button type="button"
+                    class="btn btn-success pull-right cq-pull-btn"
+                    ng-if="vm.isChangePasswordUserProfile && !vm.isEditUserProfile"
+                    title="{{vm.localize('ButtonCommitNewPasswordTitleText')}}"
+                    ng-click="vm.actions.commitNewPassword()">
+                {{vm.localize('ButtonCommitNewPasswordText')}}
+            </button>
+            <button type="button"
+                    class="btn btn-primary"
+                    ng-if="!vm.isEditUserProfile && !vm.isChangePasswordUserProfile"
+                    title="{{vm.localize('ButtonEditUserProfileTitleText')}}"
+                    ng-click="vm.helpers.changeIsEditUserProfile()">
+                {{vm.localize('ButtonEditUserProfileText')}}
+            </button>
+            <button type="button"
+                    class="btn btn-primary pull-right cq-pull-btn"
+                    ng-if="vm.isEditUserProfile && !vm.isChangePasswordUserProfile"
+                    title="{{vm.localize('ButtonCancelTitleText')}}"
+                    ng-click="vm.actions.cancelUserProfileChanges()">
+                {{vm.localize('ButtonCancelText')}}
+            </button>
+            <button type="button"
+                    class="btn btn-success pull-right cq-pull-btn"
+                    ng-if="vm.isEditUserProfile && !vm.isChangePasswordUserProfile"
+                    title="{{vm.localize('ButtonSaveUserProfileTitleText')}}"
+                    ng-click="vm.actions.saveUserProfileChanges()">
+                {{vm.localize('ButtonSaveUserProfileText')}}
+            </button>
         </div>
     </div>
 </div>

@@ -247,6 +247,8 @@
     <Compile Include="ApplicationServices\MainModule\Users\Dto\RetrieveAllUsersLikeComboBoxesOutput.cs" />
     <Compile Include="ApplicationServices\MainModule\Users\Dto\RetrieveAllUsersPagedResultInput.cs" />
     <Compile Include="ApplicationServices\MainModule\Users\Dto\RetrieveUserInput.cs" />
+    <Compile Include="ApplicationServices\MainModule\Users\Dto\UpdatePublicUserFieldsInput.cs" />
+    <Compile Include="ApplicationServices\MainModule\Users\Dto\UpdatePublicUserFieldsOutput.cs" />
     <Compile Include="ApplicationServices\MainModule\Users\Dto\UserDto.cs" />
     <Compile Include="ApplicationServices\MainModule\Users\IUserAppService.cs" />
     <Compile Include="ApplicationServices\MainModule\Users\UserAppService.cs" />
