@@ -2,7 +2,8 @@
     var controllerId = 'app.views.userProfilePages.userProfilePageController';
     angular.module('app').controller(controllerId, ['$scope', '$uibModal', 'clientCityQuestConstService',
        'clientPermissionService', 'abp.services.cityQuest.user', 'abp.services.cityQuest.team',
-       function ($scope, modal, constSvc, permissionSvc, userSvc, teamSvc) {
+       'abp.services.cityQuest.teamRequest',
+       function ($scope, modal, constSvc, permissionSvc, userSvc, teamSvc, teamRequestSvc) {
            //---------------------------------------------------------------------------------------------------------------
            //-----------------------------------------PreInitialize---------------------------------------------------------
            var vm = this;
@@ -55,6 +56,12 @@
                canLoadTeam: function () {
                    var result = true;
                    return result;
+               },
+               canLeaveCurrentTeam: function (currentTeamEntity) {
+                   return true;
+               },
+               canCreateNewTeam: function (currentTeamEntity) {
+                   return true;
                },
            };
            //---------------------------------------------------------------------------------------------------------------
@@ -136,6 +143,19 @@
                },
                cancelChangePassword: function () {
                    return vm.helpers.changeIsChangePasswordUserProfile(false);
+               },
+               leaveCurrentTeam: function () {
+                   var promise = teamRequestSvc.leaveCurrentTeam({
+                   }).success(function (data) {
+                   }).finally(function (data) {
+                       vm.promiseStore.leaveCurrentTeamPromise = null;
+                       vm.actions.loadTeam();
+                   });
+                   vm.promiseStore.leaveCurrentTeamPromise = promise;
+                   return promise;
+               },
+               createNewTeam: function () {
+                   //TODO: open new dialog with team creation
                },
            };
            //---------------------------------------------------------------------------------------------------------------

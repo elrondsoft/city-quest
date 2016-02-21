@@ -219,7 +219,7 @@
     <text name="NamePlaceholder" value="Name" />
     <text name="SurnamePlaceholder" value="Surname" />
     <text name="EmailPlaceholder" value="yourEmail@cityquest.com" />
-    <text name="PhoneNumberPlaceholder" value="380912345678" />
+    <text name="PhoneNumberPlaceholder" value="+380912345678" />
     <text name="CurrentPasswordPlaceholder" value="Current password" />
     <text name="CurrentPassword" value="Current password" />
     <text name="NewPassword" value="New password" />
@@ -239,8 +239,12 @@
     <text name="SaveSuccessUserProfileChangesMsgResult_Body" value="User profile updated successfully!" />
     <text name="SaveSuccessUserProfileChangesMsgResult_Header" value="User profile updated!" />
     <text name="PasswordChangedSuccessfullyMsgResult_Body" value="Password profile changed successfully!" />
-    <text name="PasswordChangedSuccessfullyMsgResult_Header" value="Password changed!" /> 
-
+    <text name="PasswordChangedSuccessfullyMsgResult_Header" value="Password changed!" />
+    <text name="UserTeamProfile" value="My team profile" />
+    <text name="ButtonLeaveTeamTitleText" value="Leave current team and join default one" />
+    <text name="ButtonLeaveTeamText" value="Leave" />
+    <text name="ButtonCreateNewTeamTitleText" value="Create new team and lead it" />
+    <text name="ButtonCreateNewTeamText" value="Create new team" />
 
   </texts>
 </localizationDictionary>

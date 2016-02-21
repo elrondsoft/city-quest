@@ -33,6 +33,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams.Dtos
         public string Description { get; set; }
         public string Slogan { get; set; }
 
+        public bool? IsDefault { get; set; }
         public bool IsActive { get; set; }
 
         #region Ctors

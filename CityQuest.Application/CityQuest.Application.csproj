@@ -202,6 +202,8 @@
     <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\AnswerOnRequestOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\DenyRequestInput.cs" />
     <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\DenyRequestOutput.cs" />
+    <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\LeaveCurrentTeamInput.cs" />
+    <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\LeaveCurrentTeamOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\RetrieveAllTeamRequestsInput.cs" />
     <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\RetrieveTeamRequestInput.cs" />
     <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\TeamRequestDto.cs" />

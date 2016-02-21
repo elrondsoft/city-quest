@@ -32,6 +32,7 @@ namespace CityQuest.Entities.GameModule.Teams
         public string Description { get; set; }
         public string Slogan { get; set; }
 
+        public bool? IsDefault { get; set; }
         public bool IsActive { get; set; }
 
         #region Ctors

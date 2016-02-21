@@ -29,7 +29,7 @@
 }
 
 .user-profile-page-user-profile-template-row-label {
-
+    font-weight: normal;
 }
 
 .user-profile-page-user-profile-template-row-entity-property {
@@ -45,4 +45,29 @@
 
 .user-profile-page-user-profile-template-row-entity-property-control {
 
+}
+
+.user-profile-page-user-team-profile-template {
+    background-color: #fff;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.user-profile-page-user-team-profile-template-row {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.user-profile-page-user-team-profile-template-row-label {
+    font-weight: normal;
+}
+
+.user-profile-page-user-team-profile-template-row-entity-property {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.user-profile-page-user-team-profile-template-svc-btns {
+    margin-top: 20px;
+    margin-bottom: 10px;
 }

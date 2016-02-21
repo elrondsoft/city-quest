@@ -25,5 +25,7 @@ namespace CityQuest.ApplicationServices.GameModule.TeamRequests
         AnswerOnRequestOutput AnswerOnRequest(AnswerOnRequestInput input);
 
         DenyRequestOutput DenyRequest(DenyRequestInput input);
+
+        LeaveCurrentTeamOutput LeaveCurrentTeam(LeaveCurrentTeamInput input);
     }
 }
