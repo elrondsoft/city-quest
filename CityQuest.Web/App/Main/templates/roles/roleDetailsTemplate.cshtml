@@ -45,7 +45,8 @@
                     ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
                     ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
                     ng-model="vm.entity.permissions"
-                    ng-options="permission as permission.displayText for permission in vm.allPermissions track by permission.displayText" />
+                    ng-options="permission as permission.displayText for permission in vm.allPermissions track by permission.displayText" 
+                    size=30 />
         </div>
     </div>
 </div>

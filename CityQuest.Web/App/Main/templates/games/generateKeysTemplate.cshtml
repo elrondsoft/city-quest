@@ -1,0 +1,26 @@
+﻿<div class="modal-header">
+    <div class="row row-centered">
+        <div class="col-xs-12 text-center">
+            <button type="button"
+                    class="close"
+                    title="{{vm.localize('ButtonCloseTitle')}}"
+                    ng-click="vm.templateActions.close()">
+                &times;
+            </button>
+            <label class="cq-modal-title-label">
+                {{vm.title}}
+            </label>
+        </div>
+    </div>
+</div>
+<div class="modal-body">
+    {{vm.gameId}}
+</div>
+<div class="modal-footer">
+    <button type="button"
+            class="btn btn-primary"
+            title="{{vm.localize('ButtonCloseTitle')}}"
+            ng-click="vm.templateActions.close()">
+        {{vm.localize('ButtonClose')}}
+    </button>
+</div>

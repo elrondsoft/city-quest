@@ -60,7 +60,6 @@ namespace CityQuest.ApplicationServices.MainModule.Users
 
             IQueryable<User> usersQuery = UserRepository.GetAll()
                 .WhereIf(input.OnlyWithDefaultRole != null, r => r.Roles.Any(e => e.Role.IsDefault))
-                .WhereIf(input.RoleId != null, r => r.Roles.Any(e => e.RoleId == input.RoleId))
                 .WhereIf(!input.UserIds.IsNullOrEmpty(), r => input.UserIds.Contains(r.Id))
                 .WhereIf(!String.IsNullOrEmpty(input.Name), r => r.Name.ToLower().Contains(input.Name.ToLower()))
                 .WhereIf(!String.IsNullOrEmpty(input.Surname), r => r.Surname.ToLower().Contains(input.Surname.ToLower()))

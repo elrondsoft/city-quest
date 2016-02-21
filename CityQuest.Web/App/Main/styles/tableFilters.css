@@ -38,3 +38,94 @@
 
 .cq-filter-applybtn {
 }
+
+
+/* multipasport */
+
+
+
+.ms-container {
+    overflow: hidden;
+}
+
+.ms-input {
+    display: table;
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+.ms-selected-list {
+    float: left;
+    width: 100%;
+    padding: 0px 0px 4px 0px;
+}
+
+.ms-selected {
+  background-color: #e4e4e4;
+  border-radius: 5px;
+  display: table;
+  float: left;
+  margin: 4px 0 0 4px;
+  max-width: 304px;
+  min-width: 150px;
+  overflow: hidden;
+  padding: 2px;
+}
+
+    .ms-selected span {
+        margin: 2%;
+    }
+
+.ms-action {
+  background-color: #eee;
+  border-left: 1px solid #ccc;
+  cursor: pointer;
+  display: table-cell;
+  font-size: 9px;
+  text-align: center;
+  vertical-align: middle;
+  width: 17px;
+}
+
+.ms-remove {
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.ms-list {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: none;
+    font-size: 14px;
+    line-height: 1.42857;
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: absolute;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 84%;
+    z-index: 100;
+}
+
+    .ms-list .ms-list-item {
+        padding: 3px 7px 4px;
+    }
+
+.ms-list-item:hover {
+    background-color: #eee;
+    cursor: pointer;
+}

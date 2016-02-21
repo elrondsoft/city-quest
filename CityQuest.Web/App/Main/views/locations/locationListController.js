@@ -184,26 +184,33 @@
                             id: 'name-filter',
                             label: vm.localize('Name'),
                             type: 'input',
-                        assignedField: 'Name'
+                            assignedField: 'Name'
+                        },
+                        //{
+                        //    id: 'select',
+                        //    label: vm.localize('City'),
+                        //    type: 'select',
+                        //    options: locationSvc.retrieveAllLocationsLikeComboBoxes,
+                        //    assignedField: 'LocationIds'
+                        //},
+                        {
+                            id: 'multiselect',
+                            label: vm.localize('MultiCity'),
+                            type: 'multiselect',
+                            options: locationSvc.retrieveAllLocationsLikeComboBoxes,
+                            assignedField: 'LocationIds'
                         },
                         {
-                        id: 'select',
-                        label: vm.localize('City'),
-                        type: 'select',
-                        options: locationSvc.retrieveAllLocationsLikeComboBoxes,
-                        assignedField: 'LocationIds'
+                            id: 'dateFrom',
+                            label: vm.localize('From'),
+                            type: 'datetime',
+                            assignedField: 'DateStart'
                         },
                         {
-                        id: 'dateFrom',
-                        label: vm.localize('From'),
-                        type: 'datetime',
-                        assignedField: 'DateStart'
-                        },
-                        {
-                        id: 'dateTo',
-                        label: vm.localize('To'),
-                        type: 'datetime',
-                        assignedField: 'DateEnd'
+                            id: 'dateTo',
+                            label: vm.localize('To'),
+                            type: 'datetime',
+                            assignedField: 'DateEnd'
                         }
                     ];
                     return filters;
@@ -324,7 +331,7 @@
             };
 
             jTableInitializer.initJTable();
-        
+
 
         }
     ]);

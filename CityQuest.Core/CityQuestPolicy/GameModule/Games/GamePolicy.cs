@@ -8,8 +8,6 @@ using CityQuest.Runtime.Sessions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CityQuest.CityQuestPolicy.GameModule.Games
 {
@@ -17,7 +15,6 @@ namespace CityQuest.CityQuestPolicy.GameModule.Games
     {
         protected IUserRepository UserRepository { get; set; }
         protected IKeyRepository KeyRepository { get; set; }
-
 
         public GamePolicy(ICityQuestSession session, IPermissionChecker permissionChecker, IUserRepository userRepository, IKeyRepository keyRepository)
             : base(session, permissionChecker)
@@ -37,13 +34,13 @@ namespace CityQuest.CityQuestPolicy.GameModule.Games
                 PermissionChecker.IsGranted(CityQuestPermissionNames.CanAllGame) ||
                 PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieveGame))
                 return true;
-            
+
             if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieveSameLocationGame))
             {
                 long? userLocationId = UserRepository.Get(userId).LocationId;
                 result1 = userLocationId != null && entity.LocationId == (long)userLocationId;
             }
-            
+
             if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieveGameForActivate))
             {
                 result2 = entity.IsActive && (DateTime.Now < entity.StartDate);
@@ -52,7 +49,7 @@ namespace CityQuest.CityQuestPolicy.GameModule.Games
             if (PermissionChecker.IsGranted(CityQuestPermissionNames.CanRetrieveActivatedGame))
             {
                 long count = KeyRepository.GetAll().Where(r => r.GameId == entity.Id && r.OwnerUserId == userId).Count();
-                result3 =  count > 0;
+                result3 = count > 0;
             }
 
             #warning TODO fix this results1, results2, results3 -> нормальное 
@@ -181,7 +178,7 @@ namespace CityQuest.CityQuestPolicy.GameModule.Games
         }
 
         #region GameLight (game entity for users with keys) policy
-#warning TODO: implement this policy!
+        #warning TODO: implement this policy!
         public bool CanRetrieveEntityLight(long userId, Game entity)
         {
             if (userId == 0)
@@ -195,7 +192,7 @@ namespace CityQuest.CityQuestPolicy.GameModule.Games
             return false;
         }
 
-        public bool CanRetrieveEntityLight(Game entity) 
+        public bool CanRetrieveEntityLight(Game entity)
         {
             return CanRetrieveEntityLight(Session.UserId ?? 0, entity);
         }

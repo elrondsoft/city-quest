@@ -28,7 +28,7 @@
                displayRoles: function (data) {
                    var result = '';
                    if (data.record.roles && data.record.roles.length > 0) {
-                       angular.forEach(data.record.roles,function (value, key) {
+                       angular.forEach(data.record.roles, function (value, key) {
                            result += value.displayName;
                            result = key < (data.record.roles.length - 1) ? (result + ', ') : result;
                        });
@@ -186,14 +186,34 @@
                },
                getJTableFilters: function () {
                    var filters = [
-                       {
-                           id: 'user-name-filter',
-                           label: vm.localize('UserName'),
-                           type: 'input',
-                           width: '150px',
-                           assignedField: 'UserName',
-                       },
+                        {
+                            id: 'user-name-filter',
+                            label: vm.localize('Name'),
+                            type: 'input',
+                            assignedField: 'Name'
+                        },
+                        //{
+                        //    id: 'select',
+                        //    label: vm.localize('City'),
+                        //    type: 'select',
+                        //    options: locationSvc.retrieveAllLocationsLikeComboBoxes,
+                        //    assignedField: 'LocationIds'
+                        //},
+                        //{
+                        //    id: 'user-role-filter',
+                        //    label: vm.localize('MultiCity'),
+                        //    type: 'multiselect',
+                        //    options: userSvc.retrieveAllLocationsLikeComboBoxes, // TODO replace with users
+                        //    assignedField: 'UsersIds'
+                        //},
+                        {
+                            id: 'user-created',
+                            label: vm.localize('From'),
+                            type: 'datetime',
+                            assignedField: 'DateCreated'
+                        },
                    ];
+
                    return filters;
                },
                getJTableFields: function () {
@@ -283,7 +303,7 @@
                    items.push(filterItem);
                    return items;
                },
-               getJTableToolsbar: function() {
+               getJTableToolsbar: function () {
                    var toolbar = {
                        hoverAnimation: true,
                        hoverAnimationDuration: 60,
@@ -309,9 +329,9 @@
                    vm.loaded = jTableInitializer.getJTableLoaded();
                }
            };
-            
+
            jTableInitializer.initJTable();
-       
+
        }
     ]);
 })();

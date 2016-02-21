@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -24,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>1.6</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -260,6 +262,7 @@
     <Content Include="App\Main\templates\games\gameDetailsController.js" />
     <Content Include="App\Main\templates\games\gameProcessManagementController.js" />
     <Content Include="App\Main\templates\games\gameProcessManagementStyles.css" />
+    <Content Include="App\Main\templates\games\generateKeysController.js" />
     <Content Include="App\Main\templates\locations\locationDetailsController.js" />
     <Content Include="App\Main\templates\roles\roleDetailsController.js" />
     <Content Include="App\Main\templates\statistics\gameTaskByTeamStatistics\gameTaskByTeamStatisticController.js" />
@@ -312,6 +315,7 @@
     <Content Include="App\Main\templates\statistics\scoreBoards\scoreBoardTemplate.cshtml" />
     <Content Include="App\Main\templates\statistics\gameTaskByTeamStatistics\gameTaskByTeamStatisticTemplate.cshtml" />
     <Content Include="App\Main\views\userProfilePages\userProfilePageTemplate.cshtml" />
+    <Content Include="App\Main\templates\games\generateKeysTemplate.cshtml" />
     <None Include="App\Main\views\roles\roleListView.cshtml" />
     <Content Include="App\Main\views\teams\teamListController.js" />
     <Content Include="App\Main\views\users\userListController.js" />
@@ -1302,6 +1306,7 @@
     <Content Include="Scripts\jtable\themes\metro\brown\loading.gif" />
     <Content Include="Scripts\jtable\themes\metro\cityquest\jtable.css" />
     <Content Include="Scripts\jtable\themes\metro\cityquest\jtable.min.css" />
+    <Content Include="Scripts\jtable\themes\metro\cityquest\loading.gif" />
     <Content Include="Scripts\jtable\themes\metro\close.png" />
     <Content Include="Scripts\jtable\themes\metro\column-asc.png" />
     <Content Include="Scripts\jtable\themes\metro\column-desc.png" />
@@ -1429,11 +1434,15 @@
       <Name>CityQuest.WebApi</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>

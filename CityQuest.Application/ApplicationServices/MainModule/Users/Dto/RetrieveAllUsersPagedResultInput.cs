@@ -15,5 +15,8 @@ namespace CityQuest.ApplicationServices.MainModule.Users.Dto
         public string Surname { get; set; }
         public string UserName { get; set; }
         public IList<long> UserIds { get; set; }
+
+        public DateTime? DateCreated { get; set; }
+        public IList<long> RoleIds { get; set; }
     }
 }

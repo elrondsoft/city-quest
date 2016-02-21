@@ -45,7 +45,6 @@ namespace CityQuest.ApplicationServices.GameModule.Locations
             LocationRepository.Includes.Add(r => r.LastModifierUser);
             LocationRepository.Includes.Add(r => r.CreatorUser);
 
-            
             IQueryable<Location> locationsQuery = LocationPolicy.CanRetrieveManyEntities(
                 LocationRepository.GetAll()
                 .WhereIf(!input.LocationIds.IsNullOrEmpty(), r => input.LocationIds.Contains(r.Id))

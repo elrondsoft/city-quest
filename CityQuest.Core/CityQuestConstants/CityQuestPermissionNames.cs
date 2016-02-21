@@ -25,6 +25,13 @@ namespace CityQuest.CityQuestConstants
 
         #region GameModule's CityQuest's permission names
 
+        public const string CanAllAchievement = "CanAllAchievement";
+        public const string CanRetrieveAchievement = "CanRetrieveAchievement";
+        public const string CanCreateAchievement = "CanCreateAchievement";
+        public const string CanUpdateAchievement = "CanUpdateAchievement";
+        public const string CanDeleteAchievement = "CanDeleteAchievement";
+        public const string CanChangeAchievementActivity = "CanChangeAchievementActivity";
+
         public const string CanAllDivision = "CanAllDivision";
         public const string CanRetrieveDivision = "CanRetrieveDivision";
         public const string CanCreateDivision = "CanCreateDivision";
@@ -44,6 +51,13 @@ namespace CityQuest.CityQuestConstants
         public const string CanGenerateKeysForGame = "CanGenerateKeysForGame";
         public const string CanChangeGameStatus = "CanChangeGameStatus";
 
+        public const string CanAllLocation = "CanAllLocation";
+        public const string CanRetrieveLocation = "CanRetrieveLocation";
+        public const string CanCreateLocation = "CanCreateLocation";
+        public const string CanUpdateLocation = "CanUpdateLocation";
+        public const string CanDeleteLocation = "CanDeleteLocation";
+        public const string CanChangeLocationActivity = "CanChangeLocationActivity";
+
         public const string CanAllTeam = "CanAllTeam";
         public const string CanRetrieveTeam = "CanRetrieveTeam";
         public const string CanRetrieveOwnTeam = "CanRetrieveOwnTeam";
@@ -53,19 +67,19 @@ namespace CityQuest.CityQuestConstants
         public const string CanDeleteTeam = "CanDeleteTeam";
         public const string CanChangeTeamActivity = "CanChangeTeamActivity";
 
-        public const string CanAllLocation = "CanAllLocation";
-        public const string CanRetrieveLocation = "CanRetrieveLocation";
-        public const string CanCreateLocation = "CanCreateLocation";
-        public const string CanUpdateLocation = "CanUpdateLocation";
-        public const string CanDeleteLocation = "CanDeleteLocation";
-        public const string CanChangeLocationActivity = "CanChangeLocationActivity";
         #endregion
 
         #region MainModule's CityQuest's permission names
 
+        public const string CanAllRole = "CanAllRole";
+        public const string CanRetrieveRole = "CanRetrieveRole";
+        public const string CanCreateRole = "CanCreateRole";
+        public const string CanUpdateRole = "CanUpdateRole";
+        public const string CanDeleteRole = "CanDeleteRole";
 
-        //TODO: add permission names
-
+        public const string CanAllUser = "CanAllUser";
+        public const string CanRetrieveUser = "CanRetrieveUser";
+        
         #endregion
 
         #endregion

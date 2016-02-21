@@ -97,14 +97,26 @@
                         if (!permissionSvc.game.canManageGameProcess(entity))
                             return '';
 
-                        var tittleText = vm.localize('ButtonGameProcessManagementTittleText');
+                        var tittleText = vm.localize('ButtonGameProcessManagementTitleText');
                         var buttonText = '<i class="fa fa-cogs"></i>';
                         var result = '<button class="btn btn-sm btn-success game-process-management" id="' + entity.id +
                             '" title="' + tittleText + '">' + buttonText + ' </button>';
                         return result;
                     };
-                    return getInfoButton(record) + getGameProcessManagementButton(record) + getEditButton(record) +
-                        getActivateButton(record) + getDeactivateButton(record) + getDeleteButton(record);
+                    var getPrintKeysButton = function (entity) {
+                        if (!permissionSvc.game.canGenerateKeys(entity))
+                            return '';
+
+                        var titleText = vm.localize('ButtonPrintKeysTitleText');
+                        var buttonText = '<i class="fa fa-file-pdf-o"></i>';
+                        var result = '<button class="btn btn-sm btn-success print-keys" id="' + entity.id +
+                            '" title="' + titleText + '">' + buttonText + ' </button>';
+
+                        return result;
+                    };
+
+                    return getInfoButton(record) + getPrintKeysButton(record) + getGameProcessManagementButton(record) +
+                        getEditButton(record) + getActivateButton(record) + getDeactivateButton(record) + getDeleteButton(record);
                 }
             };
             //---------------------------------------------------------------------------------------------------------
@@ -226,6 +238,44 @@
                                             vm.localize('DeactivateSuccessMsgResult_Body'),
                                                 '\'Game\'', data.entity.id),
                                             vm.localize('DeactivateSuccessMsgResult_Header'));
+                                        constSvc.jTableActions.updateRecord('gameTable', data.entity);
+                                        vm.recordsLoaded();
+                                    });
+                            }
+                        });
+                },
+                openGenerateKeysTemplate: function (event) {
+                    event.preventDefault();
+                    var newModalOptions = {
+                        templateUrl: constSvc.viewRoutes.gameGenerateKeysTemplate,
+                        controller: constSvc.ctrlRoutes.gameGenerateKeysCtrl,
+                        resolve: {
+                            serviceData: function () {
+                                var result = {
+                                    entityId: event.currentTarget.id,
+                                };
+                                return result;
+                            },
+                        }
+                    };
+                    var modalOptions = angular.merge({}, constSvc.defaultModalOptions, newModalOptions);
+                    modal.open(modalOptions);
+                    return false;
+                },
+                printKeys: function (event) {
+                    event.preventDefault();
+                    var entityId = event.currentTarget.id;
+                    abp.message.confirm(abp.utils.formatString(
+                                vm.localize('ActivateConfirmationMsg_Body'), '\'Game\'', entityId),
+                                vm.localize('ActivateConfirmationMsg_Header'),
+                        function (answer) {
+                            if (answer == true) {
+                                return gameSvc.changeActivity({ EntityId: entityId, IsActive: true })
+                                    .success(function (data) {
+                                        abp.message.success(abp.utils.formatString(
+                                            vm.localize('ActivateSuccessMsgResult_Body'),
+                                                '\'Game\'', data.entity.id),
+                                            vm.localize('ActivateSuccessMsgResult_Header'));
                                         constSvc.jTableActions.updateRecord('gameTable', data.entity);
                                         vm.recordsLoaded();
                                     });
@@ -363,6 +413,9 @@
                         });
                         $(".game-process-management").click(function (event) {
                             return gameActions.openGameProcessManagementTemplate(event);
+                        });
+                        $(".print-keys").click(function (event) {
+                            return gameActions.openGenerateKeysTemplate(event);
                         });
                     };
                     return recordsLoaded;

@@ -7,17 +7,18 @@ angular.module('app').service('clientPermissionService', function () {
     var clientPermissions = {};
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Division----------------------------------------
+
     clientPermissions.division = {
         canRetrieve: function (entity) {
-            //if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-            //    !!abp.auth.grantedPermissions.CityQuestCanRetrieve ||
-            //    !!abp.auth.grantedPermissions.CanRetrieveDivision)
-            //    return true;
-            //return false;
-            return true;
+            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
+                !!abp.auth.grantedPermissions.CityQuestCanRetrieve ||
+                !!abp.auth.grantedPermissions.CanRetrieveDivision)
+                return true;
+            return false;
         },
         canCreate: function (entity) {
-            return true;
+            if (!!abp.auth)
+                return true;
         },
         canUpdate: function (entity) {
             return true;
@@ -186,10 +187,13 @@ angular.module('app').service('clientPermissionService', function () {
             return result;
         },
         canManageGameProcess: function (entity) {
-            return clientPermissions.game.canStartGameProcess(entity) || clientPermissions.game.canPauseGameProcess(entity) || 
+            return clientPermissions.game.canStartGameProcess(entity) || clientPermissions.game.canPauseGameProcess(entity) ||
                 clientPermissions.game.canResumeGameProcess(entity) || clientPermissions.game.canEndGameProcess(entity);
         },
-
+        canGenerateKeys: function (entity) {
+            var result = true;
+            return result;
+        }
     };
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Location----------------------------------------
