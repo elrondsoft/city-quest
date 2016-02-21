@@ -162,6 +162,7 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
                 throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionCreateDenied, "\"Team\"");
 
             newTeamEntity.IsActive = true;
+            newTeamEntity.IsDefault = false;
 
             TeamRepository.Includes.Add(r => r.LastModifierUser);
             TeamRepository.Includes.Add(r => r.CreatorUser);
@@ -180,17 +181,23 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
         [Abp.Authorization.AbpAuthorize]
         public UpdateOutput<TeamDto, long> Update(UpdateTeamInput input)
         {
-            Team newTeamEntity = input.Entity.MapTo<Team>();
-
-            if (newTeamEntity == null)
-                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Team\"");
-
-            if (!TeamPolicy.CanUpdateEntity(newTeamEntity))
-                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionUpdateDenied, "\"Team\"");
-
             TeamRepository.Includes.Add(r => r.LastModifierUser);
             TeamRepository.Includes.Add(r => r.CreatorUser);
             TeamRepository.Includes.Add(r => r.PlayerCareers);
+
+            Team currentTeamEntity = TeamRepository.Get(input.Entity.Id);
+
+            if (currentTeamEntity == null)
+                throw new CityQuestItemNotFoundException(CityQuestConsts.CityQuestItemNotFoundExceptionMessageBody, "\"Team\"");
+
+            if (!TeamPolicy.CanUpdateEntity(currentTeamEntity))
+                throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionUpdateDenied, "\"Team\"");
+
+            TeamRepository.Detach(currentTeamEntity);
+
+            Team newTeamEntity = input.Entity.MapTo<Team>();
+            newTeamEntity.IsDefault = currentTeamEntity.IsDefault;
+
 
             TeamRepository.Update(newTeamEntity);
             TeamDto newTeamDto = (TeamRepository.Get(newTeamEntity.Id)).MapTo<TeamDto>();

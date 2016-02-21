@@ -76,3 +76,8 @@ input, button, select, textarea {
 .cq-control {
     width: 100%;
 }
+
+.cq-pull-btn {
+    margin-left: 1px;
+    margin-right: 1px;
+}

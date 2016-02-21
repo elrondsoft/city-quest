@@ -8,6 +8,7 @@ using CityQuest.Entities.GameModule.Teams;
 using CityQuest.Entities.GameModule.Teams.TeamRequests;
 using CityQuest.Exceptions;
 using CityQuest.Mapping;
+using CityQuest.Runtime.Sessions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace CityQuest.ApplicationServices.GameModule.TeamRequests
         #region Injected Dependencies
 
         private IUnitOfWorkManager UowManager { get; set; }
+        private ICityQuestSession Session { get; set; }
         private ICityQuestRepositoryBase<TeamRequest, long> TeamRequestRepository { get; set; }
         private ITeamRequestPolicy TeamRequestPolicy { get; set; }
         private IPlayerCareerRepository PlayerCareerRepository { get; set; }
@@ -32,12 +34,14 @@ namespace CityQuest.ApplicationServices.GameModule.TeamRequests
         #region Ctors
 
         public TeamRequestAppService(IUnitOfWorkManager uowManager,
+            ICityQuestSession session,
             ICityQuestRepositoryBase<TeamRequest, long> teamRequestRepository,
             ITeamRequestPolicy teamRequestPolicy,
             IPlayerCareerRepository playerCareerRepository,
             ITeamRepository teamRepository)
         {
             UowManager = uowManager;
+            Session = session;
             TeamRequestRepository = teamRequestRepository;
             TeamRequestPolicy = teamRequestPolicy;
             PlayerCareerRepository = playerCareerRepository;
@@ -163,43 +167,7 @@ namespace CityQuest.ApplicationServices.GameModule.TeamRequests
 
             if (teamRequestEntity.InvitedUserResponse == true)
             {
-                PlayerCareerRepository.Includes.Add(r => r.Team.PlayerCareers);
-
-                var carrersForUpdating = PlayerCareerRepository.GetAll()
-                    .Where(r => r.UserId == teamRequestEntity.InvitedUserId && r.CareerDateEnd == null).ToList();
-
-                foreach(var item in carrersForUpdating)
-                {
-                    if(item.IsCaptain == true)
-                    {
-                        var newCaptain = item.Team.CurrentPlayers.FirstOrDefault(r => !r.IsCaptain);
-                        if (newCaptain == null)
-                        {
-                            //deactivate team
-                            item.Team.IsActive = false;
-                            TeamRepository.Update(item.Team);
-                        }
-                        else
-                        {
-                            newCaptain.IsCaptain = true;
-                        }
-                    }
-                    item.CareerDateEnd = currentDT;
-                    item.IsCaptain = false;
-                    PlayerCareerRepository.Update(item);
-                }
-
-                PlayerCareer newPlayerCareer = new PlayerCareer() 
-                    {
-                        CareerDateEnd = null,
-                        CareerDateStart = currentDT,
-                        IsCaptain = false,
-                        TeamId = teamRequestEntity.TeamId,
-                        UserId = teamRequestEntity.InvitedUserId,
-                    };
-                PlayerCareerRepository.Insert(newPlayerCareer);
-
-                PlayerCareerRepository.Includes.Clear();
+                CreateNewPlayerCareer(teamRequestEntity.InvitedUserId, teamRequestEntity.TeamId, currentDT);
             }
 
             #endregion
@@ -229,5 +197,63 @@ namespace CityQuest.ApplicationServices.GameModule.TeamRequests
 
             return new DenyRequestOutput() { };
         }
+
+        [Abp.Authorization.AbpAuthorize]
+        public LeaveCurrentTeamOutput LeaveCurrentTeam(LeaveCurrentTeamInput input)
+        {
+            long newTeamId = TeamRepository.Single(r => r.IsActive && r.IsDefault == true).Id;
+
+            DateTime currentDT = DateTime.Now;
+
+            CreateNewPlayerCareer(Session.UserId ?? 0, newTeamId, currentDT);
+
+            return new LeaveCurrentTeamOutput() { };
+        }
+
+        #region Helpers 
+
+        private void CreateNewPlayerCareer(long userId, long newTeamId, DateTime currentDT)
+        {
+            PlayerCareerRepository.Includes.Add(r => r.Team.PlayerCareers);
+
+            var carrersForUpdating = PlayerCareerRepository.GetAll()
+                .Where(r => r.UserId == userId && r.CareerDateEnd == null).ToList();
+
+            foreach (var item in carrersForUpdating)
+            {
+                if (item.IsCaptain == true)
+                {
+                    var newCaptain = item.Team.CurrentPlayers.FirstOrDefault(r => !r.IsCaptain);
+                    if (newCaptain == null)
+                    {
+                        //deactivate team
+                        item.Team.IsActive = false;
+                        TeamRepository.Update(item.Team);
+                    }
+                    else
+                    {
+                        newCaptain.IsCaptain = true;
+                    }
+                }
+                item.CareerDateEnd = currentDT;
+                item.IsCaptain = false;
+                PlayerCareerRepository.Update(item);
+            }
+
+            PlayerCareer newPlayerCareer = new PlayerCareer()
+            {
+                CareerDateEnd = null,
+                CareerDateStart = currentDT,
+                IsCaptain = false,
+                TeamId = newTeamId,
+                UserId = userId,
+                IsActive = true,
+            };
+            PlayerCareerRepository.Insert(newPlayerCareer);
+
+            PlayerCareerRepository.Includes.Clear();
+        }
+
+        #endregion
     }
 }

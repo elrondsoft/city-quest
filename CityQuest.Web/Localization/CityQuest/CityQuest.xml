@@ -213,6 +213,39 @@
     <text name="SubmitActivateKeyButtonText" value="Submit" />
     <text name="ActivateKeyInputPlaceholder" value="XXXX-XXXXXXXX-XXXX" />
     <text name="ActivateKeyInputTitleText" value="Input your key here to activate the game" />
-     
+    
+    <text name="UserProfileMenuText" value="My profile" />
+    <text name="UserProfilePageTitle" value="My profile" />
+    <text name="UserProfile" value="User profile" />
+    <text name="NamePlaceholder" value="Name" />
+    <text name="SurnamePlaceholder" value="Surname" />
+    <text name="EmailPlaceholder" value="yourEmail@cityquest.com" />
+    <text name="PhoneNumberPlaceholder" value="+380912345678" />
+    <text name="CurrentPasswordPlaceholder" value="Current password" />
+    <text name="CurrentPassword" value="Current password" />
+    <text name="NewPassword" value="New password" />
+    <text name="NewPasswordPlaceholder" value="New password" />
+    <text name="NewPasswordRepeat" value="Repeat mew password" />
+    <text name="NewPasswordRepeatPlaceholder" value="Repeat mew password" />
+    <text name="ButtonChangePasswordTitleText" value="Change password" />
+    <text name="ButtonChangePasswordText" value="Change password" />
+    <text name="ButtonCancelTitleText" value="Cancel" />
+    <text name="ButtonCancelText" value="Cancel" />
+    <text name="ButtonCommitNewPasswordTitleText" value="Commit new password" />
+    <text name="ButtonCommitNewPasswordText" value="Commit" />
+    <text name="ButtonEditUserProfileTitleText" value="Edit user profile" />
+    <text name="ButtonEditUserProfileText" value="Edit user profile" />
+    <text name="ButtonSaveUserProfileTitleText" value="Commit user profile changes" />
+    <text name="ButtonSaveUserProfileText" value="Commit" />
+    <text name="SaveSuccessUserProfileChangesMsgResult_Body" value="User profile updated successfully!" />
+    <text name="SaveSuccessUserProfileChangesMsgResult_Header" value="User profile updated!" />
+    <text name="PasswordChangedSuccessfullyMsgResult_Body" value="Password profile changed successfully!" />
+    <text name="PasswordChangedSuccessfullyMsgResult_Header" value="Password changed!" />
+    <text name="UserTeamProfile" value="My team profile" />
+    <text name="ButtonLeaveTeamTitleText" value="Leave current team and join default one" />
+    <text name="ButtonLeaveTeamText" value="Leave" />
+    <text name="ButtonCreateNewTeamTitleText" value="Create new team and lead it" />
+    <text name="ButtonCreateNewTeamText" value="Create new team" />
+
   </texts>
 </localizationDictionary>

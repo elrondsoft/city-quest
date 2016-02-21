@@ -1,1 +1,69 @@
-﻿
+﻿<div class="row user-profile-page-user-team-profile-template"
+     ng-if="vm.team != null">
+    <div class="col-xs-12">
+        <div class="row user-profile-page-user-team-profile-template-row">
+            <div class="col-xs-12">
+                <span class="user-profile-page-user-team-profile-template-row-label">
+                    {{vm.localize('Division')}}:
+                </span>&nbsp;&nbsp;
+                <span class="user-profile-page-user-team-profile-template-row-entity-property">
+                    {{vm.team.division.name}}
+                </span>
+            </div>
+        </div>
+        <div class="row user-profile-page-user-team-profile-template-row">
+            <div class="col-xs-12">
+                <span class="user-profile-page-user-team-profile-template-row-label">
+                    {{vm.localize('TeamName')}}:
+                </span>&nbsp;&nbsp;
+                <span class="user-profile-page-user-team-profile-template-row-entity-property">
+                    {{vm.team.name}}
+                </span>
+            </div>
+        </div>
+        <div class="row user-profile-page-user-team-profile-template-row">
+            <div class="col-xs-12">
+                <span class="user-profile-page-user-team-profile-template-row-label">
+                    {{vm.localize('Slogan')}}:
+                </span>&nbsp;&nbsp;
+                <span class="user-profile-page-user-team-profile-template-row-entity-property">
+                    {{vm.team.slogan}}
+                </span>
+            </div>
+        </div>
+        <div class="row user-profile-page-user-team-profile-template-row"
+             ng-if="vm.team.players && vm.team.players.length">
+            <div class="col-xs-12">
+                <div class="list-group"
+                     id="team-list">
+                    <label for="team-list"
+                           class="user-profile-page-user-team-profile-template-row-label">
+                        {{vm.localize('Players')}}&nbsp;({{vm.team.players.length}}):
+                    </label>
+                    <a @*href="#"*@ ng-repeat="player in vm.team.players"
+                       class="list-group-item list-group-item-info"
+                       style="padding: 1px 20px;">
+                        <i class="fa fa-flag" ng-if="player.isCaptain"></i>&nbsp;
+                        <span @*ng-click="vm.openPlayerInfo(player.id)"*@>{{player.fullUserName}}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row user-profile-page-user-team-profile-template-svc-btns">
+            <button type="button"
+                    class="btn btn-danger pull-right cq-pull-btn"
+                    ng-if="vm.permissionOnActions.canLeaveCurrentTeam(vm.team)"
+                    title="{{vm.localize('ButtonLeaveTeamTitleText')}}"
+                    ng-click="vm.actions.leaveCurrentTeam()">
+                {{vm.localize('ButtonLeaveTeamText')}}
+            </button>
+            <button type="button"
+                    class="btn btn-success pull-right cq-pull-btn"
+                    ng-if="vm.permissionOnActions.canCreateNewTeam(vm.team)"
+                    title="{{vm.localize('ButtonCreateNewTeamTitleText')}}"
+                    ng-click="vm.actions.createNewTeam()">
+                {{vm.localize('ButtonCreateNewTeamText')}}
+            </button>
+        </div>
+    </div>
+</div>

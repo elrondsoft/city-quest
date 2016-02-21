@@ -28,6 +28,8 @@ namespace CityQuest.ApplicationServices.MainModule.Users
 
         ChangePasswordOutput ChangePassword(ChangePasswordInput input);
 
+        UpdatePublicUserFieldsOutput UpdatePublicUserFields(UpdatePublicUserFieldsInput input);
+
         DeleteOutput<long> Delete(DeleteInput<long> input);
     }
 }
