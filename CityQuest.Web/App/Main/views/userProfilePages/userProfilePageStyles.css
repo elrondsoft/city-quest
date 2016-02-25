@@ -71,3 +71,19 @@
     margin-top: 20px;
     margin-bottom: 10px;
 }
+
+.user-profile-page-user-team-requests-template {
+    background-color: #fff;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.user-profile-page-user-team-requests-template-request-body {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.user-profile-page-user-team-requests-template-request-body-team-name {
+    font-style: italic;
+    font-weight: bold;
+}

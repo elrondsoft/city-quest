@@ -247,5 +247,12 @@
     <text name="ButtonCreateNewTeamTitleText" value="Create new team and lead it" />
     <text name="ButtonCreateNewTeamText" value="Create new team" />
 
+    <text name="ButtonDenyTeamRequestTitleText" value="Deny this team request" />
+    <text name="ButtonDenyTeamRequestText" value="Deny" />
+    <text name="ButtonAcceptTeamRequestTitleText" value="Accept this team request (leave current team and join new one)" />
+    <text name="ButtonAcceptTeamRequestText" value="Accept" />
+    <text name="UserTeamRequests" value="Team requests" />
+    <text name="UserCaptainTeamManagement" value="Team management" />
+    
   </texts>
 </localizationDictionary>

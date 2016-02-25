@@ -55,9 +55,13 @@ namespace CityQuest.ApplicationServices.GameModule.TeamRequests
         {
             TeamRequestRepository.Includes.Add(r => r.LastModifierUser);
             TeamRequestRepository.Includes.Add(r => r.CreatorUser);
+            TeamRequestRepository.Includes.Add(r => r.InvitedUser);
+            TeamRequestRepository.Includes.Add(r => r.Team);
 
             IQueryable<TeamRequest> teamRequestsQuery = TeamRequestPolicy.CanRetrieveManyEntities(
                 TeamRequestRepository.GetAll()
+                    .Where(r => r.DeclinedByInviter != true)
+                    .Where(r => r.InvitedUserResponse == null)
                     .WhereIf(input.TeamId != null, r => r.TeamId == input.TeamId)
                     .WhereIf(input.UserId != null, r => r.InvitedUserId == input.UserId))
                 .OrderBy(r => r.CreationTime);
@@ -77,6 +81,8 @@ namespace CityQuest.ApplicationServices.GameModule.TeamRequests
         {
             TeamRequestRepository.Includes.Add(r => r.LastModifierUser);
             TeamRequestRepository.Includes.Add(r => r.CreatorUser);
+            TeamRequestRepository.Includes.Add(r => r.InvitedUser);
+            TeamRequestRepository.Includes.Add(r => r.Team);
 
             IList<TeamRequest> teamRequestEntities = TeamRequestRepository.GetAll()
                 .WhereIf(input.Id != null, r => r.Id == input.Id)
@@ -110,6 +116,8 @@ namespace CityQuest.ApplicationServices.GameModule.TeamRequests
 
             TeamRequestRepository.Includes.Add(r => r.LastModifierUser);
             TeamRequestRepository.Includes.Add(r => r.CreatorUser);
+            TeamRequestRepository.Includes.Add(r => r.InvitedUser);
+            TeamRequestRepository.Includes.Add(r => r.Team);
 
             TeamRequestDto newTeamRequestDto = (TeamRequestRepository.Insert(newTeamRequestEntity)).MapTo<TeamRequestDto>();
 
@@ -223,6 +231,13 @@ namespace CityQuest.ApplicationServices.GameModule.TeamRequests
             {
                 if (item.IsCaptain == true)
                 {
+#warning Using to prevent deactivating default team
+                    if (item.Team.IsDefault == true)
+                    {
+                        throw new Abp.UI.UserFriendlyException("Unallowed action!",
+                            "Captain of default team can not leave it. This action will be available after transfering captaincy to another player.");
+                    }
+
                     var newCaptain = item.Team.CurrentPlayers.FirstOrDefault(r => !r.IsCaptain);
                     if (newCaptain == null)
                     {

@@ -89,13 +89,6 @@
         </div>
         <div class="row user-profile-page-user-profile-template-row-buttons">
             <button type="button"
-                    class="btn btn-primary"
-                    ng-if="!vm.isChangePasswordUserProfile && !vm.isEditUserProfile"
-                    title="{{vm.localize('ButtonChangePasswordTitleText')}}"
-                    ng-click="vm.helpers.changeIsChangePasswordUserProfile()">
-                {{vm.localize('ButtonChangePasswordText')}}
-            </button>
-            <button type="button"
                     class="btn btn-primary pull-right cq-pull-btn"
                     ng-if="vm.isChangePasswordUserProfile && !vm.isEditUserProfile"
                     title="{{vm.localize('ButtonCancelTitleText')}}"
@@ -110,7 +103,7 @@
                 {{vm.localize('ButtonCommitNewPasswordText')}}
             </button>
             <button type="button"
-                    class="btn btn-primary"
+                    class="btn btn-primary pull-right cq-pull-btn"
                     ng-if="!vm.isEditUserProfile && !vm.isChangePasswordUserProfile"
                     title="{{vm.localize('ButtonEditUserProfileTitleText')}}"
                     ng-click="vm.helpers.changeIsEditUserProfile()">
@@ -129,6 +122,13 @@
                     title="{{vm.localize('ButtonSaveUserProfileTitleText')}}"
                     ng-click="vm.actions.saveUserProfileChanges()">
                 {{vm.localize('ButtonSaveUserProfileText')}}
+            </button>
+            <button type="button"
+                    class="btn btn-primary pull-right cq-pull-btn"
+                    ng-if="!vm.isChangePasswordUserProfile && !vm.isEditUserProfile"
+                    title="{{vm.localize('ButtonChangePasswordTitleText')}}"
+                    ng-click="vm.helpers.changeIsChangePasswordUserProfile()">
+                {{vm.localize('ButtonChangePasswordText')}}
             </button>
         </div>
     </div>

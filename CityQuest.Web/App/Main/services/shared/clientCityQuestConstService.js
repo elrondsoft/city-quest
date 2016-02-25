@@ -134,6 +134,8 @@ angular.module('app').service('clientCityQuestConstService', function () {
         userProfilePartialTemplates: {
             userProfilePartialTemplate: '/App/Main/views/userProfilePages/partialTemplates/userProfilePartialTemplate.cshtml',
             userTeamProfilePartialTemplate: '/App/Main/views/userProfilePages/partialTemplates/userTeamProfilePartialTemplate.cshtml',
+            userTeamRequestsPartialTemplate: '/App/Main/views/userProfilePages/partialTemplates/userTeamRequestsPartialTemplate.cshtml',
+            userCaptainTeamManagementPartialTemplate: '/App/Main/views/userProfilePages/partialTemplates/userCaptainTeamManagementPartialTemplate.cshtml',
         },
     };
     //-----------------------------------------------------------------------------------------------------------------------

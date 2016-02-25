@@ -13,6 +13,7 @@
            vm.userId = abp.session.userId;
            vm.user = null;
            vm.team = null;
+           vm.userTeamRequests = null;
            vm.isEditUserProfile = false;
            vm.isChangePasswordUserProfile = false;
            //---------------------------------------------------------------------------------------------------------------
@@ -22,7 +23,8 @@
                updateUserProfile: null,
                loadTeamPromise: null,
                loadInvitesToTeamPromise: null,
-               loadInvitesFromOtherTeamsPromise: null,
+               loadUserTeamRequestsPromise: null,
+               answerOnTeamRequestPromise: null,
            };
            //---------------------------------------------------------------------------------------------------------------
            //--------------------------------------------Helpers------------------------------------------------------------
@@ -58,7 +60,9 @@
                    return result;
                },
                canLeaveCurrentTeam: function (currentTeamEntity) {
-                   return true;
+                   var result = currentTeamEntity != null ? !!currentTeamEntity.isDefault : false;
+
+                   return result;
                },
                canCreateNewTeam: function (currentTeamEntity) {
                    return true;
@@ -96,10 +100,16 @@
                    vm.promiseStore.loadInvitesToTeamPromise = promise;
                    return promise;
                },
-               loadInvitesFromOtherTeams: function () {
+               loadUserTeamRequests: function () {
                    var promise = null;
-
-                   vm.promiseStore.loadInvitesFromOtherTeamsPromise = promise;
+                   var promise = teamRequestSvc.retrieveAll({
+                       UserId: vm.userId
+                   }).success(function (data) {
+                       vm.userTeamRequests = data.retrievedEntities;
+                   }).finally(function () {
+                       vm.promiseStore.loadUserTeamRequestsPromise = null;
+                   });
+                   vm.promiseStore.loadUserTeamRequestsPromise = promise;
                    return promise;
                },
                saveUserProfileChanges: function () {
@@ -157,13 +167,29 @@
                createNewTeam: function () {
                    //TODO: open new dialog with team creation
                },
+               answerOnTeamRequest: function (teamRequestId, answer) {
+                   var promise = null;
+                   var promise = teamRequestSvc.answerOnRequest({
+                       TeamRequestId: teamRequestId,
+                       Answer: answer
+                   }).success(function (data) {
+                       vm.actions.loadUser();
+                       vm.actions.loadTeam();
+                       vm.actions.loadInvitesToTeam();
+                       vm.actions.loadUserTeamRequests();
+                   }).finally(function () {
+                       vm.promiseStore.answerOnTeamRequestPromise = null;
+                   });
+                   vm.promiseStore.answerOnTeamRequestPromise = promise;
+                   return promise;
+               },
            };
            //---------------------------------------------------------------------------------------------------------------
            //-------------------------------------------Initialize----------------------------------------------------------
            vm.actions.loadUser();
            vm.actions.loadTeam();
            vm.actions.loadInvitesToTeam();
-           vm.actions.loadInvitesFromOtherTeams();
+           vm.actions.loadUserTeamRequests();
            //---------------------------------------------------------------------------------------------------------------
        }
     ]);
