@@ -200,6 +200,7 @@
     <Compile Include="ApplicationServices\GameModule\PlayerCareers\Dtos\PlayerCareerDto.cs" />
     <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\AnswerOnRequestInput.cs" />
     <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\AnswerOnRequestOutput.cs" />
+    <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\CreateTeamRequestInput.cs" />
     <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\DenyRequestInput.cs" />
     <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\DenyRequestOutput.cs" />
     <Compile Include="ApplicationServices\GameModule\TeamRequests\Dtos\LeaveCurrentTeamInput.cs" />

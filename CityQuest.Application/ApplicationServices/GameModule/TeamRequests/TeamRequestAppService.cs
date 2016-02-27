@@ -57,12 +57,15 @@ namespace CityQuest.ApplicationServices.GameModule.TeamRequests
             TeamRequestRepository.Includes.Add(r => r.CreatorUser);
             TeamRequestRepository.Includes.Add(r => r.InvitedUser);
             TeamRequestRepository.Includes.Add(r => r.Team);
+            TeamRequestRepository.Includes.Add(r => r.Team.PlayerCareers);
 
             IQueryable<TeamRequest> teamRequestsQuery = TeamRequestPolicy.CanRetrieveManyEntities(
                 TeamRequestRepository.GetAll()
                     .Where(r => r.DeclinedByInviter != true)
                     .Where(r => r.InvitedUserResponse == null)
                     .WhereIf(input.TeamId != null, r => r.TeamId == input.TeamId)
+                    .WhereIf(input.CaptainId != null, r => r.Team.PlayerCareers.Any(e => 
+                        e.CareerDateEnd == null && e.UserId == input.CaptainId && e.IsCaptain && e.IsActive))
                     .WhereIf(input.UserId != null, r => r.InvitedUserId == input.UserId))
                 .OrderBy(r => r.CreationTime);
 
@@ -107,12 +110,27 @@ namespace CityQuest.ApplicationServices.GameModule.TeamRequests
         }
 
         [Abp.Authorization.AbpAuthorize]
-        public CreateOutput<TeamRequestDto, long> Create(CreateInput<TeamRequestDto, long> input)
+        public CreateOutput<TeamRequestDto, long> Create(CreateTeamRequestInput input)
         {
-            TeamRequest newTeamRequestEntity = input.Entity.MapTo<TeamRequest>();
+            TeamRequest newTeamRequestEntity;
+            try
+            {
+                long teamId = PlayerCareerRepository
+                    .Single(r => r.UserId == (Session.UserId ?? 0) && r.CareerDateEnd == null).TeamId;
 
-            if (!TeamRequestPolicy.CanCreateEntity(newTeamRequestEntity))
+                newTeamRequestEntity = new TeamRequest()
+                    {
+                        InvitedUserId = input.InvitedUserId,
+                        TeamId = teamId
+                    };
+
+                if (!TeamRequestPolicy.CanCreateEntity(newTeamRequestEntity))
+                    throw new Exception();
+            }
+            catch
+            {
                 throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionCreateDenied, "\"TeamRequest\"");
+            }
 
             TeamRequestRepository.Includes.Add(r => r.LastModifierUser);
             TeamRequestRepository.Includes.Add(r => r.CreatorUser);
@@ -124,9 +142,9 @@ namespace CityQuest.ApplicationServices.GameModule.TeamRequests
             TeamRequestRepository.Includes.Clear();
 
             return new CreateOutput<TeamRequestDto, long>()
-            {
-                CreatedEntity = newTeamRequestDto
-            };
+                {
+                    CreatedEntity = newTeamRequestDto
+                };
         }
 
         [Abp.Authorization.AbpAuthorize]

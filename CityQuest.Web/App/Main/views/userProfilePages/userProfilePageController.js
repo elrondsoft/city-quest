@@ -2,8 +2,8 @@
     var controllerId = 'app.views.userProfilePages.userProfilePageController';
     angular.module('app').controller(controllerId, ['$scope', '$uibModal', 'clientCityQuestConstService',
        'clientPermissionService', 'abp.services.cityQuest.user', 'abp.services.cityQuest.team',
-       'abp.services.cityQuest.teamRequest',
-       function ($scope, modal, constSvc, permissionSvc, userSvc, teamSvc, teamRequestSvc) {
+       'abp.services.cityQuest.teamRequest', 'abp.services.cityQuest.user',
+       function ($scope, modal, constSvc, permissionSvc, userSvc, teamSvc, teamRequestSvc, userSvc) {
            //---------------------------------------------------------------------------------------------------------------
            //-----------------------------------------PreInitialize---------------------------------------------------------
            var vm = this;
@@ -14,6 +14,10 @@
            vm.user = null;
            vm.team = null;
            vm.userTeamRequests = null;
+           vm.teamInvites = null;
+           vm.newInvitedUserId = null;
+           vm.newCaptainCareerId = null;
+           vm.users = null;
            vm.isEditUserProfile = false;
            vm.isChangePasswordUserProfile = false;
            //---------------------------------------------------------------------------------------------------------------
@@ -67,10 +71,28 @@
                canCreateNewTeam: function (currentTeamEntity) {
                    return true;
                },
+               canSeeTeamCaptainManagement: function () {
+                   var result = vm.team != null && vm.team.captainUserId == vm.userId;
+                  
+                   return result;
+               },
            };
            //---------------------------------------------------------------------------------------------------------------
            //--------------------------------------------Actions------------------------------------------------------------
            vm.actions = {
+               loadUsers: function () {
+                   var promise = userSvc.retrieveAllUsersLikeComboBoxes({
+                       OnlyWithDefaultRole: true
+                   }).success(function (data) {
+                       vm.users = data.items.map(function (e) {
+                           return {
+                               value: parseInt(e.value, 10),
+                               displayText: e.displayText
+                           }
+                       });
+                   });
+                   return promise;
+               },
                loadUser: function () {
                    var promise = userSvc.retrieve({
                        Id: vm.userId
@@ -92,12 +114,6 @@
                        vm.promiseStore.loadTeamPromise = null;
                    });
                    vm.promiseStore.loadTeamPromise = promise;
-                   return promise;
-               },
-               loadInvitesToTeam: function () {
-                   var promise = null;
-
-                   vm.promiseStore.loadInvitesToTeamPromise = promise;
                    return promise;
                },
                loadUserTeamRequests: function () {
@@ -183,9 +199,59 @@
                    vm.promiseStore.answerOnTeamRequestPromise = promise;
                    return promise;
                },
+               loadInvitesToTeam: function () {
+                   var promise = teamRequestSvc.retrieveAll({
+                       CaptainId: vm.userId
+                   }).success(function (data) {
+                       vm.teamInvites = data.retrievedEntities;
+                   }).finally(function () {
+                       vm.promiseStore.loadInvitesToTeamPromise = null;
+                   });
+
+                   vm.promiseStore.loadInvitesToTeamPromise = promise;
+                   return promise;
+               },
+               commitNewCaptain: function () {
+                   var promise = teamSvc.changeCaptain({
+                       TeamId: vm.team.id,
+                       NewCaptainCareerId: vm.newCaptainCareerId,
+                   }).success(function (data) {
+                       vm.actions.loadUser();
+                       vm.actions.loadTeam();
+                       vm.actions.loadInvitesToTeam();
+                       vm.actions.loadUserTeamRequests();
+                   }).finally(function () {
+                       vm.newCaptainCareerId = null;
+                   });
+
+                   return promise;
+               },
+               sendTeamInvite: function () {
+                   var promise = teamRequestSvc.create({
+                       InvitedUserId: vm.newInvitedUserId,
+                   }).success(function (data) {
+                       vm.actions.loadInvitesToTeam();
+                   }).finally(function () {
+                       vm.newInvitedUserId = null;
+                   });
+
+                   return promise;
+               },
+               denyTeamInvite: function (teamInviteId) {
+                   var promise = teamRequestSvc.denyRequest({
+                       TeamRequestId: teamInviteId,
+                   }).success(function (data) {
+                       vm.actions.loadInvitesToTeam();
+                   }).finally(function () {
+
+                   });
+
+                   return promise;
+               },
            };
            //---------------------------------------------------------------------------------------------------------------
            //-------------------------------------------Initialize----------------------------------------------------------
+           vm.actions.loadUsers();
            vm.actions.loadUser();
            vm.actions.loadTeam();
            vm.actions.loadInvitesToTeam();

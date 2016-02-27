@@ -16,7 +16,7 @@ namespace CityQuest.ApplicationServices.GameModule.TeamRequests
 
         RetrieveOutput<TeamRequestDto, long> Retrieve(RetrieveTeamRequestInput input);
 
-        CreateOutput<TeamRequestDto, long> Create(CreateInput<TeamRequestDto, long> input);
+        CreateOutput<TeamRequestDto, long> Create(CreateTeamRequestInput input);
 
         UpdateOutput<TeamRequestDto, long> Update(UpdateInput<TeamRequestDto, long> input);
 

@@ -87,3 +87,29 @@
     font-style: italic;
     font-weight: bold;
 }
+
+.user-profile-page-user-captain-template {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.user-profile-page-user-captain-template-new-captain {
+
+}
+
+.user-profile-page-user-captain-template-new-request { 
+
+}
+
+.user-profile-page-user-captain-template-requests {
+
+}
+
+.user-profile-page-user-captain-template-request-body {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.user-profile-page-user-team-requests-template-request-body-user-name {
+
+}

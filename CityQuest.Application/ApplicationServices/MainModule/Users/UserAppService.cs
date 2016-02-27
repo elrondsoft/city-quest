@@ -4,6 +4,8 @@ using Castle.Core.Logging;
 using CityQuest.ApplicationServices.MainModule.Users.Dto;
 using CityQuest.ApplicationServices.Shared.Dtos.Input;
 using CityQuest.ApplicationServices.Shared.Dtos.Output;
+using CityQuest.Entities.GameModule.PlayerCareers;
+using CityQuest.Entities.GameModule.Teams;
 using CityQuest.Entities.MainModule.Authorization.UserRoles;
 using CityQuest.Entities.MainModule.Roles;
 using CityQuest.Entities.MainModule.Users;
@@ -27,6 +29,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users
         private IUserRepository UserRepository { get; set; }
         private IUserRoleRepository UserRoleRepository { get; set; }
         private IRoleRepository RoleRepository { get; set; }
+        private ITeamRepository TeamRepository { get; set; }
 
         protected ILogger Logger { get; set; }
 
@@ -38,6 +41,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users
             IUserRepository userRepository, 
             IUserRoleRepository userRoleRepository, 
             IRoleRepository roleRepository,
+            ITeamRepository teamRepository,
             ICityQuestSession session)
         {
             Session = session;
@@ -45,6 +49,7 @@ namespace CityQuest.ApplicationServices.MainModule.Users
             UserRepository = userRepository;
             UserRoleRepository = userRoleRepository;
             RoleRepository = roleRepository;
+            TeamRepository = teamRepository;
 
             Logger = NullLogger.Instance;
         }
@@ -84,11 +89,11 @@ namespace CityQuest.ApplicationServices.MainModule.Users
         public RetrieveAllUsersLikeComboBoxesOutput RetrieveAllUsersLikeComboBoxes(RetrieveAllUsersLikeComboBoxesInput input)
         {
             IReadOnlyList<ComboboxItemDto> usersLikeComboBoxes = UserRepository.GetAll()
-                .WhereIf(input.OnlyWithDefaultRole != null, r => r.Roles.Any(e => e.Role.IsDefault))
+                .WhereIf(input.OnlyWithDefaultRole == true, r => r.Roles.Any(e => e.Role.IsDefault))
                 .WhereIf(input.RoleId != null, r => r.Roles.Any(e => e.RoleId == input.RoleId))
                 .WhereIf(!input.UserIds.IsNullOrEmpty(), r => input.UserIds.Contains(r.Id))
                 .ToList()
-                .Select(r => new ComboboxItemDto(r.Id.ToString(), r.Name))
+                .Select(r => new ComboboxItemDto(r.Id.ToString(), r.FullUserName))
                 .ToList();
 
             return new RetrieveAllUsersLikeComboBoxesOutput()
@@ -181,6 +186,30 @@ namespace CityQuest.ApplicationServices.MainModule.Users
                     RoleId = defaultRole.Id,
                     User = newUserEntity
                 });
+
+            #endregion
+
+            #region Creating PlayerCareer
+
+            try
+            {
+                long defaultTeamId = TeamRepository.Single(r => r.IsDefault == true).Id;
+
+                PlayerCareer newPlayerCareer = new PlayerCareer()
+                {
+                    CareerDateStart = DateTime.Now,
+                    IsActive = true,
+                    IsCaptain = false,
+                    TeamId = defaultTeamId,
+                    User = newUserEntity,
+                };
+
+                newUserEntity.PlayerCareers.Add(newPlayerCareer);
+            }
+            catch
+            {
+                throw new UserFriendlyException("User creating fault!", "User creating fault! Please contact system administrator or support.");
+            }
 
             #endregion
 

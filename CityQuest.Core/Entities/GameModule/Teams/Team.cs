@@ -51,7 +51,7 @@ namespace CityQuest.Entities.GameModule.Teams
         {
             get
             {
-                return PlayerCareers.SingleOrDefault(r => r.IsCaptain && r.IsActive);
+                return PlayerCareers.SingleOrDefault(r => r.CareerDateEnd == null && r.IsCaptain && r.IsActive);
             }
         }
 

@@ -254,5 +254,15 @@
     <text name="UserTeamRequests" value="Team requests" />
     <text name="UserCaptainTeamManagement" value="Team management" />
     
+    <text name="ButtonDenyTeamInviteTitleText" value="Deny this invite" />
+    <text name="ButtonDenyTeamInviteText" value="Deny" />
+    <text name="CurrentTeamInvites" value="Acive invites to team" />
+    <text name="ButtonSendTeamInviteTitleText" value="Invite this user to team" />
+    <text name="ButtonSendTeamInviteText" value="Invite" />
+    <text name="ButtonCommitNewCaptainTitleText" value="Commit new captain" />
+    <text name="ButtonCommitNewCaptainText" value="Commit" />
+    <text name="SelectChooseNewCaptainTitleText" value="Select new captain" />
+    <text name="SelectChoosePlayerToSendInviteTitleText" value="Select user to send invite" />
+    
   </texts>
 </localizationDictionary>

@@ -15,7 +15,8 @@
             <uib-tab heading="{{vm.localize('UserTeamRequests')}}">
                 <ng-include src="vm.partialTemplates.userTeamRequestsPartialTemplate" />
             </uib-tab>
-            <uib-tab heading="{{vm.localize('UserCaptainTeamManagement')}}">
+            <uib-tab heading="{{vm.localize('UserCaptainTeamManagement')}}"
+                     ng-if="vm.permissionOnActions.canSeeTeamCaptainManagement()">
                 <ng-include src="vm.partialTemplates.userCaptainTeamManagementPartialTemplate" />
             </uib-tab>
         </uib-tabset>

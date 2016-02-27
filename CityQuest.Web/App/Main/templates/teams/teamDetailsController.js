@@ -24,7 +24,7 @@
                         });
                 },
                 loadPlayers: function () {
-                    return userSvc.retrieveAllUsersLikeComboBoxes({ PlayersOnly: true })
+                    return userSvc.retrieveAllUsersLikeComboBoxes({ OnlyWithDefaultRole: true })
                         .success(function (data) {
                             vm.players = data.items.map(function (e) {
                                 return {

@@ -1,1 +1,64 @@
-﻿
+﻿<div class="row user-profile-page-user-captain-template">
+    <div class="col-xs-12">
+        <div class="row user-profile-page-user-captain-template-new-captain"
+             ng-if="(vm.team != null && vm.team.players != null && (vm.team.players.length > 0))">
+            <div class="col-xs-9">
+                <select class="form-control cq-control col-xs-9"
+                        title="{{vm.localize('SelectChooseNewCaptainTitleText')}}"
+                        ng-model="vm.newCaptainCareerId"
+                        ng-options="player.id as player.fullUserName for player in vm.team.players" />
+            </div>
+            <div class="col-xs-3">
+                <button type="button"
+                        class="btn btn-success pull-right cq-pull-btn"
+                        ng-if="vm.newCaptainCareerId != null"
+                        title="{{vm.localize('ButtonCommitNewCaptainTitleText')}}"
+                        ng-click="vm.actions.commitNewCaptain()">
+                    {{vm.localize('ButtonCommitNewCaptainText')}}
+                </button>
+            </div>
+        </div>
+        <hr style="color: black; border-top: 1px solid black;"
+            ng-if="vm.users != null && vm.users.length > 0 && (vm.team != null && vm.team.players != null && (vm.team.players.length > 0))" />
+        <div class="row user-profile-page-user-captain-template-new-request"
+             ng-if="vm.users != null && vm.users.length > 0">
+            <div class="col-xs-9">
+                <select class="form-control cq-control"
+                        title="{{vm.localize('SelectChoosePlayerToSendInviteTitleText')}}"
+                        ng-model="vm.newInvitedUserId"
+                        ng-options="user.value as user.displayText for user in vm.users" />
+            </div>
+            <div class="col-xs-3">
+                <button type="button"
+                        class="btn btn-success pull-right cq-pull-btn"
+                        ng-if="vm.newInvitedUserId != null"
+                        title="{{vm.localize('ButtonSendTeamInviteTitleText')}}"
+                        ng-click="vm.actions.sendTeamInvite()">
+                    {{vm.localize('ButtonSendTeamInviteText')}}
+                </button>
+            </div>
+        </div>
+        <hr style="color: black; border-top: 1px solid black;" 
+            ng-if="vm.teamInvites != null && vm.teamInvites.length > 0" />
+        <div class="row user-profile-page-user-captain-template-requests"
+             ng-if="vm.teamInvites != null && vm.teamInvites.length > 0">
+            <div class="col-xs-12">
+                <label>{{vm.localize('CurrentTeamInvites')}}:</label>
+                <div class="row user-profile-page-user-captain-template-request-body"
+                     ng-repeat="teamInvite in vm.teamInvites">
+                    <div class="col-xs-12">
+                        <span class="user-profile-page-user-team-requests-template-request-body-user-name">
+                            {{teamInvite.invitedFullUserName}}
+                        </span>
+                        <button type="button"
+                                class="btn btn-danger pull-right cq-pull-btn"
+                                title="{{vm.localize('ButtonDenyTeamInviteTitleText')}}"
+                                ng-click="vm.actions.denyTeamInvite(teamInvite.id)">
+                            {{vm.localize('ButtonDenyTeamInviteText')}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -50,20 +50,22 @@
             </div>
         </div>
         <div class="row user-profile-page-user-team-profile-template-svc-btns">
-            <button type="button"
-                    class="btn btn-danger pull-right cq-pull-btn"
-                    ng-if="vm.permissionOnActions.canLeaveCurrentTeam(vm.team)"
-                    title="{{vm.localize('ButtonLeaveTeamTitleText')}}"
-                    ng-click="vm.actions.leaveCurrentTeam()">
-                {{vm.localize('ButtonLeaveTeamText')}}
-            </button>
-            <button type="button"
-                    class="btn btn-success pull-right cq-pull-btn"
-                    ng-if="vm.permissionOnActions.canCreateNewTeam(vm.team)"
-                    title="{{vm.localize('ButtonCreateNewTeamTitleText')}}"
-                    ng-click="vm.actions.createNewTeam()">
-                {{vm.localize('ButtonCreateNewTeamText')}}
-            </button>
+            <div class="col-xs-12">
+                <button type="button"
+                        class="btn btn-danger pull-right cq-pull-btn"
+                        ng-if="vm.permissionOnActions.canLeaveCurrentTeam(vm.team)"
+                        title="{{vm.localize('ButtonLeaveTeamTitleText')}}"
+                        ng-click="vm.actions.leaveCurrentTeam()">
+                    {{vm.localize('ButtonLeaveTeamText')}}
+                </button>
+                <button type="button"
+                        class="btn btn-success pull-right cq-pull-btn"
+                        ng-if="vm.permissionOnActions.canCreateNewTeam(vm.team)"
+                        title="{{vm.localize('ButtonCreateNewTeamTitleText')}}"
+                        ng-click="vm.actions.createNewTeam()">
+                    {{vm.localize('ButtonCreateNewTeamText')}}
+                </button>
+            </div>
         </div>
     </div>
 </div>
