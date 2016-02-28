@@ -26,6 +26,8 @@ namespace CityQuest.Web
                     .Include("~/Scripts/angular-chart.js/angular-chart.min.css", new CssRewriteUrlTransform())
                     //.Include("~/Scripts/angular-chart.js/angular-chart.min.css.map", new CssRewriteUrlTransform())
 
+                    .Include("~/Scripts/ngImageCrop/ng-img-crop.min.css", new CssRewriteUrlTransform())
+
                     .Include("~/Content/jquery.datetimepicker.css", new CssRewriteUrlTransform())
                 );
 
@@ -78,6 +80,8 @@ namespace CityQuest.Web
                         "~/Scripts/Chart.min.js",
                         "~/Scripts/angular-chart.js/angular-chart.min.js",
                         //"~/Scripts/angular-chart.js/angular-chart.min.js.map",
+
+                        "~/Scripts/ngImageCrop/ng-img-crop.min.js",
 
                         "~/Scripts/jquery.signalR-2.2.0.min.js"
                     )
