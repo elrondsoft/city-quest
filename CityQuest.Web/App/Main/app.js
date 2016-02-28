@@ -9,6 +9,7 @@
         'ui.bootstrap',
         'ui.jq',
         'chart.js',
+        'ngImgCrop',
         'abp'
     ]);
 

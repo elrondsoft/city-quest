@@ -58,6 +58,46 @@
                 </div>
             </div>
         </uib-accordion-group>
+        <uib-accordion-group heading="@L("GameImage")"
+                             is-open="false"
+                             class="cq-main-info-accordion">
+            <div class="row cq-control-row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-7">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <img ng-src="{{vm.croppedImage}}"
+                                         ng-if="vm.croppedImage != null && vm.croppedImage != ''" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-5">
+                            <input type="file" 
+                                   id="fileImageInput" 
+                                   style="margin-top: 20px; margin-bottom:10px;"/>
+                            <button class="btn btn-danger"
+                                    style="margin-top: 20px; margin-bottom:10px;"
+                                    title="{{vm.localize('ButtonClearImageTitleText')}}"
+                                    ng-click="vm.templateActions.clearImage()">
+                                {{vm.localize('ButtonClearImageText')}}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row"
+                         ng-if="vm.uploadedImage != null && vm.uploadedImage != ''">
+                        <div class="col-xs-12">
+                            <div class="cropArea">
+                                <img-crop image="vm.uploadedImage"
+                                          area-type="square"
+                                          result-image-size="300"
+                                          result-image="vm.croppedImage"></img-crop>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </uib-accordion-group>
         <uib-accordion-group is-open="false"
                              heading="@L("GameTasks") ({{vm.entity.gameTasks.length}})"
                              class="cq-other-info-accordion">

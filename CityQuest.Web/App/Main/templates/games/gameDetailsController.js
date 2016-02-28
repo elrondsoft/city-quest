@@ -4,13 +4,14 @@
         'clientPermissionService', 'abp.services.cityQuest.game', 'abp.services.cityQuest.gameTaskType',
         'abp.services.cityQuest.conditionType', 'abp.services.cityQuest.location',
         function ($scope, serviceData, constSvc, permissionSvc, gameSvc, gameTaskTypeSvc, conditionTypeSvc, locationSvc) {
+            //---------------------------------------------------------------------------------------------------------
+            //----------------------------------------Pre-Initializing-------------------------------------------------
             var vm = this;
             vm.localize = constSvc.localize;
             vm.title = vm.localize('GameDetails');
             vm.templateModeState = serviceData.templateMode;
             vm.gameTaskTypes = [];
             vm.conditionTypes = [];
-
             //---------------------------------------------------------------------------------------------------------
             //------------------------------------------Initializing---------------------------------------------------
             /// Is used to initialize Template
@@ -235,10 +236,36 @@
                         return vm.templateActions.updateEntity();
                     }
                 },
+                clearImage: function () {
+                    vm.uploadedImage = '';
+                    vm.croppedImage = '';
+                },
                 close: function () {
                     $scope.$close();
                 },
             };
+            //---------------------------------------------------------------------------------------------------------
+            //---------------------------------------Image management--------------------------------------------------
+            var initFileImageCropper = function () {
+                vm.uploadedImage = '';
+                vm.croppedImage = '';
+                var handleFileSelect = function (evt) {
+                    var file = evt.currentTarget.files[0];
+                    var reader = new FileReader();
+                    reader.onload = function (evt) {
+                        $scope.$apply(function ($scope) {
+                            vm.uploadedImage = evt.target.result;
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                };
+                angular.element(document.querySelector('#fileImageInput')).on('change', handleFileSelect);
+            };
+            // Is used to watch on nothing but will works after modal loaded once and inits image cropper
+            var initImageFileCropperListener = $scope.$watch('', function (newValue, oldValue) {
+                initFileImageCropper();
+                initImageFileCropperListener();
+            });
             //---------------------------------------------------------------------------------------------------------
         }
     ]);

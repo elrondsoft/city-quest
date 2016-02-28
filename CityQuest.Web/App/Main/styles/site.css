@@ -81,3 +81,11 @@ input, button, select, textarea {
     margin-left: 1px;
     margin-right: 1px;
 }
+
+.cropArea {
+  background: #E4E4E4;
+  overflow: hidden;
+  width: 98%; /*700px;*/
+  height: 500px;
+  margin: 1%;
+}
