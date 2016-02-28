@@ -263,6 +263,10 @@
     <text name="ButtonCommitNewCaptainText" value="Commit" />
     <text name="SelectChooseNewCaptainTitleText" value="Select new captain" />
     <text name="SelectChoosePlayerToSendInviteTitleText" value="Select user to send invite" />
+
+    <text name="GameImage" value="Game image" />
+    <text name="ButtonClearImageTitleText" value="Clear uploaded and cropped images" />
+    <text name="ButtonClearImageText" value="Clear image" />
     
   </texts>
 </localizationDictionary>
