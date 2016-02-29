@@ -3,10 +3,10 @@
 angular.module('app').service('clientPermissionService', function () {
     //-----------------------------------------------------------------------------------------------------------------
     //-----------------------------------------------PreInitialize-----------------------------------------------------
-    var clientPermission = {};
+    var clientPermissions = {};
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Division----------------------------------------
-    clientPermission.division = {
+    clientPermissions.division = {
         canRetrieve: function (entity) {
             if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
                 !!abp.auth.grantedPermissions.CityQuestCanRetrieve ||
@@ -38,7 +38,7 @@ angular.module('app').service('clientPermissionService', function () {
     };
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Team--------------------------------------------
-    clientPermission.team = {
+    clientPermissions.team = {
         canRetrieve: function (entity) {
             if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
                 !!abp.auth.grantedPermissions.CityQuestCanRetrieve ||
@@ -80,7 +80,7 @@ angular.module('app').service('clientPermissionService', function () {
     };
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for User--------------------------------------------
-    clientPermission.user = {
+    clientPermissions.user = {
         canRetrieve: function (entity) {
             if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
                 !!abp.auth.grantedPermissions.CityQuestCanRetrieve ||
@@ -112,7 +112,7 @@ angular.module('app').service('clientPermissionService', function () {
     };
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Role--------------------------------------------
-    clientPermission.role = {
+    clientPermissions.role = {
         canRetrieve: function (entity) {
             if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
                 !!abp.auth.grantedPermissions.CityQuestCanRetrieve ||
@@ -144,7 +144,7 @@ angular.module('app').service('clientPermissionService', function () {
     };
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Game--------------------------------------------
-    clientPermission.game = {
+    clientPermissions.game = {
         canRetrieve: function (entity) {
             if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
                 !!abp.auth.grantedPermissions.CityQuestCanRetrieve ||
@@ -260,7 +260,7 @@ angular.module('app').service('clientPermissionService', function () {
     };
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Location----------------------------------------
-    clientPermission.location = {
+    clientPermissions.location = {
         canRetrieve: function (entity) {
             if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
                 !!abp.auth.grantedPermissions.CityQuestCanRetrieve ||
