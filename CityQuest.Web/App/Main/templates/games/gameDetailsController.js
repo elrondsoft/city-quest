@@ -50,12 +50,11 @@
                 },
                 initDefaultEntity: function () {
                     var defaultEntity = {
-                        gameId: null,
                         name: null,
-                        locstionId: null,
+                        locationId: null,
                         startDate: moment().format(),
                         description: null,
-                        taskText: null,
+                        gameImageName: null,
                         isActive: true,
                         gameTasks: []
                     };
@@ -140,37 +139,41 @@
                     if (!vm.templateAvailableActions.createEntity())
                         return false;
 
-                    return gameSvc.create({ Entity: vm.entity })
-                        .success(function (data) {
-                            abp.message.success(abp.utils.formatString(
-                                vm.localize('CreateSuccessMsgResult_Body'), '\'Game\'', data.createdEntity.id),
-                                vm.localize('CreateSuccessMsgResult_Header'));
-                            if (serviceData.jTableName) {
-                                constSvc.jTableActions.createRecord(serviceData.jTableName, data.createdEntity);
-                            }
-                            if (serviceData.updateCallback) {
-                                serviceData.updateCallback();
-                            }
-                            vm.templateActions.close();
-                        });
+                    return gameSvc.create({
+                        Entity: vm.entity,
+                        ImageData: vm.croppedImage
+                    }).success(function (data) {
+                        abp.message.success(abp.utils.formatString(
+                            vm.localize('CreateSuccessMsgResult_Body'), '\'Game\'', data.createdEntity.id),
+                            vm.localize('CreateSuccessMsgResult_Header'));
+                        if (serviceData.jTableName) {
+                            constSvc.jTableActions.createRecord(serviceData.jTableName, data.createdEntity);
+                        }
+                        if (serviceData.updateCallback) {
+                            serviceData.updateCallback();
+                        }
+                        vm.templateActions.close();
+                    });
                 },
                 updateEntity: function () {
                     if (!vm.templateAvailableActions.updateEntity())
                         return false;
 
-                    return gameSvc.update({ Entity: vm.entity })
-                        .success(function (data) {
-                            abp.message.success(abp.utils.formatString(
-                                vm.localize('UpdateSuccessMsgResult_Body'), '\'Game\'', data.updatedEntity.id),
-                                vm.localize('UpdateSuccessMsgResult_Header'));
-                            if (serviceData.jTableName) {
-                                constSvc.jTableActions.updateRecord(serviceData.jTableName, data.updatedEntity);
-                            }
-                            if (serviceData.updateCallback) {
-                                serviceData.updateCallback();
-                            }
-                            vm.templateActions.close();
-                        });
+                    return gameSvc.update({
+                        Entity: vm.entity,
+                        ImageData: vm.croppedImage
+                    }).success(function (data) {
+                        abp.message.success(abp.utils.formatString(
+                            vm.localize('UpdateSuccessMsgResult_Body'), '\'Game\'', data.updatedEntity.id),
+                            vm.localize('UpdateSuccessMsgResult_Header'));
+                        if (serviceData.jTableName) {
+                            constSvc.jTableActions.updateRecord(serviceData.jTableName, data.updatedEntity);
+                        }
+                        if (serviceData.updateCallback) {
+                            serviceData.updateCallback();
+                        }
+                        vm.templateActions.close();
+                    });
                 },
                 activateEntity: function () {
                     if (!vm.templateAvailableActions.activateEntity())

@@ -61,7 +61,20 @@
         <uib-accordion-group heading="@L("GameImage")"
                              is-open="false"
                              class="cq-main-info-accordion">
-            <div class="row cq-control-row">
+            <div class="row cq-control-row"
+                 ng-if="vm.entity != null && vm.entity.gameImageName != null && vm.entity.gameImageName != '' && (vm.templateMode.isInfo() || vm.templateMode.isUpdate())">
+                <div class="col-xs-4">
+                    <label>
+                        {{vm.localize('CurrentGameImage')}}:
+                    </label>
+                </div>
+                <div class="col-xs-8"
+                     ng-if="vm.entity != null && vm.entity.gameImageName != null && vm.entity.gameImageName != ''">
+                    <img src="vm.entity.gameImageName">
+                </div>
+            </div>
+            <div class="row cq-control-row"
+                 ng-show="!vm.templateMode.isInfo()">
                 <div class="col-xs-12">
                     <div class="row">
                         <div class="col-xs-7">
@@ -73,9 +86,9 @@
                             </div>
                         </div>
                         <div class="col-xs-5">
-                            <input type="file" 
-                                   id="fileImageInput" 
-                                   style="margin-top: 20px; margin-bottom:10px;"/>
+                            <input type="file"
+                                   id="fileImageInput"
+                                   style="margin-top: 20px; margin-bottom:10px;" />
                             <button class="btn btn-danger"
                                     style="margin-top: 20px; margin-bottom:10px;"
                                     title="{{vm.localize('ButtonClearImageTitleText')}}"

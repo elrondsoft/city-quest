@@ -10,6 +10,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games.Dtos
 {
     public class CreateGameInput : CreateInput<GameDto, long>, IShouldNormalize
     {
+        public string ImageData { get; set; }
+
         public void Normalize()
         {
             Entity.GameStatusId = 0;

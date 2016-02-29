@@ -177,6 +177,10 @@
     <Compile Include="Migrations\201602211318201_AddedIsDefaultTeamFlag.Designer.cs">
       <DependentUpon>201602211318201_AddedIsDefaultTeamFlag.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602290026296_AddedGameImageColumn.cs" />
+    <Compile Include="Migrations\201602290026296_AddedGameImageColumn.Designer.cs">
+      <DependentUpon>201602290026296_AddedGameImageColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="CityQuestDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -239,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602211318201_AddedIsDefaultTeamFlag.resx">
       <DependentUpon>201602211318201_AddedIsDefaultTeamFlag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602290026296_AddedGameImageColumn.resx">
+      <DependentUpon>201602290026296_AddedGameImageColumn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
