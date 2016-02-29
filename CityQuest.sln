@@ -22,7 +22,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityQuest.WebApi", "CityQue
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBaseScripts", "DataBaseScripts", "{4A3A1A7C-FC6B-4B53-8FBF-02DE41306AFE}"
 	ProjectSection(SolutionItems) = preProject
-		InsertGameStatuses.sql = InsertGameStatuses.sql
+		InitializeCityQuestDataBase.sql = InitializeCityQuestDataBase.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RelatedDocumentation", "RelatedDocumentation", "{D2B1ECC5-1E61-4F2D-B625-495F0AB821E2}"

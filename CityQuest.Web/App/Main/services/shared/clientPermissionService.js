@@ -3,69 +3,53 @@
 angular.module('app').service('clientPermissionService', function () {
     //-----------------------------------------------------------------------------------------------------------------
     //-----------------------------------------------PreInitialize-----------------------------------------------------
-    var clientPermission = {};
+    //TODO: add permission (Policy logic) for client here
+    var clientPermissions = {};
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Division----------------------------------------
-    clientPermission.division = {
+    clientPermissions.division = {
         canRetrieve: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanRetrieve ||
-                !!abp.auth.grantedPermissions.CanRetrieveDivision)
-                return true;
-            return false;
+            //if (!!abp.auth.grantedPermissions.CanAll ||
+            //    !!abp.auth.grantedPermissions.CanRetrieve ||
+            //    !!abp.auth.grantedPermissions.CanRetrieveDivision)
+            //    return true;
+            //return false;
+            return true;
         },
         canCreate: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanCreate ||
-                !!abp.auth.grantedPermissions.CanCreateDivision)
-                return true;
-            return false;
+            return true;
         },
         canUpdate: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanUpdate ||
-                !!abp.auth.grantedPermissions.CanUpdateDivision)
+            return true;
+        },
+        canDelete: function (entity) {
+            return entity && (entity.isDefault == false) && true;
+        },
+        canActivate: function (entity) {
+            if (entity && (entity.isActive == false) && (entity.isDefault == false))
                 return true;
             return false;
         },
-        canDelete: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanDelete ||
-                !!abp.auth.grantedPermissions.CanDeleteDivision)
+        canDeactivate: function (entity) {
+            if (entity && (entity.isActive == true) && (entity.isDefault == false))
                 return true;
             return false;
         },
     };
     //-----------------------------------------------------------------------------------------------------------------
-    //----------------------------------------Client's permissions for Team--------------------------------------------
-    clientPermission.team = {
+    //------------------------------------------Client's permissions for Team------------------------------------------
+    clientPermissions.team = {
         canRetrieve: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanRetrieve ||
-                !!abp.auth.grantedPermissions.CanRetrieveTeam)
-                return true;
-            return false;
+            return true;
         },
         canCreate: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanCreate ||
-                !!abp.auth.grantedPermissions.CanCreaTeam)
-                return true;
-            return false;
+            return true;
         },
         canUpdate: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanUpdate ||
-                !!abp.auth.grantedPermissions.CanUpdateTeam)
-                return true;
-            return false;
+            return true;
         },
         canDelete: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanDelete ||
-                !!abp.auth.grantedPermissions.CanDeleteTeam)
-                return true;
-            return false;
+            return true;
         },
         canActivate: function (entity) {
             if (entity && (entity.isActive == false))
@@ -80,98 +64,50 @@ angular.module('app').service('clientPermissionService', function () {
     };
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for User--------------------------------------------
-    clientPermission.user = {
+    clientPermissions.user = {
         canRetrieve: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanRetrieve ||
-                !!abp.auth.grantedPermissions.CanRetrieveUser)
-                return true;
-            return false;
+            return true;
         },
         canCreate: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanCreate ||
-                !!abp.auth.grantedPermissions.CanCreaUser)
-                return true;
-            return false;
+            return true;
         },
         canUpdate: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanUpdate ||
-                !!abp.auth.grantedPermissions.CanUpdateUser)
-                return true;
-            return false;
+            return true;
         },
         canDelete: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanDelete ||
-                !!abp.auth.grantedPermissions.CanDeleteUser)
-                return true;
             return false;
-        },
+        }
     };
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Role--------------------------------------------
-    clientPermission.role = {
+    clientPermissions.role = {
         canRetrieve: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanRetrieve ||
-                !!abp.auth.grantedPermissions.CanRetrieveRole)
-                return true;
-            return false;
+            return true;
         },
         canCreate: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanCreate ||
-                !!abp.auth.grantedPermissions.CanCreaRole)
-                return true;
-            return false;
+            return true;
         },
         canUpdate: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanUpdate ||
-                !!abp.auth.grantedPermissions.CanUpdateRole)
-                return true;
-            return false;
+            return true;
         },
         canDelete: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanDelete ||
-                !!abp.auth.grantedPermissions.CanDeleteRole)
-                return true;
-            return false;
-        },
+            return true;
+        }
     };
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Game--------------------------------------------
-    clientPermission.game = {
+    clientPermissions.game = {
         canRetrieve: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanRetrieve ||
-                !!abp.auth.grantedPermissions.CanRetrieveGame)
-                return true;
-            return false;
+            return true;
         },
         canCreate: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanCreate ||
-                !!abp.auth.grantedPermissions.CanCreaGame)
-                return true;
-            return false;
+            return true;
         },
         canUpdate: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanUpdate ||
-                !!abp.auth.grantedPermissions.CanUpdateGame)
-                return true;
-            return false;
+            return true;
         },
         canDelete: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanDelete ||
-                !!abp.auth.grantedPermissions.CanDeleteGame)
-                return true;
-            return false;
+            return true;
         },
         canActivate: function (entity) {
             if (entity && (entity.isActive == false))
@@ -253,58 +189,34 @@ angular.module('app').service('clientPermissionService', function () {
             return clientPermissions.game.canStartGameProcess(entity) || clientPermissions.game.canPauseGameProcess(entity) ||
                 clientPermissions.game.canResumeGameProcess(entity) || clientPermissions.game.canEndGameProcess(entity);
         },
-        canGenerateKeys: function (entity) {
-            var result = true;
-            return result;
-        }
+
     };
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Location----------------------------------------
-    clientPermission.location = {
+    clientPermissions.location = {
         canRetrieve: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanRetrieve ||
-                !!abp.auth.grantedPermissions.CanRetrieveLocation)
-                return true;
-            return false;
+            return true;
         },
         canCreate: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanCreate ||
-                !!abp.auth.grantedPermissions.CanCreaLocation)
-                return true;
-            return false;
+            return true;
         },
         canUpdate: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanUpdate ||
-                !!abp.auth.grantedPermissions.CanUpdateLocation)
-                return true;
-            return false;
+            return true;
         },
         canDelete: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanDelete ||
-                !!abp.auth.grantedPermissions.CanDeleteLocation)
-                return true;
-            return false;
+            return true;
         },
     };
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Key---------------------------------------------
     clientPermissions.key = {
-        canCreate: function (entity) {
-            if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
-                !!abp.auth.grantedPermissions.CityQuestCanCreate ||
-                !!abp.auth.grantedPermissions.CanCreaKey)
-                return true;
-            return false;
+        canGenerate: function () {
+            return true;
         },
         canActivate: function () {
             return true;
         },
     };
-
     //-----------------------------------------------------------------------------------------------------------------
     //-------------------------------------------------Initialize------------------------------------------------------
     angular.merge(this, clientPermissions);
