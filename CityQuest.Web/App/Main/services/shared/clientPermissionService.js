@@ -49,7 +49,7 @@ angular.module('app').service('clientPermissionService', function () {
         canCreate: function (entity) {
             if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
                 !!abp.auth.grantedPermissions.CityQuestCanCreate ||
-                !!abp.auth.grantedPermissions.CanCreaTeam)
+                !!abp.auth.grantedPermissions.CanCreateTeam)
                 return true;
             return false;
         },
@@ -91,7 +91,7 @@ angular.module('app').service('clientPermissionService', function () {
         canCreate: function (entity) {
             if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
                 !!abp.auth.grantedPermissions.CityQuestCanCreate ||
-                !!abp.auth.grantedPermissions.CanCreaUser)
+                !!abp.auth.grantedPermissions.CanCreateUser)
                 return true;
             return false;
         },
@@ -123,7 +123,7 @@ angular.module('app').service('clientPermissionService', function () {
         canCreate: function (entity) {
             if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
                 !!abp.auth.grantedPermissions.CityQuestCanCreate ||
-                !!abp.auth.grantedPermissions.CanCreaRole)
+                !!abp.auth.grantedPermissions.CanCreateRole)
                 return true;
             return false;
         },
@@ -155,7 +155,7 @@ angular.module('app').service('clientPermissionService', function () {
         canCreate: function (entity) {
             if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
                 !!abp.auth.grantedPermissions.CityQuestCanCreate ||
-                !!abp.auth.grantedPermissions.CanCreaGame)
+                !!abp.auth.grantedPermissions.CanCreateGame)
                 return true;
             return false;
         },
@@ -271,7 +271,7 @@ angular.module('app').service('clientPermissionService', function () {
         canCreate: function (entity) {
             if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
                 !!abp.auth.grantedPermissions.CityQuestCanCreate ||
-                !!abp.auth.grantedPermissions.CanCreaLocation)
+                !!abp.auth.grantedPermissions.CanCreateLocation)
                 return true;
             return false;
         },
@@ -296,7 +296,7 @@ angular.module('app').service('clientPermissionService', function () {
         canCreate: function (entity) {
             if (!!abp.auth.grantedPermissions.CityQuestCanAll ||
                 !!abp.auth.grantedPermissions.CityQuestCanCreate ||
-                !!abp.auth.grantedPermissions.CanCreaKey)
+                !!abp.auth.grantedPermissions.CanCreateKey)
                 return true;
             return false;
         },
