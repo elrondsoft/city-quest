@@ -8,6 +8,11 @@
         public const string FakePassword = "~@%PSWRD#~*";
         public const string PermissionKey = "CityQuestPermissionKey";
 
+        public const string DefaultGameImageName = "DefaultGameImage";
+        public const string DefaultGameImageExtension = ".png";
+        public const string GameImagesStorePath = "FilesStore\\GamePicktures";
+        public const string GameImagesStorePathForClient = "~/FilesStore/GamePicktures/";
+
         public const int MaxCountForKeyGeneration = 1000;
 
         public const long TicksToRoundDateTime = System.TimeSpan.TicksPerSecond;

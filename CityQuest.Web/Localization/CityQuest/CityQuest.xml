@@ -267,6 +267,7 @@
     <text name="GameImage" value="Game image" />
     <text name="ButtonClearImageTitleText" value="Clear uploaded and cropped images" />
     <text name="ButtonClearImageText" value="Clear image" />
-    
+    <text name="CurrentGameImage" value="Currant image" />
+
   </texts>
 </localizationDictionary>

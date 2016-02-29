@@ -23,6 +23,7 @@ using CityQuest.Events.Messages;
 using CityQuest.Events.Notifiers;
 using CityQuest.Exceptions;
 using CityQuest.Mapping;
+using CityQuest.Utils.FileManagers.ImageManagers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
         private IGamePolicy GamePolicy { get; set; }
         private IGameChangesNotifier GameChangesNotifier { get; set; }
         private IStatisticsChangesNotifier StatisticsChangesNotifier { get; set; }
+        private GameImageManager GameImageSaver { get; set; }
 
         #endregion
 
@@ -64,7 +66,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             ICityQuestRepositoryBase<TeamGameStatistic, long> teamGameStatisticRepository,
             IGamePolicy gamePolicy,
             IGameChangesNotifier gameChangesNotifier,
-            IStatisticsChangesNotifier statisticsChangesNotifier)
+            IStatisticsChangesNotifier statisticsChangesNotifier,
+            GameImageManager gameImageSaver)
         {
             UowManager = uowManager;
             GameRepository = gameRepository;
@@ -79,6 +82,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             GamePolicy = gamePolicy;
             GameChangesNotifier = gameChangesNotifier;
             StatisticsChangesNotifier = statisticsChangesNotifier;
+            GameImageSaver = gameImageSaver;
         }
 
         #endregion
@@ -196,6 +200,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games
                 throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionCreateDenied, "\"Game\"");
 
             newGameEntity.IsActive = true;
+            newGameEntity.GameImageName = CreateGameImage(Guid.NewGuid().ToString(), input.ImageData);
+
             try
             {
                 newGameEntity.GameStatusId = GameStatusRepository.GetAll().Where(r => r.IsDefault).Single().Id;
@@ -232,7 +238,6 @@ namespace CityQuest.ApplicationServices.GameModule.Games
         [Abp.Authorization.AbpAuthorize]
         public UpdateOutput<GameDto, long> Update(UpdateGameInput input)
         {
-
             GameRepository.Includes.Add(r => r.Location);
             GameRepository.Includes.Add(r => r.GameStatus);
             GameRepository.Includes.Add(r => r.GameTasks);
@@ -248,6 +253,12 @@ namespace CityQuest.ApplicationServices.GameModule.Games
                 throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionUpdateDenied, "\"Game\"");
 
             UpdateGameEntity(existGameEntity, input.Entity);
+
+            if (!string.IsNullOrEmpty(input.GameImageData))
+            {
+                DeleteGameImage(existGameEntity.GameImageName);
+                existGameEntity.GameImageName = CreateGameImage(Guid.NewGuid().ToString(), input.GameImageData);
+            }
 
             GameDto newGameDto = (GameRepository.Get(input.Entity.Id)).MapTo<GameDto>();
 
@@ -274,6 +285,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games
 
             if (!GamePolicy.CanDeleteEntity(gameEntityForDelete))
                 throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionDeleteDenied, "\"Game\"");
+
+            DeleteGameImage(gameEntityForDelete.GameImageName);
 
             GameRepository.Delete(gameEntityForDelete);
 
@@ -676,6 +689,53 @@ namespace CityQuest.ApplicationServices.GameModule.Games
             TeamGameTaskStatisticRepository.Includes.Clear();
 
             #endregion
+        }
+
+        /// <summary>
+        /// Is used to create file with game image in dest directory (from app settings)
+        /// </summary>
+        /// <param name="imageName">game's name - would be image name</param>
+        /// <param name="imageData">image data</param>
+        /// <returns>full image name</returns>
+        private string CreateGameImage(string imageName, string imageData)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(imageData) || imageName == CityQuestConsts.DefaultGameImageName)
+                {
+                    return String.Format("{0}{1}", CityQuestConsts.DefaultGameImageName, CityQuestConsts.DefaultGameImageExtension); ;
+                }
+                else
+                {
+                    string[] imageSplit = imageData.Split(',');
+                    string[] imageExtensionLeftSplit = imageData.Split('/');
+                    string[] imageExtensionRightSplit = imageExtensionLeftSplit[imageExtensionLeftSplit.Length - 1].Split(';');
+                    string imageExtension = String.Format(".{0}", imageExtensionRightSplit[0]);
+                    GameImageSaver.SaveImage(imageName, imageExtension, Convert.FromBase64String(imageSplit[1]));
+                    return String.Format("{0}{1}", imageName, imageExtension);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new UserFriendlyException("Saving game image fault!", 
+                    "Saving game image fault. Please try again or contact system administrator / support.");
+            }
+        }
+
+        private void DeleteGameImage(string imageName)
+        {
+            try
+            {
+                if (imageName != String.Format("{0}.{1}", CityQuestConsts.DefaultGameImageName, CityQuestConsts.DefaultGameImageExtension))
+                {
+                    GameImageSaver.RemoveImage(imageName);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new UserFriendlyException("Removing game image fault!",
+                    "Removing game image fault. Please try again or contact system administrator / support.");
+            }
         }
 
         #endregion

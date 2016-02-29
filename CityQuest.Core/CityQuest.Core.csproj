@@ -101,6 +101,7 @@
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -211,14 +212,13 @@
     <Compile Include="Services\SafeGuidGenerationServices\ISafeGuidGenerationService.cs" />
     <Compile Include="Services\SafeGuidGenerationServices\KeyGenerationServices\IKeyGenerationService.cs" />
     <Compile Include="Services\SafeGuidGenerationServices\KeyGenerationServices\KeyGenerationService.cs" />
+    <Compile Include="Utils\FileManagers\ImageManagers\GameImageManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utils\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Services\FileGeneratorService\PDFFileGeneratorService\Templates\KeyTemplate.html" />
   </ItemGroup>

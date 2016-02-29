@@ -10,6 +10,8 @@ namespace CityQuest.ApplicationServices.GameModule.Games.Dtos
 {
     public class UpdateGameInput : UpdateInput<GameDto, long>, IShouldNormalize
     {
+        public string GameImageData { get; set; }
+
         public void Normalize() 
         {
             foreach (var gameTask in Entity.GameTasks)

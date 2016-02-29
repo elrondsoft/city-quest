@@ -131,6 +131,8 @@ namespace CityQuest.Mapping
                 .ForMember(r => r.LastModifierUserFullName, r => r.MapFrom(e => e.LastModifierUser.FullUserName))
                 .ForMember(r => r.GameTasks, r => r.MapFrom(e => e.GameTasks.OrderBy(k => k.Order)))
                 .ForMember(r => r.LocationName, r => r.MapFrom(e => e.Location.DisplayName))
+                .ForMember(r => r.GameImageName, r => r.MapFrom(e => e.GameImageName.IsNullOrEmpty() ? null :
+                    String.Format("{0}{1}", CityQuestConsts.GameImagesStorePathForClient, e.GameImageName)))
                 .ReverseMap();
 
             AutoMapper.Mapper.CreateMap<GameStatus, GameStatusDto>()
