@@ -82,7 +82,9 @@ namespace CityQuest.Mapping
             AutoMapper.Mapper.CreateMap<Game, GameLightDto>()
                 .ForMember(r => r.GameTasksCount, r => r.MapFrom(e => e.GameTasks.Count))
                 .ForMember(r => r.LocationName, r => r.MapFrom(e => e.Location.DisplayName))
-                .ForMember(r => r.GameStatusName, r => r.MapFrom(e => e.GameStatus.Name));
+                .ForMember(r => r.GameStatusName, r => r.MapFrom(e => e.GameStatus.Name))
+                .ForMember(r => r.GameImageName, r => r.MapFrom(e => e.GameImageName.IsNullOrEmpty() ? null :
+                    String.Format("{0}{1}", CityQuestConsts.GameImagesStorePathForClient, e.GameImageName)));
 
             AutoMapper.Mapper.CreateMap<GameTask, GameTaskLightDto>()
                 .ForMember(r => r.Tips, r => r.MapFrom(e => e.Tips.OrderBy(k => k.Order)))

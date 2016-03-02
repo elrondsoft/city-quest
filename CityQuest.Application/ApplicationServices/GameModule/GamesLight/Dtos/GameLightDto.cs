@@ -25,6 +25,7 @@ namespace CityQuest.ApplicationServices.GameModule.GamesLight.Dtos
 
         public string Name { get; set; }
         public string Description { get; set; }
+        public string GameImageName { get; set; }
         public DateTime StartDate { get; set; }
 
         public bool IsActive { get; set; }

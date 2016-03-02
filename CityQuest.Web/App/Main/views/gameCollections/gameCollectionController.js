@@ -12,8 +12,6 @@
             vm.title = vm.localize("GameCollection");
             /// Is used to store game collection
             vm.gameCollection = [];
-            /// Initialize GameCollectionPartialTemplate's routes
-            vm.partialTemplates = constSvc.cityQuestPartialTemplates.gameCollectionPartialTemplates;
             vm.keyActivationAreaIsOpened = false;
             //---------------------------------------------------------------------------------------------------------
             //---------------------------------------Promises service--------------------------------------------------

@@ -70,7 +70,7 @@
                 </div>
                 <div class="col-xs-8"
                      ng-if="vm.entity != null && vm.entity.gameImageName != null && vm.entity.gameImageName != ''">
-                    <img ng-src="vm.entity.gameImageName">
+                    <img ng-src="~/{{vm.entity.gameImageName}}" />
                 </div>
             </div>
             <div class="row cq-control-row"

@@ -708,7 +708,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
                 else
                 {
                     string[] imageSplit = imageData.Split(',');
-                    string[] imageExtensionLeftSplit = imageData.Split('/');
+                    string[] imageExtensionLeftSplit = imageSplit[0].Split('/');
                     string[] imageExtensionRightSplit = imageExtensionLeftSplit[imageExtensionLeftSplit.Length - 1].Split(';');
                     string imageExtension = String.Format(".{0}", imageExtensionRightSplit[0]);
                     GameImageSaver.SaveImage(imageName, imageExtension, Convert.FromBase64String(imageSplit[1]));
@@ -726,7 +726,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
         {
             try
             {
-                if (imageName != String.Format("{0}.{1}", CityQuestConsts.DefaultGameImageName, CityQuestConsts.DefaultGameImageExtension))
+                if (imageName != String.Format("{0}{1}", CityQuestConsts.DefaultGameImageName, CityQuestConsts.DefaultGameImageExtension))
                 {
                     GameImageSaver.RemoveImage(imageName);
                 }

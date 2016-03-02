@@ -141,7 +141,7 @@
 
                     return gameSvc.create({
                         Entity: vm.entity,
-                        ImageData: vm.croppedImage
+                        GameImageData: vm.croppedImage
                     }).success(function (data) {
                         abp.message.success(abp.utils.formatString(
                             vm.localize('CreateSuccessMsgResult_Body'), '\'Game\'', data.createdEntity.id),
@@ -161,7 +161,7 @@
 
                     return gameSvc.update({
                         Entity: vm.entity,
-                        ImageData: vm.croppedImage
+                        GameImageData: vm.croppedImage
                     }).success(function (data) {
                         abp.message.success(abp.utils.formatString(
                             vm.localize('UpdateSuccessMsgResult_Body'), '\'Game\'', data.updatedEntity.id),

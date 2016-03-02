@@ -6,7 +6,6 @@
             var vm = this;
             vm.localize = constSvc.localize;
             vm.title = vm.localize("Games");
-
             //--------------------------------Helpers------------------------------------------------------------------
             //-----------------Object with functions that would be used in vm.fields-----------------------------------
             var fieldFunctions = {
@@ -48,7 +47,7 @@
                             return '';
 
                         var infoTittleText = vm.localize('InfoTittleText');
-                        var infoButtonText = '<i class="fa fa-info"></i>'; //vm.localize('ButtonInfo');
+                        var infoButtonText = '<i class="fa fa-info"></i>';
                         var result = '<button class="btn btn-sm btn-info game-info" id="' + entity.id +
                             '" title="' + infoTittleText + '">' + infoButtonText + ' </button>';
                         return result;
@@ -104,7 +103,7 @@
                         return result;
                     };
                     var getPrintKeysButton = function (entity) {
-                        if (!permissionSvc.game.canGenerateKeys(entity))
+                        if (!permissionSvc.key.canGenerate())
                             return '';
 
                         var titleText = vm.localize('ButtonPrintKeysTitleText');

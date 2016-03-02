@@ -54,23 +54,15 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <table class="table table-hover">
-                            @*<thead>
-                                    <tr>
-                                        <th style="width:40%">gamePicturePartialTemplate</th>
-                                        <th style="width:40%">gameDescriptionPartialTemplate</th>
-                                        <th style="width:20%">gameStatusPartialTemplate</th>
-                                    </tr>
-                                </thead>*@
-                            <tbody>
-                                <tr data-ng-repeat="game in vm.gameCollection"
-                                    ng-click="vm.actions.openGamePage(game)">
-                                    <td style="width:40%"><ng-include src="vm.partialTemplates.gamePicturePartialTemplate" /></td>
-                                    <td style="width:40%"><ng-include src="vm.partialTemplates.gameDescriptionPartialTemplate" /></td>
-                                    <td style="width:20%"><ng-include src="vm.partialTemplates.gameStatusPartialTemplate" /></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="cq-game-collection-game-image"
+                             ng-repeat="game in vm.gameCollection"
+                             ng-click="vm.actions.openGamePage(game)">
+                            <img ng-src="~/{{game.gameImageName}}"
+                                 data-popover-trigger="mouseenter"
+                                 popover-placement="left"
+                                 uib-popover-template="'/App/Main/views/gameCollections/partialTemplates/gameInfoPartialTemplate.cshtml'"
+                                 popover-title="{{game.name}}" />
+                        </div>
                     </div>
                 </div>
             </div>

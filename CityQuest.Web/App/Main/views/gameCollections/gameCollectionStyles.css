@@ -6,3 +6,20 @@
 .key-activation-area {
     margin-top: 10px;
 }
+
+.cq-game-collection-game-image {
+    margin: 3px;
+    display: -webkit-inline-box;
+    cursor: pointer;
+}
+
+.cq-game-collection-game-image:hover {
+    border: 3px solid black;
+    margin: 0px;
+    display: -webkit-inline-box;
+    cursor: pointer;
+}
+
+.popover.left {
+    margin-left: 275px;
+}

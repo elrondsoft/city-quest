@@ -119,9 +119,7 @@ angular.module('app').service('clientCityQuestConstService', function () {
     /// Is used to store Angular's partial template's routes for CityQuest  
     this.cityQuestPartialTemplates = {
         gameCollectionPartialTemplates: {
-            gamePicturePartialTemplate: '/App/Main/views/gameCollections/partialTemplates/gamePicturePartialTemplate.cshtml',
-            gameDescriptionPartialTemplate: '/App/Main/views/gameCollections/partialTemplates/gameDescriptionPartialTemplate.cshtml',
-            gameStatusPartialTemplate: '/App/Main/views/gameCollections/partialTemplates/gameStatusPartialTemplate.cshtml',
+            gameInfoPartialTemplate: '/App/Main/views/gameCollections/partialTemplates/gameInfoPartialTemplate.cshtml',
         },
         gamePagePartialTemplates: {
             gameTaskCompletedPartialTemplate: '/App/Main/views/gamePages/partialTemplates/gameTaskCompletedPartialTemplate.cshtml',

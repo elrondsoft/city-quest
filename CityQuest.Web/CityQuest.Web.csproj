@@ -298,9 +298,7 @@
     <Content Include="App\Main\templates\locations\locationDetailsTemplate.cshtml" />
     <Content Include="App\Main\directives\shared\dropdownMultiselectDirective\dropdownMultiselectTemplate.cshtml" />
     <Content Include="App\Main\views\gameCollections\gameCollectionView.cshtml" />
-    <Content Include="App\Main\views\gameCollections\partialTemplates\gamePicturePartialTemplate.cshtml" />
-    <Content Include="App\Main\views\gameCollections\partialTemplates\gameDescriptionPartialTemplate.cshtml" />
-    <Content Include="App\Main\views\gameCollections\partialTemplates\gameStatusPartialTemplate.cshtml" />
+    <Content Include="App\Main\views\gameCollections\partialTemplates\gameInfoPartialTemplate.cshtml" />
     <Content Include="App\Main\views\gamePages\gamePageView.cshtml" />
     <Content Include="App\Main\templates\games\gameProcessManagementTemplate.cshtml" />
     <Content Include="App\Main\views\gamePages\partialTemplates\gameTaskInProgressPartialTemplate.cshtml" />
