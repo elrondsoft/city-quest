@@ -268,6 +268,8 @@
     <text name="ButtonClearImageTitleText" value="Clear uploaded and cropped images" />
     <text name="ButtonClearImageText" value="Clear image" />
     <text name="CurrentGameImage" value="Current image" />
+    <text name="StartDate" value="Start date" />
+    <text name="GameStatus" value="Game status" />
 
   </texts>
 </localizationDictionary>

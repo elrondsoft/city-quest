@@ -52,7 +52,7 @@
                     var defaultEntity = {
                         name: null,
                         locationId: null,
-                        startDate: moment().format(),
+                        startDate: null,
                         description: null,
                         gameImageName: null,
                         isActive: true,
@@ -249,6 +249,12 @@
             };
             //---------------------------------------------------------------------------------------------------------
             //---------------------------------------Image management--------------------------------------------------
+            var initTimePicker = function () {
+                angular.element(document.querySelector('#game-start-date-time-picker')).datetimepicker({
+                    timepicker: true,
+                    format: 'Y-m-d H:i'
+                });
+            };
             var initFileImageCropper = function () {
                 vm.uploadedImage = '';
                 vm.croppedImage = '';
@@ -264,10 +270,12 @@
                 };
                 angular.element(document.querySelector('#fileImageInput')).on('change', handleFileSelect);
             };
+            // TODO: remove JQ crutches and use pure angular
             // Is used to watch on nothing but will works after modal loaded once and inits image cropper
             var initImageFileCropperListener = $scope.$watch('', function (newValue, oldValue) {
                 initFileImageCropper();
                 initImageFileCropperListener();
+                initTimePicker();
             });
             //---------------------------------------------------------------------------------------------------------
         }

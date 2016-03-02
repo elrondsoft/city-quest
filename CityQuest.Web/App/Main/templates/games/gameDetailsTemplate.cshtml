@@ -47,6 +47,23 @@
             </div>
             <div class="row cq-control-row">
                 <div class="col-xs-2 cq-control-label">
+                    @L("StartDate"): &nbsp;
+                </div>
+                <div class="col-xs-8">
+                    <input class="form-control cq-control"
+                           id="game-start-date-time-picker"
+                           type="datetime"
+                           formated-date-input="DD-MM-YYYY HH:mm"
+                           datetimepicker
+                           min="2010-01-01T00:00"
+                           max="2025-12-31T00:00"
+                           ng-disabled="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                           ng-readonly="!(vm.templateMode.isCreate() || vm.templateMode.isUpdate())"
+                           ng-model="vm.entity.startDate" />
+                </div>
+            </div>
+            <div class="row cq-control-row">
+                <div class="col-xs-2 cq-control-label">
                     @L("Description"): &nbsp;
                 </div>
                 <div class="col-xs-8">
