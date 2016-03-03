@@ -25,13 +25,6 @@ namespace CityQuest.CityQuestConstants
 
         #region GameModule's CityQuest's permission names
 
-        public const string CanAllAchievement = "CanAllAchievement";
-        public const string CanRetrieveAchievement = "CanRetrieveAchievement";
-        public const string CanCreateAchievement = "CanCreateAchievement";
-        public const string CanUpdateAchievement = "CanUpdateAchievement";
-        public const string CanDeleteAchievement = "CanDeleteAchievement";
-        public const string CanChangeAchievementActivity = "CanChangeAchievementActivity";
-
         public const string CanAllDivision = "CanAllDivision";
         public const string CanRetrieveDivision = "CanRetrieveDivision";
         public const string CanCreateDivision = "CanCreateDivision";
@@ -56,7 +49,6 @@ namespace CityQuest.CityQuestConstants
         public const string CanCreateLocation = "CanCreateLocation";
         public const string CanUpdateLocation = "CanUpdateLocation";
         public const string CanDeleteLocation = "CanDeleteLocation";
-        public const string CanChangeLocationActivity = "CanChangeLocationActivity";
 
         public const string CanAllTeam = "CanAllTeam";
         public const string CanRetrieveTeam = "CanRetrieveTeam";

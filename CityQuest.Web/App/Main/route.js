@@ -87,12 +87,6 @@
                     templateUrl: '/App/Main/views/locations/locationListView.cshtml',
                     menu: 'LocationsMenuItem',
                     onEnter: onEnterAuthorizedRequired,
-                })
-                .state('achievements', {
-                    url: '/achievements',
-                    templateUrl: '/App/Main/views/achievements/achievementListView.cshtml',
-                    menu: 'AchievemetsMenuItem',
-                    onEnter: onEnterAuthorizedRequired,
                 });
 
             /// Is used like default source name for localization

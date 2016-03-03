@@ -134,8 +134,6 @@
     <Compile Include="CityQuestPolicy\MainModule\Roles\RolePolicy.cs" />
     <Compile Include="CityQuestPolicy\MainModule\Users\IUserPolicy.cs" />
     <Compile Include="CityQuestPolicy\MainModule\Users\UserPolicy.cs" />
-    <Compile Include="Entities\GameModule\Achievements\Achievement.cs" />
-    <Compile Include="Entities\GameModule\Achievements\IAchievementRepository.cs" />
     <Compile Include="Entities\GameModule\Divisions\Division.cs" />
     <Compile Include="CityQuestPolicy\GameModule\Divisions\DivisionPolicy.cs" />
     <Compile Include="CityQuestPolicy\GameModule\Divisions\IDivisionPolicy.cs" />

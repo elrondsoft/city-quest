@@ -12,8 +12,9 @@ namespace CityQuest.CityQuestPolicy.GameModule.Divisions
 {
     public class DivisionPolicy : CityQuestPolicyBase<Division, long>, IDivisionPolicy
     {
-        public DivisionPolicy(ICityQuestSession session, IPermissionChecker permissionChecker) 
-            : base(session, permissionChecker) { }
+        public DivisionPolicy(ICityQuestSession session, IPermissionChecker permissionChecker)
+            : base(session, permissionChecker)
+        { }
 
         public override bool CanRetrieveEntity(long userId, Division entity)
         {
@@ -90,15 +91,14 @@ namespace CityQuest.CityQuestPolicy.GameModule.Divisions
 
         public bool CanChangeActivityForEntity(long userId, Division entity)
         {
-            if (userId == 0) 
+            if (userId == 0)
                 return false;
 
             if (!entity.IsDefault &&
                 (PermissionChecker.IsGranted(CityQuestPermissionNames.CanAll) ||
                 PermissionChecker.IsGranted(CityQuestPermissionNames.CanUpdate) ||
                 PermissionChecker.IsGranted(CityQuestPermissionNames.CanAllDivision) ||
-                PermissionChecker.IsGranted(CityQuestPermissionNames.CanUpdateDivision) ||
-                PermissionChecker.IsGranted(CityQuestPermissionNames.CanChangeDivisionActivity)))
+                PermissionChecker.IsGranted(CityQuestPermissionNames.CanUpdateDivision)))
                 return true;
 
             return false;

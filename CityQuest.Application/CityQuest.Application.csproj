@@ -100,9 +100,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationServices\GameModule\Achievements\AchievementAppService.cs" />
-    <Compile Include="ApplicationServices\GameModule\Achievements\Dtos\AchievementDto.cs" />
-    <Compile Include="ApplicationServices\GameModule\Achievements\IAchievementAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\Conditions\ConditionAppService.cs" />
     <Compile Include="ApplicationServices\GameModule\Conditions\Dtos\ConditionDto.cs" />
     <Compile Include="ApplicationServices\GameModule\Conditions\Dtos\RetrieveAllConditionInput.cs" />

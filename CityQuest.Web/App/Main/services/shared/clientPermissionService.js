@@ -3,53 +3,83 @@
 angular.module('app').service('clientPermissionService', function () {
     //-----------------------------------------------------------------------------------------------------------------
     //-----------------------------------------------PreInitialize-----------------------------------------------------
-    //TODO: add permission (Policy logic) for client here
     var clientPermissions = {};
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Division----------------------------------------
     clientPermissions.division = {
         canRetrieve: function (entity) {
-            //if (!!abp.auth.grantedPermissions.CanAll ||
-            //    !!abp.auth.grantedPermissions.CanRetrieve ||
-            //    !!abp.auth.grantedPermissions.CanRetrieveDivision)
-            //    return true;
-            //return false;
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanRetrieve ||
+                !!abp.auth.grantedPermissions.CanRetrieveDivision)
+                return true;
+            return false;
         },
         canCreate: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanCreate ||
+                !!abp.auth.grantedPermissions.CanCreateDivision)
+                return true;
+            return false;
         },
         canUpdate: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanUpdate ||
+                !!abp.auth.grantedPermissions.CanUpdateDivision)
+                return true;
+            return false;
         },
         canDelete: function (entity) {
-            return entity && (entity.isDefault == false) && true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanDelete ||
+                !!abp.auth.grantedPermissions.CanDeleteDivision)
+                return true;
+            return false;
         },
         canActivate: function (entity) {
-            if (entity && (entity.isActive == false) && (entity.isDefault == false))
+            if ((entity && (entity.isActive == false)) && 
+                (!!abp.auth.grantedPermissions.CanAll || 
+                !!abp.auth.grantedPermissions.CanChangeDivisionActivity))
                 return true;
             return false;
         },
         canDeactivate: function (entity) {
-            if (entity && (entity.isActive == true) && (entity.isDefault == false))
+            if ((entity && (entity.isActive == true)) &&
+                (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanChangeDivisionActivity))
+                return true;
+            return false;
+        }
+    };
+    //-----------------------------------------------------------------------------------------------------------------
+    //----------------------------------------Client's permissions for Team--------------------------------------------
+    clientPermissions.team = {
+        canRetrieve: function (entity) {
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanRetrieve ||
+                !!abp.auth.grantedPermissions.CanRetrieveTeam)
                 return true;
             return false;
         },
-    };
-    //-----------------------------------------------------------------------------------------------------------------
-    //------------------------------------------Client's permissions for Team------------------------------------------
-    clientPermissions.team = {
-        canRetrieve: function (entity) {
-            return true;
-        },
         canCreate: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanCreate ||
+                !!abp.auth.grantedPermissions.CanCreateTeam)
+                return true;
+            return false;
         },
         canUpdate: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanUpdate ||
+                !!abp.auth.grantedPermissions.CanUpdateTeam)
+                return true;
+            return false;
         },
         canDelete: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanDelete ||
+                !!abp.auth.grantedPermissions.CanDeleteTeam)
+                return true;
+            return false;
         },
         canActivate: function (entity) {
             if (entity && (entity.isActive == false))
@@ -66,48 +96,99 @@ angular.module('app').service('clientPermissionService', function () {
     //----------------------------------------Client's permissions for User--------------------------------------------
     clientPermissions.user = {
         canRetrieve: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanRetrieve ||
+                !!abp.auth.grantedPermissions.CanRetrieveUser)
+                return true;
+            return false;
         },
         canCreate: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanCreate ||
+                !!abp.auth.grantedPermissions.CanCreateUser)
+                return true;
+            return false;
         },
         canUpdate: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanUpdate ||
+                !!abp.auth.grantedPermissions.CanUpdateUser)
+                return true;
+            return false;
         },
         canDelete: function (entity) {
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanDelete ||
+                !!abp.auth.grantedPermissions.CanDeleteUser)
+                return true;
             return false;
-        }
+        },
     };
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Role--------------------------------------------
     clientPermissions.role = {
         canRetrieve: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanRetrieve ||
+                !!abp.auth.grantedPermissions.CanRetrieveRole)
+                return true;
+            return false;
         },
         canCreate: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanCreate ||
+                !!abp.auth.grantedPermissions.CanCreateRole)
+                return true;
+            return false;
         },
         canUpdate: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanUpdate ||
+                !!abp.auth.grantedPermissions.CanUpdateRole)
+                return true;
+            return false;
         },
         canDelete: function (entity) {
-            return true;
-        }
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanDelete ||
+                !!abp.auth.grantedPermissions.CanDeleteRole)
+                return true;
+            return false;
+        },
     };
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Game--------------------------------------------
     clientPermissions.game = {
         canRetrieve: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanRetrieve ||
+                !!abp.auth.grantedPermissions.CanRetrieveGame ||
+                !!abp.auth.grantedPermissions.CanRetrieveSameLocationGame ||
+                !!abp.auth.grantedPermissions.CanRetrieveGameForActivate ||
+                !!abp.auth.grantedPermissions.CanRetrieveActivatedGame)
+                return true;
+            return false;
         },
         canCreate: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanCreate ||
+                !!abp.auth.grantedPermissions.CanCreateGame)
+                return true;
+            return false;
         },
         canUpdate: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanUpdate ||
+                !!abp.auth.grantedPermissions.CanUpdateGame)
+                return true;
+            return false;
         },
         canDelete: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanDelete ||
+                !!abp.auth.grantedPermissions.CanDeleteGame)
+                return true;
+            return false;
         },
         canActivate: function (entity) {
             if (entity && (entity.isActive == false))
@@ -189,34 +270,58 @@ angular.module('app').service('clientPermissionService', function () {
             return clientPermissions.game.canStartGameProcess(entity) || clientPermissions.game.canPauseGameProcess(entity) ||
                 clientPermissions.game.canResumeGameProcess(entity) || clientPermissions.game.canEndGameProcess(entity);
         },
-
+        canGenerateKeys: function (entity) {
+            var result = true;
+            return result;
+        }
     };
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Location----------------------------------------
     clientPermissions.location = {
         canRetrieve: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanRetrieve ||
+                !!abp.auth.grantedPermissions.CanRetrieveLocation)
+                return true;
+            return false;
         },
         canCreate: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanCreate ||
+                !!abp.auth.grantedPermissions.CanCreateLocation)
+                return true;
+            return false;
         },
         canUpdate: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanUpdate ||
+                !!abp.auth.grantedPermissions.CanUpdateLocation)
+                return true;
+            return false;
         },
         canDelete: function (entity) {
-            return true;
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanDelete ||
+                !!abp.auth.grantedPermissions.CanDeleteLocation)
+                return true;
+            return false;
         },
     };
     //-----------------------------------------------------------------------------------------------------------------
     //----------------------------------------Client's permissions for Key---------------------------------------------
     clientPermissions.key = {
-        canGenerate: function () {
-            return true;
+        canGenerate: function (entity) {
+            if (!!abp.auth.grantedPermissions.CanAll ||
+                !!abp.auth.grantedPermissions.CanCreate ||
+                !!abp.auth.grantedPermissions.CanGenerateKeysForGame)
+                return true;
+            return false;
         },
         canActivate: function () {
             return true;
         },
     };
+
     //-----------------------------------------------------------------------------------------------------------------
     //-------------------------------------------------Initialize------------------------------------------------------
     angular.merge(this, clientPermissions);

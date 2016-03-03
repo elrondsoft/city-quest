@@ -271,7 +271,6 @@
     <Content Include="App\Main\templates\statistics\scoreBoards\scoreBoardStyles.css" />
     <Content Include="App\Main\templates\teams\teamDetailsController.js" />
     <Content Include="App\Main\templates\users\userDetailsController.js" />
-    <Content Include="App\Main\views\achievements\achievementListController.js" />
     <Content Include="App\Main\views\authorization\login.js" />
     <Content Include="App\Main\views\gamePages\gamePageController.js" />
     <Content Include="App\Main\views\gamePages\gamePageStyles.css" />
@@ -309,7 +308,6 @@
     <Content Include="App\Main\views\gamePages\partialTemplates\gameTaskCompletedTipPartialTemplate.cshtml" />
     <Content Include="App\Main\directives\statistics\statisticsForGameProcessByTeamsDirective\statisticsForGameProcessByTeamsTemplate.cshtml" />
     <Content Include="App\Main\directives\statistics\scoreBoardForGameProcessByTeamsDirective\scoreBoardForGameProcessByTeamsTemplate.cshtml" />
-    <Content Include="App\Main\views\achievements\achievementListView.cshtml" />
     <Content Include="App\Main\templates\statistics\scoreBoards\scoreBoardTemplate.cshtml" />
     <Content Include="App\Main\templates\statistics\gameTaskByTeamStatistics\gameTaskByTeamStatisticTemplate.cshtml" />
     <Content Include="App\Main\views\userProfilePages\userProfilePageTemplate.cshtml" />
