@@ -200,7 +200,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games
                 throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionCreateDenied, "\"Game\"");
 
             newGameEntity.IsActive = true;
-            newGameEntity.GameImageName = CreateGameImage(Guid.NewGuid().ToString(), input.ImageData);
+            newGameEntity.GameImageName = CreateGameImage(Guid.NewGuid().ToString(), input.GameImageData);
 
             try
             {

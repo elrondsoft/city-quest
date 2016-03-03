@@ -13,6 +13,22 @@ namespace CityQuest.CityQuestConstants
 
         //public const string CanDoSomething = "CanDoSomething";
 
+        #region CityQuest's menu visibility permissions
+
+        //public const string CanViewMenu[MenuItemName] = "CanViewMenu[MenuItemName]";
+
+        public const string CanViewMenuHome = "CanViewMenuHome";
+        public const string CanViewMenuGameCollection = "CanViewMenuGameCollection";
+        public const string CanViewMenuAdministrationMenuItem = "CanViewMenuAdministrationMenuItem";
+        public const string CanViewMenuUsersMenuItem = "CanViewMenuUsersMenuItem";
+        public const string CanViewMenuRolesMenuItem = "CanViewMenuRolesMenuItem";
+        public const string CanViewMenuLocationsMenuItem = "CanViewMenuLocationsMenuItem";
+        public const string CanViewMenuDivisionsMenuItem = "CanViewMenuDivisionsMenuItem";
+        public const string CanViewMenuTeamsMenuItem = "CanViewMenuTeamsMenuItem";
+        public const string CanViewMenuGamesMenuItem = "CanViewMenuGamesMenuItem";
+
+        #endregion
+
         #region Global CityQuest's permission names
 
         public const string CanAll = "CanAll";

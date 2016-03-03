@@ -9,14 +9,16 @@
 
 .cq-game-collection-game-image {
     margin: 3px;
-    display: -webkit-inline-box;
+    display: inline;
     cursor: pointer;
 }
 
 .cq-game-collection-game-image:hover {
-    border: 3px solid black;
-    margin: 0px;
-    display: -webkit-inline-box;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 1px;
+    margin-right: 5px;
+    display: inline;
     cursor: pointer;
 }
 

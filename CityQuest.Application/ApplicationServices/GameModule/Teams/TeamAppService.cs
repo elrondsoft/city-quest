@@ -285,16 +285,19 @@ namespace CityQuest.ApplicationServices.GameModule.Teams
             if (!TeamPolicy.CanChangeCaptainForEntity(teamEntity))
                 throw new CityQuestPolicyException(CityQuestConsts.CQPolicyExceptionUpdateDenied, "\"Team\"");
 
-            var newCap = teamEntity.PlayerCareers.SingleOrDefault(r => r.Id == input.NewCaptainCareerId);
+            PlayerCareer newCap = teamEntity.PlayerCareers.SingleOrDefault(r => r.Id == input.NewCaptainCareerId);
             if (newCap != null)
             {
                 var oldCap = teamEntity.Captain;
 
-                newCap.IsCaptain = true;
-                PlayerCareerRepository.Update(newCap);
+                if (oldCap.Id != newCap.Id)
+                {
+                    newCap.IsCaptain = true;
+                    PlayerCareerRepository.Update(newCap);
 
-                oldCap.IsCaptain = false;
-                PlayerCareerRepository.Update(oldCap);
+                    oldCap.IsCaptain = false;
+                    PlayerCareerRepository.Update(oldCap);
+                }
             }
 
             return new ChangeCaptainOutput();

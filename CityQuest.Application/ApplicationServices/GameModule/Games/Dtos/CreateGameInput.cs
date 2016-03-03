@@ -10,7 +10,7 @@ namespace CityQuest.ApplicationServices.GameModule.Games.Dtos
 {
     public class CreateGameInput : CreateInput<GameDto, long>, IShouldNormalize
     {
-        public string ImageData { get; set; }
+        public string GameImageData { get; set; }
 
         public void Normalize()
         {

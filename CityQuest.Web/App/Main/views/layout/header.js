@@ -53,6 +53,14 @@
             vm.getAuthentication = function () {
                 return authService.authentication;
             };
+            vm.canViewMenuItem = function (menuItem) {
+                var staticPermissionPart = 'CanViewMenu';
+                var requiredPermissionName = staticPermissionPart + menuItem.name;
+                var result = !!abp.auth.grantedPermissions &&
+                    (!!abp.auth.grantedPermissions.CanAll || !!abp.auth.grantedPermissions[requiredPermissionName]);
+
+                return result;
+            };
             //---------------------------------------------------------------------------------------------------------------
             //-------------------------------------------Initialize----------------------------------------------------------
             $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
