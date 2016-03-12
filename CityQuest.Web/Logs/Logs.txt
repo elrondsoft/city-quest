@@ -3374,3 +3374,37 @@ INFO  2016-02-13 15:03:06,612 [39   ] Abp.Auditing.SimpleLogAuditingStore      -
 INFO  2016-02-13 15:03:11,054 [85   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: CityQuest.ApplicationServices.MainModule.Users.UserAppService.RetrieveAllUsersLikeComboBoxes is executed by user 3 in 1035 ms from 192.168.25.118 IP address.
 INFO  2016-02-13 15:03:11,453 [75   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: CityQuest.ApplicationServices.GameModule.Divisions.DivisionAppService.RetrieveAllDivisionsLikeComboBoxes is executed by user 3 in 1433 ms from 192.168.25.118 IP address.
 INFO  2016-02-13 15:03:13,491 [68   ] Abp.Auditing.SimpleLogAuditingStore      - AUDIT LOG: CityQuest.ApplicationServices.GameModule.Teams.TeamAppService.Retrieve is executed by user 3 in 3470 ms from 192.168.25.118 IP address.
+DEBUG 2016-03-12 16:54:27,998 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2016-03-12 16:54:29,814 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2016-03-12 16:54:29,818 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-12 16:54:29,820 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-12 16:54:29,820 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-12 16:54:29,820 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-12 16:54:29,820 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-12 16:54:29,820 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-12 16:54:29,821 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestApplicationModule, CityQuest.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-12 16:54:29,821 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestCoreModule, CityQuest.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-12 16:54:29,821 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestDataModule, CityQuest.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-12 16:54:29,821 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.Web.CityQuestWebModule, CityQuest.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-12 16:54:29,821 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: CityQuest.CityQuestWebApiModule, CityQuest.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-12 16:54:29,824 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2016-03-12 16:54:31,803 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2016-03-12 16:54:31,807 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2016-03-12 16:54:31,809 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: CityQuest
+DEBUG 2016-03-12 16:54:31,809 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2016-03-12 16:54:33,151 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2016-03-12 16:54:33,175 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.MainModule.Roles.IRoleAppService' with service name 'cityQuest/role'.
+DEBUG 2016-03-12 16:54:33,176 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.MainModule.Permissions.IPermissionAppService' with service name 'cityQuest/permission'.
+DEBUG 2016-03-12 16:54:33,177 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.MainModule.Users.IUserAppService' with service name 'cityQuest/user'.
+DEBUG 2016-03-12 16:54:33,178 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Locations.ILocationAppService' with service name 'cityQuest/location'.
+DEBUG 2016-03-12 16:54:33,179 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Divisions.IDivisionAppService' with service name 'cityQuest/division'.
+DEBUG 2016-03-12 16:54:33,179 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Teams.ITeamAppService' with service name 'cityQuest/team'.
+DEBUG 2016-03-12 16:54:33,180 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Games.IGameAppService' with service name 'cityQuest/game'.
+DEBUG 2016-03-12 16:54:33,181 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.GameTasks.IGameTaskAppService' with service name 'cityQuest/gameTask'.
+DEBUG 2016-03-12 16:54:33,182 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.GameTaskTypes.IGameTaskTypeAppService' with service name 'cityQuest/gameTaskType'.
+DEBUG 2016-03-12 16:54:33,183 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Conditions.IConditionAppService' with service name 'cityQuest/condition'.
+DEBUG 2016-03-12 16:54:33,184 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.ConditionTypes.IConditionTypeAppService' with service name 'cityQuest/conditionType'.
+DEBUG 2016-03-12 16:54:33,185 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Tips.ITipAppService' with service name 'cityQuest/tip'.
+DEBUG 2016-03-12 16:54:33,185 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.Keys.IKeyAppService' with service name 'cityQuest/key'.
+DEBUG 2016-03-12 16:54:33,186 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.GamesLight.IGameLightAppService' with service name 'cityQuest/gameLight'.
+DEBUG 2016-03-12 16:54:33,187 [1    ] Default                                  - Dynamic web api controller is created for type 'CityQuest.ApplicationServices.GameModule.TeamRequests.ITeamRequestAppService' with service name 'cityQuest/teamRequest'.

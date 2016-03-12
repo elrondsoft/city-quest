@@ -103,9 +103,9 @@
     };
 
     abp.event.on('abp.dynamicScriptsInitialized', function () {
-        abp.libs.sweetAlert.config.confirm.title = abp.localization.abpWeb('AreYouSure');
-        abp.libs.sweetAlert.config.confirm.cancelButtonText = abp.localization.abpWeb('Cancel');
-        abp.libs.sweetAlert.config.confirm.confirmButtonText = abp.localization.abpWeb('Yes');
+        abp.libs.sweetAlert.config.confirm.title = abp.localization.localize('AreYouSure', abp.localization.defaultSourceName);
+        abp.libs.sweetAlert.config.confirm.cancelButtonText =  abp.localization.localize('Cancel', abp.localization.defaultSourceName);//abp.localization.abpWeb('Cancel');
+        abp.libs.sweetAlert.config.confirm.confirmButtonText = abp.localization.localize('Yes', abp.localization.defaultSourceName);//abp.localization.abpWeb('Yes');
     });
 
 })(jQuery);

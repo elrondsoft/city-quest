@@ -32,15 +32,13 @@
         //Localizing momentjs
         moment.locale('@Thread.CurrentThread.CurrentUICulture.Name');
     </script>
-
+    <script src="~/Abp/Framework/scripts/libs/abp.sweet-alert.js"></script>
     <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
     <script src="~/api/AbpServiceProxies/GetAll?type=angular"></script>
     <script src="~/api/AbpServiceProxies/GetAll?type=javascript"></script>
     <script src="~/AbpScripts/GetScripts" type="text/javascript"></script>
     <script src="~/signalr/hubs"></script>
     @Scripts.Render("~/Bundles/App/Main/js")
-    
-    <script src="~/Abp/Framework/scripts/libs/abp.sweet-alert.js"></script>
 </head>
 <body>
     <div ng-app="app">

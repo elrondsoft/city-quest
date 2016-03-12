@@ -271,5 +271,8 @@
     <text name="StartDate" value="Start date" />
     <text name="GameStatus" value="Game status" />
 
+    <text name="AreYouSure" value="Are you sure?" />
+    <text name="Cancel" value="Cancel" />
+    <text name="Yes" value="Yes" />
   </texts>
 </localizationDictionary>
